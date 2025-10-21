@@ -1,0 +1,32 @@
+# Unreal Engine ignore rules
+
+# Build folders
+Binaries/...
+DerivedDataCache/...
+Intermediate/...
+Saved/...
+
+# Visual Studio
+.vs/...
+*.sln
+*.suo
+*.VC.db
+*.VC.opendb
+
+# Visual Studio Code
+.vs-code/...
+*.code-workspace
+
+# Logs & temp
+*.log
+*.pdb
+*.tmp
+*.obj
+
+# Other temp
+*.DS_Store
+Thumbs.db
+
+# Github
+.git/
+.gitignore
