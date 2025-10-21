@@ -26,7 +26,3 @@ Saved/...
 # Other temp
 *.DS_Store
 Thumbs.db
-
-# Github
-.git/
-.gitignore
