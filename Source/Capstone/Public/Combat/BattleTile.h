@@ -12,7 +12,8 @@ enum class ETileState : uint8
 {
 	Default UMETA(DisplayName = "Default"),
 	Warning UMETA(DisplayName = "Warning"),
-	Damage  UMETA(DisplayName = "Damage")
+	Damage  UMETA(DisplayName = "Damage"),
+	Unparriable UMETA(DisplayName="Unparryable")
 };
 
 /// <summary>
@@ -42,6 +43,9 @@ public:
 	UPROPERTY(EditAnywhere, Category = "States")
 	TSubclassOf<AActor> DamageClass;
 
+	UPROPERTY(EditAnywhere, Category = "States")
+	TSubclassOf<AActor> UnparriableClass;
+
 	UPROPERTY()
 	AActor* TileMod = nullptr;
 
@@ -52,11 +56,13 @@ public:
 	UPROPERTY()
 	int32 Damage;
 
+	UPROPERTY() bool bParriable = true;
+
 	/// <summary>
 	/// Given a ETile State, changes the tile to reflect that state
 	/// </summary>
 	/// <param name="NewState"></param>
 	/// /// <param name="Damage"></param>
 	UFUNCTION(BlueprintCallable, Category = "Tile")
-	void AffectTile(ETileState NewState, int32 NewDamage);
+	void AffectTile(ETileState NewState, int32 NewDamage,bool bNewParryable);
 };

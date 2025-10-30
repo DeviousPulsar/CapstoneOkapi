@@ -8,11 +8,12 @@
 #include "GameFramework/Pawn.h"
 #include "CombatPawn.generated.h"
 
-
 UCLASS()
 class CAPSTONE_API ACombatPawn : public APawn
 {
 	GENERATED_BODY()
+
+protected:
 	FGridPosition CurrentPosition; //tracks pawns current position on grid
 	UPROPERTY(BlueprintReadOnly, Category = "Variables", meta = (AllowPrivateAccess = "true"))
 	int32 InitialHealth;
@@ -29,8 +30,18 @@ class CAPSTONE_API ACombatPawn : public APawn
 	bool Parry;
 	bool ParryProt;
 	float TimeSinceParry;
+	bool bIsFrozen;
 	
 public:
+	/// <summary>
+	/// Material Swapping- REMOVE WHEN WE HAVE ANIMATIONS
+	/// </summary>
+	/// 
+	UPROPERTY(EditAnywhere, Category = "Materials") UMaterial* regMat;
+	UPROPERTY(EditAnywhere, Category = "Materials") UMaterial* injuredMat;
+	UPROPERTY(EditAnywhere, Category = "Materials") UMaterial* invinceMat;
+
+	UPROPERTY(EditAnywhere, Category = "Materials") UStaticMeshComponent* pawnMesh;
 
 	UPROPERTY(EditAnywhere, Category = "Variables")
 	float MoveStun;
@@ -74,6 +85,7 @@ public:
 
 	/// @brief Getter for the CombatPawns health
 	/// @return 
+	UFUNCTION(BlueprintCallable)
 	int32 GetHealth();
 
 	/// @brief Changes the health of the combat pawn.
@@ -98,6 +110,10 @@ public:
 	/// </summary>
 	void AttemptParry();
 
+	/// Allows or disallows the pawn from acting or taking damage
+	UFUNCTION(BlueprintCallable)
+	void SetMovementAllowed(bool MovementAllowed);
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -105,7 +121,4 @@ protected:
 public:	
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
-
-	// Called to bind functionality to input
-	//virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
 };

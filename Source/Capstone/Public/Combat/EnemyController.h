@@ -38,7 +38,10 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Enemy Attacks")
 	int32 MaxSequenceParts = 10;
 
-	// Sets default values for this actor's properties
+	UPROPERTY(EditAnywhere, Category="Enemy Attacks")
+	float ParryableStageChance = 0.8f;
+
+		// Sets default values for this actor's properties
 	AEnemyController();
 
 	void Initialize(int32 X, int32 Y, int32 DefHealth, ABattleGrid* Grid);

@@ -1,7 +1,8 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "LevelTransitionHandler.h"
 #include "Combat/CombatManager.h"
+#include "LevelTransitionHandler.h"
+#include "Kismet/GameplayStatics.h"
 
 // Sets default values
 ACombatManager::ACombatManager()
@@ -30,6 +31,10 @@ UFUNCTION(BlueprintCallable) void ACombatManager::AssessWLState()
 	{
 		PlayerLoses();
 	}
+	if (EnemyC->GetHealth() <= 0)
+	{
+		PlayerWins();
+	}
 	//otherwise just returning is fine
 }
 
@@ -53,10 +58,13 @@ UFUNCTION(BlueprintCallable) void ACombatManager::PlayerLoses()
 	TransitionToOverworld();
 }
 
+
 void ACombatManager::TransitionToOverworld()
 {
-	ULevelTransitionHandler* TransitionHandler = GetGameInstance()->GetSubsystem<ULevelTransitionHandler>();
-	TransitionHandler->ReturnToOverworld();
+	if (ULevelTransitionHandler* TransitionHandler = Cast<ULevelTransitionHandler>(GetGameInstance()))
+	{
+		TransitionHandler->ReturnToOverworld();
+	}
 }
 
 UFUNCTION(BlueprintCallable) void ACombatManager::AssignControllers()
@@ -68,11 +76,17 @@ UFUNCTION(BlueprintCallable) void ACombatManager::AssignControllers()
 		FRotator::ZeroRotator
 	);
 
+	//Create spawning parameters for pawns
+	FActorSpawnParameters Params = FActorSpawnParameters();
+	Params.bNoFail = true;
+	Params.Owner = this;
+
 	//Spawn Enemy Controller
 	EnemyC = GetWorld()->SpawnActor<AEnemyController>(
 		EnemyClass,
 		FVector(0, 0, 0),
-		FRotator::ZeroRotator
+		FRotator::ZeroRotator,
+		Params
 	);
 
 	//Initialize Enemy Controller
@@ -84,11 +98,14 @@ UFUNCTION(BlueprintCallable) void ACombatManager::AssignControllers()
 	PlayerC = GetWorld()->SpawnActor<ACombatPlayer>(
 		PlayerClass,
 		FVector(0, 0, 0),
-		FRotator::ZeroRotator
+		FRotator::ZeroRotator, 
+		Params
 	);
 
 	//Initialize Player Controller
 	//FVector GridLocationP = Grid->GetTilePos(FGridPosition(1,1));
 	PlayerC->Initialize(1, 1, 70, Grid);
 
+	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
+	PlayerController->Possess(PlayerC);
 }

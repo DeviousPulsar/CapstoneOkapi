@@ -32,6 +32,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	TArray<FGridPosition> Targets;
 
+	UPROPERTY(EditAnywhere)
+	bool bParriable = true;
+
 	/// Default Constructor - Initializes everything to 0.
 	FAttackStage();
 };
@@ -42,6 +45,9 @@ class CAPSTONE_API UAttack : public UObject
 	GENERATED_BODY()
 
 public:
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attack")
+	bool bDefaultParryable = true;
+
     UPROPERTY(EditAnywhere)
     bool bDynamic;
 

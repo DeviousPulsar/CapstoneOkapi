@@ -13,19 +13,15 @@ class CAPSTONE_API ULevelTransitionHandler : public UGameInstance
 {
 	GENERATED_BODY()
 
+	bool bInCombat;
+
 	FName OverworldMap;
 	FVector ReturnPosition;
 	FQuat ReturnRotation;
-
-	static UGameInstance* GetGameInstance()
-	static UWorld* GetCurrentWorld();
 	
 public:
-	//~ Begin USubsystem interface
-	virtual bool ShouldCreateSubsystem(UObject* Outer) const override { return true; };
-	virtual void Initialize(FSubsystemCollectionBase& Collection) override;
-	virtual void Deinitialize() override;
-	//~ End USubsystem interface
+	virtual void OnWorldChanged(UWorld* OldWorld, UWorld* NewWorld) override;
+  	virtual void LoadComplete(const float LoadTime, const FString& MapName) override;
 
 	UFUNCTION(BlueprintCallable)
 	void LoadCombatScene(const FName LevelToLoad, const FVector pReturnPosition, const FQuat pReturnRotation);
@@ -35,4 +31,6 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void ReturnToOverworld();
+
+	ULevelTransitionHandler(const FObjectInitializer& ObjectInitializer);
 };

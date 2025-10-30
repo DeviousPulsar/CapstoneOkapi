@@ -128,6 +128,7 @@ void AOverworldPawn::DoMove(float Right, float Forward)
 
 void AOverworldPawn::DoLook(float Yaw, float Pitch)
 {
+	Pitch = -Pitch;
 	if (GetController() != nullptr)
 	{
 		// add yaw and pitch input to controller

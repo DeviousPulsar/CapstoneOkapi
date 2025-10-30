@@ -3,18 +3,24 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "InputAction.h"
 #include "GameFramework/Actor.h"
 #include "GridPosition.h"
 #include "CombatPawn.h"
 #include "BattleGrid.h"
 #include "CombatPlayer.generated.h"
 
+class UInputAction;
+class UInputMappingContext;
+struct FInputActionValue;
+
 UENUM(BlueprintType) // Makes it appear in Blueprints
 enum class EPlayerAttacks : uint8
 {
 	NoAttack 		UMETA(DisplayName="No Attack"),
     TestAttack    	UMETA(DisplayName="Test Attack"),
-	SimpleA			UMETA(DisplayName="Simple A")
+	DreamBeam		UMETA(DisplayName="Dream Beam"),
+	CrossBeam		UMETA(DisplayName = "Cross Beam")
 };
 
 UENUM(BlueprintType)
@@ -28,29 +34,29 @@ enum class EFocus : uint8
 };
 
 UCLASS()
-class CAPSTONE_API ACombatPlayer : public AActor
+class CAPSTONE_API ACombatPlayer : public ACombatPawn
 {
 	GENERATED_BODY()
 
-	FGridPosition StartingPosition; //starting grid position
-	int32 StartHealth; //starting health
-	ABattleGrid* Grid; //pointer to the BattleGrid
 	float TimeSinceAttack;
 	bool AttackAllowed;
 	float AttackCooldown;
 	EFocus Focus;
-	
-	
+
+protected:
+	UPROPERTY(EditAnywhere, Category="Input")
+	UInputMappingContext* InputMappingContext;
+
+	UPROPERTY(EditAnywhere, Category="Input")
+	UInputAction* MoveAction;
+
+	UPROPERTY(EditAnywhere, Category="Input")
+	UInputAction* AttackAction;
+
+	UPROPERTY(EditAnywhere, Category="Input")
+	UInputAction* ParryAction;
+
 public:	
-	UPROPERTY(EditAnywhere)
-	TSubclassOf<ACombatPawn> PawnClass;
-
-	UPROPERTY(BlueprintReadOnly, Category = "Variables")
-	ACombatPawn* Pawn;
-
-	UPROPERTY(BlueprintReadOnly, Category = "Variables")
-	bool IsMovementAllowed;
-
 	UPROPERTY(EditAnywhere, Category = "Variables")
 	int32 ParryDamageBuff;
 
@@ -88,16 +94,6 @@ public:
 	/// @param grid 
 	void Initialize(int32 StartingX, int32 StartingY, int32 StartingHealth, ABattleGrid* BattleGrid);
 
-    /// @brief Returns the health of the pawn
-    /// @return 
-	UFUNCTION(BlueprintCallable)
-    int32 GetHealth();
-
-	/// @brief Sets if the player is allowed to move
-	/// @param MovementAllowed 
-	UFUNCTION(BlueprintCallable)
-	void SetMovementAllowed(bool MovementAllowed);
-
 	/// @brief Returns the availabe player attacks that the player has
 	/// @return 
 	UFUNCTION(BlueprintCallable)
@@ -130,15 +126,17 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void SetBuff(EFocus Foc);
 
-	/// <summary>
-	/// Lets the combat pawn know a parry is being attempted, the logic for success or failure is located in the combat pawn
-	/// </summary>
-	UFUNCTION(BlueprintCallable)
-	void Parry();
-
 protected:
 	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
+	virtual void Restart() override;
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(UInputComponent* PlayerInputComponent) override;
+
+	// Called on receving movement input
+	void Move(const FInputActionValue& Value);
+	void Attack();
+	void Parry();
 
 public:	
 	// Called every frame

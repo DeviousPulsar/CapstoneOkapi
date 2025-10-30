@@ -26,8 +26,9 @@ class CAPSTONE_API ACombatManager : public AActor
 	GENERATED_BODY()
 	
 public:	
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Controllers") ACombatPlayer* PlayerC;
-	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "Controllers") AEnemyController* EnemyC;
+	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "DialogueSupport") bool bDialogueEnabled;
+	UPROPERTY(BlueprintReadOnly) ACombatPlayer* PlayerC;
+	UPROPERTY(BlueprintReadOnly) AEnemyController* EnemyC;
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<ABattleGrid> GridClass;
@@ -38,7 +39,9 @@ public:
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<ACombatPlayer> PlayerClass;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DialogueSupport") UDataTable* DialogueTable;
 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DialogueSupport") int32 EncounterNum;
 
 	ABattleGrid* Grid;
 

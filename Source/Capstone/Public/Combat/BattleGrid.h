@@ -36,6 +36,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Grid")
 	int32 DamageAtTile(FGridPosition Pos);
 
+	UFUNCTION(BlueprintCallable, Category="Grid")
+	bool IsParriableAtTile(FGridPosition Pos);
+
 	/// <summary>
 	/// Returns an FVector specifying where the specified tile is in engine
 	/// </summary>
@@ -87,5 +90,5 @@ private:
 	/// <param name="State"></param>
 	/// /// <param name="Damage"></param>
 	UFUNCTION(BlueprintCallable, Category = "Grid")
-	void AttackTile(FGridPosition Pos, double WaitTime, ETileState State, int32 Damage);
+	void AttackTile(FGridPosition Pos, double WaitTime, ETileState State, int32 Damage, bool bParryable);
 };

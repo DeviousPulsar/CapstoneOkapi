@@ -79,6 +79,11 @@ float AEnemyController::BeginEnemyAttack()
 		{
 			break;
 		}
+		
+		for (FAttackStage& Par : Attack->AttackStages)
+		{
+			Par.bParriable = (FMath::FRand() < ParryableStageChance);
+		}
 		Combo->Append(Attack);
 
 		const double NewLen = Combo->Length();

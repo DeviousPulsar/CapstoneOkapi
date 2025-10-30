@@ -64,7 +64,7 @@ ABattleTile* ABattleGrid::GetTileAt(FGridPosition Pos)
     return nullptr;
 }
 
-void ABattleGrid::AttackTile(FGridPosition Pos, double WaitTime, ETileState State, int32 Damage)
+void ABattleGrid::AttackTile(FGridPosition Pos, double WaitTime, ETileState State, int32 Damage,bool bParriable)
 {
     if (Pos.x < 0 || Pos.x >= GridWidth || Pos.y < 0 || Pos.y >= GridHeight)
     {
@@ -74,14 +74,14 @@ void ABattleGrid::AttackTile(FGridPosition Pos, double WaitTime, ETileState Stat
     ABattleTile* Tile = GetTileAt(Pos);
     FTimerHandle TimerHandle;
     FTimerDelegate TileDel;
-    TileDel.BindUFunction(Tile, FName("AffectTile"), State, Damage);
+    TileDel.BindUFunction(Tile, FName("AffectTile"), State, Damage, bParriable);
     if (WaitTime != 0)
     {
         GetWorldTimerManager().SetTimer(TimerHandle, TileDel, WaitTime, false);
     }
     else
     {
-        Tile->AffectTile(State, Damage);
+        Tile->AffectTile(State, Damage, bParriable);
     }
 }
 
@@ -109,9 +109,20 @@ void ABattleGrid::ExecuteAttack(UAttack* Attack)
         //loop through each tile in the current frame
         for (FGridPosition Pos : currentFrame.Targets)
         {
-            AttackTile(Pos, WarningTime, ETileState::Warning, 0); //start warning
-            AttackTile(Pos, CurrentTime, ETileState::Damage, currentFrame.Damage); //start damaging
-            AttackTile(Pos, CurrentTime + currentFrame.DamageLength, ETileState::Default, 0); //change tile back to normal
+
+            ETileState StateToUse;
+
+            if (currentFrame.bParriable)
+            {
+                StateToUse = ETileState::Damage;
+            }
+            else
+            {
+                StateToUse = ETileState::Unparriable;
+            }
+            AttackTile(Pos, WarningTime, ETileState::Warning, 0, currentFrame.bParriable); //start warning
+            AttackTile(Pos, CurrentTime, StateToUse, currentFrame.Damage, currentFrame.bParriable); //start damaging
+            AttackTile(Pos, CurrentTime + currentFrame.DamageLength, ETileState::Default, 0, true); //change tile back to normal
         }
     }
 }
@@ -126,4 +137,13 @@ FVector ABattleGrid::GetTilePos(FGridPosition Pos)
 {
     ABattleTile* Tile = GetTileAt(Pos);
     return Tile->GetActorLocation();
+}
+
+bool ABattleGrid::IsParriableAtTile(FGridPosition Pos)
+{
+    if (ABattleTile* Tile = GetTileAt(Pos))
+    {
+        return Tile->bParriable;
+    }
+    return true;
 }

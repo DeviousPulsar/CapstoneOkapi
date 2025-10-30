@@ -9,7 +9,7 @@ ACombatTransitionTrigger::ACombatTransitionTrigger()
 {
 	TriggerVolume = CreateDefaultSubobject<UBoxComponent>(FName("TriggerVolume"));
 	RootComponent = TriggerVolume;
-	
+
 	if (!ensureMsgf(TriggerVolume != nullptr, TEXT("%s could not generate UBoxComponent TriggerVolume"), *GetNameSafe(this))) {
 		return;
 	}
@@ -21,14 +21,15 @@ void ACombatTransitionTrigger::BeginPlay()
 {
 	Super::BeginPlay();
 
-	TransitionHandler = GetGameInstance()->GetSubsystem<ULevelTransitionHandler>();
+	TransitionHandler = Cast<ULevelTransitionHandler>(GetGameInstance());
 }
 
 void ACombatTransitionTrigger::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) 
 {
-	FVector Dir = (OtherActor->GetActorLocation() - GetActorLocation()).GetSafeNormal();
-	FVector ReturnPosition = EjectDistance*Dir;
-	FQuat ReturnRotation = (-1*Dir).Rotation().Quaternion();
-		
-	TransitionHandler->LoadCombatScene(CombatScene, ReturnPosition, ReturnRotation);
+	FTransform XformedDest = ActorToWorld()*EjectDestination;
+	
+	if (TransitionHandler != nullptr)
+	{
+		TransitionHandler->LoadCombatScene(CombatScene, XformedDest.GetLocation(), XformedDest.GetRotation());
+	}
 }

@@ -20,11 +20,11 @@ class CAPSTONE_API ACombatTransitionTrigger : public AActor
 public:	
 	ACombatTransitionTrigger();
 
-	UPROPERTY(EditAnywhere, Category="Scene Loading")
-	float EjectDistance;
-
-	UPROPERTY(EditAnywhere, Category="Scene Loading")
+	UPROPERTY(EditAnywhere)
 	FName CombatScene;
+
+	UPROPERTY(EditAnywhere, meta=(MakeEditWidget))
+	FTransform EjectDestination;
 
 protected:
 	virtual void BeginPlay() override;

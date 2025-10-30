@@ -24,10 +24,11 @@ void ABattleTile::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ABattleTile::AffectTile(ETileState NewState, int32 NewDamage)
+void ABattleTile::AffectTile(ETileState NewState, int32 NewDamage, bool bNewParryable)
 {
     CurrentState = NewState;
     Damage = NewDamage;
+    bParriable = bNewParryable;
     FVector TilePos = GetActorLocation() + FVector(0,0,10.0f);
     FActorSpawnParameters SpawnParams;
     SpawnParams.Owner = this;
@@ -52,5 +53,9 @@ void ABattleTile::AffectTile(ETileState NewState, int32 NewDamage)
             FRotator::ZeroRotator,
             SpawnParams
         );
+    }
+    else if (NewState == ETileState::Unparriable)
+    {
+        TileMod = GetWorld()->SpawnActor<AActor>(UnparriableClass, TilePos, FRotator::ZeroRotator, SpawnParams);
     }
 }

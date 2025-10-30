@@ -2,6 +2,10 @@
 
 
 #include "Combat/CombatPlayer.h"
+#include "GameFramework/Controller.h"
+#include "EnhancedInputComponent.h"
+#include "EnhancedInputSubsystems.h"
+#include "InputActionValue.h"
 
 // Sets default values
 ACombatPlayer::ACombatPlayer()
@@ -10,10 +14,6 @@ ACombatPlayer::ACombatPlayer()
 	PrimaryActorTick.bCanEverTick = true;
 
 	//default values
-	StartingPosition = FGridPosition();
-	StartingPosition.x = 0;
-	StartingPosition.y = 0;
-	StartHealth = 10;
 	TimeSinceAttack = 10.0f;
 	AttackCooldown = 0;
 	AttackAllowed = true;
@@ -21,43 +21,29 @@ ACombatPlayer::ACombatPlayer()
 }
 
 void ACombatPlayer::Initialize(int32 StartingX, int32 StartingY, int32 StartingHealth, ABattleGrid* BattleGrid){
-	StartingPosition = FGridPosition();
-	StartingPosition.x = StartingX;
-	StartingPosition.y = StartingY;
-	StartHealth = StartingHealth;
-	Grid = BattleGrid;
-	//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-	FVector GridLocation = Grid->GetTilePos(StartingPosition);
-	Pawn = GetWorld()->SpawnActor<ACombatPawn>(
-		PawnClass,
-		GridLocation,
-		FRotator::ZeroRotator
-	);
-
-    //initialize
-    Pawn->Initialize(StartingPosition.x, StartingPosition.y, true, StartHealth, Grid, InvTime);
-	//++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-}
-
-int32 ACombatPlayer::GetHealth(){
-    return Pawn->GetHealth();
-}
-
-void ACombatPlayer::SetMovementAllowed(bool MovementAllowed){
-	IsMovementAllowed = MovementAllowed;
-
-	if (IsMovementAllowed && Focus == EFocus::Heal)
-	{
-		Pawn->EditHealth(HealBuff);
-	}
+	Super::Initialize(StartingX, StartingY, true, StartingHealth, BattleGrid, InvTime);
 }
 
 // Called when the game starts or when spawned
-void ACombatPlayer::BeginPlay()
+void ACombatPlayer::Restart()
 {
-	Super::BeginPlay();
-	
-    IsMovementAllowed = true;
+	Super::Restart();
+
+	if (APlayerController* controller = Cast<APlayerController>(GetController()))
+	{
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(controller->GetLocalPlayer()))
+		{
+			Subsystem->AddMappingContext(InputMappingContext, 0);
+		}
+		else 
+	{
+		UE_LOG(LogTemp, Error, TEXT("'%s' Unable to add Mapping Context!"), *GetNameSafe(this));
+	}
+	}
+	else 
+	{
+		UE_LOG(LogTemp, Error, TEXT("'%s' Unable to add Mapping Context! Invalid Controller!"), *GetNameSafe(this));
+	}
 }
 
 // Called every frame
@@ -81,7 +67,7 @@ void ACombatPlayer::AddAvailablePlayerAttack(EPlayerAttacks Attack){
 
 void ACombatPlayer::AttackGrid(EPlayerAttacks Attack)
 {
-	if (!AttackAllowed)
+	if (!AttackAllowed || bIsFrozen)
 	{
 		return;
 	}
@@ -104,7 +90,7 @@ void ACombatPlayer::AttackGrid(EPlayerAttacks Attack)
 
 	if (AttackInstance->bDynamic)
 	{
-		AttackInstance = AttackInstance->AsStaticAttack(Pawn->GetPosition().x, Pawn->GetPosition().y);
+		AttackInstance = AttackInstance->AsStaticAttack(GetPosition().x, GetPosition().y);
 	}
 	
 	if (Focus == EFocus::Attack)
@@ -112,10 +98,10 @@ void ACombatPlayer::AttackGrid(EPlayerAttacks Attack)
 		AttackInstance->Buff(DamageBuff);
 	}
 
-	if (Pawn->ParryBoost)
+	if (ParryBoost)
 	{
 		AttackInstance->Buff(ParryDamageBuff);
-		Pawn->ParryBoost = false;
+		ParryBoost = false;
 	}
 
 	Grid->ExecuteAttack(AttackInstance);
@@ -123,7 +109,7 @@ void ACombatPlayer::AttackGrid(EPlayerAttacks Attack)
 	AttackCooldown = AttackInstance->Cooldown;
 	TimeSinceAttack = 0.0f;
 	AttackAllowed = false;
-	Pawn->Stun(AttackInstance->UseTime);
+	Stun(AttackInstance->UseTime);
 }
 
 void ACombatPlayer::ChangeLeftClickAttack(EPlayerAttacks NewAttack){
@@ -145,7 +131,7 @@ void ACombatPlayer::SetBuff(EFocus Foc)
 		}
 		case EFocus::Defend:
 		{
-			Pawn->SetDefend(DefenseBuff);
+			SetDefend(DefenseBuff);
 			break;
 		}
 		case EFocus::Heal:
@@ -155,13 +141,44 @@ void ACombatPlayer::SetBuff(EFocus Foc)
 		}
 		case EFocus::Default:
 		{
-			Pawn->SetDefend(0);
+			SetDefend(0);
 			break;
 		}
 	}
 }
 
+void ACombatPlayer::Move(const FInputActionValue& Value)
+{
+	FVector2D MovementVector = Value.Get<FVector2D>();
+	Super::Move(MovementVector);
+}
+
+void ACombatPlayer::Attack()
+{
+	AttackGrid(LeftClickAttack);
+}
+
 void ACombatPlayer::Parry() 
 {
-	Pawn->AttemptParry();
+	AttemptParry();
+}
+
+void ACombatPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+{
+	Super::SetupPlayerInputComponent(PlayerInputComponent);
+
+	// Set up action bindings
+	if (UEnhancedInputComponent* EnhancedInputComponent = Cast<UEnhancedInputComponent>(PlayerInputComponent))
+	{
+		// Moving
+		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Started, this, &ACombatPlayer::Move);
+		EnhancedInputComponent->BindAction(AttackAction, ETriggerEvent::Started, this, &ACombatPlayer::Attack);
+		EnhancedInputComponent->BindAction(ParryAction, ETriggerEvent::Started, this, &ACombatPlayer::Parry);
+	
+		UE_LOG(LogTemp, Log, TEXT("Enhanced input component '%s' configured for '%s'"), *GetNameSafe(EnhancedInputComponent), *GetNameSafe(this));
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("'%s' Failed to find an Enhanced Input component!"), *GetNameSafe(this));
+	}
 }

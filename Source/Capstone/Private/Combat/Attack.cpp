@@ -34,6 +34,7 @@ UAttack* UAttack::AsStaticAttack(int x, int y) const
     Result->Cooldown = Cooldown;
     Result->bDynamic = false;
     Result->UseTime = UseTime;
+    Result->bDefaultParryable = bDefaultParryable;
 
     for (const FAttackStage& Stg : AttackStages)
     {
@@ -41,6 +42,8 @@ UAttack* UAttack::AsStaticAttack(int x, int y) const
         NewStg.Delay = Stg.Delay;
         NewStg.WarningLength = Stg.WarningLength;
         NewStg.DamageLength = Stg.DamageLength;
+
+        NewStg.bParriable = Stg.bParriable;
 
         for (const FGridPosition& Target : Stg.Targets)
         {

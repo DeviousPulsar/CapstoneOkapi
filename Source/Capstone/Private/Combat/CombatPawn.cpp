@@ -62,7 +62,8 @@ void ACombatPawn::Move(FVector2D Vector){
 		return; 
 	}
 
-	if (MoveAllowed == false){
+	//move disallowed, do nothing
+	if (MoveAllowed == false || bIsFrozen){
 		return;
 	}
 
@@ -101,7 +102,6 @@ void ACombatPawn::Move(FVector2D Vector){
 			Stun(MoveStun);
 		}
 	}
-	//move disallowed, do nothing
 }
 
 FGridPosition ACombatPawn::GetPosition(){
@@ -134,8 +134,10 @@ void ACombatPawn::Tick(float DeltaTime)
 	if (Grid)
 	{
 		int32 Damage = Grid->DamageAtTile(CurrentPosition);
-		if (Damage != 0 && Vulnerable) 
+		if (Damage != 0 && Vulnerable && !bIsFrozen) 
 		{
+			bool bHitParryable = Grid->IsParriableAtTile(CurrentPosition);
+
 			//deal damage, make pawn immune to damage, then scedule turing them vulnerable again in specified amount of time
 
 			if (Defend != 0)
@@ -147,7 +149,7 @@ void ACombatPawn::Tick(float DeltaTime)
 				}
 			}
 			
-			if (Parry)
+			if (Parry && bHitParryable)
 			{
 				ParryBoost = true;
 				Parry = false;
@@ -208,7 +210,7 @@ void ACombatPawn::SetDefend(int32 DamageBlocked)
 void ACombatPawn::AttemptParry()
 {
 	// Don't allow parries if we are currently invulnerable, or if we are stunned
-	if (!MoveAllowed || !Vulnerable)
+	if (!MoveAllowed || !Vulnerable || bIsFrozen)
 	{
 		return;
 	}
@@ -220,11 +222,7 @@ void ACombatPawn::AttemptParry()
 	}
 }
 
-// Called to bind functionality to input
-// void ACombatPawn::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
-// {
-// 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
-	
-// }
-
+void ACombatPawn::SetMovementAllowed(bool MovementAllowed)
+{
+	bIsFrozen = !MovementAllowed;
+}
