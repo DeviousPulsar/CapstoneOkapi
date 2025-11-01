@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{7E3BEBB0-5420-450F-8830-69E825850BE9}" SchemaVersion="123">
+	<SoundBanks>
+		<WorkUnit Name="IntegrationTest" ID="{7E3BEBB0-5420-450F-8830-69E825850BE9}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="27"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<SoundBank Name="TestBank" ID="{FF2B87E6-D137-4A41-893C-B35E8C5E9C58}">
+					<ObjectInclusionList>
+						<ObjectRef Name="IntegrationEvents" ID="{5676E777-92CB-4E39-BA25-507E251F4C05}" WorkUnitID="{5676E777-92CB-4E39-BA25-507E251F4C05}" Origin="Manual" Filter="7"/>
+					</ObjectInclusionList>
+					<ObjectExclusionList/>
+					<GameSyncExclusionList/>
+				</SoundBank>
+			</ChildrenList>
+		</WorkUnit>
+	</SoundBanks>
+</WwiseDocument>

@@ -1,0 +1,7 @@
+Event	ID	Name			Wwise Object Path	Notes
+	2404648911	Test_PlayMusic			\IntegrationEvents\Test_PlayMusic	
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	468828735	viktornation	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\7F\{7FFC3F50-214E-5AA0-5D96-FA231B947CF8}.wem		\Interactive Music Hierarchy\IntegrationTest\IntegrationMX\ViktorNation\viktornation		924960
+	708496583	jaybe	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\9A\{9AC4C22A-CF0A-B29A-713B-F68BCF6EC1FA}.wem		\Interactive Music Hierarchy\IntegrationTest\IntegrationMX\Jaybe\jaybe		924960
+

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{5676E777-92CB-4E39-BA25-507E251F4C05}" SchemaVersion="123">
+	<Events>
+		<WorkUnit Name="IntegrationEvents" ID="{5676E777-92CB-4E39-BA25-507E251F4C05}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="27"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<Event Name="Test_PlayMusic" ID="{E4858373-2B5C-44BC-BEF1-B3A3DBA29EBD}">
+					<ChildrenList>
+						<Action Name="" ID="{82232D47-BC50-4166-9AFD-BB5853868FCC}" ShortID="490679025">
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="IntegrationMX" ID="{B8C650D7-C53F-41ED-8C6E-B5EF369A36ED}" WorkUnitID="{97A45E1F-4E5D-4A62-8FC7-81CC60E40DAB}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
