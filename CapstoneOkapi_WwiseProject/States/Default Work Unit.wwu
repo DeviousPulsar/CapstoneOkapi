@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}" SchemaVersion="123">
+	<States>
+		<WorkUnit Name="Default Work Unit" ID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}" PersistMode="Standalone">
+			<ChildrenList>
+				<StateGroup Name="MX_Fight_Layer" ID="{E8AD8B07-5C9A-4DD0-B222-FAC515A4673D}">
+					<ChildrenList>
+						<State Name="None" ID="{D25495A8-0E10-499D-B472-82FE7C978186}"/>
+						<State Name="In_Dialogue" ID="{5C450E67-3499-4C68-9E82-81FFC06B4E1C}"/>
+						<State Name="In_Prep" ID="{99EA65F6-8B8E-4656-8FB3-075AD68609F5}"/>
+						<State Name="In_Combat" ID="{62D70642-FF09-41ED-97E9-F86D7E2C0901}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="mx_Level" ID="{C2EAAEDF-0C60-4904-AB3C-5AC786E6EAD9}">
+					<ChildrenList>
+						<State Name="None" ID="{892DA656-FF0F-4BA0-87EE-EAB55937DBE8}"/>
+						<State Name="MainMenu" ID="{F27F96AE-DB1B-44D0-9FF0-3B0CDA6B26F1}"/>
+						<State Name="Tutorial" ID="{A845D835-9F0F-4F70-9851-A9C514FC2613}"/>
+						<State Name="Overworld_1" ID="{9C38A31A-9B73-4CC9-8AC1-E0523429D81A}"/>
+						<State Name="Overworld_2" ID="{78BC4618-3630-48C9-B3FD-6B175F986CE1}"/>
+						<State Name="Overworld_3" ID="{22C4CE79-D293-4658-A52F-17F7E18ED7BD}"/>
+						<State Name="Fight_1" ID="{B9D400EB-5FA0-4D23-A9DA-241104CCEB8D}"/>
+						<State Name="Fight_2" ID="{CAFB8504-7D4B-4B22-B84E-73BEA8AFDECA}"/>
+						<State Name="Fight_3" ID="{33D88523-AF4B-4A5A-8B89-F34C9A7EBE7F}"/>
+						<State Name="Lose" ID="{33EC8F36-82C3-4408-BFA1-B16B1D573B1B}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="MX_Fight_Admin" ID="{021E9FB2-16A2-40B7-BF40-138A1A5A9F2C}">
+					<ChildrenList>
+						<State Name="None" ID="{DB8AC5DC-48EF-4573-9A47-DB423649F074}"/>
+						<State Name="Start" ID="{3EFDA861-5D72-463C-9168-2A6038969BCA}"/>
+						<State Name="Win" ID="{3AA3C406-052A-4B98-B0FA-ED76C6D78559}"/>
+					</ChildrenList>
+				</StateGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</States>
+</WwiseDocument>

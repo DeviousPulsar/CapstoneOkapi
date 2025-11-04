@@ -1,0 +1,60 @@
+{
+ "SoundBanksInfo": {
+  "Platform": "Mac",
+  "BasePlatform": "Mac",
+  "SchemaVersion": "16",
+  "SoundBankVersion": "154",
+  "SoundBanks": [
+   {
+    "Id": "3291379323",
+    "Type": "User",
+    "GUID": "{FF2B87E6-D137-4A41-893C-B35E8C5E9C58}",
+    "Color": "27",
+    "Language": "SFX",
+    "Hash": "{DD681236-A273-EBD2-1341-24420FC99520}",
+    "ObjectPath": "\\SoundBanks\\IntegrationTest\\TestBank",
+    "ShortName": "TestBank",
+    "Path": "TestBank.bnk",
+    "Media": [
+     {
+      "Id": "468828735",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "viktornation.wav",
+      "CachePath": "7F/{7FFC3F50-214E-5AA0-5D96-FA231B947CF8}.wem"
+     },
+     {
+      "Id": "708496583",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "jaybe.wav",
+      "CachePath": "9A/{9AC4C22A-CF0A-B29A-713B-F68BCF6EC1FA}.wem"
+     }
+    ],
+    "Events": [
+     {
+      "Id": "2404648911",
+      "Name": "Test_PlayMusic",
+      "ObjectPath": "\\Events\\IntegrationEvents\\Test_PlayMusic",
+      "GUID": "{E4858373-2B5C-44BC-BEF1-B3A3DBA29EBD}",
+      "Color": "27",
+      "DurationType": "OneShot",
+      "DurationMin": "9.633333",
+      "DurationMax": "9.633333",
+      "MediaRefs": [
+       {
+        "Id": "468828735"
+       },
+       {
+        "Id": "708496583"
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "FileHash": "{F03CCCB4-5169-BA28-6382-F14BF2A67BC5}"
+ }
+}
