@@ -82,7 +82,7 @@ UFUNCTION(BlueprintCallable) void ACombatManager::AssignControllers()
 	Params.Owner = this;
 
 	//Spawn Enemy Controller
-	EnemyC = GetWorld()->SpawnActor<AEnemyController>(
+	EnemyC = GetWorld()->SpawnActor<ACombatEnemy>(
 		EnemyClass,
 		FVector(0, 0, 0),
 		FRotator::ZeroRotator,
@@ -91,7 +91,7 @@ UFUNCTION(BlueprintCallable) void ACombatManager::AssignControllers()
 
 	//Initialize Enemy Controller
 	//FVector GridLocationE = Grid->GetTilePos(FGridPosition(4, 1));
-	EnemyC->Initialize(4, 1, 100, Grid);
+	EnemyC->Initialize(4, 1, Grid);
 
 
 	//Spawn Player Controller
@@ -104,7 +104,7 @@ UFUNCTION(BlueprintCallable) void ACombatManager::AssignControllers()
 
 	//Initialize Player Controller
 	//FVector GridLocationP = Grid->GetTilePos(FGridPosition(1,1));
-	PlayerC->Initialize(1, 1, 70, Grid);
+	PlayerC->Initialize(1, 1, Grid);
 
 	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 	PlayerController->Possess(PlayerC);

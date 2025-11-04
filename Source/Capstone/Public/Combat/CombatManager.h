@@ -5,7 +5,7 @@
 
 #include "BattleGrid.h"
 #include "CombatPlayer.h"
-#include "EnemyController.h"
+#include "CombatEnemy.h"
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "CombatManager.generated.h"
@@ -28,13 +28,13 @@ class CAPSTONE_API ACombatManager : public AActor
 public:	
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "DialogueSupport") bool bDialogueEnabled;
 	UPROPERTY(BlueprintReadOnly) ACombatPlayer* PlayerC;
-	UPROPERTY(BlueprintReadOnly) AEnemyController* EnemyC;
+	UPROPERTY(BlueprintReadOnly) ACombatEnemy* EnemyC;
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<ABattleGrid> GridClass;
 
 	UPROPERTY(EditAnywhere)
-	TSubclassOf<AEnemyController> EnemyClass;
+	TSubclassOf<ACombatEnemy> EnemyClass;
 
 	UPROPERTY(EditAnywhere)
 	TSubclassOf<ACombatPlayer> PlayerClass;

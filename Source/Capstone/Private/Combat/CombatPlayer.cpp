@@ -20,10 +20,6 @@ ACombatPlayer::ACombatPlayer()
 	Focus = EFocus::Default;
 }
 
-void ACombatPlayer::Initialize(int32 StartingX, int32 StartingY, int32 StartingHealth, ABattleGrid* BattleGrid){
-	Super::Initialize(StartingX, StartingY, true, StartingHealth, BattleGrid, InvTime);
-}
-
 // Called when the game starts or when spawned
 void ACombatPlayer::Restart()
 {

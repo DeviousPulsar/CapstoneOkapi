@@ -16,14 +16,12 @@ class CAPSTONE_API ACombatPawn : public APawn
 protected:
 	FGridPosition CurrentPosition; //tracks pawns current position on grid
 	UPROPERTY(BlueprintReadOnly, Category = "Variables", meta = (AllowPrivateAccess = "true"))
-	int32 InitialHealth;
 	int32 PawnHealth;
 	bool MoveAllowed; // controls the time based movement limit to prevent spamming
 	bool IsPlayer;
 	ABattleGrid* Grid;
 	float TimeSinceStun;
 	float TimeSinceVulnerable;
-	float InvTime;
 	float Vulnerable;
 	float MoveCooldown;
 	int32 Defend;
@@ -33,18 +31,14 @@ protected:
 	bool bIsFrozen;
 	
 public:
-	/// <summary>
-	/// Material Swapping- REMOVE WHEN WE HAVE ANIMATIONS
-	/// </summary>
-	/// 
-	UPROPERTY(EditAnywhere, Category = "Materials") UMaterial* regMat;
-	UPROPERTY(EditAnywhere, Category = "Materials") UMaterial* injuredMat;
-	UPROPERTY(EditAnywhere, Category = "Materials") UMaterial* invinceMat;
+	UPROPERTY(EditAnywhere, Category = "Pawn Information")
+	int32 InitialHealth;
 
-	UPROPERTY(EditAnywhere, Category = "Materials") UStaticMeshComponent* pawnMesh;
-
-	UPROPERTY(EditAnywhere, Category = "Variables")
+	UPROPERTY(EditAnywhere, Category = "Pawn Information")
 	float MoveStun;
+
+	UPROPERTY(EditAnywhere, Category = "Pawn Information")
+	float InvTime;
 
 	UPROPERTY(EditAnywhere, Category = "Parry")
 	float ParryWindow;
@@ -71,7 +65,7 @@ public:
 	/// @param Y 
 	/// @param IsPlayer 
 	/// @param StartingHealth 
-	void Initialize(int32 X, int32 Y, bool B_IsPlayer, int32 StartingHealth, ABattleGrid* BattleGrid, float InvulTime);
+	void Initialize(int32 X, int32 Y, ABattleGrid* BattleGrid);
 
 	/// @brief Moves the combat pawn in the requested direction. 
 	/// Checks if the pawn will move off the board.
