@@ -1,6 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{39C164F8-916F-42E5-BFFC-E8AB2E9833CD}" SchemaVersion="123">
 	<SoundcasterSessions>
-		<WorkUnit Name="Default Work Unit" ID="{39C164F8-916F-42E5-BFFC-E8AB2E9833CD}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{39C164F8-916F-42E5-BFFC-E8AB2E9833CD}" PersistMode="Standalone">
+			<ChildrenList>
+				<SoundcasterSession Name="Tutorial" ID="{5AC62FDF-F9CA-4D95-ACC1-6B50A289D762}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="mx_StartGame" ID="{955E3FDE-541F-48B3-82FF-EA76D3AF8461}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_BeginLevel_Tutorial" ID="{865EFE7D-BF28-4C28-8A6C-F4834EBD7A3E}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_PhaseDLG" ID="{DCB6FAE8-9B91-4A08-BC49-35BCDA8642BC}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_PhasePREP" ID="{D9A7CC4D-2970-46A7-973E-E5AFEC0C6303}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_PhaseCOMBAT" ID="{5B065C38-A605-49A0-953B-DB0723BE4997}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_Win" ID="{81E4500C-A837-47C8-BAC2-2A591151D633}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+			</ChildrenList>
+		</WorkUnit>
 	</SoundcasterSessions>
 </WwiseDocument>

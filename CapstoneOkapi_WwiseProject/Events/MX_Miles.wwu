@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}" SchemaVersion="123">
+	<Events>
+		<WorkUnit Name="MX_Miles" ID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="FIGHTS" ID="{DE90C1AB-93D5-4F58-A4B7-DBFD16B33D88}" ShortID="496352591">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="10"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="mx_Fight_Win" ID="{81E4500C-A837-47C8-BAC2-2A591151D633}">
+							<ChildrenList>
+								<Action Name="" ID="{DE190E94-63C1-4680-8F47-9C1825C5FE48}" ShortID="566553978">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Win" ID="{3AA3C406-052A-4B98-B0FA-ED76C6D78559}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="mx_Fight_PhaseDLG" ID="{DCB6FAE8-9B91-4A08-BC49-35BCDA8642BC}">
+							<ChildrenList>
+								<Action Name="" ID="{3D0B767A-2213-4752-93F6-480D9CF5A9D0}" ShortID="770517817">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="In_Dialogue" ID="{5C450E67-3499-4C68-9E82-81FFC06B4E1C}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="mx_Fight_PhaseCOMBAT" ID="{5B065C38-A605-49A0-953B-DB0723BE4997}">
+							<ChildrenList>
+								<Action Name="" ID="{79EEB92B-6AF7-463D-A378-509B3143F8B1}" ShortID="54356955">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="In_Combat" ID="{62D70642-FF09-41ED-97E9-F86D7E2C0901}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="mx_Fight_PhasePREP" ID="{D9A7CC4D-2970-46A7-973E-E5AFEC0C6303}">
+							<ChildrenList>
+								<Action Name="" ID="{60B9C5BC-067E-4965-90C5-A9D1A1FCB1B3}" ShortID="380262705">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="In_Prep" ID="{99EA65F6-8B8E-4656-8FB3-075AD68609F5}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="LEVELS" ID="{B2FA75D3-8D8C-4503-994F-B96617771246}" ShortID="1018285618">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="12"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="mx_BeginLevel_Tutorial" ID="{865EFE7D-BF28-4C28-8A6C-F4834EBD7A3E}">
+							<ChildrenList>
+								<Action Name="" ID="{748DAE34-E4D0-4CF7-B280-5D1E3B8BCA43}" ShortID="473250512">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="In_Dialogue" ID="{5C450E67-3499-4C68-9E82-81FFC06B4E1C}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{5A5151EF-11AA-49E0-AEA8-100BC206E784}" ShortID="82759584">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{3EFDA861-5D72-463C-9168-2A6038969BCA}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{687A2FE7-A951-4E08-90B9-5FABA9F5734C}" ShortID="697549109">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Tutorial" ID="{A845D835-9F0F-4F70-9851-A9C514FC2613}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="mx_StartGame" ID="{955E3FDE-541F-48B3-82FF-EA76D3AF8461}">
+							<ChildrenList>
+								<Action Name="" ID="{58373647-3DA2-406A-8E92-9FA441522449}" ShortID="885754204">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MainMenu" ID="{F27F96AE-DB1B-44D0-9FF0-3B0CDA6B26F1}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{FF59F7DC-5668-415C-95AC-DAE3A6B8D03F}" ShortID="47033324">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Levels" ID="{AA2E4462-DDC5-4969-9280-3E655C97B2FE}" WorkUnitID="{94B33324-6796-4D6F-B3D4-FD947CA7E7BA}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>
