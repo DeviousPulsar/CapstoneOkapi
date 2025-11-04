@@ -57,13 +57,13 @@ protected:
 	UInputAction* ParryAction;
 
 public:	
-	UPROPERTY(EditAnywhere, Category = "Variables")
+	UPROPERTY(EditAnywhere, Category = "Parry")
 	int32 ParryDamageBuff;
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SelectedAttack")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
 	EPlayerAttacks LeftClickAttack; 
 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "SelectedAttack")
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
 	EPlayerAttacks RightClickAttack;
 
 	UPROPERTY(EditAnywhere, Category = "Attacks")
@@ -71,9 +71,6 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Attacks")
 	TArray<EPlayerAttacks> AvailablePlayerAttacks; //List of enums of available player attacks
-
-	UPROPERTY(EditAnywhere, Category = "Variables")
-	float InvTime;
 	
 	UPROPERTY(EditAnywhere, Category = "Focus")
 	int32 DamageBuff;
@@ -86,13 +83,6 @@ public:
 
 	// Sets default values for this actor's properties
 	ACombatPlayer();
-
-	/// @brief Initializes variables
-	/// @param x 
-	/// @param y 
-	/// @param startingHealth 
-	/// @param grid 
-	void Initialize(int32 StartingX, int32 StartingY, int32 StartingHealth, ABattleGrid* BattleGrid);
 
 	/// @brief Returns the availabe player attacks that the player has
 	/// @return 

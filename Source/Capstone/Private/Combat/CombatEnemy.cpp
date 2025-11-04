@@ -11,29 +11,19 @@ ACombatEnemy::ACombatEnemy()
 {
  	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
-
-	DefaultLocation = FGridPosition();
-	DefaultLocation.x = 3;
-	DefaultLocation.y = 0;
-	DefaultHealth = 50;
 }
 
 // Called when the game starts or when spawned
-
-
-
-void ACombatEnemy::Initialize(int32 X, int32 Y, int32 DefHealth, ABattleGrid* pGrid)
-{
-    Super::Initialize(DefaultLocation.x, DefaultLocation.y, false, DefaultHealth, WorldGrid, InvTime);
-}
 void ACombatEnemy::BeginPlay()
 {
 	Super::BeginPlay();
 }
+
 void ACombatEnemy::OnAttackFinished()
 {
 	HasFinishedAttack = true;
 }
+
 float ACombatEnemy::BeginEnemyAttack()
 {
 	if (AttackClasses.Num() == 0)
@@ -93,7 +83,7 @@ float ACombatEnemy::BeginEnemyAttack()
 		return 0;
 	}
 		
-	WorldGrid->ExecuteAttack(Combo);
+	Grid->ExecuteAttack(Combo);
 
 	double SeqLength = Combo->Length();
 	if (SeqLength <= 0.0)
@@ -130,6 +120,5 @@ void ACombatEnemy::MoveRandomOnGrid()
 
 	// Update grid location
 	FVector2D NewLocation(RandX, RandY);
-	EnemyPawn->Move(NewLocation);
-
+	Move(NewLocation);
 }

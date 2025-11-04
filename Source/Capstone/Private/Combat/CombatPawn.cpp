@@ -15,12 +15,13 @@ ACombatPawn::ACombatPawn()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	//default values to fill variables, will be overwritten with Initialize
+	//default values to fill state variables, may be overwritten with Initialize
 	CurrentPosition = FGridPosition();
 	CurrentPosition.x = 0;
 	CurrentPosition.y = 0;
 	IsPlayer = true;
-	PawnHealth = 10;
+	InitialHealth = 100;
+	PawnHealth = 100;
 	Grid = nullptr;
 	MoveAllowed = true;
 	TimeSinceStun = 0.0f;
@@ -36,21 +37,17 @@ bool ACombatPawn::GetIsPlayer(){
 	return IsPlayer;
 }
 
-void ACombatPawn::Initialize(int X, int Y, bool bIsPlayer, int32 StartingHealth, ABattleGrid* BattleGrid, float InvulTime){
+void ACombatPawn::Initialize(int X, int Y, ABattleGrid* BattleGrid){
 	this->CurrentPosition = FGridPosition(X, Y);
-	this->IsPlayer = bIsPlayer;
-	this->InitialHealth = StartingHealth;
-	this->PawnHealth = StartingHealth;
 	this->Grid = BattleGrid;
-	this->InvTime = InvulTime;
+	this->IsPlayer = X < BattleGrid->GetWidth()/2;
+	this->PawnHealth = InitialHealth;
 
 	//move pawn to location on grid
 	if(Grid){
 		FVector GridWorldLocation = Grid->GetTilePos(CurrentPosition);
 		SetActorLocation(GridWorldLocation, false);
 	}
-	
-
 }
 
 /// @brief Used to move the pawn on the board. Enforces the rule about the enemy not being allowed on the
@@ -76,13 +73,13 @@ void ACombatPawn::Move(FVector2D Vector){
 		IsPlayerOffset = 0;
 	}
 	else{
-		IsPlayerOffset = 3;
+		IsPlayerOffset = Grid->GetWidth()/2;
 	}
 
 	//do movement
 	if(X != 0){
 		int32 RequestedXPosition = CurrentPosition.x + X;
-		if (RequestedXPosition >= 0 + IsPlayerOffset && RequestedXPosition < 3 + IsPlayerOffset){
+		if (RequestedXPosition >= 0 + IsPlayerOffset && RequestedXPosition < Grid->GetWidth()/2 + IsPlayerOffset){
 			//allow move in x direction
 			CurrentPosition.x = RequestedXPosition;
 			//move pawn on grid
@@ -93,7 +90,7 @@ void ACombatPawn::Move(FVector2D Vector){
 	}
 	if(Y != 0){
 		int32 RequestedYPosition = CurrentPosition.y + Y;
-		if (RequestedYPosition >= 0 && RequestedYPosition < 3){
+		if (RequestedYPosition >= 0 && RequestedYPosition < Grid->GetHeight()){
 			//allow move in y direction
 			CurrentPosition.y = RequestedYPosition;
 			//move pawn on grid

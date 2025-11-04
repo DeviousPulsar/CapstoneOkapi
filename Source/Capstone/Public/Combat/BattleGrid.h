@@ -48,12 +48,25 @@ public:
 	FVector GetTilePos(FGridPosition Pos);
 
 	/// <summary>
+	/// Returns the width of the grid
+	/// </summary>
+	/// <returns> The width of the grid </returns>
+	UFUNCTION(BlueprintCallable, Category = "Grid")
+	int32 GetWidth() const { return GridWidth; }
+
+	/// <summary>
+	/// Returns the height of the grid
+	/// </summary>
+	/// <returns> The height of the grid </returns>
+	UFUNCTION(BlueprintCallable, Category = "Grid")
+	int32 GetHeight() const { return GridHeight; }
+
+	/// <summary>
 	/// Displays the given attack object on the grid
 	/// </summary>
 	/// <param name="Attack"></param>
 	UFUNCTION(BlueprintCallable, Category = "Attack")
 	void ExecuteAttack(UAttack* Attack);
-
 private:
 	UPROPERTY()
 	TMap<FIntPoint, ABattleTile*> TileGrid;
@@ -77,9 +90,6 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Grid")
 	TSubclassOf<ABattleTile> TileClass;
-
-	UPROPERTY(EditAnywhere, Category = "Attack")
-	TSubclassOf<UAttack> TestAttack;
 
 	/// <summary>
 	/// Changes specific tile to the given state after a specified wait time

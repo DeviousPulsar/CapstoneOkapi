@@ -20,31 +20,22 @@ class CAPSTONE_API ACombatEnemy : public ACombatPawn
 	FGridPosition DefaultLocation;
 	int32 DefaultHealth;
 	ABattleGrid* WorldGrid;
-	ACombatPawn* EnemyPawn;
 	
 public:	
-	UPROPERTY(EditAnywhere, Category="Enemy Information")
-	TSubclassOf<ACombatPawn> PawnClass;
-
-	UPROPERTY(EditAnywhere, Category="Enemy Information")
+	UPROPERTY(EditAnywhere, Category="Attacks")
 	TArray<TSubclassOf<UAttack>> AttackClasses;
 
-	UPROPERTY(EditAnywhere, Category = "Enemy Information")
-	float InvTime;
-
-	UPROPERTY(EditAnywhere, Category = "Enemy Attacks")
+	UPROPERTY(EditAnywhere, Category = "Attacks")
 	double MaxSequenceLength = 15.0;
 
-	UPROPERTY(EditAnywhere, Category = "Enemy Attacks")
+	UPROPERTY(EditAnywhere, Category = "Attacks")
 	int32 MaxSequenceParts = 10;
 
-	UPROPERTY(EditAnywhere, Category="Enemy Attacks")
+	UPROPERTY(EditAnywhere, Category="Attacks")
 	float ParryableStageChance = 0.8f;
 
-		// Sets default values for this actor's properties
+	// Sets default values for this actor's properties
 	ACombatEnemy();
-
-	void Initialize(int32 X, int32 Y, int32 DefHealth, ABattleGrid* Grid);
 
 protected:
 	// Called when the game starts or when spawned
