@@ -45,3 +45,8 @@ PluginsIntermediate
 
 # Cache files for the editor to use
 DerivedDataCache
+
+# MAC Clutter
+.DS_Store
+.AppleDouble
+.LSOverride
