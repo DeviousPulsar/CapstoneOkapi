@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{89C218AE-9E0B-8562-B379-0ABAC724E516}",
+    "Hash": "{8539E750-D6B8-791E-CDFA-B37A280170AB}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -36,14 +36,154 @@
     },
     "Busses": [
      {
+      "Id": "393239870",
+      "Name": "SFX",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX",
+      "GUID": "{894BE39B-70EE-48EE-8EB3-50990B7D0DEB}"
+     },
+     {
+      "Id": "1685527054",
+      "Name": "MX",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MX",
+      "GUID": "{C1E0736F-1103-4945-9E63-99812B48B005}"
+     },
+     {
       "Id": "3803692087",
       "Name": "Master Audio Bus",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
      }
+    ],
+    "StateGroups": [
+     {
+      "Id": "6452437",
+      "Name": "mx_Level",
+      "ObjectPath": "\\States\\Default Work Unit\\mx_Level",
+      "GUID": "{C2EAAEDF-0C60-4904-AB3C-5AC786E6EAD9}",
+      "States": [
+       {
+        "Id": "221232726",
+        "Name": "Lose",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Lose",
+        "GUID": "{33EC8F36-82C3-4408-BFA1-B16B1D573B1B}"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\None",
+        "GUID": "{892DA656-FF0F-4BA0-87EE-EAB55937DBE8}"
+       },
+       {
+        "Id": "1462071413",
+        "Name": "Overworld_1",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_1",
+        "GUID": "{9C38A31A-9B73-4CC9-8AC1-E0523429D81A}"
+       },
+       {
+        "Id": "1462071414",
+        "Name": "Overworld_2",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_2",
+        "GUID": "{78BC4618-3630-48C9-B3FD-6B175F986CE1}"
+       },
+       {
+        "Id": "1462071415",
+        "Name": "Overworld_3",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_3",
+        "GUID": "{22C4CE79-D293-4658-A52F-17F7E18ED7BD}"
+       },
+       {
+        "Id": "1497216465",
+        "Name": "Fight_1",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Fight_1",
+        "GUID": "{B9D400EB-5FA0-4D23-A9DA-241104CCEB8D}"
+       },
+       {
+        "Id": "1497216466",
+        "Name": "Fight_2",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Fight_2",
+        "GUID": "{CAFB8504-7D4B-4B22-B84E-73BEA8AFDECA}"
+       },
+       {
+        "Id": "1497216467",
+        "Name": "Fight_3",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Fight_3",
+        "GUID": "{33D88523-AF4B-4A5A-8B89-F34C9A7EBE7F}"
+       },
+       {
+        "Id": "3604647259",
+        "Name": "MainMenu",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\MainMenu",
+        "GUID": "{F27F96AE-DB1B-44D0-9FF0-3B0CDA6B26F1}"
+       },
+       {
+        "Id": "3762955427",
+        "Name": "Tutorial",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Tutorial",
+        "GUID": "{A845D835-9F0F-4F70-9851-A9C514FC2613}"
+       }
+      ]
+     },
+     {
+      "Id": "437528237",
+      "Name": "MX_Fight_Admin",
+      "ObjectPath": "\\States\\Default Work Unit\\MX_Fight_Admin",
+      "GUID": "{021E9FB2-16A2-40B7-BF40-138A1A5A9F2C}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\MX_Fight_Admin\\None",
+        "GUID": "{DB8AC5DC-48EF-4573-9A47-DB423649F074}"
+       },
+       {
+        "Id": "979765101",
+        "Name": "Win",
+        "ObjectPath": "\\States\\Default Work Unit\\MX_Fight_Admin\\Win",
+        "GUID": "{3AA3C406-052A-4B98-B0FA-ED76C6D78559}"
+       },
+       {
+        "Id": "1281810935",
+        "Name": "Start",
+        "ObjectPath": "\\States\\Default Work Unit\\MX_Fight_Admin\\Start",
+        "GUID": "{3EFDA861-5D72-463C-9168-2A6038969BCA}"
+       }
+      ]
+     },
+     {
+      "Id": "1093972631",
+      "Name": "MX_Fight_Layer",
+      "ObjectPath": "\\States\\Default Work Unit\\MX_Fight_Layer",
+      "GUID": "{E8AD8B07-5C9A-4DD0-B222-FAC515A4673D}",
+      "States": [
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\MX_Fight_Layer\\None",
+        "GUID": "{D25495A8-0E10-499D-B472-82FE7C978186}"
+       },
+       {
+        "Id": "1108951413",
+        "Name": "In_Dialogue",
+        "ObjectPath": "\\States\\Default Work Unit\\MX_Fight_Layer\\In_Dialogue",
+        "GUID": "{5C450E67-3499-4C68-9E82-81FFC06B4E1C}"
+       },
+       {
+        "Id": "1494125218",
+        "Name": "In_Prep",
+        "ObjectPath": "\\States\\Default Work Unit\\MX_Fight_Layer\\In_Prep",
+        "GUID": "{99EA65F6-8B8E-4656-8FB3-075AD68609F5}"
+       },
+       {
+        "Id": "2116791127",
+        "Name": "In_Combat",
+        "ObjectPath": "\\States\\Default Work Unit\\MX_Fight_Layer\\In_Combat",
+        "GUID": "{62D70642-FF09-41ED-97E9-F86D7E2C0901}"
+       }
+      ]
+     }
     ]
    }
   ],
-  "FileHash": "{9973F318-E5F9-2E22-0134-6CC506421C6B}"
+  "FileHash": "{E52E2967-6DF7-A3D2-0339-5EAB7602DC88}"
  }
 }

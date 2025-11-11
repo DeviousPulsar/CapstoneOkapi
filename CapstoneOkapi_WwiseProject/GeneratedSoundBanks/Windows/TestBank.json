@@ -11,7 +11,7 @@
     "GUID": "{FF2B87E6-D137-4A41-893C-B35E8C5E9C58}",
     "Color": "27",
     "Language": "SFX",
-    "Hash": "{DD681236-A273-EBD2-1341-24420FC99520}",
+    "Hash": "{30706B35-2B1F-8955-AC00-3C57C153D66B}",
     "ObjectPath": "\\SoundBanks\\IntegrationTest\\TestBank",
     "ShortName": "TestBank",
     "Path": "TestBank.bnk",
@@ -55,6 +55,6 @@
     ]
    }
   ],
-  "FileHash": "{3CC4C98A-3821-80D4-964F-3E7D1771820C}"
+  "FileHash": "{473F5DC4-20D1-93F2-50F6-0F361E514F5C}"
  }
 }
