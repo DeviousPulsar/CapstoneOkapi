@@ -50,3 +50,12 @@ DerivedDataCache
 .DS_Store
 .AppleDouble
 .LSOverride
+
+# Wwise Files
+.backup*
+.cache*
+*.akd
+*.prof
+*.validationcache
+*.wsettings
+IncrementalSoundBankData.xml
