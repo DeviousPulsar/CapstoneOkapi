@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{7A5B02D9-4439-4050-A2A8-71688C617170}" SchemaVersion="123">
+	<Events>
+		<WorkUnit Name="SFX_Koyo" ID="{7A5B02D9-4439-4050-A2A8-71688C617170}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Ambient" ID="{B71F7224-56FB-4154-83D4-C36A7D9C21AB}" ShortID="568778211">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="Picnic" ID="{705B77F2-F085-4D1E-BBB1-DCF9BE15BA39}">
+							<ChildrenList>
+								<Action Name="" ID="{CA07FC1D-A0CF-48C5-B204-64C06E7CCC4F}" ShortID="216194169">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Ambient_Picnic" ID="{0225D525-9841-4F4E-A905-37EBF25149B1}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

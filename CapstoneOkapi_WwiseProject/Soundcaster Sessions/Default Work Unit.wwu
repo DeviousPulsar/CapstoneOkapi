@@ -31,6 +31,21 @@
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true">
+						<CurrentStateRef Name="Start" ID="{3EFDA861-5D72-463C-9168-2A6038969BCA}"/>
+						<CurrentStateRef Name="MainMenu" ID="{F27F96AE-DB1B-44D0-9FF0-3B0CDA6B26F1}"/>
+						<CurrentStateRef Name="In_Dialogue" ID="{5C450E67-3499-4C68-9E82-81FFC06B4E1C}"/>
+					</CurrentStateList>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="SFX" ID="{18324D95-7A08-4343-A501-89D3F953AB04}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Picnic" ID="{705B77F2-F085-4D1E-BBB1-DCF9BE15BA39}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
