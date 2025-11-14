@@ -2,6 +2,9 @@
 
 
 #include "Combat/BattleTile.h"
+#include "NiagaraComponent.h"
+#include "NiagaraSystem.h"
+#include "NiagaraFunctionLibrary.h"
 
 // Sets default values
 ABattleTile::ABattleTile()
@@ -24,7 +27,7 @@ void ABattleTile::Tick(float DeltaTime)
 	Super::Tick(DeltaTime);
 }
 
-void ABattleTile::AffectTile(ETileState NewState, int32 NewDamage, bool bNewParryable)
+void ABattleTile::AffectTile(ETileState NewState, int32 NewDamage, bool bNewParryable, FAttackEffect Effect)
 {
     CurrentState = NewState;
     Damage = NewDamage;
@@ -38,24 +41,51 @@ void ABattleTile::AffectTile(ETileState NewState, int32 NewDamage, bool bNewParr
         TileMod = nullptr;
     }
 
-    if (NewState == ETileState::Warning)
-    {
-        TileMod = GetWorld()->SpawnActor<AActor>(WarningClass,
+    if (ActiveEffectComponent){
+        // using autodelete, uncomment if you want to switch to manually deleting
+
+
+        // ActiveEffectComponent->Deactivate();
+        // ActiveEffectComponent->DestroyComponent();
+        // ActiveEffectComponent = nullptr;
+    }
+
+    TSubclassOf<AActor> ActorToSpawn = nullptr;
+    switch(NewState){
+        case ETileState::Warning:
+            ActorToSpawn = WarningClass;
+            break;
+        case ETileState::Damage:
+            ActorToSpawn = DamageClass;
+            break;
+        case ETileState::Unparriable:
+            ActorToSpawn = UnparriableClass;
+            break;
+        default:
+            break;
+    }
+
+    if(Effect.Effect){
+        ActiveEffectComponent = UNiagaraFunctionLibrary::SpawnSystemAtLocation(
+                GetWorld(),
+                Effect.Effect,
+                TilePos,
+                FRotator::ZeroRotator,
+                FVector(1.0f),
+                true, // autoDestroy
+                true  // autoActivate
+                );
+
+        ActiveEffectComponent->SetVariableFloat(TEXT("AttackDuration"), Effect.Duration);
+        ActiveEffectComponent->SetVariableFloat(TEXT("EffectScale"), Effect.Scale);
+    }
+    else if(ActorToSpawn){
+        TileMod = GetWorld()->SpawnActor<AActor>(ActorToSpawn,
             TilePos,
             FRotator::ZeroRotator,
             SpawnParams
         );
     }
-    else if (NewState == ETileState::Damage)
-    {
-        TileMod = GetWorld()->SpawnActor<AActor>(DamageClass,
-            TilePos,
-            FRotator::ZeroRotator,
-            SpawnParams
-        );
-    }
-    else if (NewState == ETileState::Unparriable)
-    {
-        TileMod = GetWorld()->SpawnActor<AActor>(UnparriableClass, TilePos, FRotator::ZeroRotator, SpawnParams);
-    }
+
+    
 }

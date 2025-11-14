@@ -23,6 +23,8 @@ enum class EPlayerAttacks : uint8
 	CrossBeam		UMETA(DisplayName = "Cross Beam")
 };
 
+DECLARE_DYNAMIC_MULTICAST_DELEGATE(FOnOptionsSignal);
+
 UENUM(BlueprintType)
 //Enum for representing the currently selected focus
 enum class EFocus : uint8
@@ -55,6 +57,9 @@ protected:
 
 	UPROPERTY(EditAnywhere, Category="Input")
 	UInputAction* ParryAction;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* PauseAction;
 
 public:	
 	UPROPERTY(EditAnywhere, Category = "Parry")
@@ -115,6 +120,9 @@ public:
 	/// <param name="Foc"></param>
 	UFUNCTION(BlueprintCallable)
 	void SetBuff(EFocus Foc);
+	
+	UPROPERTY(BlueprintAssignable, Category="Options")
+	FOnOptionsSignal OnOptionsSignal;
 
 protected:
 	// Called when the game starts or when spawned
@@ -127,6 +135,7 @@ protected:
 	void Move(const FInputActionValue& Value);
 	void Attack();
 	void Parry();
+	void OptionMenu();
 
 public:	
 	// Called every frame

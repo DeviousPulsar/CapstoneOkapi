@@ -1,5 +1,14 @@
+/.git
 /.vscode
+/CapstoneOkapi_WwiseProject
 /Content
 /DerivedDataCache
 /Intermediate
+/Platforms
 /Saved
+/Plugins/Wwise/Content
+/Plugins/Wwise/Intermediate
+/Plugins/WwiseNiagara/Content
+/Plugins/WwiseNiagara/Intermediate
+/Plugins/WwiseSoundEngine/Intermediate
+/Plugins/WwiseSoundEngine/ThirdParty

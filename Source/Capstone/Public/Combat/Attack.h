@@ -6,6 +6,8 @@
 
 #include "CoreMinimal.h"
 #include "UObject/NoExportTypes.h"
+#include "NiagaraSystem.h"
+#include "NiagaraFunctionLibrary.h"
 #include "Attack.generated.h"
 
 /// Struct to define one "keyframe" of an attack sequence.
@@ -31,6 +33,13 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	TArray<FGridPosition> Targets;
+
+	// using 
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TArray<UNiagaraSystem*> TargetWarningEffects;
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite)
+	TArray<UNiagaraSystem*> TargetAttackEffects;
 
 	UPROPERTY(EditAnywhere)
 	bool bParriable = true;
@@ -81,4 +90,28 @@ public:
 	/// <param name="Damage"></param>
 	UFUNCTION(BlueprintCallable)
 	void Buff(int32 Damage);
+};
+
+// Used for 
+USTRUCT(BlueprintType)
+struct FAttackEffect
+{
+    GENERATED_BODY()
+public:
+    FAttackEffect() : Effect(nullptr), Duration(1), Scale(1){
+		// empty
+	}
+
+    FAttackEffect(UNiagaraSystem* InEffect, double InDuration, double InScale) : Effect(InEffect), Duration(InDuration), Scale(InScale){
+		// empty
+	}
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    UNiagaraSystem* Effect;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    double Duration;
+
+    UPROPERTY(EditAnywhere, BlueprintReadWrite)
+    double Scale;
 };

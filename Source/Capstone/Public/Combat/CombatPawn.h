@@ -8,6 +8,8 @@
 #include "GameFramework/Pawn.h"
 #include "CombatPawn.generated.h"
 
+class UAnimMontage;
+
 UCLASS()
 class CAPSTONE_API ACombatPawn : public APawn
 {
@@ -51,6 +53,12 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Parry")
 	float ParryStunTime;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Anim")
+	UAnimMontage* AttackMontage = nullptr;
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Anim")
+	UAnimMontage* HitReactMontage = nullptr;
 
 	bool ParryBoost;
 
@@ -107,6 +115,12 @@ public:
 	/// Allows or disallows the pawn from acting or taking damage
 	UFUNCTION(BlueprintCallable)
 	void SetMovementAllowed(bool MovementAllowed);
+
+	UFUNCTION(BlueprintCallable, Category="Anim")
+	void PlayAttackMontage(FName Section = NAME_None);
+
+	UFUNCTION(BlueprintCallable, Category="Anim")
+	void PlayHitReactMontage(FName Section = NAME_None);
 
 protected:
 	// Called when the game starts or when spawned

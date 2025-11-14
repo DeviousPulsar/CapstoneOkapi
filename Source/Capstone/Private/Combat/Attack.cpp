@@ -50,6 +50,9 @@ UAttack* UAttack::AsStaticAttack(int x, int y) const
             NewStg.Targets.Add(FGridPosition(x + Target.x, y + Target.y));
         }
 
+        NewStg.TargetWarningEffects = Stg.TargetWarningEffects;
+        NewStg.TargetAttackEffects = Stg.TargetAttackEffects;
+
         Result->AttackStages.Add(NewStg);
     }
 
