@@ -73,7 +73,11 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Event Name="mx_BeginLevel_Tutorial" ID="{865EFE7D-BF28-4C28-8A6C-F4834EBD7A3E}">
+						<Event Name="mx_EnterFight_Tutorial" ID="{865EFE7D-BF28-4C28-8A6C-F4834EBD7A3E}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="12"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
 							<ChildrenList>
 								<Action Name="" ID="{748DAE34-E4D0-4CF7-B280-5D1E3B8BCA43}" ShortID="473250512">
 									<PropertyList>
@@ -123,6 +127,34 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Levels" ID="{AA2E4462-DDC5-4969-9280-3E655C97B2FE}" WorkUnitID="{94B33324-6796-4D6F-B3D4-FD947CA7E7BA}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="mx_EnterOW_House" ID="{6F0843EB-6B5F-450E-B999-432EAE23352B}">
+							<ChildrenList>
+								<Action Name="" ID="{9CBCF478-3578-4547-A96F-AED4493F95F9}" ShortID="960637692">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Overworld_House" ID="{9C38A31A-9B73-4CC9-8AC1-E0523429D81A}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="mx_EnterOW_Picnic" ID="{83B5BE5D-FFEC-4093-A251-85507FE93FE8}">
+							<ChildrenList>
+								<Action Name="" ID="{207C75B5-1C13-4361-B690-687246B611FA}" ShortID="504718360">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Overworld_Picnic" ID="{78BC4618-3630-48C9-B3FD-6B175F986CE1}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>

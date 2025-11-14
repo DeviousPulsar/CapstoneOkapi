@@ -10,7 +10,7 @@
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="mx_BeginLevel_Tutorial" ID="{865EFE7D-BF28-4C28-8A6C-F4834EBD7A3E}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<ObjectRef Name="mx_EnterFight_Tutorial" ID="{865EFE7D-BF28-4C28-8A6C-F4834EBD7A3E}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
@@ -31,11 +31,7 @@
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
-					<CurrentStateList ShowAll="true">
-						<CurrentStateRef Name="Start" ID="{3EFDA861-5D72-463C-9168-2A6038969BCA}"/>
-						<CurrentStateRef Name="MainMenu" ID="{F27F96AE-DB1B-44D0-9FF0-3B0CDA6B26F1}"/>
-						<CurrentStateRef Name="In_Dialogue" ID="{5C450E67-3499-4C68-9E82-81FFC06B4E1C}"/>
-					</CurrentStateList>
+					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
 				<SoundcasterSession Name="SFX" ID="{18324D95-7A08-4343-A501-89D3F953AB04}">
@@ -43,6 +39,29 @@
 						<Module>
 							<ObjectRef Name="Picnic" ID="{705B77F2-F085-4D1E-BBB1-DCF9BE15BA39}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="0" Y="0"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Scenes" ID="{62B719A6-D097-47B7-8A9A-EC2317112068}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="mx_StartGame" ID="{955E3FDE-541F-48B3-82FF-EA76D3AF8461}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_EnterOW_House" ID="{6F0843EB-6B5F-450E-B999-432EAE23352B}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_EnterFight_Tutorial" ID="{865EFE7D-BF28-4C28-8A6C-F4834EBD7A3E}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_EnterOW_Picnic" ID="{83B5BE5D-FFEC-4093-A251-85507FE93FE8}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="1" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>

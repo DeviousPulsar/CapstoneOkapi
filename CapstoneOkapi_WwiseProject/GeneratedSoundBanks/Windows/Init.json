@@ -68,22 +68,16 @@
         "GUID": "{33EC8F36-82C3-4408-BFA1-B16B1D573B1B}"
        },
        {
+        "Id": "676302600",
+        "Name": "Overworld_House",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_House",
+        "GUID": "{9C38A31A-9B73-4CC9-8AC1-E0523429D81A}"
+       },
+       {
         "Id": "748895195",
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\None",
         "GUID": "{892DA656-FF0F-4BA0-87EE-EAB55937DBE8}"
-       },
-       {
-        "Id": "1462071413",
-        "Name": "Overworld_1",
-        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_1",
-        "GUID": "{9C38A31A-9B73-4CC9-8AC1-E0523429D81A}"
-       },
-       {
-        "Id": "1462071414",
-        "Name": "Overworld_2",
-        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_2",
-        "GUID": "{78BC4618-3630-48C9-B3FD-6B175F986CE1}"
        },
        {
         "Id": "1462071415",
@@ -108,6 +102,12 @@
         "Name": "Fight_3",
         "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Fight_3",
         "GUID": "{33D88523-AF4B-4A5A-8B89-F34C9A7EBE7F}"
+       },
+       {
+        "Id": "1606094870",
+        "Name": "Overworld_Picnic",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_Picnic",
+        "GUID": "{78BC4618-3630-48C9-B3FD-6B175F986CE1}"
        },
        {
         "Id": "3604647259",
@@ -184,6 +184,6 @@
     ]
    }
   ],
-  "FileHash": "{1A17F05B-9ED4-AEF7-6AA2-1B44C65B13CC}"
+  "FileHash": "{B6842B03-1324-5C36-13AD-6822A4339F5F}"
  }
 }

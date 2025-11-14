@@ -16,8 +16,8 @@
 						<State Name="None" ID="{892DA656-FF0F-4BA0-87EE-EAB55937DBE8}"/>
 						<State Name="MainMenu" ID="{F27F96AE-DB1B-44D0-9FF0-3B0CDA6B26F1}"/>
 						<State Name="Tutorial" ID="{A845D835-9F0F-4F70-9851-A9C514FC2613}"/>
-						<State Name="Overworld_1" ID="{9C38A31A-9B73-4CC9-8AC1-E0523429D81A}"/>
-						<State Name="Overworld_2" ID="{78BC4618-3630-48C9-B3FD-6B175F986CE1}"/>
+						<State Name="Overworld_House" ID="{9C38A31A-9B73-4CC9-8AC1-E0523429D81A}"/>
+						<State Name="Overworld_Picnic" ID="{78BC4618-3630-48C9-B3FD-6B175F986CE1}"/>
 						<State Name="Overworld_3" ID="{22C4CE79-D293-4658-A52F-17F7E18ED7BD}"/>
 						<State Name="Fight_1" ID="{B9D400EB-5FA0-4D23-A9DA-241104CCEB8D}"/>
 						<State Name="Fight_2" ID="{CAFB8504-7D4B-4B22-B84E-73BEA8AFDECA}"/>

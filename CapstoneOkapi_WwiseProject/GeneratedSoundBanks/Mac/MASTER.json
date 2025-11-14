@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A0E27053-32A3-454F-8FBA-D178D463360E}",
     "Language": "SFX",
-    "Hash": "{37337895-D64F-885A-752E-5E48EEBBDE8E}",
+    "Hash": "{538C6A33-F308-1FCD-F5C3-58871BD8D82A}",
     "ObjectPath": "\\SoundBanks\\Master Work Unit\\MASTER",
     "ShortName": "MASTER",
     "Path": "MASTER.bnk",
@@ -24,6 +24,14 @@
       "CachePath": "3C/{3C36F72B-0DC2-242C-5682-C04C6562E8E5}.wem"
      },
      {
+      "Id": "196066655",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mx_LD_Explore01_HouseIntro_133bpmENDS.wav",
+      "CachePath": "2C/{2CC52B5D-D017-5145-B1AD-B2B68A0E10E8}.wem"
+     },
+     {
       "Id": "308758893",
       "Language": "SFX",
       "Streaming": "false",
@@ -32,12 +40,28 @@
       "CachePath": "8B/{8B99996F-2A52-324A-4372-2B7372ACF2A7}.wem"
      },
      {
+      "Id": "313109862",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mx_LD_Explore04_PicnicMain_133bpmENDS.wav",
+      "CachePath": "7C/{7C52B8C1-3B54-8310-EFDD-7F9DF3856374}.wem"
+     },
+     {
       "Id": "470082489",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "mx_LD_Tutorial02_DLG_133bpmLOOPS.wav",
       "CachePath": "1F/{1FCBD57D-638C-F4EF-F673-8BA11DB9286B}.wem"
+     },
+     {
+      "Id": "496236210",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mx_LD_Explore03_PicnicIntro_133bpmENDS.wav",
+      "CachePath": "AB/{AB75FDFA-9AE4-2EFB-784B-A35D02F937C8}.wem"
      },
      {
       "Id": "508102864",
@@ -72,6 +96,30 @@
       "CachePath": "5D/{5D980576-A4E1-8170-246F-DCA9F0A0FD77}.wem"
      },
      {
+      "Id": "908395360",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mx_LD_Explore02_HouseMain_133bpmLOOPS_v1c.wav",
+      "CachePath": "2F/{2FC62BDA-FC86-F73A-3C03-0156B8AD2BA1}.wem"
+     },
+     {
+      "Id": "927261224",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mx_LD_Transition.wav",
+      "CachePath": "A2/{A23459AF-3869-6A21-6903-7C854204A8A1}.wem"
+     },
+     {
+      "Id": "1015820244",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Ambient_Picnic.wav",
+      "CachePath": "8B/{8B864131-DB06-3117-ADAD-E2A0E566C91F}.wem"
+     },
+     {
       "Id": "1070967771",
       "Language": "SFX",
       "Streaming": "false",
@@ -82,9 +130,9 @@
     ],
     "Events": [
      {
-      "Id": "2123952543",
-      "Name": "mx_BeginLevel_Tutorial",
-      "ObjectPath": "\\Events\\MX_Miles\\LEVELS\\mx_BeginLevel_Tutorial",
+      "Id": "2958924562",
+      "Name": "mx_EnterFight_Tutorial",
+      "ObjectPath": "\\Events\\MX_Miles\\LEVELS\\mx_EnterFight_Tutorial",
       "GUID": "{865EFE7D-BF28-4C28-8A6C-F4834EBD7A3E}",
       "Color": "12",
       "MaxAttenuation": "0",
@@ -112,6 +160,46 @@
         "Name": "Tutorial",
         "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Tutorial",
         "GUID": "{A845D835-9F0F-4F70-9851-A9C514FC2613}"
+       }
+      ]
+     },
+     {
+      "Id": "2228977358",
+      "Name": "mx_EnterOW_House",
+      "ObjectPath": "\\Events\\MX_Miles\\LEVELS\\mx_EnterOW_House",
+      "GUID": "{6F0843EB-6B5F-450E-B999-432EAE23352B}",
+      "Color": "12",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "6452437",
+        "Id": "676302600",
+        "Name": "Overworld_House",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_House",
+        "GUID": "{9C38A31A-9B73-4CC9-8AC1-E0523429D81A}"
+       }
+      ]
+     },
+     {
+      "Id": "1788329924",
+      "Name": "mx_EnterOW_Picnic",
+      "ObjectPath": "\\Events\\MX_Miles\\LEVELS\\mx_EnterOW_Picnic",
+      "GUID": "{83B5BE5D-FFEC-4093-A251-85507FE93FE8}",
+      "Color": "12",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "6452437",
+        "Id": "1606094870",
+        "Name": "Overworld_Picnic",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_Picnic",
+        "GUID": "{78BC4618-3630-48C9-B3FD-6B175F986CE1}"
        }
       ]
      },
@@ -202,6 +290,11 @@
       "GUID": "{955E3FDE-541F-48B3-82FF-EA76D3AF8461}",
       "Color": "12",
       "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "927261224"
+       }
+      ],
       "SwitchContainers": [
        {
         "SwitchValue": {
@@ -256,6 +349,124 @@
           ]
          }
         ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "6452437",
+         "Id": "676302600",
+         "GUID": "{9C38A31A-9B73-4CC9-8AC1-E0523429D81A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "196066655"
+         },
+         {
+          "Id": "908395360"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "6452437",
+         "Id": "1606094870",
+         "GUID": "{78BC4618-3630-48C9-B3FD-6B175F986CE1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "313109862"
+         },
+         {
+          "Id": "496236210"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "6452437",
+         "Id": "3762955427",
+         "GUID": "{A845D835-9F0F-4F70-9851-A9C514FC2613}"
+        },
+        "Children": [
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "437528237",
+           "Id": "1281810935",
+           "GUID": "{3EFDA861-5D72-463C-9168-2A6038969BCA}"
+          },
+          "MediaRefs": [
+           {
+            "Id": "55581447"
+           },
+           {
+            "Id": "308758893"
+           },
+           {
+            "Id": "470082489"
+           },
+           {
+            "Id": "538492038"
+           },
+           {
+            "Id": "840371906"
+           }
+          ]
+         },
+         {
+          "SwitchValue": {
+           "GroupType": "State",
+           "GroupId": "437528237",
+           "Id": "979765101",
+           "GUID": "{3AA3C406-052A-4B98-B0FA-ED76C6D78559}"
+          },
+          "MediaRefs": [
+           {
+            "Id": "508102864"
+           },
+           {
+            "Id": "509571349"
+           },
+           {
+            "Id": "1070967771"
+           }
+          ]
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "6452437",
+         "Id": "676302600",
+         "GUID": "{9C38A31A-9B73-4CC9-8AC1-E0523429D81A}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "196066655"
+         },
+         {
+          "Id": "908395360"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "6452437",
+         "Id": "1606094870",
+         "GUID": "{78BC4618-3630-48C9-B3FD-6B175F986CE1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "313109862"
+         },
+         {
+          "Id": "496236210"
+         }
+        ]
        }
       ],
       "ActionSetState": [
@@ -267,6 +478,39 @@
         "GUID": "{F27F96AE-DB1B-44D0-9FF0-3B0CDA6B26F1}"
        }
       ]
+     },
+     {
+      "Id": "4246143347",
+      "Name": "Picnic",
+      "ObjectPath": "\\Events\\SFX_Koyo\\Ambient\\Picnic",
+      "GUID": "{705B77F2-F085-4D1E-BBB1-DCF9BE15BA39}",
+      "Color": "1",
+      "DurationType": "Infinite",
+      "MediaRefs": [
+       {
+        "Id": "1015820244"
+       }
+      ]
+     }
+    ],
+    "Busses": [
+     {
+      "Id": "393239870",
+      "Name": "SFX",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX",
+      "GUID": "{894BE39B-70EE-48EE-8EB3-50990B7D0DEB}"
+     },
+     {
+      "Id": "1685527054",
+      "Name": "MX",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MX",
+      "GUID": "{C1E0736F-1103-4945-9E63-99812B48B005}"
+     },
+     {
+      "Id": "3803692087",
+      "Name": "Master Audio Bus",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
+      "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
      }
     ],
     "StateGroups": [
@@ -283,22 +527,16 @@
         "GUID": "{33EC8F36-82C3-4408-BFA1-B16B1D573B1B}"
        },
        {
+        "Id": "676302600",
+        "Name": "Overworld_House",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_House",
+        "GUID": "{9C38A31A-9B73-4CC9-8AC1-E0523429D81A}"
+       },
+       {
         "Id": "748895195",
         "Name": "None",
         "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\None",
         "GUID": "{892DA656-FF0F-4BA0-87EE-EAB55937DBE8}"
-       },
-       {
-        "Id": "1462071413",
-        "Name": "Overworld_1",
-        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_1",
-        "GUID": "{9C38A31A-9B73-4CC9-8AC1-E0523429D81A}"
-       },
-       {
-        "Id": "1462071414",
-        "Name": "Overworld_2",
-        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_2",
-        "GUID": "{78BC4618-3630-48C9-B3FD-6B175F986CE1}"
        },
        {
         "Id": "1462071415",
@@ -323,6 +561,12 @@
         "Name": "Fight_3",
         "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Fight_3",
         "GUID": "{33D88523-AF4B-4A5A-8B89-F34C9A7EBE7F}"
+       },
+       {
+        "Id": "1606094870",
+        "Name": "Overworld_Picnic",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Overworld_Picnic",
+        "GUID": "{78BC4618-3630-48C9-B3FD-6B175F986CE1}"
        },
        {
         "Id": "3604647259",
@@ -399,6 +643,6 @@
     ]
    }
   ],
-  "FileHash": "{653ACB2C-80FB-0BAF-E324-0A7C8ADCDC0E}"
+  "FileHash": "{C273F81F-0CDC-A629-2350-062D8D7C8CB5}"
  }
 }
