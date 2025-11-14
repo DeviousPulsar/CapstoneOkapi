@@ -100,5 +100,5 @@ private:
 	/// <param name="State"></param>
 	/// /// <param name="Damage"></param>
 	UFUNCTION(BlueprintCallable, Category = "Grid")
-	void AttackTile(FGridPosition Pos, double WaitTime, ETileState State, int32 Damage, bool bParryable);
+	void AttackTile(FGridPosition Pos, double WaitTime, ETileState State, int32 Damage, bool bParryable, FAttackEffect Effect);
 };

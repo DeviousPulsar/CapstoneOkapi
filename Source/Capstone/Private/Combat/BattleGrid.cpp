@@ -64,7 +64,7 @@ ABattleTile* ABattleGrid::GetTileAt(FGridPosition Pos)
     return nullptr;
 }
 
-void ABattleGrid::AttackTile(FGridPosition Pos, double WaitTime, ETileState State, int32 Damage,bool bParriable)
+void ABattleGrid::AttackTile(FGridPosition Pos, double WaitTime, ETileState State, int32 Damage,bool bParriable, FAttackEffect Effect)
 {
     if (Pos.x < 0 || Pos.x >= GridWidth || Pos.y < 0 || Pos.y >= GridHeight)
     {
@@ -74,14 +74,14 @@ void ABattleGrid::AttackTile(FGridPosition Pos, double WaitTime, ETileState Stat
     ABattleTile* Tile = GetTileAt(Pos);
     FTimerHandle TimerHandle;
     FTimerDelegate TileDel;
-    TileDel.BindUFunction(Tile, FName("AffectTile"), State, Damage, bParriable);
+    TileDel.BindUFunction(Tile, FName("AffectTile"), State, Damage, bParriable, Effect);
     if (WaitTime != 0)
     {
         GetWorldTimerManager().SetTimer(TimerHandle, TileDel, WaitTime, false);
     }
     else
     {
-        Tile->AffectTile(State, Damage, bParriable);
+        Tile->AffectTile(State, Damage, bParriable, Effect);
     }
 }
 
@@ -106,6 +106,7 @@ void ABattleGrid::ExecuteAttack(UAttack* Attack)
             WarningTime = 0;
         }
 
+        int index = 0;
         //loop through each tile in the current frame
         for (FGridPosition Pos : currentFrame.Targets)
         {
@@ -120,9 +121,30 @@ void ABattleGrid::ExecuteAttack(UAttack* Attack)
             {
                 StateToUse = ETileState::Unparriable;
             }
-            AttackTile(Pos, WarningTime, ETileState::Warning, 0, currentFrame.bParriable); //start warning
-            AttackTile(Pos, CurrentTime, StateToUse, currentFrame.Damage, currentFrame.bParriable); //start damaging
-            AttackTile(Pos, CurrentTime + currentFrame.DamageLength, ETileState::Default, 0, true); //change tile back to normal
+
+            //get attacks out
+            UNiagaraSystem* WarningVFX = nullptr;
+            UNiagaraSystem* AttackVFX = nullptr;
+
+            //avoid index out of bounds
+            if(index < currentFrame.TargetWarningEffects.Num()){
+                WarningVFX = currentFrame.TargetWarningEffects[index];
+            }
+
+            if(index < currentFrame.TargetAttackEffects.Num()){
+                AttackVFX = currentFrame.TargetAttackEffects[index];
+            }
+
+
+            //form data class
+            FAttackEffect WarningEffect = FAttackEffect(WarningVFX, currentFrame.WarningLength, 1); //just set scale to 1 for now
+            FAttackEffect AttackingEffect = FAttackEffect(AttackVFX, currentFrame.DamageLength, 1); 
+            FAttackEffect NoEffect = FAttackEffect(nullptr, 0, 0);
+
+            AttackTile(Pos, WarningTime, ETileState::Warning, 0, currentFrame.bParriable, WarningEffect); //start warning
+            AttackTile(Pos, CurrentTime, StateToUse, currentFrame.Damage, currentFrame.bParriable, AttackingEffect); //start damaging
+            AttackTile(Pos, CurrentTime + currentFrame.DamageLength, ETileState::Default, 0, true, NoEffect); //change tile back to normal
+            index++; //used for tracking index for effects
         }
     }
 }

@@ -151,12 +151,18 @@ void ACombatPlayer::Move(const FInputActionValue& Value)
 
 void ACombatPlayer::Attack()
 {
+	PlayAttackMontage();
 	AttackGrid(LeftClickAttack);
 }
 
 void ACombatPlayer::Parry() 
 {
 	AttemptParry();
+}
+
+void ACombatPlayer::OptionMenu()
+{
+	OnOptionsSignal.Broadcast();
 }
 
 void ACombatPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
@@ -170,6 +176,7 @@ void ACombatPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Started, this, &ACombatPlayer::Move);
 		EnhancedInputComponent->BindAction(AttackAction, ETriggerEvent::Started, this, &ACombatPlayer::Attack);
 		EnhancedInputComponent->BindAction(ParryAction, ETriggerEvent::Started, this, &ACombatPlayer::Parry);
+		EnhancedInputComponent->BindAction(PauseAction, ETriggerEvent::Started, this, &ACombatPlayer::OptionMenu);
 	
 		UE_LOG(LogTemp, Log, TEXT("Enhanced input component '%s' configured for '%s'"), *GetNameSafe(EnhancedInputComponent), *GetNameSafe(this));
 	}

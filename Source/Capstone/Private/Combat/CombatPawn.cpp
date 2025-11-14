@@ -8,11 +8,12 @@
 #include "EnhancedInputSubsystems.h"
 
 #include "Engine/Engine.h"
+#include "Animation/AnimInstance.h"
 
 // Sets default values
 ACombatPawn::ACombatPawn()
 {
- 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
 	//default values to fill state variables, may be overwritten with Initialize
@@ -33,18 +34,18 @@ ACombatPawn::ACombatPawn()
 	ParryBoost = false;
 }
 
-bool ACombatPawn::GetIsPlayer(){
+bool ACombatPawn::GetIsPlayer() {
 	return IsPlayer;
 }
 
-void ACombatPawn::Initialize(int X, int Y, ABattleGrid* BattleGrid){
+void ACombatPawn::Initialize(int X, int Y, ABattleGrid* BattleGrid) {
 	this->CurrentPosition = FGridPosition(X, Y);
 	this->Grid = BattleGrid;
-	this->IsPlayer = X < BattleGrid->GetWidth()/2;
+	this->IsPlayer = X < BattleGrid->GetWidth() / 2;
 	this->PawnHealth = InitialHealth;
 
 	//move pawn to location on grid
-	if(Grid){
+	if (Grid) {
 		FVector GridWorldLocation = Grid->GetTilePos(CurrentPosition);
 		SetActorLocation(GridWorldLocation, false);
 	}
@@ -53,14 +54,14 @@ void ACombatPawn::Initialize(int X, int Y, ABattleGrid* BattleGrid){
 /// @brief Used to move the pawn on the board. Enforces the rule about the enemy not being allowed on the
 /// player side and vice versa. Also disallows movement off the board.
 /// @param Value 
-void ACombatPawn::Move(FVector2D Vector){
+void ACombatPawn::Move(FVector2D Vector) {
 	//disallow move if grid is not valid
-	if(Grid == nullptr){
-		return; 
+	if (Grid == nullptr) {
+		return;
 	}
 
 	//move disallowed, do nothing
-	if (MoveAllowed == false || bIsFrozen){
+	if (MoveAllowed == false || bIsFrozen) {
 		return;
 	}
 
@@ -69,17 +70,17 @@ void ACombatPawn::Move(FVector2D Vector){
 	int Y = FMath::RoundToInt(Vector.Y);
 
 	int32 IsPlayerOffset;
-	if(IsPlayer){
+	if (IsPlayer) {
 		IsPlayerOffset = 0;
 	}
-	else{
-		IsPlayerOffset = Grid->GetWidth()/2;
+	else {
+		IsPlayerOffset = Grid->GetWidth() / 2;
 	}
 
 	//do movement
-	if(X != 0){
+	if (X != 0) {
 		int32 RequestedXPosition = CurrentPosition.x + X;
-		if (RequestedXPosition >= 0 + IsPlayerOffset && RequestedXPosition < Grid->GetWidth()/2 + IsPlayerOffset){
+		if (RequestedXPosition >= 0 + IsPlayerOffset && RequestedXPosition < Grid->GetWidth() / 2 + IsPlayerOffset) {
 			//allow move in x direction
 			CurrentPosition.x = RequestedXPosition;
 			//move pawn on grid
@@ -88,9 +89,9 @@ void ACombatPawn::Move(FVector2D Vector){
 			Stun(MoveStun);
 		}
 	}
-	if(Y != 0){
+	if (Y != 0) {
 		int32 RequestedYPosition = CurrentPosition.y + Y;
-		if (RequestedYPosition >= 0 && RequestedYPosition < Grid->GetHeight()){
+		if (RequestedYPosition >= 0 && RequestedYPosition < Grid->GetHeight()) {
 			//allow move in y direction
 			CurrentPosition.y = RequestedYPosition;
 			//move pawn on grid
@@ -101,15 +102,15 @@ void ACombatPawn::Move(FVector2D Vector){
 	}
 }
 
-FGridPosition ACombatPawn::GetPosition(){
+FGridPosition ACombatPawn::GetPosition() {
 	return CurrentPosition;
 }
 
-int32 ACombatPawn::GetHealth(){
+int32 ACombatPawn::GetHealth() {
 	return PawnHealth;
 }
 
-int32 ACombatPawn::EditHealth(int32 AmountToChange){
+int32 ACombatPawn::EditHealth(int32 AmountToChange) {
 	PawnHealth += AmountToChange;
 	PawnHealth = FMath::Clamp(PawnHealth, 0, InitialHealth);
 
@@ -126,12 +127,12 @@ void ACombatPawn::BeginPlay()
 void ACombatPawn::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	
+
 	//check for damage to pawn
 	if (Grid)
 	{
 		int32 Damage = Grid->DamageAtTile(CurrentPosition);
-		if (Damage != 0 && Vulnerable && !bIsFrozen) 
+		if (Damage != 0 && Vulnerable && !bIsFrozen)
 		{
 			bool bHitParryable = Grid->IsParriableAtTile(CurrentPosition);
 
@@ -145,7 +146,7 @@ void ACombatPawn::Tick(float DeltaTime)
 					Damage = 0;
 				}
 			}
-			
+
 			if (Parry && bHitParryable)
 			{
 				ParryBoost = true;
@@ -156,6 +157,7 @@ void ACombatPawn::Tick(float DeltaTime)
 			{
 				ParryBoost = false;
 				EditHealth(-Damage);
+				PlayHitReactMontage();
 			}
 			Vulnerable = false;
 			TimeSinceVulnerable = 0.0f;
@@ -187,7 +189,7 @@ void ACombatPawn::Tick(float DeltaTime)
 		if (ParryProt && (TimeSinceVulnerable >= ParryProtTime))
 		{
 			Vulnerable = true;
-			ParryProt = false; 
+			ParryProt = false;
 		}
 	}
 }
@@ -223,3 +225,31 @@ void ACombatPawn::SetMovementAllowed(bool MovementAllowed)
 {
 	bIsFrozen = !MovementAllowed;
 }
+
+void ACombatPawn::PlayAttackMontage(FName Section)
+{
+	USkeletalMeshComponent* Mesh = FindComponentByClass<USkeletalMeshComponent>();
+	if (!Mesh) return;
+	UAnimInstance* Anim = Mesh->GetAnimInstance();
+	if (!Anim || !AttackMontage) return;
+	Anim->Montage_Play(AttackMontage);
+	if (Section != NAME_None)
+	{
+		Anim->Montage_JumpToSection(Section, AttackMontage);
+	}
+}
+
+void ACombatPawn::PlayHitReactMontage(FName Section)
+{
+	USkeletalMeshComponent* Mesh = FindComponentByClass<USkeletalMeshComponent>();
+	if (!Mesh) return;
+	UAnimInstance* Anim = Mesh->GetAnimInstance();
+	if (!Anim || !HitReactMontage) return;
+	Anim->StopAllMontages(0.1f);
+	Anim->Montage_Play(HitReactMontage);
+	if (Section != NAME_None)
+	{
+		Anim->Montage_JumpToSection(Section, HitReactMontage);
+	}
+}
+

@@ -4,6 +4,8 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "Attack.h"
+
 #include "BattleTile.generated.h"
 
 // Enum for tile states
@@ -16,6 +18,9 @@ enum class ETileState : uint8
 	Unparriable UMETA(DisplayName="Unparryable")
 };
 
+class UNiagaraComponent;
+class UNiagaraSystem;
+
 /// <summary>
 /// Class used to represent one of the tiles on battle grid, can have states default, damage, and warning
 /// </summary>
@@ -27,6 +32,9 @@ class CAPSTONE_API ABattleTile : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ABattleTile();
+
+	UPROPERTY()
+	UNiagaraComponent* ActiveEffectComponent = nullptr;
 
 protected:
 	// Called when the game starts or when spawned
@@ -64,5 +72,5 @@ public:
 	/// <param name="NewState"></param>
 	/// /// <param name="Damage"></param>
 	UFUNCTION(BlueprintCallable, Category = "Tile")
-	void AffectTile(ETileState NewState, int32 NewDamage,bool bNewParryable);
+	void AffectTile(ETileState NewState, int32 NewDamage,bool bNewParryable, FAttackEffect Effect);
 };
