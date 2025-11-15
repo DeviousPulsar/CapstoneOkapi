@@ -32,7 +32,9 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
-					<CurrentSwitchList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Gravel" ID="{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}"/>
+					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="SFX" ID="{18324D95-7A08-4343-A501-89D3F953AB04}">
 					<ModuleList>
@@ -40,10 +42,24 @@
 							<ObjectRef Name="Picnic" ID="{705B77F2-F085-4D1E-BBB1-DCF9BE15BA39}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="0" Y="0"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="Footstep" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Hover" ID="{E44F3A39-6B53-4663-B9EA-E9D4491AB88E}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Select" ID="{402B5382-5422-4494-9162-07157B8D762D}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="3" Y="0"/>
+						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
-					<CurrentSwitchList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Gravel" ID="{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}"/>
+					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="Scenes" ID="{62B719A6-D097-47B7-8A9A-EC2317112068}">
 					<ModuleList>

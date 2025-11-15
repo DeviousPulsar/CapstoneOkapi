@@ -39,6 +39,501 @@
 						</Sound>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="Footsteps" ID="{D74BAB32-760F-45E8-9B6D-1EA5AF0A5180}" ShortID="885810690">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<SwitchContainer Name="Footsteps" ID="{AC191FCC-7113-4B8C-8D12-CE546F5F666B}" ShortID="314653798">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+								</Reference>
+								<Reference Name="SwitchGroupOrStateGroup">
+									<ObjectRef Name="Footsteps" ID="{ECDAE3C8-D624-490B-B3C3-B40C004EDF0E}" WorkUnitID="{D501C5FC-1452-42C3-A302-D83A9982F762}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<RandomSequenceContainer Name="Dirt" ID="{FDE42825-2D9D-4EF6-95FC-9D460643FC27}" ShortID="825027851">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Footstep-Dirt-1" ID="{0ED59373-B0B6-4319-8D1F-3ABD89634823}" ShortID="193601951">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Footstep-Dirt-1" ID="{7347161D-1AC8-46EB-BFF6-44123F7282C8}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.0890817083660796"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Footstep-Dirt-1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="1008156858"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Footstep-Dirt-1" ID="{7347161D-1AC8-46EB-BFF6-44123F7282C8}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Footstep-Dirt-2" ID="{C3C5E68C-77F5-4D39-9997-F0F8C9E4DEB5}" ShortID="374439091">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Footstep-Dirt-2" ID="{9DE2E95F-5761-43CE-99E8-58D38E0BE0B3}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.0668112786886749"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Footstep-Dirt-2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="338197633"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Footstep-Dirt-2" ID="{9DE2E95F-5761-43CE-99E8-58D38E0BE0B3}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Footstep-Dirt-3" ID="{27048620-1915-4179-87BE-B3ED3B304B2B}" ShortID="636818914">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Footstep-Dirt-3" ID="{889FAA69-DC89-4802-A305-397C22BD198E}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.0698481547341171"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Footstep-Dirt-3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="846128762"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Footstep-Dirt-3" ID="{889FAA69-DC89-4802-A305-397C22BD198E}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Footstep-Dirt-4" ID="{84EDE60D-ACB7-4239-BD0A-4A42B5887712}" ShortID="293979044">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Footstep-Dirt-4" ID="{BB7E6059-2A59-4BE2-9D14-E8AB983E0241}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.0804772220568129"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Footstep-Dirt-4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="962263161"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Footstep-Dirt-4" ID="{BB7E6059-2A59-4BE2-9D14-E8AB983E0241}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Footstep-Dirt-5" ID="{F95D46A2-93AB-48BC-A745-A1B262113FCE}" ShortID="90058252">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Footstep-Dirt-5" ID="{2FB9FAE4-AD99-413A-8C4E-FB5D7BEE9BBF}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.094143165424951"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Footstep-Dirt-5.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="971020296"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Footstep-Dirt-5" ID="{2FB9FAE4-AD99-413A-8C4E-FB5D7BEE9BBF}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+								<RandomSequenceContainer Name="Gravel" ID="{A1AB1597-995A-4113-9891-0B289AEFE851}" ShortID="974420981">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<Sound Name="Footstep-Gravel-1" ID="{4296890B-693F-4DB5-95B0-9A9B3DB11542}" ShortID="340500453">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Footstep-Gravel-1" ID="{5EB37123-4821-43AA-9999-5533252FAB86}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.0804772220568129"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Footstep-Gravel-1.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="783217267"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Footstep-Gravel-1" ID="{5EB37123-4821-43AA-9999-5533252FAB86}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Footstep-Gravel-2" ID="{590DF095-1A7C-4C44-B77D-966FAE013F4A}" ShortID="88098370">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Footstep-Gravel-2" ID="{AEFF3A08-EC72-4E7B-9197-0463007FA336}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.0485900224160217"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Footstep-Gravel-2.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="933442325"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Footstep-Gravel-2" ID="{AEFF3A08-EC72-4E7B-9197-0463007FA336}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Footstep-Gravel-3" ID="{8C1FB56E-326D-4E11-830B-D59DE8E6EFB3}" ShortID="292547733">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Footstep-Gravel-3" ID="{5ABD4D15-C997-4178-BF85-3C1C0DC1B389}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.0795372396125711"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Footstep-Gravel-3.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="156898294"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Footstep-Gravel-3" ID="{5ABD4D15-C997-4178-BF85-3C1C0DC1B389}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Footstep-Gravel-4" ID="{4051C376-A262-4557-A2CB-51325FC4B35F}" ShortID="472821981">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Footstep-Gravel-4" ID="{1B956997-5517-412D-AC19-6B88594A0FDA}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.0477223441554254"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Footstep-Gravel-4.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="109720451"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Footstep-Gravel-4" ID="{1B956997-5517-412D-AC19-6B88594A0FDA}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+										<Sound Name="Footstep-Gravel-5" ID="{79BB996D-11D1-4CCE-8DB4-55054C46578C}" ShortID="400223928">
+											<ReferenceList>
+												<Reference Name="Conversion">
+													<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+												</Reference>
+												<Reference Name="OutputBus">
+													<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+												</Reference>
+											</ReferenceList>
+											<ChildrenList>
+												<AudioFileSource Name="Footstep-Gravel-5" ID="{1CA5D584-EE0D-4A2A-BD4A-6F34A8EE7D50}">
+													<PropertyList>
+														<Property Name="LoopBegin" Type="Real64" Value="0.0963123682522722"/>
+														<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+													</PropertyList>
+													<Language>SFX</Language>
+													<AudioFile>Footstep-Gravel-5.wav</AudioFile>
+													<MediaIDList>
+														<MediaID ID="301885343"/>
+													</MediaIDList>
+												</AudioFileSource>
+											</ChildrenList>
+											<ActiveSourceList>
+												<ActiveSource Name="Footstep-Gravel-5" ID="{1CA5D584-EE0D-4A2A-BD4A-6F34A8EE7D50}" Platform="Linked"/>
+											</ActiveSourceList>
+										</Sound>
+									</ChildrenList>
+								</RandomSequenceContainer>
+							</ChildrenList>
+							<GroupingInfo>
+								<GroupingBehaviorList>
+									<GroupingBehavior>
+										<ItemRef Name="Dirt" ID="{FDE42825-2D9D-4EF6-95FC-9D460643FC27}"/>
+									</GroupingBehavior>
+									<GroupingBehavior>
+										<ItemRef Name="Gravel" ID="{A1AB1597-995A-4113-9891-0B289AEFE851}"/>
+									</GroupingBehavior>
+								</GroupingBehaviorList>
+								<GroupingList>
+									<Grouping>
+										<SwitchRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}"/>
+										<ItemList>
+											<ItemRef Name="Dirt" ID="{FDE42825-2D9D-4EF6-95FC-9D460643FC27}"/>
+										</ItemList>
+									</Grouping>
+									<Grouping>
+										<SwitchRef Name="Gravel" ID="{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}"/>
+										<ItemList>
+											<ItemRef Name="Gravel" ID="{A1AB1597-995A-4113-9891-0B289AEFE851}"/>
+										</ItemList>
+									</Grouping>
+								</GroupingList>
+							</GroupingInfo>
+						</SwitchContainer>
+					</ChildrenList>
+				</Folder>
+				<Folder Name="UI" ID="{BF492344-9083-4E0C-85A5-59037608DAB7}" ShortID="668417320">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="15"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<RandomSequenceContainer Name="Hover" ID="{D9CC8474-6395-42B3-80C3-9F90CB9C6473}" ShortID="215893514">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Nocturn UI Hover_1" ID="{F02F8EC6-8397-41F9-AAE4-F00A4F3F1E71}" ShortID="731771163">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Nocturn UI Hover_1" ID="{BD36A98B-43F7-4EFC-B677-D427759EC7E8}">
+											<Language>SFX</Language>
+											<AudioFile>Nocturn UI Hover_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="155703357"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Nocturn UI Hover_1" ID="{BD36A98B-43F7-4EFC-B677-D427759EC7E8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Nocturn UI Hover_2" ID="{C2252EA0-504C-4428-BBE0-D2AACA5C76B8}" ShortID="607656995">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Nocturn UI Hover_2" ID="{905BCB73-23DF-4263-8C7D-1BFF9AA6BB94}">
+											<Language>SFX</Language>
+											<AudioFile>Nocturn UI Hover_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="786282501"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Nocturn UI Hover_2" ID="{905BCB73-23DF-4263-8C7D-1BFF9AA6BB94}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Nocturn UI Hover_3" ID="{57FBF059-EAD2-449E-AFF9-F17105A29B09}" ShortID="153997489">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Nocturn UI Hover_3" ID="{A1B61A97-D036-4F00-A9CD-7C31A8D4427E}">
+											<Language>SFX</Language>
+											<AudioFile>Nocturn UI Hover_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="320569160"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Nocturn UI Hover_3" ID="{A1B61A97-D036-4F00-A9CD-7C31A8D4427E}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Select" ID="{FB67F250-552D-443A-B98E-E2976EED1A47}" ShortID="865340988">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Nocturn UI Select 1" ID="{3C48F2D7-E69F-4622-B867-A66DD948E55C}" ShortID="357954317">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Nocturn UI Select 1" ID="{BABDF5C4-9FCF-458D-AAC7-AB42424885A3}">
+											<Language>SFX</Language>
+											<AudioFile>Nocturn UI Select 1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="622980037"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Nocturn UI Select 1" ID="{BABDF5C4-9FCF-458D-AAC7-AB42424885A3}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Nocturn UI Select 2" ID="{0F065841-3352-421D-B5A7-0255FB37D3E5}" ShortID="263204822">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Nocturn UI Select 2" ID="{88BD3A9C-D0D7-4ACE-A5BB-68012AE4D6A1}">
+											<Language>SFX</Language>
+											<AudioFile>Nocturn UI Select 2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="878189989"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Nocturn UI Select 2" ID="{88BD3A9C-D0D7-4ACE-A5BB-68012AE4D6A1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Nocturn UI Select 3" ID="{8F623DA6-94D3-416C-95B5-97FB539A872A}" ShortID="565344325">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Nocturn UI Select 3" ID="{E9AD7C2E-71D1-45B0-A2B2-FCA61F36D919}">
+											<Language>SFX</Language>
+											<AudioFile>Nocturn UI Select 3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="530019063"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Nocturn UI Select 3" ID="{E9AD7C2E-71D1-45B0-A2B2-FCA61F36D919}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</AudioObjects>
