@@ -22,6 +22,47 @@
 						</Event>
 					</ChildrenList>
 				</Folder>
+				<Folder Name="SFX" ID="{DE04EE14-49F2-4BB8-9C49-22EB6F13FA1A}" ShortID="985583554">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="15"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<Event Name="UI_Hover" ID="{E44F3A39-6B53-4663-B9EA-E9D4491AB88E}">
+							<ChildrenList>
+								<Action Name="" ID="{9D38D94A-C815-4018-9533-4899049043C6}" ShortID="53794203">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Hover" ID="{D9CC8474-6395-42B3-80C3-9F90CB9C6473}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="UI_Select" ID="{402B5382-5422-4494-9162-07157B8D762D}">
+							<ChildrenList>
+								<Action Name="" ID="{BEB64E2B-0511-4D47-B9A3-A34B7D3B382C}" ShortID="1065880001">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Select" ID="{FB67F250-552D-443A-B98E-E2976EED1A47}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="Footstep" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}">
+							<ChildrenList>
+								<Action Name="" ID="{D9B7EFAF-471F-4A58-B875-F8EC69E04991}" ShortID="861552891">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Footsteps" ID="{AC191FCC-7113-4B8C-8D12-CE546F5F666B}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+					</ChildrenList>
+				</Folder>
 			</ChildrenList>
 		</WorkUnit>
 	</Events>

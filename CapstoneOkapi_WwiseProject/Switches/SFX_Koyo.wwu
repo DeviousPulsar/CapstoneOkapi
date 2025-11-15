@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{D501C5FC-1452-42C3-A302-D83A9982F762}" SchemaVersion="123">
+	<Switches>
+		<WorkUnit Name="SFX_Koyo" ID="{D501C5FC-1452-42C3-A302-D83A9982F762}" PersistMode="Standalone">
+			<ChildrenList>
+				<Folder Name="Footsteps" ID="{3B11BCAE-465D-4B14-BB24-273E372152B9}" ShortID="501142133">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="4"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<SwitchGroup Name="Footsteps" ID="{ECDAE3C8-D624-490B-B3C3-B40C004EDF0E}">
+							<ChildrenList>
+								<Switch Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}"/>
+								<Switch Name="Gravel" ID="{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}"/>
+								<Switch Name="Wood" ID="{0C8C24ED-553D-4101-82B6-8BDC72FAA041}"/>
+							</ChildrenList>
+						</SwitchGroup>
+					</ChildrenList>
+				</Folder>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>
