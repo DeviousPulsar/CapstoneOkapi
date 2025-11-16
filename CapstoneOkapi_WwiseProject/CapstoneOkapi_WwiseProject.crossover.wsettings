@@ -3,7 +3,7 @@
 	<UserProjectSettingsInfo>
 		<UserProjectSettings Name="" ID="{FE7C28C1-C18B-4120-97F9-CC332949EE6F}">
 			<PropertyList>
-				<Property Name="AudioFilesImporter\Path" Type="string" Value="Y:\Game Audio\Nocturn\Footsteps\Gravel\"/>
+				<Property Name="AudioFilesImporter\Path" Type="string" Value="Y:\Game Audio\Nocturn\Footsteps\Wood\"/>
 				<Property Name="Event Action List\{3824A5FD-33FD-4A31-ADC9-1911C541563F}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{402B5382-5422-4494-9162-07157B8D762D}\x64_Expand States" Type="string" Value=""/>
 				<Property Name="Event Action List\{5B065C38-A605-49A0-953B-DB0723BE4997}\x64_Expand States" Type="string" Value=""/>
@@ -160,7 +160,7 @@
 					</ValueList>
 				</Property>
 				<Property Name="SoundEngine\BusMapping\{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" Type="string" Value="{CB111F61-917C-49F2-8A65-420327E89B59}3712486622"/>
-				<Property Name="Soundcaster\PreviousSession" Type="string" Value="{5AC62FDF-F9CA-4D95-ACC1-6B50A289D762}"/>
+				<Property Name="Soundcaster\PreviousSession" Type="string" Value="{18324D95-7A08-4343-A501-89D3F953AB04}"/>
 				<Property Name="SwitchContainerEditorLocation\{AC191FCC-7113-4B8C-8D12-CE546F5F666B}\x64_Collapsed States" Type="string" Value=""/>
 				<Property Name="TabPropertyEditor\LayoutInstanceId_PropertyEditorInObjectTabLeft_{031E1E2C-DC25-4332-80C3-FFCC371AC803}\CurrentSearch" Type="string" Value=""/>
 				<Property Name="TabPropertyEditor\LayoutInstanceId_PropertyEditorInObjectTabLeft_{031E1E2C-DC25-4332-80C3-FFCC371AC803}\RecentCategoriesTopCount" Type="int32" Value="0"/>
