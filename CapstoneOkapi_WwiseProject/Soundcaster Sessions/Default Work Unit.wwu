@@ -33,7 +33,7 @@
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Gravel" ID="{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}"/>
+						<CurrentSwitchRef Name="Wood" ID="{0C8C24ED-553D-4101-82B6-8BDC72FAA041}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="SFX" ID="{18324D95-7A08-4343-A501-89D3F953AB04}">
@@ -58,7 +58,7 @@
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Gravel" ID="{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}"/>
+						<CurrentSwitchRef Name="Wood" ID="{0C8C24ED-553D-4101-82B6-8BDC72FAA041}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="Scenes" ID="{62B719A6-D097-47B7-8A9A-EC2317112068}">
