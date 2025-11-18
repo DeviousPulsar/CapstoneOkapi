@@ -5,6 +5,7 @@
 			<ChildrenList>
 				<SoundBank Name="MASTER" ID="{A0E27053-32A3-454F-8FBA-D178D463360E}">
 					<ObjectInclusionList>
+						<ObjectRef Name="SFX_Koyo" ID="{7A5B02D9-4439-4050-A2A8-71688C617170}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Koyo" ID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="Miles" ID="{94B33324-6796-4D6F-B3D4-FD947CA7E7BA}" WorkUnitID="{94B33324-6796-4D6F-B3D4-FD947CA7E7BA}" Origin="Manual" Filter="7"/>
 						<ObjectRef Name="MX_Miles" ID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}" Origin="Manual" Filter="7"/>
