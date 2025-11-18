@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A0E27053-32A3-454F-8FBA-D178D463360E}",
     "Language": "SFX",
-    "Hash": "{538C6A33-F308-1FCD-F5C3-58871BD8D82A}",
+    "Hash": "{49073D36-64BD-4E78-6098-3B6A59711921}",
     "ObjectPath": "\\SoundBanks\\Master Work Unit\\MASTER",
     "ShortName": "MASTER",
     "Path": "MASTER.bnk",
@@ -24,12 +24,60 @@
       "CachePath": "3C/{3C36F72B-0DC2-242C-5682-C04C6562E8E5}.wem"
      },
      {
+      "Id": "109720451",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Gravel-4.wav",
+      "CachePath": "77/{77F2D84C-6C35-D8FE-AB54-31B797C88177}.wem"
+     },
+     {
+      "Id": "155703357",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Nocturn UI Hover_1.wav",
+      "CachePath": "75/{75A0587F-AF07-FD80-0444-E92815DBAC15}.wem"
+     },
+     {
+      "Id": "156898294",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Gravel-3.wav",
+      "CachePath": "DF/{DFCBB0C4-1AB5-9204-3BBB-59C9A44161BA}.wem"
+     },
+     {
       "Id": "196066655",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "mx_LD_Explore01_HouseIntro_133bpmENDS.wav",
       "CachePath": "2C/{2CC52B5D-D017-5145-B1AD-B2B68A0E10E8}.wem"
+     },
+     {
+      "Id": "283095059",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Wood-4.wav",
+      "CachePath": "A4/{A4268E42-6C74-A048-DD29-6E85EB881021}.wem"
+     },
+     {
+      "Id": "289962334",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Wood-1.wav",
+      "CachePath": "76/{764663E0-D123-6FBC-D3EE-0C25BF839E19}.wem"
+     },
+     {
+      "Id": "301885343",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Gravel-5.wav",
+      "CachePath": "20/{20BD05BB-9544-8D20-558C-8A2F4BEC7605}.wem"
      },
      {
       "Id": "308758893",
@@ -46,6 +94,22 @@
       "Location": "Memory",
       "ShortName": "mx_LD_Explore04_PicnicMain_133bpmENDS.wav",
       "CachePath": "7C/{7C52B8C1-3B54-8310-EFDD-7F9DF3856374}.wem"
+     },
+     {
+      "Id": "320569160",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Nocturn UI Hover_3.wav",
+      "CachePath": "D1/{D147DEC0-23B3-AB82-AD9F-0E800C46C87E}.wem"
+     },
+     {
+      "Id": "338197633",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Dirt-2.wav",
+      "CachePath": "AE/{AE1B5C2F-CD92-E736-CD3C-FCD69B9FDB9D}.wem"
      },
      {
       "Id": "470082489",
@@ -80,6 +144,14 @@
       "CachePath": "88/{88919323-3B00-37C4-6B8F-FC188F69BFEC}.wem"
      },
      {
+      "Id": "530019063",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Nocturn UI Select 3.wav",
+      "CachePath": "54/{54642EA0-36CD-26CE-29E8-193AB777433A}.wem"
+     },
+     {
       "Id": "538492038",
       "Language": "SFX",
       "Streaming": "false",
@@ -88,12 +160,76 @@
       "CachePath": "C2/{C2E81245-5348-3135-42B3-B94B9F599AB9}.wem"
      },
      {
+      "Id": "563084003",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Wood-5.wav",
+      "CachePath": "B4/{B4BBBB5B-78A1-0453-B989-CFFC04D8ACAF}.wem"
+     },
+     {
+      "Id": "622980037",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Nocturn UI Select 1.wav",
+      "CachePath": "7B/{7BAA9007-D535-EAE2-B7BD-9DCD0A611AFD}.wem"
+     },
+     {
+      "Id": "742955475",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Wood-3.wav",
+      "CachePath": "8E/{8E699DCB-EA35-069E-E38A-335D6066A7D8}.wem"
+     },
+     {
+      "Id": "783217267",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Gravel-1.wav",
+      "CachePath": "97/{971FBBD2-F3E4-7C23-51E9-59070524FBB9}.wem"
+     },
+     {
+      "Id": "786282501",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Nocturn UI Hover_2.wav",
+      "CachePath": "AE/{AE2E3BF1-5F2E-5087-5FC8-1019F0F2BB74}.wem"
+     },
+     {
       "Id": "840371906",
       "Language": "SFX",
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "mx_LD_Tutorial01_Intro_133bpmENDS.wav",
       "CachePath": "5D/{5D980576-A4E1-8170-246F-DCA9F0A0FD77}.wem"
+     },
+     {
+      "Id": "846128762",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Dirt-3.wav",
+      "CachePath": "82/{8231FC17-D31E-6C6F-8D49-C4C280884591}.wem"
+     },
+     {
+      "Id": "878189989",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Nocturn UI Select 2.wav",
+      "CachePath": "45/{45F4BECA-E0B3-5CFF-436A-625D5AE85625}.wem"
+     },
+     {
+      "Id": "897904861",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Wood-2.wav",
+      "CachePath": "F7/{F716D91D-4D6C-6CA6-F0AC-181B60FAEF2D}.wem"
      },
      {
       "Id": "908395360",
@@ -110,6 +246,38 @@
       "Location": "Memory",
       "ShortName": "mx_LD_Transition.wav",
       "CachePath": "A2/{A23459AF-3869-6A21-6903-7C854204A8A1}.wem"
+     },
+     {
+      "Id": "933442325",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Gravel-2.wav",
+      "CachePath": "75/{75CE75CB-38BD-EC05-57F1-E25366E603BC}.wem"
+     },
+     {
+      "Id": "962263161",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Dirt-4.wav",
+      "CachePath": "CF/{CF8DD0D5-AB3E-F8D3-958F-8234DD6071CC}.wem"
+     },
+     {
+      "Id": "971020296",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Dirt-5.wav",
+      "CachePath": "35/{357FB120-7CAC-C3B4-DFFD-15BCCDF786A3}.wem"
+     },
+     {
+      "Id": "1008156858",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Dirt-1.wav",
+      "CachePath": "DF/{DF0915A4-5B08-3449-D9DB-2CF12DEA6024}.wem"
      },
      {
       "Id": "1015820244",
@@ -129,6 +297,174 @@
      }
     ],
     "Events": [
+     {
+      "Id": "1866025847",
+      "Name": "Footstep",
+      "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\Footstep",
+      "GUID": "{3824A5FD-33FD-4A31-ADC9-1911C541563F}",
+      "Color": "15",
+      "DurationType": "OneShot",
+      "DurationMin": "0.33333334",
+      "DurationMax": "0.8",
+      "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2385628198",
+         "Id": "2195636714",
+         "GUID": "{F98DCB64-B7BA-4C42-925A-7E93F670A40B}",
+         "Color": "4"
+        },
+        "MediaRefs": [
+         {
+          "Id": "338197633"
+         },
+         {
+          "Id": "846128762"
+         },
+         {
+          "Id": "962263161"
+         },
+         {
+          "Id": "971020296"
+         },
+         {
+          "Id": "1008156858"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2385628198",
+         "Id": "2185786256",
+         "GUID": "{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}",
+         "Color": "4"
+        },
+        "MediaRefs": [
+         {
+          "Id": "109720451"
+         },
+         {
+          "Id": "156898294"
+         },
+         {
+          "Id": "301885343"
+         },
+         {
+          "Id": "783217267"
+         },
+         {
+          "Id": "933442325"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2385628198",
+         "Id": "2058049674",
+         "GUID": "{0C8C24ED-553D-4101-82B6-8BDC72FAA041}",
+         "Color": "4"
+        },
+        "MediaRefs": [
+         {
+          "Id": "283095059"
+         },
+         {
+          "Id": "289962334"
+         },
+         {
+          "Id": "563084003"
+         },
+         {
+          "Id": "742955475"
+         },
+         {
+          "Id": "897904861"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2385628198",
+         "Id": "2195636714",
+         "GUID": "{F98DCB64-B7BA-4C42-925A-7E93F670A40B}",
+         "Color": "4"
+        },
+        "MediaRefs": [
+         {
+          "Id": "338197633"
+         },
+         {
+          "Id": "846128762"
+         },
+         {
+          "Id": "962263161"
+         },
+         {
+          "Id": "971020296"
+         },
+         {
+          "Id": "1008156858"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2385628198",
+         "Id": "2185786256",
+         "GUID": "{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}",
+         "Color": "4"
+        },
+        "MediaRefs": [
+         {
+          "Id": "109720451"
+         },
+         {
+          "Id": "156898294"
+         },
+         {
+          "Id": "301885343"
+         },
+         {
+          "Id": "783217267"
+         },
+         {
+          "Id": "933442325"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2385628198",
+         "Id": "2058049674",
+         "GUID": "{0C8C24ED-553D-4101-82B6-8BDC72FAA041}",
+         "Color": "4"
+        },
+        "MediaRefs": [
+         {
+          "Id": "283095059"
+         },
+         {
+          "Id": "289962334"
+         },
+         {
+          "Id": "563084003"
+         },
+         {
+          "Id": "742955475"
+         },
+         {
+          "Id": "897904861"
+         }
+        ]
+       }
+      ]
+     },
      {
       "Id": "2958924562",
       "Name": "mx_EnterFight_Tutorial",
@@ -491,6 +827,48 @@
         "Id": "1015820244"
        }
       ]
+     },
+     {
+      "Id": "2118900976",
+      "Name": "UI_Hover",
+      "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\UI_Hover",
+      "GUID": "{E44F3A39-6B53-4663-B9EA-E9D4491AB88E}",
+      "Color": "15",
+      "DurationType": "OneShot",
+      "DurationMin": "0.16666667",
+      "DurationMax": "0.16666667",
+      "MediaRefs": [
+       {
+        "Id": "155703357"
+       },
+       {
+        "Id": "320569160"
+       },
+       {
+        "Id": "786282501"
+       }
+      ]
+     },
+     {
+      "Id": "2774129122",
+      "Name": "UI_Select",
+      "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\UI_Select",
+      "GUID": "{402B5382-5422-4494-9162-07157B8D762D}",
+      "Color": "15",
+      "DurationType": "OneShot",
+      "DurationMin": "0.13333334",
+      "DurationMax": "0.16666667",
+      "MediaRefs": [
+       {
+        "Id": "530019063"
+       },
+       {
+        "Id": "622980037"
+       },
+       {
+        "Id": "878189989"
+       }
+      ]
      }
     ],
     "Busses": [
@@ -640,9 +1018,41 @@
        }
       ]
      }
+    ],
+    "SwitchGroups": [
+     {
+      "Id": "2385628198",
+      "Name": "Footsteps",
+      "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps",
+      "GUID": "{ECDAE3C8-D624-490B-B3C3-B40C004EDF0E}",
+      "Color": "4",
+      "Switches": [
+       {
+        "Id": "2058049674",
+        "Name": "Wood",
+        "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps\\Wood",
+        "GUID": "{0C8C24ED-553D-4101-82B6-8BDC72FAA041}",
+        "Color": "4"
+       },
+       {
+        "Id": "2185786256",
+        "Name": "Gravel",
+        "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps\\Gravel",
+        "GUID": "{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}",
+        "Color": "4"
+       },
+       {
+        "Id": "2195636714",
+        "Name": "Dirt",
+        "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps\\Dirt",
+        "GUID": "{F98DCB64-B7BA-4C42-925A-7E93F670A40B}",
+        "Color": "4"
+       }
+      ]
+     }
     ]
    }
   ],
-  "FileHash": "{C273F81F-0CDC-A629-2350-062D8D7C8CB5}"
+  "FileHash": "{2215D3A7-1BC8-563D-C99A-5858F98588D8}"
  }
 }
