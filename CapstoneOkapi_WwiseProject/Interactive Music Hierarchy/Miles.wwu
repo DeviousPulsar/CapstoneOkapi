@@ -5,6 +5,7 @@
 			<ChildrenList>
 				<MusicSwitchContainer Name="Levels" ID="{AA2E4462-DDC5-4969-9280-3E655C97B2FE}" ShortID="546759053">
 					<PropertyList>
+						<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
 						<Property Name="Tempo" Type="Real64" Value="133"/>
 					</PropertyList>
 					<ReferenceList>
@@ -43,7 +44,6 @@
 								<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
 								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
-								<Property Name="OverridePositioning" Type="bool" Value="True"/>
 								<Property Name="Tempo" Type="Real64" Value="133"/>
 							</PropertyList>
 							<ReferenceList>
