@@ -24,7 +24,6 @@
 										<MusicTransition Name="Transition" ID="{912824D7-D54A-4BC2-B1F7-8A78666B0B60}">
 											<PropertyList>
 												<Property Name="ExitSourceAt" Type="int16" Value="0"/>
-												<Property Name="UseTransitionObject" Type="bool" Value="True"/>
 											</PropertyList>
 											<TransitionInfo>
 												<TransitionObjectRef Name="mx_LD_Transition" ID="{2305B0C9-C4C4-428B-9B2B-7DAF3180AE9E}" WorkUnitID="{94B33324-6796-4D6F-B3D4-FD947CA7E7BA}"/>
@@ -40,6 +39,8 @@
 						<MusicSwitchContainer Name="Tutorial" ID="{18557022-95B0-49C3-880E-B3BE20E1B891}" ShortID="12779354">
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="9"/>
+								<Property Name="EnableAttenuation" Type="bool" Value="False"/>
+								<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
 								<Property Name="OverrideClockSettings" Type="bool" Value="True"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 								<Property Name="OverridePositioning" Type="bool" Value="True"/>
@@ -151,6 +152,7 @@
 										<MusicSegment Name="mx_LD_Tutorial01_Intro_133bpmENDS" ID="{F0B2CCC7-C55A-4FAE-8FA0-867F2A508865}" ShortID="1001715623">
 											<PropertyList>
 												<Property Name="EndPosition" Type="Real64" Value="16384"/>
+												<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Conversion">

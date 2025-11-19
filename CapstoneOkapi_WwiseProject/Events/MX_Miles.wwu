@@ -85,7 +85,7 @@
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Target">
-											<ObjectRef Name="In_Dialogue" ID="{5C450E67-3499-4C68-9E82-81FFC06B4E1C}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+											<ObjectRef Name="In_Prep" ID="{99EA65F6-8B8E-4656-8FB3-075AD68609F5}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
