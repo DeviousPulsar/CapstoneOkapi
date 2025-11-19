@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A0E27053-32A3-454F-8FBA-D178D463360E}",
     "Language": "SFX",
-    "Hash": "{49073D36-64BD-4E78-6098-3B6A59711921}",
+    "Hash": "{51AC611C-6091-C253-C9D9-F57CF2297983}",
     "ObjectPath": "\\SoundBanks\\Master Work Unit\\MASTER",
     "ShortName": "MASTER",
     "Path": "MASTER.bnk",
@@ -238,14 +238,6 @@
       "Location": "Memory",
       "ShortName": "mx_LD_Explore02_HouseMain_133bpmLOOPS_v1c.wav",
       "CachePath": "2F/{2FC62BDA-FC86-F73A-3C03-0156B8AD2BA1}.wem"
-     },
-     {
-      "Id": "927261224",
-      "Language": "SFX",
-      "Streaming": "false",
-      "Location": "Memory",
-      "ShortName": "mx_LD_Transition.wav",
-      "CachePath": "A2/{A23459AF-3869-6A21-6903-7C854204A8A1}.wem"
      },
      {
       "Id": "933442325",
@@ -477,18 +469,18 @@
       "DurationMax": "0",
       "ActionSetState": [
        {
-        "GroupId": "1093972631",
-        "Id": "1108951413",
-        "Name": "In_Dialogue",
-        "ObjectPath": "\\States\\Default Work Unit\\MX_Fight_Layer\\In_Dialogue",
-        "GUID": "{5C450E67-3499-4C68-9E82-81FFC06B4E1C}"
-       },
-       {
         "GroupId": "437528237",
         "Id": "1281810935",
         "Name": "Start",
         "ObjectPath": "\\States\\Default Work Unit\\MX_Fight_Admin\\Start",
         "GUID": "{3EFDA861-5D72-463C-9168-2A6038969BCA}"
+       },
+       {
+        "GroupId": "1093972631",
+        "Id": "1494125218",
+        "Name": "In_Prep",
+        "ObjectPath": "\\States\\Default Work Unit\\MX_Fight_Layer\\In_Prep",
+        "GUID": "{99EA65F6-8B8E-4656-8FB3-075AD68609F5}"
        },
        {
         "GroupId": "6452437",
@@ -626,11 +618,6 @@
       "GUID": "{955E3FDE-541F-48B3-82FF-EA76D3AF8461}",
       "Color": "12",
       "DurationType": "Infinite",
-      "MediaRefs": [
-       {
-        "Id": "927261224"
-       }
-      ],
       "SwitchContainers": [
        {
         "SwitchValue": {
@@ -1053,6 +1040,6 @@
     ]
    }
   ],
-  "FileHash": "{2215D3A7-1BC8-563D-C99A-5858F98588D8}"
+  "FileHash": "{25C0355C-746D-ABE6-5ED4-E792EB3E992F}"
  }
 }
