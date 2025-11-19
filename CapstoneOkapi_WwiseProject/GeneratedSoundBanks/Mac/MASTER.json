@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A0E27053-32A3-454F-8FBA-D178D463360E}",
     "Language": "SFX",
-    "Hash": "{51AC611C-6091-C253-C9D9-F57CF2297983}",
+    "Hash": "{176E4882-AC63-15CB-BFE0-DC6D8D0D1863}",
     "ObjectPath": "\\SoundBanks\\Master Work Unit\\MASTER",
     "ShortName": "MASTER",
     "Path": "MASTER.bnk",
@@ -1040,6 +1040,6 @@
     ]
    }
   ],
-  "FileHash": "{25C0355C-746D-ABE6-5ED4-E792EB3E992F}"
+  "FileHash": "{ACA49BAD-2904-B5B1-07B8-4D07C666893B}"
  }
 }
