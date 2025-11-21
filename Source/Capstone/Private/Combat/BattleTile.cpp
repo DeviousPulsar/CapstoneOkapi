@@ -77,7 +77,8 @@ void ABattleTile::AffectTile(ETileState NewState, int32 NewDamage, bool bNewParr
                 );
 
         ActiveEffectComponent->SetVariableFloat(TEXT("AttackDuration"), Effect.Duration);
-        ActiveEffectComponent->SetVariableFloat(TEXT("EffectScale"), Effect.Scale);
+        //Don't have code change size
+        //ActiveEffectComponent->SetVariableFloat(TEXT("EffectScale"), Effect.Scale);
     }
     else if(ActorToSpawn){
         TileMod = GetWorld()->SpawnActor<AActor>(ActorToSpawn,

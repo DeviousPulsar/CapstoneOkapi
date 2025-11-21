@@ -34,12 +34,11 @@ public:
 	UPROPERTY(EditAnywhere)
 	TArray<FGridPosition> Targets;
 
-	// using 
-	UPROPERTY(EditAnywhere, BlueprintReadWrite)
-	TArray<UNiagaraSystem*> TargetWarningEffects;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, meta = (DisplayName = "Override Warning Effect"))
+	UNiagaraSystem* TargetWarningEffect;
 
-	UPROPERTY(EditAnywhere, BluePrintReadWrite)
-	TArray<UNiagaraSystem*> TargetAttackEffects;
+	UPROPERTY(EditAnywhere, BluePrintReadWrite, meta = (DisplayName = "Override Attack Effect"))
+	UNiagaraSystem* TargetAttackEffect;
 
 	UPROPERTY(EditAnywhere)
 	bool bParriable = true;
@@ -68,7 +67,20 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	TArray<FAttackStage> AttackStages;
-	
+
+	// VFX
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UNiagaraSystem* WarningEffect;
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite)
+	UNiagaraSystem* AttackEffect;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	UNiagaraSystem* UnparryableWarningEffect;
+
+	UPROPERTY(EditAnywhere, BluePrintReadWrite)
+	UNiagaraSystem* UnparryableAttackEffect;
+
 	/// Returns the total amount of time that the sequence will take to execute
 	UFUNCTION(BlueprintCallable, BlueprintPure)
 	double Length() const;
@@ -89,7 +101,7 @@ public:
 	/// </summary>
 	/// <param name="Damage"></param>
 	UFUNCTION(BlueprintCallable)
-	void Buff(int32 Damage);
+	void Buff(float Damage);
 };
 
 // Used for 

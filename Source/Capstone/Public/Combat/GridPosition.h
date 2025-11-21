@@ -10,10 +10,10 @@ struct FGridPosition
     GENERATED_BODY()
 
 public:
-    UPROPERTY(EditAnywhere);
+    UPROPERTY(EditAnywhere, BlueprintReadOnly);
 	int x;
 
-    UPROPERTY(EditAnywhere);
+    UPROPERTY(EditAnywhere, BlueprintReadOnly);
 	int y;
 
     FGridPosition() : x(0), y(0) {}

@@ -25,6 +25,12 @@ double UAttack::Length() const
             Max = Temp;
         }
     }
+
+    if (Max < Cooldown)
+    {
+        Max = Cooldown;
+    }
+
     return Max;
 }
 
@@ -36,12 +42,19 @@ UAttack* UAttack::AsStaticAttack(int x, int y) const
     Result->UseTime = UseTime;
     Result->bDefaultParryable = bDefaultParryable;
 
+    Result->WarningEffect = WarningEffect;
+	Result->AttackEffect = AttackEffect;
+    Result->UnparryableWarningEffect = UnparryableWarningEffect;
+	Result->UnparryableAttackEffect = UnparryableAttackEffect;
+	
+
     for (const FAttackStage& Stg : AttackStages)
     {
         FAttackStage NewStg = FAttackStage();
         NewStg.Delay = Stg.Delay;
         NewStg.WarningLength = Stg.WarningLength;
         NewStg.DamageLength = Stg.DamageLength;
+        NewStg.Damage = Stg.Damage;
 
         NewStg.bParriable = Stg.bParriable;
 
@@ -50,8 +63,8 @@ UAttack* UAttack::AsStaticAttack(int x, int y) const
             NewStg.Targets.Add(FGridPosition(x + Target.x, y + Target.y));
         }
 
-        NewStg.TargetWarningEffects = Stg.TargetWarningEffects;
-        NewStg.TargetAttackEffects = Stg.TargetAttackEffects;
+        NewStg.TargetWarningEffect = Stg.TargetWarningEffect;
+        NewStg.TargetAttackEffect = Stg.TargetAttackEffect;
 
         Result->AttackStages.Add(NewStg);
     }
@@ -77,10 +90,10 @@ void UAttack::Append(UAttack* Other, float DelayBetweenAttacks)
     AttackStages.Append(Other->AttackStages);
 }
 
-void UAttack::Buff(int32 Damage)
+void UAttack::Buff(float Buff)
 {
     for (FAttackStage& Stg : AttackStages)
     {
-        Stg.Damage += Damage;
+        Stg.Damage *= Buff;
     }
 }

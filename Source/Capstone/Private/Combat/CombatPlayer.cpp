@@ -20,6 +20,16 @@ ACombatPlayer::ACombatPlayer()
 	Focus = EFocus::Default;
 }
 
+void ACombatPlayer::BeginPlay()
+{
+	Super::BeginPlay();
+
+	//Spawn effects
+	//UNiagaraSystem*, Duration, Scale
+	AttackComponent = SpawnEffect(AttackVFX, 4, 1);
+	DeactivateEffect(AttackComponent);
+}
+
 // Called when the game starts or when spawned
 void ACombatPlayer::Restart()
 {
@@ -50,6 +60,7 @@ void ACombatPlayer::Tick(float DeltaTime)
 	TimeSinceAttack += DeltaTime;
 	if (TimeSinceAttack >= AttackCooldown) {
 		AttackAllowed = true;
+		DeactivateEffect(AttackComponent);
 	}
 }
 
@@ -105,6 +116,8 @@ void ACombatPlayer::AttackGrid(EPlayerAttacks Attack)
 	AttackCooldown = AttackInstance->Cooldown;
 	TimeSinceAttack = 0.0f;
 	AttackAllowed = false;
+	PlayAttackMontage();
+	ActivateEffect(AttackComponent);
 	Stun(AttackInstance->UseTime);
 }
 
@@ -137,10 +150,15 @@ void ACombatPlayer::SetBuff(EFocus Foc)
 		}
 		case EFocus::Default:
 		{
-			SetDefend(0);
+			SetDefend(1.0);
 			break;
 		}
 	}
+}
+
+EFocus ACombatPlayer::GetBuff()
+{
+	return Focus;
 }
 
 void ACombatPlayer::Move(const FInputActionValue& Value)
@@ -151,7 +169,6 @@ void ACombatPlayer::Move(const FInputActionValue& Value)
 
 void ACombatPlayer::Attack()
 {
-	PlayAttackMontage();
 	AttackGrid(LeftClickAttack);
 }
 

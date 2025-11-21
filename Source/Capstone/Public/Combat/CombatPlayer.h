@@ -63,7 +63,7 @@ protected:
 
 public:	
 	UPROPERTY(EditAnywhere, Category = "Parry")
-	int32 ParryDamageBuff;
+	float ParryDamageBuff;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Attacks")
 	EPlayerAttacks LeftClickAttack; 
@@ -78,13 +78,22 @@ public:
 	TArray<EPlayerAttacks> AvailablePlayerAttacks; //List of enums of available player attacks
 	
 	UPROPERTY(EditAnywhere, Category = "Focus")
-	int32 DamageBuff;
+	float DamageBuff;
 
 	UPROPERTY(EditAnywhere, Category = "Focus")
-	int32 DefenseBuff;
+	float DefenseBuff;
 
-	UPROPERTY(EditAnywhere, Category = "Focus")
-	int32 HealBuff;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Focus")
+	float HealBuff;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VFX")
+	UNiagaraSystem* AttackVFX;
+
+	UPROPERTY()
+	UNiagaraComponent* AttackComponent;
+
+	UFUNCTION(BlueprintCallable)
+	EFocus GetBuff();
 
 	// Sets default values for this actor's properties
 	ACombatPlayer();
@@ -136,6 +145,10 @@ protected:
 	void Attack();
 	void Parry();
 	void OptionMenu();
+
+protected:
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
 
 public:	
 	// Called every frame

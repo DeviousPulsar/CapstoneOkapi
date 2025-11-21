@@ -9,30 +9,40 @@
 #include "GridPosition.h"
 #include "CombatEnemy.generated.h"
 
-class UAttack;
-
+class UAttackSequence;
 
 UCLASS()
 class CAPSTONE_API ACombatEnemy : public ACombatPawn
 {
 	GENERATED_BODY()
 
-	FGridPosition DefaultLocation;
-	int32 DefaultHealth;
-	ABattleGrid* WorldGrid;
-	
-public:	
-	UPROPERTY(EditAnywhere, Category="Attacks")
-	TArray<TSubclassOf<UAttack>> AttackClasses;
-
+public:
 	UPROPERTY(EditAnywhere, Category = "Attacks")
-	double MaxSequenceLength = 15.0;
+	TArray<TSubclassOf<UAttackSequence>> AttackSequences;
 
-	UPROPERTY(EditAnywhere, Category = "Attacks")
-	int32 MaxSequenceParts = 10;
+	UPROPERTY(EditAnywhere, Category = "Movement")
+	float MovementCooldown = 1.0;
 
-	UPROPERTY(EditAnywhere, Category="Attacks")
-	float ParryableStageChance = 0.8f;
+	UPROPERTY(BlueprintReadWrite, Category = "Animation")
+	bool bIsMoving = false;
+
+	UPROPERTY(BlueprintReadWrite, Category = "Animation")
+	bool bIsAttacking = false;
+
+	UPROPERTY(BlueprintReadWrite, Category = "Animation")
+	bool bIsHitReact = false;
+
+	UPROPERTY(BlueprintReadWrite, Category = "Animation")
+	bool bIsParrying = false;
+
+	UPROPERTY(EditAnywhere, Category = "Animation")
+	float AttackAnimDurationOverride = 0.0f;
+
+	UPROPERTY(EditAnywhere, Category = "Animation")
+	float HitReactDuration = 0.25f;
+
+	UPROPERTY(EditAnywhere, Category = "Animation")
+	float ParryDuration = 0.3f;
 
 	// Sets default values for this actor's properties
 	ACombatEnemy();
@@ -45,9 +55,21 @@ private:
 	bool HasFinishedAttack = true;
 	FTimerHandle AttackFinishTimer;
 
+	UPROPERTY()
+	UAttackSequence* CurrentSequence;
+	int32 CurrentSeqeunceIndex = -1;
+
 	void OnAttackFinished();
 
-public:	
+	FTimerHandle AttackAnimTimer;
+	FTimerHandle HitReactTimer;
+	FTimerHandle ParryTimer;
+
+	void OnAttackAnimFinished();
+	void OnHitReactFinished();
+	void OnParryFinished();
+
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -59,4 +81,15 @@ public:
 
 	bool FinishedAttack() const { return HasFinishedAttack; }
 
+	UFUNCTION(BlueprintCallable)
+	float BeginEnemyAttack_Anim();
+
+	UFUNCTION(BlueprintCallable)
+	void MoveRandomOnGrid_Anim();
+
+	UFUNCTION(BlueprintCallable)
+	void PlayHitReact();
+
+	UFUNCTION(BlueprintCallable)
+	void BeginParry();
 };

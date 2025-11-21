@@ -4,6 +4,7 @@
 #include "Combat/CombatPawn.h"
 #include "Combat/GridPosition.h"
 #include "Combat/PlayerInputController.h"
+#include "Combat/Attack.h"
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 
@@ -29,7 +30,7 @@ ACombatPawn::ACombatPawn()
 	TimeSinceVulnerable = 0.0f;
 	TimeSinceParry = 0.0f;
 	Vulnerable = true;
-	Defend = 0;
+	Defend = 1.0;
 	Parry = false;
 	ParryBoost = false;
 }
@@ -48,6 +49,8 @@ void ACombatPawn::Initialize(int X, int Y, ABattleGrid* BattleGrid) {
 	if (Grid) {
 		FVector GridWorldLocation = Grid->GetTilePos(CurrentPosition);
 		SetActorLocation(GridWorldLocation, false);
+		StartPosition = GridWorldLocation;
+		EndPosition = GridWorldLocation;
 	}
 }
 
@@ -65,6 +68,11 @@ void ACombatPawn::Move(FVector2D Vector) {
 		return;
 	}
 
+	ForceMove(Vector);
+}
+
+void ACombatPawn::ForceMove(FVector2D Vector)
+{
 	//get x and y movement out of input
 	int X = FMath::RoundToInt(Vector.X);
 	int Y = FMath::RoundToInt(Vector.Y);
@@ -77,16 +85,18 @@ void ACombatPawn::Move(FVector2D Vector) {
 		IsPlayerOffset = Grid->GetWidth() / 2;
 	}
 
+	bool bMoved = false;
+	int UsedX = 0;
+	int UsedY = 0;
+
 	//do movement
 	if (X != 0) {
 		int32 RequestedXPosition = CurrentPosition.x + X;
 		if (RequestedXPosition >= 0 + IsPlayerOffset && RequestedXPosition < Grid->GetWidth() / 2 + IsPlayerOffset) {
 			//allow move in x direction
 			CurrentPosition.x = RequestedXPosition;
-			//move pawn on grid
-			FVector GridWorldLocation = Grid->GetTilePos(CurrentPosition);
-			SetActorLocation(GridWorldLocation, false);
-			Stun(MoveStun);
+			bMoved = true;
+			UsedX = X;
 		}
 	}
 	if (Y != 0) {
@@ -94,10 +104,33 @@ void ACombatPawn::Move(FVector2D Vector) {
 		if (RequestedYPosition >= 0 && RequestedYPosition < Grid->GetHeight()) {
 			//allow move in y direction
 			CurrentPosition.y = RequestedYPosition;
-			//move pawn on grid
-			FVector GridWorldLocation = Grid->GetTilePos(CurrentPosition);
-			SetActorLocation(GridWorldLocation, false);
-			Stun(MoveStun);
+			bMoved = true;
+			UsedY = Y;
+		}
+	}
+	//move pawn on grid
+	FVector GridWorldLocation = Grid->GetTilePos(CurrentPosition);
+	EndPosition = GridWorldLocation;
+	//SetActorLocation(GridWorldLocation, false);
+	Stun(MoveStun);
+
+	if (bMoved)
+	{
+		if (UsedX > 0 && MoveForwardMontage)
+		{
+			PlayMoveMontage(MoveForwardMontage);
+		}
+		else if (UsedX < 0 && MoveBackwardMontage)
+		{
+			PlayMoveMontage(MoveBackwardMontage);
+		}
+		else if (UsedY < 0 && MoveLeftMontage)
+		{
+			PlayMoveMontage(MoveLeftMontage);
+		}
+		else if (UsedY > 0 && MoveRightMontage)
+		{
+			PlayMoveMontage(MoveRightMontage);
 		}
 	}
 }
@@ -114,6 +147,11 @@ int32 ACombatPawn::EditHealth(int32 AmountToChange) {
 	PawnHealth += AmountToChange;
 	PawnHealth = FMath::Clamp(PawnHealth, 0, InitialHealth);
 
+	if (AmountToChange > 0) {
+		//play heal vfx
+		ActivateEffect(HealingComponent);
+	}
+
 	return PawnHealth;
 }
 
@@ -121,6 +159,17 @@ int32 ACombatPawn::EditHealth(int32 AmountToChange) {
 void ACombatPawn::BeginPlay()
 {
 	Super::BeginPlay();
+
+	//Spawn effects
+	//UNiagaraSystem*, Duration, Scale
+	//NOTE: duration is ignored for now, may not be needed for these
+	HealingComponent = SpawnEffect(HealEffect, 4, 1);
+	InvulnerableComponent = SpawnEffect(InvulnerableEffect, InvTime, 1);
+	ParryComponent = SpawnEffect(ParryEffect, 1, 1);
+
+	DeactivateEffect(HealingComponent);
+	DeactivateEffect(InvulnerableComponent);
+	DeactivateEffect(ParryComponent);
 }
 
 // Called every frame
@@ -138,29 +187,24 @@ void ACombatPawn::Tick(float DeltaTime)
 
 			//deal damage, make pawn immune to damage, then scedule turing them vulnerable again in specified amount of time
 
-			if (Defend != 0)
-			{
-				Damage -= Defend;
-				if (Damage < 0)
-				{
-					Damage = 0;
-				}
-			}
-
 			if (Parry && bHitParryable)
 			{
 				ParryBoost = true;
 				Parry = false;
 				ParryProt = true;
+				DeactivateEffect(ParryComponent);
 			}
 			else
 			{
 				ParryBoost = false;
-				EditHealth(-Damage);
+				EditHealth(-Defend * Damage);
 				PlayHitReactMontage();
 			}
 			Vulnerable = false;
 			TimeSinceVulnerable = 0.0f;
+
+			//play invulnerable effect
+			ActivateEffect(InvulnerableComponent);
 		}
 	}
 
@@ -170,11 +214,20 @@ void ACombatPawn::Tick(float DeltaTime)
 	if (TimeSinceStun >= MoveCooldown)
 	{
 		MoveAllowed = true;
+		StartPosition = Grid->GetTilePos(CurrentPosition);
+		SetActorLocation(StartPosition);
+	}
+	else
+	{
+		float ResultX = FMath::InterpEaseInOut<float>(StartPosition.X, EndPosition.X, TimeSinceStun / MoveCooldown, 2.0f);
+		float ResultY = FMath::InterpEaseInOut<float>(StartPosition.Y, EndPosition.Y, TimeSinceStun / MoveCooldown, 2.0f);
+		SetActorLocation(FVector(ResultX, ResultY, EndPosition.Z), false);
 	}
 
 	if (TimeSinceParry >= ParryWindow)
 	{
 		Parry = false;
+		DeactivateEffect(ParryComponent);
 	}
 
 	if (!Vulnerable)
@@ -184,12 +237,14 @@ void ACombatPawn::Tick(float DeltaTime)
 		if (!ParryProt && (TimeSinceVulnerable >= InvTime))
 		{
 			Vulnerable = true;
+			DeactivateEffect(InvulnerableComponent);
 		}
 		//if we are invulnerable from a successful parry use this countdown
 		if (ParryProt && (TimeSinceVulnerable >= ParryProtTime))
 		{
 			Vulnerable = true;
 			ParryProt = false;
+			DeactivateEffect(InvulnerableComponent);
 		}
 	}
 }
@@ -201,7 +256,7 @@ void ACombatPawn::Stun(float Length)
 	MoveCooldown = Length;
 }
 
-void ACombatPawn::SetDefend(int32 DamageBlocked)
+void ACombatPawn::SetDefend(float DamageBlocked)
 {
 	Defend = DamageBlocked;
 }
@@ -218,12 +273,18 @@ void ACombatPawn::AttemptParry()
 		Parry = true;
 		TimeSinceParry = 0.0f;
 		Stun(ParryStunTime);
+		//parry effect
+		ActivateEffect(ParryComponent);
+		PlayParryMontage();
 	}
 }
 
 void ACombatPawn::SetMovementAllowed(bool MovementAllowed)
 {
 	bIsFrozen = !MovementAllowed;
+	if (MovementAllowed) {
+		DeactivateEffect(HealingComponent);
+	}
 }
 
 void ACombatPawn::PlayAttackMontage(FName Section)
@@ -253,3 +314,79 @@ void ACombatPawn::PlayHitReactMontage(FName Section)
 	}
 }
 
+void ACombatPawn::PlayMoveMontage(UAnimMontage* Montage, FName Section)
+{
+	if (!Montage)
+	{
+		return;
+	}
+	USkeletalMeshComponent* Mesh = FindComponentByClass<USkeletalMeshComponent>();
+	if (!Mesh) return;
+	UAnimInstance* Anim = Mesh->GetAnimInstance();
+	if (!Anim) return;
+	Anim->Montage_Play(Montage);
+	if (Section != NAME_None)
+	{
+		Anim->Montage_JumpToSection(Section, Montage);
+	}
+}
+
+void ACombatPawn::PlayParryMontage(FName Section)
+{
+	if (!ParryMontage)
+	{
+		return;
+	}
+	USkeletalMeshComponent* Mesh = FindComponentByClass<USkeletalMeshComponent>();
+	if (!Mesh) return;
+	UAnimInstance* Anim = Mesh->GetAnimInstance();
+	if (!Anim) return;
+	Anim->Montage_Play(ParryMontage);
+	if (Section != NAME_None)
+	{
+		Anim->Montage_JumpToSection(Section, ParryMontage);
+	}
+}
+
+void ACombatPawn::ReturnToCenter() {
+	FGridPosition Center = FGridPosition(1 + (IsPlayer ? 0 : Grid->GetWidth() / 2), 1);
+	ForceMove(FVector2D(Center.x - CurrentPosition.x, Center.y - CurrentPosition.y));
+}
+
+UNiagaraComponent* ACombatPawn::SpawnEffect(UNiagaraSystem* Effect, double Duration, double Scale) {
+	if (Effect) {
+		UNiagaraComponent* ActiveEffectComponent =
+			UNiagaraFunctionLibrary::SpawnSystemAttached(
+				Effect,
+				GetRootComponent(),
+				NAME_None,
+				FVector::ZeroVector,
+				FRotator::ZeroRotator,
+				EAttachLocation::KeepRelativeOffset,
+				false, //autodestroy
+				false //autoactivate
+			);
+		//Ignore duration for now
+		//ActiveEffectComponent->SetVariableFloat(TEXT("AttackDuration"), Duration);
+		ActiveEffectComponent->SetVariableFloat(TEXT("EffectScale"), Scale);
+		return ActiveEffectComponent;
+	}
+	return nullptr;
+}
+
+void ACombatPawn::ActivateEffect(UNiagaraComponent* EffectComponent) {
+	if (EffectComponent) {
+		EffectComponent->ResetSystem();
+		EffectComponent->Activate(true);
+		//EffectComponent->SetVisibility(true);
+	}
+
+}
+
+void ACombatPawn::DeactivateEffect(UNiagaraComponent* EffectComponent) {
+	if (EffectComponent) {
+		EffectComponent->Deactivate();
+		//EffectComponent->SetVisibility(false);
+	}
+
+}

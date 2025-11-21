@@ -22,13 +22,13 @@ void ABattleGrid::BeginPlay()
     // Calculate offset so grid is centered on actor
     float TotalWidth = (GridWidth - 1) * TileSize;
     float TotalHeight = (GridHeight - 1) * TileSize;
-    FVector GridOffset = FVector(-TotalWidth / 2.0f, -TotalHeight / 2.0f, 0.0f);
+    FVector GridOffset = FVector(-TotalWidth / 2.0f, TotalHeight / 2.0f, 0.0f);
 
     for (int32 y = 0; y < GridHeight; y++)
     {
         for (int32 x = 0; x < GridWidth; x++)
         {
-            FVector TilePos = Origin + GridOffset + FVector(x * TileSize, y * TileSize, 0.0f);
+            FVector TilePos = Origin + GridOffset + FVector(x * TileSize, -(y * TileSize), 0.0f);
 
             FActorSpawnParameters SpawnParams;
             SpawnParams.Owner = this;
@@ -106,45 +106,62 @@ void ABattleGrid::ExecuteAttack(UAttack* Attack)
             WarningTime = 0;
         }
 
-        int index = 0;
+        
         //loop through each tile in the current frame
         for (FGridPosition Pos : currentFrame.Targets)
         {
 
             ETileState StateToUse;
 
+            //Set up attack vfx
+            UNiagaraSystem* WarningVFX = nullptr;
+            UNiagaraSystem* AttackVFX = nullptr;
+
             if (currentFrame.bParriable)
             {
                 StateToUse = ETileState::Damage;
+
+                if(Attack->WarningEffect){
+                    WarningVFX = Attack->WarningEffect;
+                }
+                if(Attack->AttackEffect){
+                    AttackVFX = Attack->AttackEffect;
+                }
             }
             else
             {
                 StateToUse = ETileState::Unparriable;
+
+                if(Attack->UnparryableWarningEffect){
+                    WarningVFX = Attack->UnparryableWarningEffect;
+                }
+                if(Attack->UnparryableAttackEffect){
+                    AttackVFX = Attack->UnparryableAttackEffect;
+                }
             }
 
-            //get attacks out
-            UNiagaraSystem* WarningVFX = nullptr;
-            UNiagaraSystem* AttackVFX = nullptr;
-
-            //avoid index out of bounds
-            if(index < currentFrame.TargetWarningEffects.Num()){
-                WarningVFX = currentFrame.TargetWarningEffects[index];
+            //do overriding if necessary
+            if(currentFrame.TargetWarningEffect){
+                WarningVFX = currentFrame.TargetWarningEffect;
             }
-
-            if(index < currentFrame.TargetAttackEffects.Num()){
-                AttackVFX = currentFrame.TargetAttackEffects[index];
+            if(currentFrame.TargetAttackEffect){
+                AttackVFX = currentFrame.TargetAttackEffect;
             }
-
-
+            
             //form data class
             FAttackEffect WarningEffect = FAttackEffect(WarningVFX, currentFrame.WarningLength, 1); //just set scale to 1 for now
             FAttackEffect AttackingEffect = FAttackEffect(AttackVFX, currentFrame.DamageLength, 1); 
             FAttackEffect NoEffect = FAttackEffect(nullptr, 0, 0);
 
-            AttackTile(Pos, WarningTime, ETileState::Warning, 0, currentFrame.bParriable, WarningEffect); //start warning
-            AttackTile(Pos, CurrentTime, StateToUse, currentFrame.Damage, currentFrame.bParriable, AttackingEffect); //start damaging
+            if (currentFrame.WarningLength > 0)
+            {
+                AttackTile(Pos, WarningTime, ETileState::Warning, 0, currentFrame.bParriable, WarningEffect); //start warning
+            }
+            if (currentFrame.DamageLength > 0)
+            {
+                AttackTile(Pos, CurrentTime, StateToUse, currentFrame.Damage, currentFrame.bParriable, AttackingEffect); //start damaging
+            }
             AttackTile(Pos, CurrentTime + currentFrame.DamageLength, ETileState::Default, 0, true, NoEffect); //change tile back to normal
-            index++; //used for tracking index for effects
         }
     }
 }
