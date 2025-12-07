@@ -43,22 +43,62 @@
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Attack" ID="{F0FFEAF0-A920-42F5-A061-00B5381B60E3}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Power_UP" ID="{956745D9-FFE6-479C-91DE-60570F2B8559}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Attack_Warning" ID="{5622EBCE-5F3B-4108-BEB8-1CC3ABC8B1D5}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="0" Y="3"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Footstep" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Damage" ID="{22F3EE54-845C-4952-A0A4-074A56EC6FDE}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Powered_Attack" ID="{125FB123-4CAD-44A0-87CC-4524964E4BB3}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Enemy_Attack" ID="{852B605C-6A5F-4FE5-A114-9C5B35E89679}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="1" Y="3"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="UI_Hover" ID="{E44F3A39-6B53-4663-B9EA-E9D4491AB88E}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="2" Y="0"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Move" ID="{61299DCF-BA9D-46C1-9165-7D7A753BBEF5}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Enemy_Damage" ID="{6A932B72-E72F-4F1B-8273-56601DE5AF36}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="2" Y="3"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="UI_Select" ID="{402B5382-5422-4494-9162-07157B8D762D}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Parry_Action" ID="{D6A8339A-118C-4788-AD2B-B812A63A3D49}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Parry_Success" ID="{824D9EC9-4A01-41DA-8BC5-E72D01F8E4EC}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="4" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Wood" ID="{0C8C24ED-553D-4101-82B6-8BDC72FAA041}"/>
+						<CurrentSwitchRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}"/>
 					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="Scenes" ID="{62B719A6-D097-47B7-8A9A-EC2317112068}">

@@ -61,6 +61,132 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Folder Name="Player" ID="{CE5CD890-86C1-42E1-BD33-4432B22A8BA8}" ShortID="340633501">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="8"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Event Name="Move" ID="{61299DCF-BA9D-46C1-9165-7D7A753BBEF5}">
+									<ChildrenList>
+										<Action Name="" ID="{A04904A0-32BA-4DE2-8039-0EBC9C480C3D}" ShortID="634891048">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Move" ID="{B5F5D5A7-3F2E-4DDB-BF59-35D9E9CF8543}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Parry_Action" ID="{D6A8339A-118C-4788-AD2B-B812A63A3D49}">
+									<ChildrenList>
+										<Action Name="" ID="{1621E9FA-61B0-4103-B38D-11EF29554899}" ShortID="558608002">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Parry_Action" ID="{4DF15FBF-B360-4B02-B5C2-97EE392DBFD5}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Parry_Success" ID="{824D9EC9-4A01-41DA-8BC5-E72D01F8E4EC}">
+									<ChildrenList>
+										<Action Name="" ID="{ABEDDB09-F878-4D96-89D5-55C4B7B2C8CE}" ShortID="607187133">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Parry_Success" ID="{5E7DB3C5-A272-4AB8-A54E-7C6A8321164F}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Power_UP" ID="{956745D9-FFE6-479C-91DE-60570F2B8559}">
+									<ChildrenList>
+										<Action Name="" ID="{4EC1494D-D3E7-46F2-A2AC-2FCED6C9557F}" ShortID="570508902">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Power_Up" ID="{8B225A79-31BF-4DD8-87D5-DA3B4CBA0D6D}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Attack" ID="{F0FFEAF0-A920-42F5-A061-00B5381B60E3}">
+									<ChildrenList>
+										<Action Name="" ID="{2F7F4DD1-FA88-4258-B067-6E840D851CF0}" ShortID="510997646">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Attack" ID="{52092069-3F96-4131-89B0-9CEB19039C9D}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Powered_Attack" ID="{125FB123-4CAD-44A0-87CC-4524964E4BB3}">
+									<ChildrenList>
+										<Action Name="" ID="{43A74329-414D-4497-A264-E82198E93945}" ShortID="409557904">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Powered_Attack" ID="{8386FBB7-EF3C-424D-A284-DD2CAAAEFC7E}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Damage" ID="{22F3EE54-845C-4952-A0A4-074A56EC6FDE}">
+									<ChildrenList>
+										<Action Name="" ID="{8745E4B5-C231-4456-8FD5-DE3CD10486BC}" ShortID="403127776">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Damage" ID="{D98731B3-460B-4A92-9AB1-FE796C396C0A}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="Enemy" ID="{B5D0D3C9-C656-48C2-A422-729713EE42CD}" ShortID="595285759">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="13"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Event Name="Attack_Warning" ID="{5622EBCE-5F3B-4108-BEB8-1CC3ABC8B1D5}">
+									<ChildrenList>
+										<Action Name="" ID="{4DB4B660-413E-4476-9006-9DCD72577200}" ShortID="162093875">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Warning" ID="{0B313595-5F91-4EF6-BF18-7A57347F5E44}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Enemy_Attack" ID="{852B605C-6A5F-4FE5-A114-9C5B35E89679}">
+									<ChildrenList>
+										<Action Name="" ID="{FD84E441-40D2-45E0-A3CA-2B0FD04AD47C}" ShortID="465198730">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Attack" ID="{FD3D7A9D-CE85-4BF6-A740-B940036A87F2}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Enemy_Damage" ID="{6A932B72-E72F-4F1B-8273-56601DE5AF36}">
+									<ChildrenList>
+										<Action Name="" ID="{8D9D6813-BAC5-4EFA-8464-7CC1268AECD5}" ShortID="973452413">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Damage" ID="{EA1015EB-E688-4F7A-85AD-4238FA111F89}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>
