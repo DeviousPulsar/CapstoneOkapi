@@ -993,14 +993,7 @@
 								<ActiveSource Name="Powered_Attack" ID="{873ACE38-AD97-4F84-B30D-7A98032F2D05}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
-						<Sound Name="Damage" ID="{D98731B3-460B-4A92-9AB1-FE796C396C0A}" ShortID="115762985">
-							<PropertyList>
-								<Property Name="Volume" Type="Real64">
-									<ValueList>
-										<Value>-6</Value>
-									</ValueList>
-								</Property>
-							</PropertyList>
+						<Sound Name="Player_Damage" ID="{2F01994A-7943-400D-B7EE-50D746923612}" ShortID="331240732">
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -1010,12 +1003,7 @@
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
-								<AudioFileSource Name="Player Damage" ID="{8912F2D0-7251-4B7E-9D24-14E8CCE3D4A9}">
-									<PropertyList>
-										<Property Name="FadeOutDuration" Type="Real64" Value="0.748373084109672"/>
-										<Property Name="LoopEnd" Type="Real64" Value="1.39190166960225"/>
-										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
-									</PropertyList>
+								<AudioFileSource Name="Player Damage" ID="{578BDCB8-9573-41CF-B3CA-D1B821010608}">
 									<Language>SFX</Language>
 									<AudioFile>Player Damage.wav</AudioFile>
 									<MediaIDList>
@@ -1024,7 +1012,7 @@
 								</AudioFileSource>
 							</ChildrenList>
 							<ActiveSourceList>
-								<ActiveSource Name="Player Damage" ID="{8912F2D0-7251-4B7E-9D24-14E8CCE3D4A9}" Platform="Linked"/>
+								<ActiveSource Name="Player Damage" ID="{578BDCB8-9573-41CF-B3CA-D1B821010608}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
 					</ChildrenList>

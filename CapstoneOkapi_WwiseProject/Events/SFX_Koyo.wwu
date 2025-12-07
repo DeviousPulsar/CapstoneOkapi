@@ -138,7 +138,7 @@
 										<Action Name="" ID="{8745E4B5-C231-4456-8FD5-DE3CD10486BC}" ShortID="403127776">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Damage" ID="{D98731B3-460B-4A92-9AB1-FE796C396C0A}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+													<ObjectRef Name="Player_Damage" ID="{2F01994A-7943-400D-B7EE-50D746923612}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
