@@ -185,6 +185,17 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Enemy_Move" ID="{5DB92AA9-8BBA-4DB0-8289-23A9AE2A56DB}">
+									<ChildrenList>
+										<Action Name="" ID="{83F65402-B63D-4F73-A610-3E4F2B10F372}" ShortID="989753124">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Move" ID="{3FB2EB4D-7266-467B-9745-08A3251D2FFE}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>

@@ -692,6 +692,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Move_1" ID="{3496CA9A-BF4F-447A-B525-F92836FC5A1F}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0445408541830398"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0445408541830398"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Move_1.wav</AudioFile>
 											<MediaIDList>
@@ -714,6 +719,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Move_2" ID="{95E57F5F-227B-45EB-895B-D92321277136}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0493130885597941"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0493130885597941"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Move_2.wav</AudioFile>
 											<MediaIDList>
@@ -736,6 +746,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Move_3" ID="{451CEB58-ABDD-4C9B-8783-A1AB0618D33B}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0848156176265046"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0848156176265046"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Move_3.wav</AudioFile>
 											<MediaIDList>
@@ -758,6 +773,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Move_4" ID="{B1156663-50BB-44C1-A980-EB4A8284164F}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0694143177371739"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0694143177371739"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Move_4.wav</AudioFile>
 											<MediaIDList>
@@ -780,6 +800,11 @@
 									</ReferenceList>
 									<ChildrenList>
 										<AudioFileSource Name="Move_5" ID="{29EDCC81-14BC-4434-911A-4FF383BCD8DC}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0799710777085153"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0799710777085153"/>
+											</PropertyList>
 											<Language>SFX</Language>
 											<AudioFile>Move_5.wav</AudioFile>
 											<MediaIDList>
@@ -1208,6 +1233,152 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="Yelp_3" ID="{C4DDA6D6-1DE4-4241-A0BE-C29C26CDDC6D}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Move" ID="{3FB2EB4D-7266-467B-9745-08A3251D2FFE}" ShortID="262713716">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Enemy_Move_1" ID="{B165B7E6-CFB7-421D-B9EA-C57F0C3234D4}" ShortID="161205514">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Enemy_Move_1" ID="{A97FCF94-009D-4306-BB97-10F4B68FF386}">
+											<PropertyList>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0397686198062855"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Enemy_Move_1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="260244671"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Enemy_Move_1" ID="{A97FCF94-009D-4306-BB97-10F4B68FF386}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Enemy_Move_2" ID="{8938B244-21AF-495D-A250-89BF06D0A7C6}" ShortID="1002716910">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Enemy_Move_2" ID="{BBEB52D1-AB4D-4E8A-9540-351A33BBE6DA}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0445408541830398"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0445408541830398"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Enemy_Move_2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="63272458"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Enemy_Move_2" ID="{BBEB52D1-AB4D-4E8A-9540-351A33BBE6DA}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Enemy_Move_3" ID="{FFB13B31-D2AE-4A74-8BA1-AC3F708FB7C5}" ShortID="690721367">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Enemy_Move_3" ID="{63DAB674-6448-4A70-AEAF-F4BB4FCF45B1}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0746203915674619"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0676789597937445"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Enemy_Move_3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="20134841"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Enemy_Move_3" ID="{63DAB674-6448-4A70-AEAF-F4BB4FCF45B1}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Enemy_Move_4" ID="{3D09FD5E-C67C-4D9C-8F1B-33956980E530}" ShortID="102537999">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Enemy_Move_4" ID="{07B93824-AE3F-4C9C-BD32-0D445D8001F7}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0731742573405036"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0731742573405036"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Enemy_Move_4.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="670508553"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Enemy_Move_4" ID="{07B93824-AE3F-4C9C-BD32-0D445D8001F7}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Enemy_Move_5" ID="{A0D81635-0CE4-40D6-9D72-473F8E489EB5}" ShortID="713409371">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Enemy_Move_5" ID="{F1C3FA7B-A813-49CD-B890-05EF0C9AB922}">
+											<PropertyList>
+												<Property Name="LoopBegin" Type="Real64" Value="0.0780911074543206"/>
+												<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+												<Property Name="TrimBegin" Type="Real64" Value="0.0780911074543206"/>
+											</PropertyList>
+											<Language>SFX</Language>
+											<AudioFile>Enemy_Move_5.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="596883417"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Enemy_Move_5" ID="{F1C3FA7B-A813-49CD-B890-05EF0C9AB922}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>

@@ -91,6 +91,10 @@
 							<Position X="3" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Enemy_Move" ID="{5DB92AA9-8BBA-4DB0-8289-23A9AE2A56DB}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="3" Y="3"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Parry_Success" ID="{824D9EC9-4A01-41DA-8BC5-E72D01F8E4EC}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="4" Y="1"/>
 						</Module>
