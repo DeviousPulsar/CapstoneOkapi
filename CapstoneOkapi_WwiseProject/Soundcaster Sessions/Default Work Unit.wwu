@@ -32,9 +32,7 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
-					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Wood" ID="{0C8C24ED-553D-4101-82B6-8BDC72FAA041}"/>
-					</CurrentSwitchList>
+					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
 				<SoundcasterSession Name="SFX" ID="{18324D95-7A08-4343-A501-89D3F953AB04}">
 					<ModuleList>
@@ -101,9 +99,7 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
-					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}"/>
-					</CurrentSwitchList>
+					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
 				<SoundcasterSession Name="Scenes" ID="{62B719A6-D097-47B7-8A9A-EC2317112068}">
 					<ModuleList>
@@ -122,6 +118,68 @@
 						<Module>
 							<ObjectRef Name="mx_EnterOW_Picnic" ID="{83B5BE5D-FFEC-4093-A251-85507FE93FE8}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
 							<Position X="1" Y="1"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Boss01" ID="{5DEB0CB4-F504-4A4C-94E3-2E617655730B}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="mx_StartGame" ID="{955E3FDE-541F-48B3-82FF-EA76D3AF8461}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_PhaseDLG" ID="{DCB6FAE8-9B91-4A08-BC49-35BCDA8642BC}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_EnterFight_Boss01" ID="{A9D206D4-4990-46B1-92F3-3204B3D27DFF}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_PhasePREP" ID="{D9A7CC4D-2970-46A7-973E-E5AFEC0C6303}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_PhaseCOMBAT" ID="{5B065C38-A605-49A0-953B-DB0723BE4997}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_Win" ID="{81E4500C-A837-47C8-BAC2-2A591151D633}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="Boss02" ID="{415EF917-2EA9-4A11-BF08-08125D907B5E}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="mx_StartGame" ID="{955E3FDE-541F-48B3-82FF-EA76D3AF8461}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_PhaseDLG" ID="{DCB6FAE8-9B91-4A08-BC49-35BCDA8642BC}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_EnterFight_Boss02" ID="{038586EC-76C2-494B-8D8E-17E362405DF9}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_PhasePREP" ID="{D9A7CC4D-2970-46A7-973E-E5AFEC0C6303}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_PhaseCOMBAT" ID="{5B065C38-A605-49A0-953B-DB0723BE4997}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_Win" ID="{81E4500C-A837-47C8-BAC2-2A591151D633}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="3" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
