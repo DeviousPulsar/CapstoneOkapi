@@ -28,39 +28,6 @@
 						<Property Name="OverrideColor" Type="bool" Value="True"/>
 					</PropertyList>
 					<ChildrenList>
-						<Event Name="UI_Hover" ID="{E44F3A39-6B53-4663-B9EA-E9D4491AB88E}">
-							<ChildrenList>
-								<Action Name="" ID="{9D38D94A-C815-4018-9533-4899049043C6}" ShortID="53794203">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Hover" ID="{D9CC8474-6395-42B3-80C3-9F90CB9C6473}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="UI_Select" ID="{402B5382-5422-4494-9162-07157B8D762D}">
-							<ChildrenList>
-								<Action Name="" ID="{BEB64E2B-0511-4D47-B9A3-A34B7D3B382C}" ShortID="1065880001">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Select" ID="{FB67F250-552D-443A-B98E-E2976EED1A47}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
-						<Event Name="Footstep" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}">
-							<ChildrenList>
-								<Action Name="" ID="{D9B7EFAF-471F-4A58-B875-F8EC69E04991}" ShortID="861552891">
-									<ReferenceList>
-										<Reference Name="Target">
-											<ObjectRef Name="Footsteps" ID="{AC191FCC-7113-4B8C-8D12-CE546F5F666B}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
-										</Reference>
-									</ReferenceList>
-								</Action>
-							</ChildrenList>
-						</Event>
 						<Folder Name="Player" ID="{CE5CD890-86C1-42E1-BD33-4432B22A8BA8}" ShortID="340633501">
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="8"/>
@@ -94,7 +61,7 @@
 										<Action Name="" ID="{ABEDDB09-F878-4D96-89D5-55C4B7B2C8CE}" ShortID="607187133">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Parry_Success" ID="{5E7DB3C5-A272-4AB8-A54E-7C6A8321164F}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+													<ObjectRef Name="Parry_Success" ID="{13F07209-BA30-4C4C-A36F-0317F4E13A95}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -138,7 +105,18 @@
 										<Action Name="" ID="{8745E4B5-C231-4456-8FD5-DE3CD10486BC}" ShortID="403127776">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Player_Damage" ID="{2F01994A-7943-400D-B7EE-50D746923612}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+													<ObjectRef Name="Player_Damage" ID="{EAD06A72-1846-47B4-95FD-ED5DBF78C876}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Footstep" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}">
+									<ChildrenList>
+										<Action Name="" ID="{D9B7EFAF-471F-4A58-B875-F8EC69E04991}" ShortID="861552891">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Footsteps" ID="{AC191FCC-7113-4B8C-8D12-CE546F5F666B}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -191,6 +169,43 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Move" ID="{3FB2EB4D-7266-467B-9745-08A3251D2FFE}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+							</ChildrenList>
+						</Folder>
+						<Folder Name="UI" ID="{3C13CD14-9661-492E-B2A9-52899083EAF3}" ShortID="374936322">
+							<ChildrenList>
+								<Event Name="UI_Hover" ID="{E44F3A39-6B53-4663-B9EA-E9D4491AB88E}">
+									<ChildrenList>
+										<Action Name="" ID="{9D38D94A-C815-4018-9533-4899049043C6}" ShortID="53794203">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Hover" ID="{D9CC8474-6395-42B3-80C3-9F90CB9C6473}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="UI_Select" ID="{402B5382-5422-4494-9162-07157B8D762D}">
+									<ChildrenList>
+										<Action Name="" ID="{BEB64E2B-0511-4D47-B9A3-A34B7D3B382C}" ShortID="1065880001">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Select" ID="{FB67F250-552D-443A-B98E-E2976EED1A47}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="UI_Start_Combat" ID="{FCA4AEF1-384C-42D6-B316-6E862FD35EFB}">
+									<ChildrenList>
+										<Action Name="" ID="{06E91E36-9E2D-4BD9-9802-E1C2D745AF30}" ShortID="91111567">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UI_Start_Combat" ID="{2B20F4FE-3244-4A20-A952-940E1A8329FE}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
