@@ -32,5 +32,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ReturnToOverworld();
 
+	UFUNCTION(BlueprintCallable)
+	void ReloadCombatScene();
+
 	ULevelTransitionHandler(const FObjectInitializer& ObjectInitializer);
 };

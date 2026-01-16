@@ -21,7 +21,7 @@ void ACombatManager::BeginPlay()
 void ACombatManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	AssessWLState();
+	//AssessWLState();
 }
 
 UFUNCTION(BlueprintCallable) void ACombatManager::AssessWLState()

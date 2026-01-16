@@ -1,11 +1,10 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
 #include "LevelTransitionHandler.h"
+#include "PlayerTrackingSubsystem.h"
 #include "GameFramework/Character.h"
 #include "Internationalization/Regex.h"
 #include "Kismet/GameplayStatics.h"
-
-
 
 ULevelTransitionHandler::ULevelTransitionHandler(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -18,7 +17,7 @@ ULevelTransitionHandler::ULevelTransitionHandler(const FObjectInitializer& Objec
 
 void ULevelTransitionHandler::OnWorldChanged(UWorld* OldWorld, UWorld* NewWorld)
 {
-  Super::OnWorldChanged(OldWorld, NewWorld);
+    Super::OnWorldChanged(OldWorld, NewWorld);
 }
 
 void ULevelTransitionHandler::LoadComplete(const float LoadTime, const FString& MapName)
@@ -65,6 +64,8 @@ void ULevelTransitionHandler::LoadCombatScene(const FName LevelToLoad, const FVe
     );
 
     UGameplayStatics::OpenLevel(World, LevelToLoad);
+
+    GetSubsystem<UPlayerTrackingSubsystem>()->LogBattleEntered();
 }
 
 void ULevelTransitionHandler::LoadOverworldScene(const FName LevelToLoad, const FVector DestinationPosition, const FQuat DestinationRotation)
@@ -116,4 +117,26 @@ void ULevelTransitionHandler::ReturnToOverworld()
     );
 
     UGameplayStatics::OpenLevel(World, OverworldMap);
+}
+
+void ULevelTransitionHandler::ReloadCombatScene()
+{
+    UWorld* World = GetWorld();
+
+    FName LevelToLoad = FName(World->GetMapName());
+    const FRegexPattern Pattern(TEXT("Level_.*"), ERegexPatternFlags::None);
+    FRegexMatcher Regex(Pattern, LevelToLoad.ToString());
+    if (Regex.FindNext())
+    {
+        LevelToLoad = FName(Regex.GetCaptureGroup(0));
+    }
+
+    UE_LOG(
+        LogLoad, 
+        Log, 
+        TEXT("Reloading combat scene %s"),  
+        *FName(World->GetMapName()).ToString()
+    );
+
+    UGameplayStatics::OpenLevel(World, LevelToLoad);
 }
