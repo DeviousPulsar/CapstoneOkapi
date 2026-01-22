@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <WwiseDocument Type="WorkUnit" ID="{1E6162BF-DB02-4BA5-9849-3382DF1F3CC6}" SchemaVersion="123">
 	<GameParameters>
-		<WorkUnit Name="Default Work Unit" ID="{1E6162BF-DB02-4BA5-9849-3382DF1F3CC6}" PersistMode="Standalone"/>
+		<WorkUnit Name="Default Work Unit" ID="{1E6162BF-DB02-4BA5-9849-3382DF1F3CC6}" PersistMode="Standalone">
+			<ChildrenList>
+				<GameParameter Name="MX_VolumeSlider" ID="{65898CF1-DE8E-415C-9204-C4CC04525D14}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="15"/>
+						<Property Name="InitialValue" Type="Real64" Value="0.7"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+						<Property Name="RTPCRamping" Type="int16" Value="1"/>
+						<Property Name="SlewRateDown" Type="Real64" Value="5"/>
+						<Property Name="SlewRateUp" Type="Real64" Value="5"/>
+					</PropertyList>
+				</GameParameter>
+				<GameParameter Name="SFX_VolumeSlider" ID="{628503C9-2689-421A-90ED-07F007F44752}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="16"/>
+						<Property Name="InitialValue" Type="Real64" Value="0.7"/>
+						<Property Name="Max" Type="Real64" Value="1"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+						<Property Name="RTPCRamping" Type="int16" Value="1"/>
+						<Property Name="SlewRateDown" Type="Real64" Value="5"/>
+						<Property Name="SlewRateUp" Type="Real64" Value="5"/>
+					</PropertyList>
+				</GameParameter>
+			</ChildrenList>
+		</WorkUnit>
 	</GameParameters>
 </WwiseDocument>

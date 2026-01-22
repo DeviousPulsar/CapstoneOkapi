@@ -36,4 +36,11 @@ public:
 	void ReloadCombatScene();
 
 	ULevelTransitionHandler(const FObjectInitializer& ObjectInitializer);
+    
+    //declaring slider variables to store volume data
+    UPROPERTY(BlueprintReadWrite, Category = "Audio")
+    float MusicSlider;
+    
+    UPROPERTY(BlueprintReadWrite, Category = "Audio")
+    float SFXSlider;
 };
