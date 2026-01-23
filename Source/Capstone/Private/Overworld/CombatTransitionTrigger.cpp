@@ -13,8 +13,6 @@ ACombatTransitionTrigger::ACombatTransitionTrigger()
 	if (!ensureMsgf(TriggerVolume != nullptr, TEXT("%s could not generate UBoxComponent TriggerVolume"), *GetNameSafe(this))) {
 		return;
 	}
-
-	TriggerVolume->OnComponentBeginOverlap.AddDynamic(this, &ACombatTransitionTrigger::OnOverlapBegin);
 }
 
 void ACombatTransitionTrigger::BeginPlay()
@@ -24,7 +22,7 @@ void ACombatTransitionTrigger::BeginPlay()
 	TransitionHandler = Cast<ULevelTransitionHandler>(GetGameInstance());
 }
 
-void ACombatTransitionTrigger::OnOverlapBegin(UPrimitiveComponent* OverlappedComp, AActor* OtherActor, UPrimitiveComponent* OtherComp, int32 OtherBodyIndex, bool bFromSweep, const FHitResult& SweepResult) 
+void ACombatTransitionTrigger::BeginTransition() 
 {
 	FTransform XformedDest = ActorToWorld()*EjectDestination;
 	

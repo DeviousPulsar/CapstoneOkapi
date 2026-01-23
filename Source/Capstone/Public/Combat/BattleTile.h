@@ -61,6 +61,12 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Tile")
 	ETileState CurrentState;
 
+	UPROPERTY(EditAnywhere, Category = "Tile")
+	int XPos;
+
+	UPROPERTY(EditAnywhere, Category = "Tile")
+	int YPos;
+
 	UPROPERTY()
 	int32 Damage;
 

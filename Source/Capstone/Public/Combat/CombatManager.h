@@ -24,8 +24,8 @@ UCLASS()
 class CAPSTONE_API ACombatManager : public AActor
 {
 	GENERATED_BODY()
-	
-public:	
+
+public:
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "DialogueSupport") bool bDialogueEnabled;
 	UPROPERTY(BlueprintReadOnly) ACombatPlayer* PlayerC;
 	UPROPERTY(BlueprintReadOnly) ACombatEnemy* EnemyC;
@@ -44,7 +44,6 @@ public:
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "DialogueSupport") int32 EncounterNum;
 
 	ABattleGrid* Grid;
-
 
 	/**
 	* Creates a new combat manager object that controls the turn cycle, tracks player and enemy health
@@ -71,7 +70,7 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-public:	
+public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
@@ -81,4 +80,20 @@ private:
 	void TransitionToOverworld();
 
 	UFUNCTION(BlueprintCallable) void AssignControllers();
+
+	// ===== Pre-combat Countdown (NEW) =====
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat|Countdown", meta = (AllowPrivateAccess = "true"))
+	bool bEnablePreCombatCountdown = true;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat|Countdown", meta = (ClampMin = "0.0", AllowPrivateAccess = "true"))
+	float PreCombatCountdownSeconds = 3.0f;
+
+	float CountdownRemaining = 0.0f;
+
+	FTimerHandle CountdownTimerHandle;
+
+	void StartPreCombatCountdown();
+	void OnCountdownTick();
+	void LockPlayerControl(bool bLock);
+	// =====================================
 };

@@ -88,35 +88,32 @@ void ACombatEnemy::MoveRandomOnGrid()
 	int PlayerPosY = PlayerCombat->GetPosition().y;
 	int EnemyPosY = GetPosition().y;
 	// Randomly add or subtract 1 to X 
-	int32 RandX = FMath::RandRange(-1, 1);
-	int32 RandY = FMath::RandRange(-1, 1);
+	int32 RandX = FMath::RandRange(-MoveRange, MoveRange);
+	int32 RandY = FMath::RandRange(-MoveRange, MoveRange);
 
-	int32 dY;
+	int32 dY = RandY;
+
 	if (EnemyPosY == PlayerPosY)
 	{
 		if (EnemyPosY > 1)
 		{
-			dY = -1;
+			dY = -FMath::Max(1, MoveRange);
 		}
 		if (EnemyPosY < 1)
 		{
-			dY = 1;
+			dY = FMath::Max(1, MoveRange);
 		}
 		if (EnemyPosY == 1)
 		{
-			dY = (FMath::RandBool() ? 1 : -1);
+			dY = (FMath::RandBool() ? FMath::Max(1, MoveRange) : -FMath::Max(1, MoveRange));
 		}
-		FVector2D NewLocation(RandX, dY);
 	}
-	else
-	{
-		dY = RandY;
-	}
+
 	FVector2D NewLocation(RandX, dY);
 	Move(NewLocation);
 }
 
-// ==================== 下面是新增的动画逻辑函数 ====================
+
 
 float ACombatEnemy::BeginEnemyAttack_Anim()
 {

@@ -37,6 +37,8 @@ public:
 
 	UPROPERTY(EditAnywhere, Category = "Animation")
 	float AttackAnimDurationOverride = 0.0f;
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Combat|Movement", meta = (ClampMin = "1", ClampMax = "10"))
+	int32 MoveRange = 1;
 
 	UPROPERTY(EditAnywhere, Category = "Animation")
 	float HitReactDuration = 0.25f;
@@ -79,6 +81,7 @@ public:
 	// Moves enemy randomly on grid
 	void MoveRandomOnGrid();
 
+	UFUNCTION(BlueprintCallable)
 	bool FinishedAttack() const { return HasFinishedAttack; }
 
 	UFUNCTION(BlueprintCallable)

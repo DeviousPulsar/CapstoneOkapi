@@ -19,8 +19,29 @@ void ABattleGrid::BeginPlay()
 
     FVector Origin = GetActorLocation();
 
+    TArray<ABattleTile*> TilesInLevel;
+    TArray<AActor*> TileActors;
+
+
     // Calculate offset so grid is centered on actor
-    float TotalWidth = (GridWidth - 1) * TileSize;
+    UGameplayStatics::GetAllActorsOfClass(GetWorld(), ABattleTile::StaticClass(), TileActors);
+
+    // Convert Actors to BattleTiles
+    float TileNum = 0;
+    for (AActor* tile : TileActors)
+    {
+        TilesInLevel.Add(Cast<ABattleTile>(tile));
+        TileNum++;
+    }
+
+
+    for (ABattleTile* CurrentTile : TilesInLevel)
+    {
+        TileGrid.Add(FIntPoint(CurrentTile->XPos, CurrentTile->YPos), CurrentTile);
+    }
+   
+        
+    /*float TotalWidth = (GridWidth - 1) * TileSize;
     float TotalHeight = (GridHeight - 1) * TileSize;
     FVector GridOffset = FVector(-TotalWidth / 2.0f, TotalHeight / 2.0f, 0.0f);
 
@@ -45,7 +66,7 @@ void ABattleGrid::BeginPlay()
                 TileGrid.Add(FIntPoint(x,y), Tile);
             }
         }
-    }
+    }*/
 }
 
 // Called every frame

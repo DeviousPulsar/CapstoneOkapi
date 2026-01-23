@@ -14,24 +14,24 @@ FAttackStage::FAttackStage()
 
 double UAttack::Length() const
 {
-    double Max = 0;
+    double TotalLength = 0;
     double StartTime = 0;
+    double FinalStageTime = 0;
     for (const FAttackStage& Atk : AttackStages)
     {
-        StartTime += Atk.Delay;
-        double Temp = StartTime + Atk.WarningLength + Atk.DamageLength;
-        if (Temp > Max)
-        {
-            Max = Temp;
-        }
+        double StageLength = Atk.Delay;
+        TotalLength += StageLength;
+        FinalStageTime = Atk.DamageLength;
     }
+    TotalLength += FinalStageTime;
+    
 
-    if (Max < Cooldown)
-    {
-        Max = Cooldown;
-    }
+    //if (Max < Cooldown)
+    //{
+    //    Max = Cooldown;
+    //}
 
-    return Max;
+    return TotalLength;
 }
 
 UAttack* UAttack::AsStaticAttack(int x, int y) const

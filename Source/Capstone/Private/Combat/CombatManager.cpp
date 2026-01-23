@@ -3,12 +3,17 @@
 #include "Combat/CombatManager.h"
 #include "LevelTransitionHandler.h"
 #include "Kismet/GameplayStatics.h"
+#include "TimerManager.h"
+#include "GameFramework/PlayerController.h"
 
 // Sets default values
 ACombatManager::ACombatManager()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	bEnablePreCombatCountdown = true;
+	PreCombatCountdownSeconds = 3.0f;
 }
 
 // Called when the game starts or when spawned
@@ -24,7 +29,7 @@ void ACombatManager::Tick(float DeltaTime)
 	//AssessWLState();
 }
 
-UFUNCTION(BlueprintCallable) void ACombatManager::AssessWLState()
+void ACombatManager::AssessWLState()
 {
 	//If contextually appropriate show feedback
 	if (PlayerC->GetHealth() <= 0)
@@ -38,7 +43,7 @@ UFUNCTION(BlueprintCallable) void ACombatManager::AssessWLState()
 	//otherwise just returning is fine
 }
 
-UFUNCTION(BlueprintCallable) void ACombatManager::BeginTurnCycle()
+void ACombatManager::BeginTurnCycle()
 {
 	//Summon menu and store struct with player's choices (or menu will tell the player controller what was picked?)
 	//Unsummon menu
@@ -46,18 +51,17 @@ UFUNCTION(BlueprintCallable) void ACombatManager::BeginTurnCycle()
 		//TODO: implement call to enemy controller's select attack
 }
 
-UFUNCTION(BlueprintCallable) void ACombatManager::PlayerWins()
+void ACombatManager::PlayerWins()
 {
 	UE_LOG(LogTemp, Display, TEXT("Player wins with %d health remaining"), PlayerC->GetHealth());
 	TransitionToOverworld();
 }
 
-UFUNCTION(BlueprintCallable) void ACombatManager::PlayerLoses()
+void ACombatManager::PlayerLoses()
 {
 	UE_LOG(LogTemp, Display, TEXT("Player Lost :( Enemy has %d health remaining"), 5);
 	TransitionToOverworld();
 }
-
 
 void ACombatManager::TransitionToOverworld()
 {
@@ -67,7 +71,7 @@ void ACombatManager::TransitionToOverworld()
 	}
 }
 
-UFUNCTION(BlueprintCallable) void ACombatManager::AssignControllers()
+void ACombatManager::AssignControllers()
 {
 	//Initialize Grid
 	Grid = GetWorld()->SpawnActor<ABattleGrid>(
@@ -93,12 +97,11 @@ UFUNCTION(BlueprintCallable) void ACombatManager::AssignControllers()
 	//FVector GridLocationE = Grid->GetTilePos(FGridPosition(4, 1));
 	EnemyC->Initialize(4, 1, Grid);
 
-
 	//Spawn Player Controller
 	PlayerC = GetWorld()->SpawnActor<ACombatPlayer>(
 		PlayerClass,
 		FVector(0, 0, 0),
-		FRotator::ZeroRotator, 
+		FRotator::ZeroRotator,
 		Params
 	);
 
@@ -108,4 +111,61 @@ UFUNCTION(BlueprintCallable) void ACombatManager::AssignControllers()
 
 	APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), 0);
 	PlayerController->Possess(PlayerC);
+
+	// --- Pre-combat countdown entry point ---
+	if (bEnablePreCombatCountdown && PreCombatCountdownSeconds > 0.0f)
+	{
+		StartPreCombatCountdown();
+	}
+	else
+	{
+		BeginTurnCycle();
+	}
+}
+
+void ACombatManager::StartPreCombatCountdown()
+{
+	LockPlayerControl(true);
+
+	CountdownRemaining = PreCombatCountdownSeconds;
+
+	if (UWorld* World = GetWorld())
+	{
+		World->GetTimerManager().SetTimer(
+			CountdownTimerHandle,
+			this,
+			&ACombatManager::OnCountdownTick,
+			1.0f,
+			true
+		);
+	}
+}
+
+void ACombatManager::OnCountdownTick()
+{
+	CountdownRemaining -= 1.0f;
+
+	int32 SecondsLeft = FMath::CeilToInt(CountdownRemaining);
+
+	if (SecondsLeft > 0)
+	{
+		return;
+	}
+
+	if (UWorld* World = GetWorld())
+	{
+		World->GetTimerManager().ClearTimer(CountdownTimerHandle);
+	}
+
+	LockPlayerControl(false);
+	BeginTurnCycle();
+}
+
+void ACombatManager::LockPlayerControl(bool bLock)
+{
+	if (APlayerController* PC = UGameplayStatics::GetPlayerController(GetWorld(), 0))
+	{
+		PC->SetIgnoreMoveInput(bLock);
+		PC->SetIgnoreLookInput(bLock);
+	}
 }

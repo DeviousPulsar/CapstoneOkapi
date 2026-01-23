@@ -12,30 +12,89 @@ ULevelTransitionHandler::ULevelTransitionHandler(const FObjectInitializer& Objec
     ReturnPosition = FVector(0, 0, 230);
     ReturnRotation = FQuat(1, 0, 0, 0);
 
-    bInCombat = false;
+    TransitionType = ELevelTransitionType::NONE;
+    bLoadScheduled = false;
+
+    if (TransitionScreenClass && !IsValid(TransitionScreen))
+    {
+        UUserWidget* Widget = CreateWidget(this, TransitionScreenClass);
+        if (Widget->IsA(UTransitionScreen::StaticClass()))
+        {
+            TransitionScreen = (UTransitionScreen*) Widget;
+        }
+    }
+}
+
+void ULevelTransitionHandler::Init()
+{
+    Super::Init();
 }
 
 void ULevelTransitionHandler::OnWorldChanged(UWorld* OldWorld, UWorld* NewWorld)
 {
     Super::OnWorldChanged(OldWorld, NewWorld);
+
+    if (TransitionScreenClass)
+    {
+        if (!IsValid(TransitionScreen))
+        {
+            UUserWidget* Widget = CreateWidget(this, TransitionScreenClass);
+            if (Widget->IsA(UTransitionScreen::StaticClass()))
+            {
+                TransitionScreen = (UTransitionScreen*) Widget;
+            }
+        }
+
+        if (!TransitionScreen->IsInViewport())
+        {
+            TransitionScreen->AddToViewport();
+        }
+    };
 }
 
 void ULevelTransitionHandler::LoadComplete(const float LoadTime, const FString& MapName)
 {
     Super::LoadComplete(LoadTime, MapName);
 
-    if(!bInCombat)
+    if(ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
     {
-        if(ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
+        switch(TransitionType)
         {
-            Player->GetRootComponent()->SetWorldLocationAndRotation(ReturnPosition, ReturnRotation);
+            case (ELevelTransitionType::OVERWORLD_TO_OVERWORLD): 
+            {
+                TArray<AActor*> targets = {};
+                UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATransitionTarget::StaticClass(), targets);
+                for(AActor* target : targets) 
+                {
+                    if (IsValid(target) && target->IsA(ATransitionTarget::StaticClass()) && ((ATransitionTarget*) target)->GetTransitionName() == EjectTarget)
+                    {
+                        Player->GetRootComponent()->SetWorldLocationAndRotation(
+                            target->GetActorLocation(), 
+                            target->GetActorRotation()
+                        );
+                        break;
+                    }
+                }
+                break;
+            }
+
+            case (ELevelTransitionType::COMBAT_TO_OVERWORLD):
+            {
+                Player->GetRootComponent()->SetWorldLocationAndRotation(ReturnPosition, ReturnRotation);
+                break;
+            }
+
+            default:
+                break;
         }
     }
+
+    TransitionScreen->OnLoadFinished();
 }
 
 void ULevelTransitionHandler::LoadCombatScene(const FName LevelToLoad, const FVector pReturnPosition, const FQuat pReturnRotation)
 {
-    bInCombat = true;
+    TransitionType = ELevelTransitionType::OVERWORLD_TO_COMBAT;
     UWorld* World = GetWorld();
     
     const FRegexPattern Pattern(TEXT("Level_.*"), ERegexPatternFlags::None);
@@ -63,14 +122,20 @@ void ULevelTransitionHandler::LoadCombatScene(const FName LevelToLoad, const FVe
         *ReturnRotation.Rotator().ToString()
     );
 
-    UGameplayStatics::OpenLevel(World, LevelToLoad);
+    TransitionScreen->OnLoadStarted();
+    ScheduleLoad(LevelToLoad);
 
     GetSubsystem<UPlayerTrackingSubsystem>()->LogBattleEntered();
 }
 
-void ULevelTransitionHandler::LoadOverworldScene(const FName LevelToLoad, const FVector DestinationPosition, const FQuat DestinationRotation)
+void ULevelTransitionHandler::LoadOverworldScene(const FName LevelToLoad, const FString pEjectTarget)
 {
-    bInCombat = false;
+    if(bLoadScheduled) { return; }
+
+    TransitionType = ELevelTransitionType::OVERWORLD_TO_OVERWORLD;
+
+    EjectTarget = pEjectTarget;
+
     const FRegexPattern Pattern(TEXT("Level_.*"), ERegexPatternFlags::None);
     FRegexMatcher Regex(Pattern, LevelToLoad.ToString());
     if (Regex.FindNext())
@@ -83,27 +148,26 @@ void ULevelTransitionHandler::LoadOverworldScene(const FName LevelToLoad, const 
         return;
     }
 
-    ReturnPosition = DestinationPosition;
-    ReturnRotation = DestinationRotation;
-
     UWorld* World = GetWorld();
 
     UE_LOG(
         LogLoad, 
         Log, 
-        TEXT("Moving to Level %s from level %s. Player actor, if one exists, will be placed at %s with facing %s"), 
+        TEXT("Moving to level %s from level %s."), 
         *LevelToLoad.ToString(), 
-        *FName(World->GetMapName()).ToString(), 
-        *ReturnPosition.ToString(), 
-        *ReturnRotation.Rotator().ToString()
+        *FName(World->GetMapName()).ToString()
     )
 
-    UGameplayStatics::OpenLevel(World, LevelToLoad);
+    TransitionScreen->OnLoadStarted();
+    ScheduleLoad(LevelToLoad);
 }
 
 void ULevelTransitionHandler::ReturnToOverworld()
 {
-    bInCombat = false;
+    if(bLoadScheduled) { return; }
+
+    TransitionType = ELevelTransitionType::COMBAT_TO_OVERWORLD;
+
     UWorld* World = GetWorld();
 
     UE_LOG(
@@ -116,11 +180,16 @@ void ULevelTransitionHandler::ReturnToOverworld()
         *ReturnRotation.Rotator().ToString()
     );
 
-    UGameplayStatics::OpenLevel(World, OverworldMap);
+    TransitionScreen->OnLoadStarted();
+    ScheduleLoad(OverworldMap);
 }
 
 void ULevelTransitionHandler::ReloadCombatScene()
 {
+    if(bLoadScheduled) { return; }
+
+    TransitionType = ELevelTransitionType::COMBAT_TO_COMBAT;
+
     UWorld* World = GetWorld();
 
     FName LevelToLoad = FName(World->GetMapName());
@@ -138,5 +207,21 @@ void ULevelTransitionHandler::ReloadCombatScene()
         *FName(World->GetMapName()).ToString()
     );
 
-    UGameplayStatics::OpenLevel(World, LevelToLoad);
+    TransitionScreen->OnLoadStarted();
+    ScheduleLoad(LevelToLoad);
+}
+
+void ULevelTransitionHandler::ScheduleLoad(FName LevelToLoad)
+{
+    MapScheduledToLoad = LevelToLoad;
+    bLoadScheduled = true;
+    
+    FTimerHandle TimerHandle;
+    GetTimerManager().SetTimer(TimerHandle, this, &ULevelTransitionHandler::LoadScheduled, LoadDelay, false);
+}
+
+void ULevelTransitionHandler::LoadScheduled()
+{
+    UGameplayStatics::OpenLevel(GetWorld(), MapScheduledToLoad);
+    bLoadScheduled = false;
 }
