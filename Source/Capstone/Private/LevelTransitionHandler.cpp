@@ -1,10 +1,25 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+#include "CapstoneSaveGame.h"
 #include "LevelTransitionHandler.h"
 #include "PlayerTrackingSubsystem.h"
 #include "GameFramework/Character.h"
 #include "Internationalization/Regex.h"
 #include "Kismet/GameplayStatics.h"
+
+void ULevelTransitionHandler::Init()
+{
+    Super::Init();
+
+    if (!UGameplayStatics::DoesSaveGameExist("Save", 0))
+    {
+        UCapstoneSaveGame* SaveGame = (UCapstoneSaveGame*) UGameplayStatics::CreateSaveGameObject(UCapstoneSaveGame::StaticClass());
+        SaveGame->MusicVolume = 1.0;
+        SaveGame->MusicVolume = 1.0;
+        SaveGame->GamePhase = 0;
+        UGameplayStatics::SaveGameToSlot(SaveGame, "Save", 0);
+    }
+}
 
 ULevelTransitionHandler::ULevelTransitionHandler(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
 {
@@ -13,21 +28,6 @@ ULevelTransitionHandler::ULevelTransitionHandler(const FObjectInitializer& Objec
     ReturnRotation = FQuat(1, 0, 0, 0);
 
     TransitionType = ELevelTransitionType::NONE;
-    bLoadScheduled = false;
-
-    if (TransitionScreenClass && !IsValid(TransitionScreen))
-    {
-        UUserWidget* Widget = CreateWidget(this, TransitionScreenClass);
-        if (Widget->IsA(UTransitionScreen::StaticClass()))
-        {
-            TransitionScreen = (UTransitionScreen*) Widget;
-        }
-    }
-}
-
-void ULevelTransitionHandler::Init()
-{
-    Super::Init();
 }
 
 void ULevelTransitionHandler::OnWorldChanged(UWorld* OldWorld, UWorld* NewWorld)
@@ -130,8 +130,6 @@ void ULevelTransitionHandler::LoadCombatScene(const FName LevelToLoad, const FVe
 
 void ULevelTransitionHandler::LoadOverworldScene(const FName LevelToLoad, const FString pEjectTarget)
 {
-    if(bLoadScheduled) { return; }
-
     TransitionType = ELevelTransitionType::OVERWORLD_TO_OVERWORLD;
 
     EjectTarget = pEjectTarget;
@@ -164,8 +162,6 @@ void ULevelTransitionHandler::LoadOverworldScene(const FName LevelToLoad, const 
 
 void ULevelTransitionHandler::ReturnToOverworld()
 {
-    if(bLoadScheduled) { return; }
-
     TransitionType = ELevelTransitionType::COMBAT_TO_OVERWORLD;
 
     UWorld* World = GetWorld();
@@ -186,7 +182,7 @@ void ULevelTransitionHandler::ReturnToOverworld()
 
 void ULevelTransitionHandler::ReloadCombatScene()
 {
-    if(bLoadScheduled) { return; }
+    //if(bLoadScheduled) { return; }
 
     TransitionType = ELevelTransitionType::COMBAT_TO_COMBAT;
 

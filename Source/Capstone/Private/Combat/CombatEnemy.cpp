@@ -54,11 +54,12 @@ void ACombatEnemy::Tick(float DeltaTime)
 				OnAttackFinished();
 			}
 		}
-		else if (TimeSinceLastMove >= MovementCooldown && TimeSinceLastAttack >= LastAttackUseTime)
-		{
-			MoveRandomOnGrid();
-			TimeSinceLastMove = 0.0f;
-		}
+		
+	}
+	if (TimeSinceLastMove >= MovementCooldown)
+	{
+		MoveRandomOnGrid();
+		TimeSinceLastMove = 0.0f;
 	}
 }
 
@@ -95,17 +96,19 @@ void ACombatEnemy::MoveRandomOnGrid()
 
 	if (EnemyPosY == PlayerPosY)
 	{
+		int32 Step= FMath::Max(1, MoveRange);
 		if (EnemyPosY > 1)
 		{
-			dY = -FMath::Max(1, MoveRange);
+			dY = -Step;
 		}
 		if (EnemyPosY < 1)
 		{
-			dY = FMath::Max(1, MoveRange);
+			dY = Step;
 		}
 		if (EnemyPosY == 1)
 		{
-			dY = (FMath::RandBool() ? FMath::Max(1, MoveRange) : -FMath::Max(1, MoveRange));
+			/*dY = (FMath::RandBool() ? FMath::Max(1, MoveRange) : -FMath::Max(1, MoveRange));*/
+			dY=FMath::RandBool() ? Step : -Step;
 		}
 	}
 

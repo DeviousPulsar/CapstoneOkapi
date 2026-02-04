@@ -15,6 +15,7 @@ enum ELevelTransitionType
 	OVERWORLD_TO_OVERWORLD,
 	COMBAT_TO_OVERWORLD,
 	COMBAT_TO_COMBAT,
+	MENU_TO_OVERWORLD,
 };
 
 UCLASS(Blueprintable)
@@ -80,11 +81,4 @@ public:
 	void LoadScheduled();
 
 	ULevelTransitionHandler(const FObjectInitializer& ObjectInitializer);
-    
-    //declaring slider variables to store volume data
-    UPROPERTY(BlueprintReadWrite, Category = "Audio")
-    float MusicSlider;
-    
-    UPROPERTY(BlueprintReadWrite, Category = "Audio")
-    float SFXSlider;
 };

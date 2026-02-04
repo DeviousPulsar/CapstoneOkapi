@@ -79,6 +79,7 @@ public:
 	float BeginEnemyAttack();
 
 	// Moves enemy randomly on grid
+	UFUNCTION(BlueprintCallable, Category="Movement")
 	void MoveRandomOnGrid();
 
 	UFUNCTION(BlueprintCallable)
