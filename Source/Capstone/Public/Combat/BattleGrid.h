@@ -39,6 +39,24 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category="Grid")
 	bool IsParriableAtTile(FGridPosition Pos);
+	UPROPERTY(EditDefaultsOnly, Category = "Telegraph|Preview")
+	UMaterialInterface* PlayerPreviewDecalMaterial;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Telegraph|Preview")
+	FVector PlayerPreviewDecalSize;
+
+	UPROPERTY(EditDefaultsOnly, Category = "Telegraph|Preview")
+	float PlayerPreviewZOffset;
+
+	UPROPERTY(Transient)
+	TArray<TObjectPtr<UDecalComponent>> PlayerPreviewDecalPool;
+
+
+	UFUNCTION(BlueprintCallable)
+	void ClearPlayerPreview();
+
+	UFUNCTION(BlueprintCallable)
+	void ShowPlayerPreview(const TArray<FGridPosition>& Tiles);
 
 	/// <summary>
 	/// Returns an FVector specifying where the specified tile is in engine

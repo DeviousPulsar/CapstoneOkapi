@@ -7,29 +7,32 @@
 #include "LevelTransitionHandler.h"
 #include "CombatTransitionTrigger.generated.h"
 
+class UShapeComponent;
+
 UCLASS()
 class CAPSTONE_API ACombatTransitionTrigger : public AActor
 {
 	GENERATED_BODY()
-	
-	ULevelTransitionHandler* TransitionHandler;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta = (AllowPrivateAccess = "true"))
-	UShapeComponent* TriggerVolume;
-
-public:	
+public:
 	ACombatTransitionTrigger();
 
 	UPROPERTY(EditAnywhere)
 	FName CombatScene;
 
-	UPROPERTY(EditAnywhere, meta=(MakeEditWidget))
+	UPROPERTY(EditAnywhere, meta = (MakeEditWidget))
 	FTransform EjectDestination;
+
+	UFUNCTION(BlueprintCallable)
+	void BeginTransition();
 
 protected:
 	virtual void BeginPlay() override;
 
-private: 
-	UFUNCTION(BlueprintCallable)
-	void BeginTransition();
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components")
+	UShapeComponent* TriggerVolume;
+
+private:
+	UPROPERTY()
+	ULevelTransitionHandler* TransitionHandler;
 };

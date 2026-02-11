@@ -33,6 +33,7 @@ ACombatPawn::ACombatPawn()
 	Defend = 1.0;
 	Parry = false;
 	ParryBoost = false;
+	BufferMove = FVector2d(100, 100);
 }
 
 bool ACombatPawn::GetIsPlayer() {
@@ -64,11 +65,39 @@ void ACombatPawn::Move(FVector2D Vector) {
 	}
 
 	//move disallowed, do nothing
-	if (MoveAllowed == false || bIsFrozen) {
+	if (MoveAllowed == false || bIsFrozen) 
+	{
+		// if another move key is pressed before moving is allowed, but within the time we're allowing to buffer,
+		// execute it on the first possible frame (as soon as movement is allowed again)
+		if ((MoveCooldown - TimeSinceStun) < BufferTime)
+		{
+			BufferMove = Vector;
+		}
+
 		return;
 	}
 
 	ForceMove(Vector);
+}
+
+void ACombatPawn::UpPressed()
+{
+	Move(FVector2D(0, 1));
+}
+
+void ACombatPawn::DownPressed()
+{
+	Move(FVector2D(0, -1));
+}
+
+void ACombatPawn::LeftPressed()
+{
+	Move(FVector2D(-1, 0));
+}
+
+void ACombatPawn::RightPressed()
+{
+	Move(FVector2D(1, 0));
 }
 
 void ACombatPawn::ForceMove(FVector2D Vector)
@@ -163,9 +192,9 @@ void ACombatPawn::BeginPlay()
 	//Spawn effects
 	//UNiagaraSystem*, Duration, Scale
 	//NOTE: duration is ignored for now, may not be needed for these
-	HealingComponent = SpawnEffect(HealEffect, 4, 1);
-	InvulnerableComponent = SpawnEffect(InvulnerableEffect, InvTime, 1);
-	ParryComponent = SpawnEffect(ParryEffect, 1, 1);
+	HealingComponent = SpawnEffect(HealEffect, 1, FVector(0.0f, 0.0f, 0.2f));
+	InvulnerableComponent = SpawnEffect(InvulnerableEffect, 1);
+	ParryComponent = SpawnEffect(ParryEffect, 1);
 
 	DeactivateEffect(HealingComponent);
 	DeactivateEffect(InvulnerableComponent);
@@ -216,6 +245,11 @@ void ACombatPawn::Tick(float DeltaTime)
 		MoveAllowed = true;
 		StartPosition = Grid->GetTilePos(CurrentPosition);
 		SetActorLocation(StartPosition);
+		if (BufferMove != FVector2d(100, 100))
+		{
+			Move(BufferMove);
+			BufferMove = FVector2d(100, 100);
+		}
 	}
 	else
 	{
@@ -353,14 +387,16 @@ void ACombatPawn::ReturnToCenter() {
 	ForceMove(FVector2D(Center.x - CurrentPosition.x, Center.y - CurrentPosition.y));
 }
 
-UNiagaraComponent* ACombatPawn::SpawnEffect(UNiagaraSystem* Effect, double Duration, double Scale) {
+UNiagaraComponent* ACombatPawn::SpawnEffect(UNiagaraSystem* Effect, double Scale, FVector PositionOffset) {
 	if (Effect) {
+		FVector PositionVector = PositionOffset + FVector::ZeroVector;
+
 		UNiagaraComponent* ActiveEffectComponent =
 			UNiagaraFunctionLibrary::SpawnSystemAttached(
 				Effect,
 				GetRootComponent(),
 				NAME_None,
-				FVector::ZeroVector,
+				PositionVector,
 				FRotator::ZeroRotator,
 				EAttachLocation::KeepRelativeOffset,
 				false, //autodestroy

@@ -5,11 +5,17 @@
 #include "Combat/BattleTile.h"
 #include "Combat/Attack.h"
 
+#include "Kismet/GameplayStatics.h"
+#include "Components/DecalComponent.h"
+
 // Sets default values
 ABattleGrid::ABattleGrid()
 {
- 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
-	PrimaryActorTick.bCanEverTick = true;
+    // Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
+    PrimaryActorTick.bCanEverTick = true;
+
+    PlayerPreviewZOffset = 2.0f;
+    PlayerPreviewDecalSize = FVector(64.f, 64.f, 64.f);
 }
 
 // Called when the game starts or when spawned
@@ -22,11 +28,8 @@ void ABattleGrid::BeginPlay()
     TArray<ABattleTile*> TilesInLevel;
     TArray<AActor*> TileActors;
 
-
-    // Calculate offset so grid is centered on actor
     UGameplayStatics::GetAllActorsOfClass(GetWorld(), ABattleTile::StaticClass(), TileActors);
 
-    // Convert Actors to BattleTiles
     float TileNum = 0;
     for (AActor* tile : TileActors)
     {
@@ -34,46 +37,16 @@ void ABattleGrid::BeginPlay()
         TileNum++;
     }
 
-
     for (ABattleTile* CurrentTile : TilesInLevel)
     {
         TileGrid.Add(FIntPoint(CurrentTile->XPos, CurrentTile->YPos), CurrentTile);
     }
-   
-        
-    /*float TotalWidth = (GridWidth - 1) * TileSize;
-    float TotalHeight = (GridHeight - 1) * TileSize;
-    FVector GridOffset = FVector(-TotalWidth / 2.0f, TotalHeight / 2.0f, 0.0f);
-
-    for (int32 y = 0; y < GridHeight; y++)
-    {
-        for (int32 x = 0; x < GridWidth; x++)
-        {
-            FVector TilePos = Origin + GridOffset + FVector(x * TileSize, -(y * TileSize), 0.0f);
-
-            FActorSpawnParameters SpawnParams;
-            SpawnParams.Owner = this;
-
-            ABattleTile* Tile = GetWorld()->SpawnActor<ABattleTile>(
-                TileClass,
-                TilePos,
-                FRotator::ZeroRotator,
-                SpawnParams
-            );
-
-            if (Tile)
-            {
-                TileGrid.Add(FIntPoint(x,y), Tile);
-            }
-        }
-    }*/
 }
 
 // Called every frame
 void ABattleGrid::Tick(float DeltaTime)
 {
-	Super::Tick(DeltaTime);
-
+    Super::Tick(DeltaTime);
 }
 
 ABattleTile* ABattleGrid::GetTileAt(FGridPosition Pos)
@@ -85,7 +58,7 @@ ABattleTile* ABattleGrid::GetTileAt(FGridPosition Pos)
     return nullptr;
 }
 
-void ABattleGrid::AttackTile(FGridPosition Pos, double WaitTime, ETileState State, int32 Damage,bool bParriable, FAttackEffect Effect)
+void ABattleGrid::AttackTile(FGridPosition Pos, double WaitTime, ETileState State, int32 Damage, bool bParriable, FAttackEffect Effect)
 {
     if (Pos.x < 0 || Pos.x >= GridWidth || Pos.y < 0 || Pos.y >= GridHeight)
     {
@@ -93,6 +66,11 @@ void ABattleGrid::AttackTile(FGridPosition Pos, double WaitTime, ETileState Stat
     }
 
     ABattleTile* Tile = GetTileAt(Pos);
+    if (!IsValid(Tile))
+    {
+        return;
+    }
+
     FTimerHandle TimerHandle;
     FTimerDelegate TileDel;
     TileDel.BindUFunction(Tile, FName("AffectTile"), State, Damage, bParriable, Effect);
@@ -115,26 +93,21 @@ void ABattleGrid::ExecuteAttack(UAttack* Attack)
     }
 
     double CurrentTime = 0;
-    // loop through the entire attack structure
-    for (FAttackStage currentFrame: Attack->AttackStages)
+    for (FAttackStage currentFrame : Attack->AttackStages)
     {
         CurrentTime += currentFrame.Delay;
         double WarningTime = CurrentTime - currentFrame.WarningLength;
 
-        if (WarningTime <= 0) // If there is no delay for starting attack, but there is a warning
+        if (WarningTime <= 0)
         {
             CurrentTime += -WarningTime;
             WarningTime = 0;
         }
 
-        
-        //loop through each tile in the current frame
         for (FGridPosition Pos : currentFrame.Targets)
         {
-
             ETileState StateToUse;
 
-            //Set up attack vfx
             UNiagaraSystem* WarningVFX = nullptr;
             UNiagaraSystem* AttackVFX = nullptr;
 
@@ -142,10 +115,10 @@ void ABattleGrid::ExecuteAttack(UAttack* Attack)
             {
                 StateToUse = ETileState::Damage;
 
-                if(Attack->WarningEffect){
+                if (Attack->WarningEffect) {
                     WarningVFX = Attack->WarningEffect;
                 }
-                if(Attack->AttackEffect){
+                if (Attack->AttackEffect) {
                     AttackVFX = Attack->AttackEffect;
                 }
             }
@@ -153,36 +126,34 @@ void ABattleGrid::ExecuteAttack(UAttack* Attack)
             {
                 StateToUse = ETileState::Unparriable;
 
-                if(Attack->UnparryableWarningEffect){
+                if (Attack->UnparryableWarningEffect) {
                     WarningVFX = Attack->UnparryableWarningEffect;
                 }
-                if(Attack->UnparryableAttackEffect){
+                if (Attack->UnparryableAttackEffect) {
                     AttackVFX = Attack->UnparryableAttackEffect;
                 }
             }
 
-            //do overriding if necessary
-            if(currentFrame.TargetWarningEffect){
+            if (currentFrame.TargetWarningEffect) {
                 WarningVFX = currentFrame.TargetWarningEffect;
             }
-            if(currentFrame.TargetAttackEffect){
+            if (currentFrame.TargetAttackEffect) {
                 AttackVFX = currentFrame.TargetAttackEffect;
             }
-            
-            //form data class
-            FAttackEffect WarningEffect = FAttackEffect(WarningVFX, currentFrame.WarningLength, 1); //just set scale to 1 for now
-            FAttackEffect AttackingEffect = FAttackEffect(AttackVFX, currentFrame.DamageLength, 1); 
+
+            FAttackEffect WarningEffect = FAttackEffect(WarningVFX, currentFrame.WarningLength, 1);
+            FAttackEffect AttackingEffect = FAttackEffect(AttackVFX, currentFrame.DamageLength, 1);
             FAttackEffect NoEffect = FAttackEffect(nullptr, 0, 0);
 
             if (currentFrame.WarningLength > 0)
             {
-                AttackTile(Pos, WarningTime, ETileState::Warning, 0, currentFrame.bParriable, WarningEffect); //start warning
+                AttackTile(Pos, WarningTime, ETileState::Warning, 0, currentFrame.bParriable, WarningEffect);
             }
             if (currentFrame.DamageLength > 0)
             {
-                AttackTile(Pos, CurrentTime, StateToUse, currentFrame.Damage, currentFrame.bParriable, AttackingEffect); //start damaging
+                AttackTile(Pos, CurrentTime, StateToUse, currentFrame.Damage, currentFrame.bParriable, AttackingEffect);
             }
-            AttackTile(Pos, CurrentTime + currentFrame.DamageLength, ETileState::Default, 0, true, NoEffect); //change tile back to normal
+            AttackTile(Pos, CurrentTime + currentFrame.DamageLength, ETileState::Default, 0, true, NoEffect);
         }
     }
 }
@@ -190,12 +161,20 @@ void ABattleGrid::ExecuteAttack(UAttack* Attack)
 int32 ABattleGrid::DamageAtTile(FGridPosition Pos)
 {
     ABattleTile* Tile = GetTileAt(Pos);
+    if (!IsValid(Tile))
+    {
+        return 0;
+    }
     return Tile->Damage;
 }
 
 FVector ABattleGrid::GetTilePos(FGridPosition Pos)
 {
     ABattleTile* Tile = GetTileAt(Pos);
+    if (!IsValid(Tile))
+    {
+        return FVector::ZeroVector;
+    }
     return Tile->GetActorLocation();
 }
 
@@ -206,4 +185,84 @@ bool ABattleGrid::IsParriableAtTile(FGridPosition Pos)
         return Tile->bParriable;
     }
     return true;
+}
+
+void ABattleGrid::ClearPlayerPreview()
+{
+    for (UDecalComponent* Decal : PlayerPreviewDecalPool)
+    {
+        if (IsValid(Decal))
+        {
+            Decal->SetVisibility(false);
+        }
+    }
+}
+
+void ABattleGrid::ShowPlayerPreview(const TArray<FGridPosition>& Tiles)
+{
+    if (!PlayerPreviewDecalMaterial)
+    {
+        return;
+    }
+
+    ClearPlayerPreview();
+
+    TArray<FGridPosition> ValidTiles;
+    ValidTiles.Reserve(Tiles.Num());
+
+    for (const FGridPosition& P : Tiles)
+    {
+        if (P.x < 0 || P.x >= GridWidth || P.y < 0 || P.y >= GridHeight)
+        {
+            continue;
+        }
+
+        if (!IsValid(GetTileAt(P)))
+        {
+            continue;
+        }
+
+        ValidTiles.Add(P);
+    }
+
+    if (ValidTiles.Num() == 0)
+    {
+        return;
+    }
+
+    while (PlayerPreviewDecalPool.Num() < ValidTiles.Num())
+    {
+        UDecalComponent* NewDecal = NewObject<UDecalComponent>(this);
+        if (!NewDecal)
+        {
+            break;
+        }
+
+        NewDecal->RegisterComponentWithWorld(GetWorld());
+        if (GetRootComponent())
+        {
+            NewDecal->AttachToComponent(GetRootComponent(), FAttachmentTransformRules::KeepWorldTransform);
+        }
+
+        NewDecal->SetDecalMaterial(PlayerPreviewDecalMaterial);
+        NewDecal->DecalSize = PlayerPreviewDecalSize;
+        NewDecal->SetVisibility(false);
+
+        PlayerPreviewDecalPool.Add(NewDecal);
+    }
+
+    const int32 Count = FMath::Min(PlayerPreviewDecalPool.Num(), ValidTiles.Num());
+    for (int32 i = 0; i < Count; i++)
+    {
+        UDecalComponent* Decal = PlayerPreviewDecalPool[i];
+        if (!IsValid(Decal))
+        {
+            continue;
+        }
+
+        const FVector WorldPos = GetTilePos(ValidTiles[i]) + FVector(0, 0, PlayerPreviewZOffset);
+        Decal->SetWorldLocation(WorldPos);
+        Decal->SetWorldRotation(FRotator(-90.f, 0.f, 0.f));
+        Decal->SetVisibility(true);
+    }
 }

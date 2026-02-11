@@ -7,17 +7,14 @@
 #include "LevelTransitionHandler.h"
 #include "OverworldTransitionTrigger.generated.h"
 
+class UShapeComponent;
+
 UCLASS()
 class CAPSTONE_API AOverworldTransitionTrigger : public AActor
 {
 	GENERATED_BODY()
-	
-	ULevelTransitionHandler* TransitionHandler;
 
-	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Components", meta = (AllowPrivateAccess = "true"))
-	UShapeComponent* TriggerVolume;
-
-public:	
+public:
 	AOverworldTransitionTrigger();
 
 	UPROPERTY(EditAnywhere)
@@ -26,10 +23,16 @@ public:
 	UPROPERTY(EditAnywhere)
 	FString SpawnTarget;
 
+	UFUNCTION(BlueprintCallable)
+	void BeginTransition();
+
 protected:
 	virtual void BeginPlay() override;
 
-private: 
-	UFUNCTION(BlueprintCallable)
-	void BeginTransition();
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "Components", meta = (AllowPrivateAccess = "true"))
+	UShapeComponent* TriggerVolume = nullptr;
+
+private:
+	UPROPERTY()
+	ULevelTransitionHandler* TransitionHandler = nullptr;
 };

@@ -43,6 +43,7 @@ void ACombatEnemy::Tick(float DeltaTime)
 		{
 			if (IsValid(CurrentSequence) && CurrentSequence->HasNext())
 			{
+				PlayAttackMontage();
 				auto val = CurrentSequence->ExecuteNext(Grid);
 				LastAttackUseTime = val.UseTime;
 				LastAttackCooldown = val.Cooldown;
@@ -54,7 +55,7 @@ void ACombatEnemy::Tick(float DeltaTime)
 				OnAttackFinished();
 			}
 		}
-		
+
 	}
 	if (TimeSinceLastMove >= MovementCooldown)
 	{
@@ -96,7 +97,7 @@ void ACombatEnemy::MoveRandomOnGrid()
 
 	if (EnemyPosY == PlayerPosY)
 	{
-		int32 Step= FMath::Max(1, MoveRange);
+		int32 Step = FMath::Max(1, MoveRange);
 		if (EnemyPosY > 1)
 		{
 			dY = -Step;
@@ -108,7 +109,7 @@ void ACombatEnemy::MoveRandomOnGrid()
 		if (EnemyPosY == 1)
 		{
 			/*dY = (FMath::RandBool() ? FMath::Max(1, MoveRange) : -FMath::Max(1, MoveRange));*/
-			dY=FMath::RandBool() ? Step : -Step;
+			dY = FMath::RandBool() ? Step : -Step;
 		}
 	}
 

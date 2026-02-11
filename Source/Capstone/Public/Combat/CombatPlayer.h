@@ -52,6 +52,18 @@ protected:
 	UPROPERTY(EditAnywhere, Category="Input")
 	UInputAction* MoveAction;
 
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* UpAction;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* DownAction;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* LeftAction;
+
+	UPROPERTY(EditAnywhere, Category = "Input")
+	UInputAction* RightAction;
+
 	UPROPERTY(EditAnywhere, Category="Input")
 	UInputAction* AttackAction;
 
@@ -112,7 +124,7 @@ public:
 	/// @param attack 
 	UFUNCTION(BlueprintCallable)
 	void AttackGrid(EPlayerAttacks Attack);
-
+	void PreviewAttack(EPlayerAttacks Attack);
 	/// @brief Changes the attack paired with the left mouse click
 	/// @param NewAttack 
 	UFUNCTION(BlueprintCallable)

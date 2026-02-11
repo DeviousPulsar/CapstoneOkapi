@@ -36,10 +36,26 @@ protected:
 	bool ParryProt;
 	float TimeSinceParry;
 	bool bIsFrozen;
+	FVector2D BufferMove;
+
+	UFUNCTION(BlueprintCallable)
+	void UpPressed();
+
+	UFUNCTION(BlueprintCallable)
+	void DownPressed();
+
+	UFUNCTION(BlueprintCallable)
+	void LeftPressed();
+
+	UFUNCTION(BlueprintCallable)
+	void RightPressed();
 
 public:
 	UPROPERTY(EditAnywhere, Category = "Pawn Information")
 	int32 InitialHealth;
+
+	UPROPERTY(EditAnywhere, Category = "Pawn Information")
+	float BufferTime;
 
 	UPROPERTY(EditAnywhere, Category = "Pawn Information")
 	float MoveStun;
@@ -177,11 +193,11 @@ public:
 
 	/// @brief Pauses effect and turns it invisible
 	/// @param Effect the effect to spawn
-	/// @param Duration the duration of the effect (not used currently)
 	/// @param Scale the scale of the effect
+	/// @param PositionOffset the FVector offset to spawn the effect at
 	/// @return the created UNiagaraComponent*
 	UFUNCTION(BlueprintCallable)
-	UNiagaraComponent* SpawnEffect(UNiagaraSystem* Effect, double Duration, double Scale);
+	UNiagaraComponent* SpawnEffect(UNiagaraSystem* Effect, double Scale, FVector PositionOffset = FVector::ZeroVector);
 
 	/// @brief Restarts the effect and turns it visible
 	/// @param EffectComponent
