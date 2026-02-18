@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{73655BCF-2B94-3690-E9AE-6FB2142D6065}",
+    "Hash": "{755FEFFA-C7A0-66E8-DE27-814DD9C656EB}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -39,7 +39,7 @@
       "Id": "393239870",
       "Name": "SFX",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX",
-      "GUID": "{894BE39B-70EE-48EE-8EB3-50990B7D0DEB}",
+      "GUID": "{D7DCFCF4-6174-42C9-A688-3311FF539CFF}",
       "Color": "16"
      },
      {
@@ -234,6 +234,6 @@
     ]
    }
   ],
-  "FileHash": "{5D94F23F-52E4-1A7B-22C1-BAB28AD13C61}"
+  "FileHash": "{484B9178-893F-7741-D541-81C43E55E04D}"
  }
 }

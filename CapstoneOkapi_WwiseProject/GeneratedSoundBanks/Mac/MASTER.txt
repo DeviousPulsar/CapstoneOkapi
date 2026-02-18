@@ -3,11 +3,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	180661997	Attack			\SFX_Koyo\SFX\Player\Attack	
 	555067025	Enemy_Damage			\SFX_Koyo\SFX\Enemy\Enemy_Damage	
 	594187585	UI_Start_Combat			\SFX_Koyo\SFX\UI\UI_Start_Combat	
+	606549629	Footstep_Wood			\SFX_Koyo\SFX\Player\Footstep_Wood	
 	1134971709	Parry_Success			\SFX_Koyo\SFX\Player\Parry_Success	
+	1292098237	mx_EnterOW_Cave			\MX_Miles\LEVELS\mx_EnterOW_Cave	
 	1781417190	Enemy_Attack			\SFX_Koyo\SFX\Enemy\Enemy_Attack	
 	1786804762	Damage			\SFX_Koyo\SFX\Player\Damage	
 	1788329924	mx_EnterOW_Picnic			\MX_Miles\LEVELS\mx_EnterOW_Picnic	
-	1866025847	Footstep			\SFX_Koyo\SFX\Player\Footstep	
+	1840676193	Footstep_Dirt			\SFX_Koyo\SFX\Player\Footstep_Dirt	
 	1997497442	Powered_Attack			\SFX_Koyo\SFX\Player\Powered_Attack	
 	2118900976	UI_Hover			\SFX_Koyo\SFX\UI\UI_Hover	
 	2124466058	mx_Fight_Win			\MX_Miles\FIGHTS\mx_Fight_Win	
@@ -22,6 +24,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3011204530	Move			\SFX_Koyo\SFX\Player\Move	
 	3459520173	mx_EnterFight_Boss02			\MX_Miles\LEVELS\mx_EnterFight_Boss02	
 	3459520174	mx_EnterFight_Boss01			\MX_Miles\LEVELS\mx_EnterFight_Boss01	
+	3636028427	Footstep_Gravel			\SFX_Koyo\SFX\Player\Footstep_Gravel	
 	3990019784	mx_Fight_PhaseDLG			\MX_Miles\FIGHTS\mx_Fight_PhaseDLG	
 	4195744285	mx_StartGame			\MX_Miles\LEVELS\mx_StartGame	
 	4246143347	Picnic			\SFX_Koyo\Ambient\Picnic	
