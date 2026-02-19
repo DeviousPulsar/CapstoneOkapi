@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A0E27053-32A3-454F-8FBA-D178D463360E}",
     "Language": "SFX",
-    "Hash": "{4DB9EDEF-9FD5-46DA-856F-D8745F4D701D}",
+    "Hash": "{A6C01C83-2958-B09C-3704-2E906136EDCF}",
     "ObjectPath": "\\SoundBanks\\Master Work Unit\\MASTER",
     "ShortName": "MASTER",
     "Path": "MASTER.bnk",
@@ -592,6 +592,18 @@
       "CachePath": "C4/{C4B86D4B-D9AD-E95E-0996-0BECDE154C6E}.wem"
      }
     ],
+    "Plugins": {
+     "ShareSets": [
+      {
+       "Id": "701863527",
+       "Name": "Inside_My_Head",
+       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Claustrophobia\\Inside_My_Head",
+       "GUID": "{94B53301-9AA1-468F-8419-92AEDAAE39DF}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      }
+     ]
+    },
     "Events": [
      {
       "Id": "180661997",
@@ -2098,6 +2110,13 @@
       "Color": "16"
      },
      {
+      "Id": "1551306167",
+      "Name": "UI",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\UI",
+      "GUID": "{A2BEFACA-40B6-4652-9B86-CA5FC774E586}",
+      "Color": "16"
+     },
+     {
       "Id": "1685527054",
       "Name": "MX",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\MX",
@@ -2105,10 +2124,42 @@
       "Color": "15"
      },
      {
+      "Id": "3657263530",
+      "Name": "Verb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\Verb",
+      "GUID": "{EF4ED76F-3271-4C22-BB8C-32F11E705176}",
+      "Color": "16",
+      "AuxBusRefs": [
+       {
+        "Id": "402158015",
+        "Name": "NightmareVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\NightmareVerb",
+        "GUID": "{6E91E8FE-C311-4D9F-A162-B8C52D493DC8}",
+        "Color": "24"
+       }
+      ]
+     },
+     {
       "Id": "3803692087",
       "Name": "Master Audio Bus",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
       "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+     }
+    ],
+    "AuxBusses": [
+     {
+      "Id": "402158015",
+      "Name": "NightmareVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\NightmareVerb",
+      "GUID": "{6E91E8FE-C311-4D9F-A162-B8C52D493DC8}",
+      "Color": "24",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "701863527"
+        }
+       ]
+      }
      }
     ],
     "GameParameters": [
@@ -2289,6 +2340,6 @@
     ]
    }
   ],
-  "FileHash": "{0A3938D7-BFD5-EBBE-64A0-412860B15A0B}"
+  "FileHash": "{16757F07-F384-F64F-7A5C-A6C76EF3AC13}"
  }
 }

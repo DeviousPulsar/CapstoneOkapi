@@ -553,7 +553,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{D7DCFCF4-6174-42C9-A688-3311FF539CFF}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+									<ObjectRef Name="UI" ID="{A2BEFACA-40B6-4652-9B86-CA5FC774E586}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -631,7 +631,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{D7DCFCF4-6174-42C9-A688-3311FF539CFF}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+									<ObjectRef Name="UI" ID="{A2BEFACA-40B6-4652-9B86-CA5FC774E586}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -709,7 +709,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{D7DCFCF4-6174-42C9-A688-3311FF539CFF}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+									<ObjectRef Name="UI" ID="{A2BEFACA-40B6-4652-9B86-CA5FC774E586}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1111,12 +1111,25 @@
 					</PropertyList>
 					<ChildrenList>
 						<Sound Name="Warning" ID="{0B313595-5F91-4EF6-BF18-7A57347F5E44}" ShortID="223166186">
+							<PropertyList>
+								<Property Name="IsGlobalLimit" Type="int16" Value="1"/>
+								<Property Name="UseMaxSoundPerInstance" Type="bool">
+									<ValueList>
+										<Value>True</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-14</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{D7DCFCF4-6174-42C9-A688-3311FF539CFF}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+									<ObjectRef Name="Verb" ID="{EF4ED76F-3271-4C22-BB8C-32F11E705176}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1137,16 +1150,35 @@
 							</ActiveSourceList>
 						</Sound>
 						<RandomSequenceContainer Name="Attack" ID="{FD3D7A9D-CE85-4BF6-A740-B940036A87F2}" ShortID="741053220">
+							<PropertyList>
+								<Property Name="OutputBusVolume" Type="Real64">
+									<ValueList>
+										<Value>-6</Value>
+									</ValueList>
+								</Property>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="SFX" ID="{D7DCFCF4-6174-42C9-A688-3311FF539CFF}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+									<ObjectRef Name="Verb" ID="{EF4ED76F-3271-4C22-BB8C-32F11E705176}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
 								<Sound Name="Explode_1" ID="{050821B1-AE31-4CD5-B808-2606C57AD6B2}" ShortID="832440592">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -1169,6 +1201,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Explode_2" ID="{7E3FEB4C-C0ED-4C1C-894F-0B99A1252613}" ShortID="990921371">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-2</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -1191,6 +1230,13 @@
 									</ActiveSourceList>
 								</Sound>
 								<Sound Name="Explode_3" ID="{6D34754C-D95E-4C89-9485-EB7937928953}" ShortID="674952270">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
