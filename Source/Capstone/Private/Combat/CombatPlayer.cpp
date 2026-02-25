@@ -174,7 +174,7 @@ void ACombatPlayer::AttackGrid(EPlayerAttacks Attack)
 		ParryBoost = false;
 	}
 
-	Grid->ExecuteAttack(AttackInstance);
+	Grid->ExecuteAttack(AttackInstance, true);
 	Grid->ClearPlayerPreview();
 
 	AttackCooldown = AttackInstance->Cooldown;

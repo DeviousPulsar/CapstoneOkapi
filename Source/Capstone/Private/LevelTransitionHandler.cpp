@@ -1,8 +1,7 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
-#include "CapstoneSaveGame.h"
 #include "LevelTransitionHandler.h"
-#include "PlayerTrackingSubsystem.h"
+#include "CapstoneSaveGame.h"
 #include "GameFramework/Character.h"
 #include "Internationalization/Regex.h"
 #include "Kismet/GameplayStatics.h"
@@ -10,15 +9,6 @@
 void ULevelTransitionHandler::Init()
 {
     Super::Init();
-
-    if (!UGameplayStatics::DoesSaveGameExist("Save", 0))
-    {
-        UCapstoneSaveGame* SaveGame = (UCapstoneSaveGame*) UGameplayStatics::CreateSaveGameObject(UCapstoneSaveGame::StaticClass());
-        SaveGame->MusicVolume = 1.0;
-        SaveGame->MusicVolume = 1.0;
-        SaveGame->GamePhase = 0;
-        UGameplayStatics::SaveGameToSlot(SaveGame, "Save", 0);
-    }
 }
 
 ULevelTransitionHandler::ULevelTransitionHandler(const FObjectInitializer& ObjectInitializer) : Super(ObjectInitializer)
@@ -28,6 +18,7 @@ ULevelTransitionHandler::ULevelTransitionHandler(const FObjectInitializer& Objec
     ReturnRotation = FQuat(1, 0, 0, 0);
 
     TransitionType = ELevelTransitionType::NONE;
+
 }
 
 void ULevelTransitionHandler::OnWorldChanged(UWorld* OldWorld, UWorld* NewWorld)
@@ -47,7 +38,7 @@ void ULevelTransitionHandler::OnWorldChanged(UWorld* OldWorld, UWorld* NewWorld)
 
         if (!TransitionScreen->IsInViewport())
         {
-            TransitionScreen->AddToViewport();
+            TransitionScreen->AddToViewport(0x7FFFFFFF);
         }
     };
 }
@@ -56,163 +47,142 @@ void ULevelTransitionHandler::LoadComplete(const float LoadTime, const FString& 
 {
     Super::LoadComplete(LoadTime, MapName);
 
-    if(ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
+    if (ACharacter* Player = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0))
     {
-        switch(TransitionType)
-        {
-            case (ELevelTransitionType::OVERWORLD_TO_OVERWORLD): 
-            {
-                TArray<AActor*> targets = {};
-                UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATransitionTarget::StaticClass(), targets);
-                for(AActor* target : targets) 
-                {
-                    if (IsValid(target) && target->IsA(ATransitionTarget::StaticClass()) && ((ATransitionTarget*) target)->GetTransitionName() == EjectTarget)
-                    {
-                        Player->GetRootComponent()->SetWorldLocationAndRotation(
-                            target->GetActorLocation(), 
-                            target->GetActorRotation()
-                        );
-                        break;
-                    }
-                }
-                break;
-            }
-
-            case (ELevelTransitionType::COMBAT_TO_OVERWORLD):
-            {
-                Player->GetRootComponent()->SetWorldLocationAndRotation(ReturnPosition, ReturnRotation);
-                break;
-            }
-
-            default:
-                break;
-        }
+        FTransform Dest = GetRespawnTransform();
+        Player->GetRootComponent()->SetWorldLocationAndRotation(Dest.GetLocation(), Dest.GetRotation());
     }
 
-    TransitionScreen->OnLoadFinished();
+    if (IsValid(TransitionScreen))
+    {
+        TransitionScreen->OnLoadFinished();
+    }
+}
+
+void ULevelTransitionHandler::LoadScene(const FName LevelToLoad, bool bToSchedule)
+{
+    if (bLoadScheduled) { return; }
+
+    UWorld* World = GetWorld();
+    FString CurrentLevel = UGameplayStatics::GetCurrentLevelName(World, true);
+
+    switch (TransitionType)
+    {
+        case(ELevelTransitionType::TRANSFORM):
+            UE_LOG(
+                LogLoad,
+                Log,
+                TEXT("Moving to Level %s from level %s. Player actor will return with position %s and facing %s"),
+                *LevelToLoad.ToString(),
+                *CurrentLevel,
+                *ReturnPosition.ToString(),
+                *ReturnRotation.Rotator().ToString()
+            ); 
+            break;
+        
+        case(ELevelTransitionType::TARGET):
+            UE_LOG(
+                LogLoad,
+                Log,
+                TEXT("Moving to Level %s from level %s. Player actor spawn onto ATransitionTarget with transition name: %s"),
+                *LevelToLoad.ToString(),
+                *CurrentLevel,
+                *EjectTarget
+            );
+            break;
+
+        default:
+            UE_LOG(
+                LogLoad,
+                Log,
+                TEXT("Moving to Level %s from level %s."),
+                *LevelToLoad.ToString(),
+                *CurrentLevel
+            );
+            break;
+    }
+
+    if(bToSchedule)
+    {
+        if (IsValid(TransitionScreen))
+        {
+            if (!TransitionScreen->IsInViewport())
+            {
+                TransitionScreen->RemoveFromParent();
+            }
+            TransitionScreen->AddToViewport(0x7FFFFFFF);
+            TransitionScreen->OnLoadStarted();
+        }
+
+        ScheduleLoad(LevelToLoad);
+    }
+    else
+    {
+        UGameplayStatics::OpenLevel(World, LevelToLoad);
+    }
 }
 
 void ULevelTransitionHandler::LoadCombatScene(const FName LevelToLoad, const FVector pReturnPosition, const FQuat pReturnRotation)
 {
-    TransitionType = ELevelTransitionType::OVERWORLD_TO_COMBAT;
     UWorld* World = GetWorld();
-    
-    const FRegexPattern Pattern(TEXT("Level_.*"), ERegexPatternFlags::None);
-    FRegexMatcher Regex(Pattern, World->GetName());
-    if (Regex.FindNext())
-    {
-        OverworldMap = FName(Regex.GetCaptureGroup(0));
-    }
-    else
-    {
-        UE_LOG(LogLoad, Error, TEXT("'%s' does not contain a valid level name"), *LevelToLoad.ToString());
-        return;
-    }
-    
+    OverworldMap = FName(*UGameplayStatics::GetCurrentLevelName(World, true));
+
+    TransitionType = ELevelTransitionType::TRANSFORM;
     ReturnPosition = pReturnPosition;
     ReturnRotation = pReturnRotation;
 
-    UE_LOG(
-        LogLoad, 
-        Log, 
-        TEXT("Moving to Level %s from level %s. Player actor will return with position %s and facing %s"), 
-        *LevelToLoad.ToString(), 
-        *OverworldMap.ToString(), 
-        *ReturnPosition.ToString(), 
-        *ReturnRotation.Rotator().ToString()
-    );
-
-    TransitionScreen->OnLoadStarted();
-    ScheduleLoad(LevelToLoad);
-
-    GetSubsystem<UPlayerTrackingSubsystem>()->LogBattleEntered();
+    LoadScene(LevelToLoad);
 }
 
-void ULevelTransitionHandler::LoadOverworldScene(const FName LevelToLoad, const FString pEjectTarget)
+void ULevelTransitionHandler::LoadCombatSceneWithReturnTarget(const FName LevelToLoad, const FString pEjectTarget)
 {
-    TransitionType = ELevelTransitionType::OVERWORLD_TO_OVERWORLD;
-
+    UWorld* World = GetWorld();
+    OverworldMap = FName(*UGameplayStatics::GetCurrentLevelName(World, true));
+    
+    TransitionType = ELevelTransitionType::TARGET;
     EjectTarget = pEjectTarget;
 
-    const FRegexPattern Pattern(TEXT("Level_.*"), ERegexPatternFlags::None);
-    FRegexMatcher Regex(Pattern, LevelToLoad.ToString());
-    if (Regex.FindNext())
-    {
-        OverworldMap = FName(Regex.GetCaptureGroup(0));
-    }
-    else
-    {
-        UE_LOG(LogLoad, Error, TEXT("'%s' does not contain a valid level name"), *LevelToLoad.ToString());
-        return;
-    }
+    LoadScene(LevelToLoad);
+}
 
-    UWorld* World = GetWorld();
+void ULevelTransitionHandler::LoadOverworldScene(const FName LevelToLoad, const FVector pReturnPosition, const FQuat pReturnRotation)
+{
+    TransitionType = ELevelTransitionType::TRANSFORM;
+    ReturnPosition = pReturnPosition;
+    ReturnRotation = pReturnRotation;
 
-    UE_LOG(
-        LogLoad, 
-        Log, 
-        TEXT("Moving to level %s from level %s."), 
-        *LevelToLoad.ToString(), 
-        *FName(World->GetMapName()).ToString()
-    )
+    LoadScene(LevelToLoad);
+}
 
-    TransitionScreen->OnLoadStarted();
-    ScheduleLoad(LevelToLoad);
+void ULevelTransitionHandler::LoadOverworldSceneWithSpawnTarget(const FName LevelToLoad, const FString pEjectTarget)
+{
+    TransitionType = ELevelTransitionType::TARGET;
+    EjectTarget = pEjectTarget;
+
+    LoadScene(LevelToLoad);
 }
 
 void ULevelTransitionHandler::ReturnToOverworld()
 {
-    TransitionType = ELevelTransitionType::COMBAT_TO_OVERWORLD;
-
-    UWorld* World = GetWorld();
-
-    UE_LOG(
-        LogLoad, 
-        Log, 
-        TEXT("Moving to Level %s from level %s. Player actor, if one exists, will be placed at %s with facing %s"), 
-        *OverworldMap.ToString(), 
-        *FName(World->GetMapName()).ToString(),  
-        *ReturnPosition.ToString(), 
-        *ReturnRotation.Rotator().ToString()
-    );
-
-    TransitionScreen->OnLoadStarted();
-    ScheduleLoad(OverworldMap);
+    if (!OverworldMap.IsNone())
+    {
+        LoadScene(OverworldMap, false);
+    }
 }
 
 void ULevelTransitionHandler::ReloadCombatScene()
 {
-    //if(bLoadScheduled) { return; }
-
-    TransitionType = ELevelTransitionType::COMBAT_TO_COMBAT;
-
     UWorld* World = GetWorld();
+    FName LevelToLoad = FName(*UGameplayStatics::GetCurrentLevelName(World, true));
 
-    FName LevelToLoad = FName(World->GetMapName());
-    const FRegexPattern Pattern(TEXT("Level_.*"), ERegexPatternFlags::None);
-    FRegexMatcher Regex(Pattern, LevelToLoad.ToString());
-    if (Regex.FindNext())
-    {
-        LevelToLoad = FName(Regex.GetCaptureGroup(0));
-    }
-
-    UE_LOG(
-        LogLoad, 
-        Log, 
-        TEXT("Reloading combat scene %s"),  
-        *FName(World->GetMapName()).ToString()
-    );
-
-    TransitionScreen->OnLoadStarted();
-    ScheduleLoad(LevelToLoad);
+    LoadScene(LevelToLoad, false);
 }
 
 void ULevelTransitionHandler::ScheduleLoad(FName LevelToLoad)
 {
     MapScheduledToLoad = LevelToLoad;
     bLoadScheduled = true;
-    
-    FTimerHandle TimerHandle;
+
     GetTimerManager().SetTimer(TimerHandle, this, &ULevelTransitionHandler::LoadScheduled, LoadDelay, false);
 }
 
@@ -220,4 +190,35 @@ void ULevelTransitionHandler::LoadScheduled()
 {
     UGameplayStatics::OpenLevel(GetWorld(), MapScheduledToLoad);
     bLoadScheduled = false;
+}
+
+FTransform ULevelTransitionHandler::GetRespawnTransform() const
+{
+    switch (TransitionType)
+    {
+        case (ELevelTransitionType::TARGET):
+        {
+            TArray<AActor*> targets = {};
+            UGameplayStatics::GetAllActorsOfClass(GetWorld(), ATransitionTarget::StaticClass(), targets);
+            for (AActor* target : targets)
+            {
+                if (IsValid(target) && target->IsA(ATransitionTarget::StaticClass()) && 
+                    ((ATransitionTarget*)target)->GetTransitionName() == EjectTarget)
+                {
+                    return FTransform(target->GetActorRotation(), target->GetActorLocation(),FVector(1,1,1));
+                }
+            }
+            break;
+        }
+
+        case (ELevelTransitionType::TRANSFORM):
+        {
+            return FTransform(ReturnRotation, ReturnPosition, FVector(1,1,1));
+        }
+
+        default:
+            break;
+    }
+
+    return FTransform();
 }

@@ -11,11 +11,8 @@ UENUM()
 enum ELevelTransitionType
 {
 	NONE,
-	OVERWORLD_TO_COMBAT,
-	OVERWORLD_TO_OVERWORLD,
-	COMBAT_TO_OVERWORLD,
-	COMBAT_TO_COMBAT,
-	MENU_TO_OVERWORLD,
+	TRANSFORM,
+	TARGET,
 };
 
 UCLASS(Blueprintable)
@@ -56,17 +53,39 @@ class CAPSTONE_API ULevelTransitionHandler : public UGameInstance
 
 	bool bLoadScheduled;
 	FName MapScheduledToLoad;
+	FTimerHandle TimerHandle;
 	
 public:
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite)
+	FName ToConsumeOnCombatWin;
+
 	virtual void Init();
 	virtual void OnWorldChanged(UWorld* OldWorld, UWorld* NewWorld) override;
   	virtual void LoadComplete(const float LoadTime, const FString& MapName) override;
 
-	UFUNCTION(BlueprintCallable)
-	void LoadCombatScene(const FName LevelToLoad, const FVector pReturnPosition, const FQuat pReturnRotation);
+	UFUNCTION()
+	void LoadScene(const FName LevelToLoad, bool bToSchedule = true);
+
+	UFUNCTION()
+	void ScheduleLoad(FName LevelToLoad);
+
+	UFUNCTION()
+	void LoadScheduled();
+
+	UFUNCTION(BlueprintPure)
+	bool IsLoadScheduled() const { return bLoadScheduled; }
 
 	UFUNCTION(BlueprintCallable)
-	void LoadOverworldScene(const FName LevelToLoad, const FString pEjectTarget);
+	void LoadCombatScene(const FName LevelToLoad, const FVector pReturnPosition, const FQuat pReturnRotation);
+	
+	UFUNCTION(BlueprintCallable)
+	void LoadCombatSceneWithReturnTarget(const FName LevelToLoad, const FString pEjectTarget);
+
+	UFUNCTION(BlueprintCallable)
+	void LoadOverworldScene(const FName LevelToLoad, const FVector pReturnPosition, const FQuat pReturnRotation);
+
+	UFUNCTION(BlueprintCallable)
+	void LoadOverworldSceneWithSpawnTarget(const FName LevelToLoad, const FString pEjectTarget);
 
 	UFUNCTION(BlueprintCallable)
 	void ReturnToOverworld();
@@ -74,11 +93,8 @@ public:
 	UFUNCTION(BlueprintCallable)
 	void ReloadCombatScene();
 
-	UFUNCTION()
-	void ScheduleLoad(FName LevelToLoad);
-
-	UFUNCTION()
-	void LoadScheduled();
+	UFUNCTION(BlueprintPure)
+	FTransform GetRespawnTransform() const;
 
 	ULevelTransitionHandler(const FObjectInitializer& ObjectInitializer);
 };

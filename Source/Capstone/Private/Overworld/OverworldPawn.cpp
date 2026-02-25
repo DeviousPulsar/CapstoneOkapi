@@ -11,6 +11,8 @@
 #include "EnhancedInputComponent.h"
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
+#include "Combat/ANPCAIFC.h"
+#include "DrawDebugHelpers.h"
 
 // Sets default values
 AOverworldPawn::AOverworldPawn()
@@ -143,5 +145,45 @@ void AOverworldPawn::DoLook(float Yaw, float Pitch)
 
 void AOverworldPawn::Interact()
 {
-	//TODO: Build out interaction system
+	UE_LOG(LogTemp, Warning, TEXT("Interact() fired"));
+
+	APlayerController* PC = Cast<APlayerController>(GetController());
+	if (!PC) return;
+
+	// 1) Build a ray from the center of the screen (crosshair style)
+	int32 SizeX = 0, SizeY = 0;
+	PC->GetViewportSize(SizeX, SizeY);
+
+	const FVector2D ScreenCenter(SizeX * 0.5f, SizeY * 0.5f);
+
+	FVector WorldOrigin;
+	FVector WorldDir;
+	if (!PC->DeprojectScreenPositionToWorld(ScreenCenter.X, ScreenCenter.Y, WorldOrigin, WorldDir))
+	{
+		return;
+	}
+
+	// 2) Trace forward
+	const float TraceDistance = 600.f;
+	const FVector Start = WorldOrigin;
+	const FVector End = Start + WorldDir * TraceDistance;
+
+	FCollisionQueryParams Params(SCENE_QUERY_STAT(InteractTrace), /*bTraceComplex*/ false);
+	Params.AddIgnoredActor(this);
+
+	FHitResult Hit;
+	const bool bHit = GetWorld()->LineTraceSingleByChannel(Hit, Start, End, ECC_Visibility, Params);
+
+	// Debug (optional)
+	// DrawDebugLine(GetWorld(), Start, End, bHit ? FColor::Green : FColor::Red, false, 1.0f, 0, 1.5f);
+
+	if (!bHit) return;
+
+	// 3) If hit an NPC, advance dialogue
+	AActor* HitActor = Hit.GetActor();
+	ANPCAIFC* Npc = Cast<ANPCAIFC>(HitActor);
+	if (!Npc) return;
+
+	// Your NPC already has range gating (bPlayerInRange) and dialogue logic.
+	Npc->Interact(this);
 }

@@ -26,6 +26,6 @@ void AOverworldTransitionTrigger::BeginTransition()
 {
 	if (TransitionHandler != nullptr)
 	{
-		TransitionHandler->LoadOverworldScene(OverworldScene, SpawnTarget);
+		TransitionHandler->LoadOverworldSceneWithSpawnTarget(OverworldScene, SpawnTarget);
 	}
 }

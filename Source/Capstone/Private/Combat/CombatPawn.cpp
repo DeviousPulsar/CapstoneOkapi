@@ -222,6 +222,8 @@ void ACombatPawn::Tick(float DeltaTime)
 				Parry = false;
 				ParryProt = true;
 				DeactivateEffect(ParryComponent);
+				//play invulnerable effect
+				ActivateEffect(InvulnerableComponent);
 			}
 			else
 			{
@@ -231,9 +233,6 @@ void ACombatPawn::Tick(float DeltaTime)
 			}
 			Vulnerable = false;
 			TimeSinceVulnerable = 0.0f;
-
-			//play invulnerable effect
-			ActivateEffect(InvulnerableComponent);
 		}
 	}
 

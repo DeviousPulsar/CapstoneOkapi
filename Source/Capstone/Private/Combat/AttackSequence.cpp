@@ -61,7 +61,7 @@ FAttackTimeoutInfo UAttackSequence::ExecuteNext(ABattleGrid* Grid)
         UAttack* Attack = PendingAttacks[CurrentAttackIndex];
         if(IsValid(Attack))
         {
-            Grid->ExecuteAttack(Attack);
+            Grid->ExecuteAttack(Attack, false); // this is false right now because I'm assuming that sequences are only used by enemies
             FAttackTimeoutInfo info(Attack->UseTime, Attack->Cooldown);
             CurrentAttackIndex++;
             return info;

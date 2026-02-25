@@ -46,6 +46,9 @@ PluginsIntermediate
 # Cache files for the editor to use
 DerivedDataCache
 
+# Temporary files
+**.tmp
+
 # MAC Clutter
 .DS_Store
 .AppleDouble

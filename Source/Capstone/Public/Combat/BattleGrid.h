@@ -8,6 +8,15 @@
 #include "Attack.h"
 #include "BattleGrid.generated.h"
 
+
+UENUM(BlueprintType)
+enum class EDifficulty : uint8
+{
+	Normal	UMETA(DisplayName = "Normal"),
+	Easy	UMETA(DisplayName = "Easy"),
+	Hard	UMETA(DisplayName = "Hard")
+};
+
 /// <summary>
 /// Class to represent the grid battles take place on. Can be given an attack object
 /// and the grid will visually execute it.
@@ -45,8 +54,17 @@ public:
 	UPROPERTY(EditDefaultsOnly, Category = "Telegraph|Preview")
 	FVector PlayerPreviewDecalSize;
 
-	UPROPERTY(EditDefaultsOnly, Category = "Telegraph|Preview")
+	UPROPERTY(EditAnywhere, Category = "Telegraph|Preview")
 	float PlayerPreviewZOffset;
+
+	UPROPERTY(EditAnywhere, Category = "Difficulty")
+	float EasyModeDamageModifier;
+
+	UPROPERTY(EditAnywhere, Category = "Difficulty")
+	float HardModeDamageModifier;
+
+	UPROPERTY(EditAnywhere, Category = "Difficulty")
+	EDifficulty Difficulty;
 
 	UPROPERTY(Transient)
 	TArray<TObjectPtr<UDecalComponent>> PlayerPreviewDecalPool;
@@ -85,7 +103,7 @@ public:
 	/// </summary>
 	/// <param name="Attack"></param>
 	UFUNCTION(BlueprintCallable, Category = "Attack")
-	void ExecuteAttack(UAttack* Attack);
+	void ExecuteAttack(UAttack* Attack, bool IsPlayer);
 private:
 	UPROPERTY()
 	TMap<FIntPoint, ABattleTile*> TileGrid;

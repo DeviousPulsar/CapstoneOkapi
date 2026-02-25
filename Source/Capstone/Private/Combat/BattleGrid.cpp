@@ -37,10 +37,22 @@ void ABattleGrid::BeginPlay()
         TileNum++;
     }
 
+    int TempGridWidth = 0;
+    int TempGridHeight = 0;
     for (ABattleTile* CurrentTile : TilesInLevel)
     {
         TileGrid.Add(FIntPoint(CurrentTile->XPos, CurrentTile->YPos), CurrentTile);
+        if (TempGridWidth < CurrentTile->XPos + 1)
+        {
+            TempGridWidth = CurrentTile->XPos + 1;
+        }
+        if (TempGridHeight < CurrentTile->YPos + 1)
+        {
+            TempGridHeight = CurrentTile->YPos + 1;
+        }
     }
+    GridWidth = TempGridWidth;
+    GridHeight = TempGridHeight;
 }
 
 // Called every frame
@@ -84,7 +96,7 @@ void ABattleGrid::AttackTile(FGridPosition Pos, double WaitTime, ETileState Stat
     }
 }
 
-void ABattleGrid::ExecuteAttack(UAttack* Attack)
+void ABattleGrid::ExecuteAttack(UAttack* Attack, bool IsPlayer)
 {
     if (!IsValid(Attack))
     {
@@ -95,6 +107,22 @@ void ABattleGrid::ExecuteAttack(UAttack* Attack)
     double CurrentTime = 0;
     for (FAttackStage currentFrame : Attack->AttackStages)
     {
+        int AdjustedDamage = currentFrame.Damage;
+        if (!IsPlayer)
+        {
+            switch (Difficulty) 
+            {
+                case EDifficulty::Easy:
+                    AdjustedDamage = currentFrame.Damage * EasyModeDamageModifier;
+                    break;
+                case EDifficulty::Normal:
+                    AdjustedDamage = currentFrame.Damage;
+                    break;
+                case EDifficulty::Hard:
+                    AdjustedDamage = currentFrame.Damage * HardModeDamageModifier;
+                    break;
+            }
+        }
         CurrentTime += currentFrame.Delay;
         double WarningTime = CurrentTime - currentFrame.WarningLength;
 
@@ -151,7 +179,7 @@ void ABattleGrid::ExecuteAttack(UAttack* Attack)
             }
             if (currentFrame.DamageLength > 0)
             {
-                AttackTile(Pos, CurrentTime, StateToUse, currentFrame.Damage, currentFrame.bParriable, AttackingEffect);
+                AttackTile(Pos, CurrentTime, StateToUse, AdjustedDamage, currentFrame.bParriable, AttackingEffect);
             }
             AttackTile(Pos, CurrentTime + currentFrame.DamageLength, ETileState::Default, 0, true, NoEffect);
         }
