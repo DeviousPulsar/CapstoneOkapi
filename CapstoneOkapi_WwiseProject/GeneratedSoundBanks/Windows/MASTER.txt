@@ -3,11 +3,13 @@ Event	ID	Name			Wwise Object Path	Notes
 	180661997	Attack			\SFX_Koyo\SFX\Player\Attack	
 	555067025	Enemy_Damage			\SFX_Koyo\SFX\Enemy\Enemy_Damage	
 	594187585	UI_Start_Combat			\SFX_Koyo\SFX\UI\UI_Start_Combat	
+	606549629	Footstep_Wood			\SFX_Koyo\SFX\Player\Footstep_Wood	
 	1134971709	Parry_Success			\SFX_Koyo\SFX\Player\Parry_Success	
+	1292098237	mx_EnterOW_Cave			\MX_Miles\LEVELS\mx_EnterOW_Cave	
 	1781417190	Enemy_Attack			\SFX_Koyo\SFX\Enemy\Enemy_Attack	
 	1786804762	Damage			\SFX_Koyo\SFX\Player\Damage	
 	1788329924	mx_EnterOW_Picnic			\MX_Miles\LEVELS\mx_EnterOW_Picnic	
-	1866025847	Footstep			\SFX_Koyo\SFX\Player\Footstep	
+	1840676193	Footstep_Dirt			\SFX_Koyo\SFX\Player\Footstep_Dirt	
 	1997497442	Powered_Attack			\SFX_Koyo\SFX\Player\Powered_Attack	
 	2118900976	UI_Hover			\SFX_Koyo\SFX\UI\UI_Hover	
 	2124466058	mx_Fight_Win			\MX_Miles\FIGHTS\mx_Fight_Win	
@@ -22,6 +24,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	3011204530	Move			\SFX_Koyo\SFX\Player\Move	
 	3459520173	mx_EnterFight_Boss02			\MX_Miles\LEVELS\mx_EnterFight_Boss02	
 	3459520174	mx_EnterFight_Boss01			\MX_Miles\LEVELS\mx_EnterFight_Boss01	
+	3636028427	Footstep_Gravel			\SFX_Koyo\SFX\Player\Footstep_Gravel	
 	3990019784	mx_Fight_PhaseDLG			\MX_Miles\FIGHTS\mx_Fight_PhaseDLG	
 	4195744285	mx_StartGame			\MX_Miles\LEVELS\mx_StartGame	
 	4246143347	Picnic			\SFX_Koyo\Ambient\Picnic	
@@ -64,8 +67,16 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
+	1551306167	UI			\Default Work Unit\Master Audio Bus\SFX\UI	
 	1685527054	MX			\Default Work Unit\Master Audio Bus\MX	
+	3657263530	Verb			\Default Work Unit\Master Audio Bus\SFX\Verb	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+
+Auxiliary Bus	ID	Name			Wwise Object Path	Notes
+	402158015	NightmareVerb			\Default Work Unit\Master Audio Bus\NightmareVerb	
+
+Effect plug-ins	ID	Name	Type				Notes
+	701863527	Inside_My_Head	Wwise RoomVerb			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	20134841	Enemy_Move_3	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\E5\{E594DF2C-5C92-D530-74D0-E4AD93D65E45}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Move\Enemy_Move_3		102496

@@ -236,6 +236,20 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="mx_EnterOW_Cave" ID="{A3FE0491-256C-4644-BA75-5D500AAB2BB7}">
+							<ChildrenList>
+								<Action Name="" ID="{4EDB29E9-2D35-4202-B0E2-B0B47C13F45D}" ShortID="371859092">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Overworld_Cave" ID="{22C4CE79-D293-4658-A52F-17F7E18ED7BD}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 			</ChildrenList>

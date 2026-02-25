@@ -53,7 +53,7 @@
 							<Position X="0" Y="3"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Footstep" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<ObjectRef Name="Footstep_Dirt" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="1" Y="0"/>
 						</Module>
 						<Module>
@@ -103,9 +103,7 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
-					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}"/>
-					</CurrentSwitchList>
+					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
 				<SoundcasterSession Name="Scenes" ID="{62B719A6-D097-47B7-8A9A-EC2317112068}">
 					<ModuleList>

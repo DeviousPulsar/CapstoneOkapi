@@ -111,9 +111,61 @@
 										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="Footstep" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}">
+								<Event Name="Footstep_Dirt" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}">
 									<ChildrenList>
+										<Action Name="" ID="{2C21E5AA-1313-4729-BF3D-667064F1DE47}" ShortID="543201735">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="23"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}" WorkUnitID="{D501C5FC-1452-42C3-A302-D83A9982F762}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
 										<Action Name="" ID="{D9B7EFAF-471F-4A58-B875-F8EC69E04991}" ShortID="861552891">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Footsteps" ID="{AC191FCC-7113-4B8C-8D12-CE546F5F666B}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Footstep_Wood" ID="{56801E75-2967-44A6-8293-97B423B4DD79}">
+									<ChildrenList>
+										<Action Name="" ID="{613D6899-8A8D-49CD-8F7C-F8B8D1DEC8B3}" ShortID="458640160">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="23"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Wood" ID="{0C8C24ED-553D-4101-82B6-8BDC72FAA041}" WorkUnitID="{D501C5FC-1452-42C3-A302-D83A9982F762}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{6E3C3F3A-F2E3-4191-85DF-C5C79963EB18}" ShortID="747899612">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Footsteps" ID="{AC191FCC-7113-4B8C-8D12-CE546F5F666B}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Footstep_Gravel" ID="{394AAE8D-F87C-482B-98CD-39EE7CB891E9}">
+									<ChildrenList>
+										<Action Name="" ID="{FBFC107A-C480-46CA-AE32-974091D66054}" ShortID="92779756">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="23"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Gravel" ID="{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}" WorkUnitID="{D501C5FC-1452-42C3-A302-D83A9982F762}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+										<Action Name="" ID="{41237C63-BECF-4B78-9A55-1AA092AF11CE}" ShortID="780798856">
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Footsteps" ID="{AC191FCC-7113-4B8C-8D12-CE546F5F666B}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
