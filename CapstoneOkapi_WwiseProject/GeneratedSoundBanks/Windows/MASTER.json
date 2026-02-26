@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A0E27053-32A3-454F-8FBA-D178D463360E}",
     "Language": "SFX",
-    "Hash": "{A6C01C83-2958-B09C-3704-2E906136EDCF}",
+    "Hash": "{3BFD479C-D73F-BB52-B2D5-E3F0E470CD33}",
     "ObjectPath": "\\SoundBanks\\Master Work Unit\\MASTER",
     "ShortName": "MASTER",
     "Path": "MASTER.bnk",
@@ -720,9 +720,9 @@
       ]
      },
      {
-      "Id": "1840676193",
-      "Name": "Footstep_Dirt",
-      "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\Player\\Footstep_Dirt",
+      "Id": "2385628198",
+      "Name": "Footsteps",
+      "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\Player\\Footsteps",
       "GUID": "{3824A5FD-33FD-4A31-ADC9-1911C541563F}",
       "Color": "8",
       "DurationType": "OneShot",
@@ -787,7 +787,8 @@
          "GroupId": "2385628198",
          "Id": "2058049674",
          "GUID": "{0C8C24ED-553D-4101-82B6-8BDC72FAA041}",
-         "Color": "4"
+         "Color": "4",
+         "Default": "true"
         },
         "MediaRefs": [
          {
@@ -865,7 +866,8 @@
          "GroupId": "2385628198",
          "Id": "2058049674",
          "GUID": "{0C8C24ED-553D-4101-82B6-8BDC72FAA041}",
-         "Color": "4"
+         "Color": "4",
+         "Default": "true"
         },
         "MediaRefs": [
          {
@@ -885,7 +887,18 @@
          }
         ]
        }
-      ],
+      ]
+     },
+     {
+      "Id": "2034070933",
+      "Name": "FootstepSwitch_Dirt",
+      "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\Player\\FootstepSwitch_Dirt",
+      "GUID": "{242F0D58-41F8-483A-AAFB-B48FF012BFF0}",
+      "Color": "8",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
       "ActionSetSwitch": [
        {
         "GroupId": "2385628198",
@@ -898,172 +911,15 @@
       ]
      },
      {
-      "Id": "3636028427",
-      "Name": "Footstep_Gravel",
-      "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\Player\\Footstep_Gravel",
+      "Id": "1215104879",
+      "Name": "FootstepSwitch_Gravel",
+      "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\Player\\FootstepSwitch_Gravel",
       "GUID": "{394AAE8D-F87C-482B-98CD-39EE7CB891E9}",
       "Color": "8",
+      "MaxAttenuation": "0",
       "DurationType": "OneShot",
-      "DurationMin": "0.33333334",
-      "DurationMax": "0.8",
-      "SwitchContainers": [
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2385628198",
-         "Id": "2195636714",
-         "GUID": "{F98DCB64-B7BA-4C42-925A-7E93F670A40B}",
-         "Color": "4"
-        },
-        "MediaRefs": [
-         {
-          "Id": "338197633"
-         },
-         {
-          "Id": "846128762"
-         },
-         {
-          "Id": "962263161"
-         },
-         {
-          "Id": "971020296"
-         },
-         {
-          "Id": "1008156858"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2385628198",
-         "Id": "2185786256",
-         "GUID": "{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}",
-         "Color": "4"
-        },
-        "MediaRefs": [
-         {
-          "Id": "109720451"
-         },
-         {
-          "Id": "156898294"
-         },
-         {
-          "Id": "301885343"
-         },
-         {
-          "Id": "783217267"
-         },
-         {
-          "Id": "933442325"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2385628198",
-         "Id": "2058049674",
-         "GUID": "{0C8C24ED-553D-4101-82B6-8BDC72FAA041}",
-         "Color": "4"
-        },
-        "MediaRefs": [
-         {
-          "Id": "283095059"
-         },
-         {
-          "Id": "289962334"
-         },
-         {
-          "Id": "563084003"
-         },
-         {
-          "Id": "742955475"
-         },
-         {
-          "Id": "897904861"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2385628198",
-         "Id": "2195636714",
-         "GUID": "{F98DCB64-B7BA-4C42-925A-7E93F670A40B}",
-         "Color": "4"
-        },
-        "MediaRefs": [
-         {
-          "Id": "338197633"
-         },
-         {
-          "Id": "846128762"
-         },
-         {
-          "Id": "962263161"
-         },
-         {
-          "Id": "971020296"
-         },
-         {
-          "Id": "1008156858"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2385628198",
-         "Id": "2185786256",
-         "GUID": "{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}",
-         "Color": "4"
-        },
-        "MediaRefs": [
-         {
-          "Id": "109720451"
-         },
-         {
-          "Id": "156898294"
-         },
-         {
-          "Id": "301885343"
-         },
-         {
-          "Id": "783217267"
-         },
-         {
-          "Id": "933442325"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2385628198",
-         "Id": "2058049674",
-         "GUID": "{0C8C24ED-553D-4101-82B6-8BDC72FAA041}",
-         "Color": "4"
-        },
-        "MediaRefs": [
-         {
-          "Id": "283095059"
-         },
-         {
-          "Id": "289962334"
-         },
-         {
-          "Id": "563084003"
-         },
-         {
-          "Id": "742955475"
-         },
-         {
-          "Id": "897904861"
-         }
-        ]
-       }
-      ],
+      "DurationMin": "0",
+      "DurationMax": "0",
       "ActionSetSwitch": [
        {
         "GroupId": "2385628198",
@@ -1076,172 +932,15 @@
       ]
      },
      {
-      "Id": "606549629",
-      "Name": "Footstep_Wood",
-      "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\Player\\Footstep_Wood",
+      "Id": "708580193",
+      "Name": "FootstepSwitch_Wood",
+      "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\Player\\FootstepSwitch_Wood",
       "GUID": "{56801E75-2967-44A6-8293-97B423B4DD79}",
       "Color": "8",
+      "MaxAttenuation": "0",
       "DurationType": "OneShot",
-      "DurationMin": "0.33333334",
-      "DurationMax": "0.8",
-      "SwitchContainers": [
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2385628198",
-         "Id": "2195636714",
-         "GUID": "{F98DCB64-B7BA-4C42-925A-7E93F670A40B}",
-         "Color": "4"
-        },
-        "MediaRefs": [
-         {
-          "Id": "338197633"
-         },
-         {
-          "Id": "846128762"
-         },
-         {
-          "Id": "962263161"
-         },
-         {
-          "Id": "971020296"
-         },
-         {
-          "Id": "1008156858"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2385628198",
-         "Id": "2185786256",
-         "GUID": "{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}",
-         "Color": "4"
-        },
-        "MediaRefs": [
-         {
-          "Id": "109720451"
-         },
-         {
-          "Id": "156898294"
-         },
-         {
-          "Id": "301885343"
-         },
-         {
-          "Id": "783217267"
-         },
-         {
-          "Id": "933442325"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2385628198",
-         "Id": "2058049674",
-         "GUID": "{0C8C24ED-553D-4101-82B6-8BDC72FAA041}",
-         "Color": "4"
-        },
-        "MediaRefs": [
-         {
-          "Id": "283095059"
-         },
-         {
-          "Id": "289962334"
-         },
-         {
-          "Id": "563084003"
-         },
-         {
-          "Id": "742955475"
-         },
-         {
-          "Id": "897904861"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2385628198",
-         "Id": "2195636714",
-         "GUID": "{F98DCB64-B7BA-4C42-925A-7E93F670A40B}",
-         "Color": "4"
-        },
-        "MediaRefs": [
-         {
-          "Id": "338197633"
-         },
-         {
-          "Id": "846128762"
-         },
-         {
-          "Id": "962263161"
-         },
-         {
-          "Id": "971020296"
-         },
-         {
-          "Id": "1008156858"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2385628198",
-         "Id": "2185786256",
-         "GUID": "{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}",
-         "Color": "4"
-        },
-        "MediaRefs": [
-         {
-          "Id": "109720451"
-         },
-         {
-          "Id": "156898294"
-         },
-         {
-          "Id": "301885343"
-         },
-         {
-          "Id": "783217267"
-         },
-         {
-          "Id": "933442325"
-         }
-        ]
-       },
-       {
-        "SwitchValue": {
-         "GroupType": "Switch",
-         "GroupId": "2385628198",
-         "Id": "2058049674",
-         "GUID": "{0C8C24ED-553D-4101-82B6-8BDC72FAA041}",
-         "Color": "4"
-        },
-        "MediaRefs": [
-         {
-          "Id": "283095059"
-         },
-         {
-          "Id": "289962334"
-         },
-         {
-          "Id": "563084003"
-         },
-         {
-          "Id": "742955475"
-         },
-         {
-          "Id": "897904861"
-         }
-        ]
-       }
-      ],
+      "DurationMin": "0",
+      "DurationMax": "0",
       "ActionSetSwitch": [
        {
         "GroupId": "2385628198",
@@ -2040,6 +1739,9 @@
       "MediaRefs": [
        {
         "Id": "98931354"
+       },
+       {
+        "Id": "434068582"
        }
       ]
      },
@@ -2340,6 +2042,6 @@
     ]
    }
   ],
-  "FileHash": "{FC5262BF-BD2B-8503-7305-04EFC21EB437}"
+  "FileHash": "{AF26D18D-EBFA-A962-9DC8-C143F422E03C}"
  }
 }

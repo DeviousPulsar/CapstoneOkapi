@@ -70,6 +70,10 @@
 								<Event Name="Power_UP" ID="{956745D9-FFE6-479C-91DE-60570F2B8559}">
 									<ChildrenList>
 										<Action Name="" ID="{4EC1494D-D3E7-46F2-A2AC-2FCED6C9557F}" ShortID="570508902">
+											<PropertyList>
+												<Property Name="FadeInCurve" Type="int16" Value="2"/>
+												<Property Name="FadeTime" Type="Real64" Value="0.2"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Power_Up" ID="{8B225A79-31BF-4DD8-87D5-DA3B4CBA0D6D}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
@@ -98,6 +102,19 @@
 												</Reference>
 											</ReferenceList>
 										</Action>
+										<Action Name="" ID="{0B699A28-FA5E-4878-BB06-54C8BD6B47CA}" ShortID="301790135">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+												<Property Name="FadeOutCurve" Type="int16" Value="7"/>
+												<Property Name="FadeTime" Type="Real64" Value="0.2"/>
+												<Property Name="Scope" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Power_Up" ID="{8B225A79-31BF-4DD8-87D5-DA3B4CBA0D6D}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
 									</ChildrenList>
 								</Event>
 								<Event Name="Damage" ID="{22F3EE54-845C-4952-A0A4-074A56EC6FDE}">
@@ -111,18 +128,8 @@
 										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="Footstep_Dirt" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}">
+								<Event Name="Footsteps" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}">
 									<ChildrenList>
-										<Action Name="" ID="{2C21E5AA-1313-4729-BF3D-667064F1DE47}" ShortID="543201735">
-											<PropertyList>
-												<Property Name="ActionType" Type="int16" Value="23"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}" WorkUnitID="{D501C5FC-1452-42C3-A302-D83A9982F762}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
 										<Action Name="" ID="{D9B7EFAF-471F-4A58-B875-F8EC69E04991}" ShortID="861552891">
 											<ReferenceList>
 												<Reference Name="Target">
@@ -132,7 +139,7 @@
 										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="Footstep_Wood" ID="{56801E75-2967-44A6-8293-97B423B4DD79}">
+								<Event Name="FootstepSwitch_Wood" ID="{56801E75-2967-44A6-8293-97B423B4DD79}">
 									<ChildrenList>
 										<Action Name="" ID="{613D6899-8A8D-49CD-8F7C-F8B8D1DEC8B3}" ShortID="458640160">
 											<PropertyList>
@@ -144,16 +151,9 @@
 												</Reference>
 											</ReferenceList>
 										</Action>
-										<Action Name="" ID="{6E3C3F3A-F2E3-4191-85DF-C5C79963EB18}" ShortID="747899612">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="Footsteps" ID="{AC191FCC-7113-4B8C-8D12-CE546F5F666B}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="Footstep_Gravel" ID="{394AAE8D-F87C-482B-98CD-39EE7CB891E9}">
+								<Event Name="FootstepSwitch_Gravel" ID="{394AAE8D-F87C-482B-98CD-39EE7CB891E9}">
 									<ChildrenList>
 										<Action Name="" ID="{FBFC107A-C480-46CA-AE32-974091D66054}" ShortID="92779756">
 											<PropertyList>
@@ -165,10 +165,17 @@
 												</Reference>
 											</ReferenceList>
 										</Action>
-										<Action Name="" ID="{41237C63-BECF-4B78-9A55-1AA092AF11CE}" ShortID="780798856">
+									</ChildrenList>
+								</Event>
+								<Event Name="FootstepSwitch_Dirt" ID="{242F0D58-41F8-483A-AAFB-B48FF012BFF0}">
+									<ChildrenList>
+										<Action Name="" ID="{7ADD62AC-9F89-4922-96BA-6545A72318D2}" ShortID="403794505">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="23"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Footsteps" ID="{AC191FCC-7113-4B8C-8D12-CE546F5F666B}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+													<ObjectRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}" WorkUnitID="{D501C5FC-1452-42C3-A302-D83A9982F762}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>

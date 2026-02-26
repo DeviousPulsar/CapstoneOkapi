@@ -76,6 +76,9 @@
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
 								</Reference>
+								<Reference Name="DefaultSwitchOrState">
+									<ObjectRef Name="Wood" ID="{0C8C24ED-553D-4101-82B6-8BDC72FAA041}" WorkUnitID="{D501C5FC-1452-42C3-A302-D83A9982F762}"/>
+								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="SFX" ID="{D7DCFCF4-6174-42C9-A688-3311FF539CFF}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
 								</Reference>
@@ -734,6 +737,13 @@
 					</PropertyList>
 					<ChildrenList>
 						<RandomSequenceContainer Name="Move" ID="{B5F5D5A7-3F2E-4DDB-BF59-35D9E9CF8543}" ShortID="406441481">
+							<PropertyList>
+								<Property Name="OutputBusVolume" Type="Real64">
+									<ValueList>
+										<Value>-8</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -881,6 +891,13 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Parry_Action" ID="{4DF15FBF-B360-4B02-B5C2-97EE392DBFD5}" ShortID="274632090">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -959,6 +976,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<RandomSequenceContainer Name="Attack" ID="{52092069-3F96-4131-89B0-9CEB19039C9D}" ShortID="1003685420">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-3</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -1081,6 +1105,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="Player_Damage" ID="{EAD06A72-1846-47B4-95FD-ED5DBF78C876}" ShortID="597160395">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -1349,7 +1380,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-6</Value>
+										<Value>-18</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
