@@ -33,6 +33,7 @@ enum class EFocus : uint8
 	Attack UMETA(DisplayName = "Attack"),
 	Defend UMETA(DisplayName = "Defend"),
 	Heal  UMETA(DisplayName = "Heal"),
+	Parry UMETA(DisplayName = "Parry"),
 };
 
 UCLASS()
@@ -91,6 +92,12 @@ public:
 	
 	UPROPERTY(EditAnywhere, Category = "Focus")
 	float DamageBuff;
+
+	UPROPERTY(EditAnywhere, Category = "Focus")
+	float StrongAttackParryBuff;
+
+	UPROPERTY(EditAnywhere, Category = "Focus")
+	float ParryWindowBuff;
 
 	UPROPERTY(EditAnywhere, Category = "Focus")
 	float DefenseBuff;

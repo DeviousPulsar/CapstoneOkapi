@@ -170,8 +170,22 @@ void ACombatPlayer::AttackGrid(EPlayerAttacks Attack)
 
 	if (ParryBoost)
 	{
-		AttackInstance->Buff(ParryDamageBuff);
+		if (Focus != EFocus::Parry)
+		{
+			AttackInstance->Buff(ParryDamageBuff);
+		}
+		else
+		{
+			AttackInstance->Buff(StrongAttackParryBuff);
+		}
+
+		// change bParriable so it uses the strong attack vfx
+		for (FAttackStage& currentFrame : AttackInstance->AttackStages){
+			currentFrame.bParriable = false;
+		}
+		
 		ParryBoost = false;
+		DeactivateEffect(ParryBoostComponent);
 	}
 
 	Grid->ExecuteAttack(AttackInstance, true);
@@ -214,9 +228,15 @@ void ACombatPlayer::SetBuff(EFocus Foc)
 		//Pawn->EditHealth(HealBuff); Moved to SetMovementAllowed
 		break;
 	}
+	case EFocus::Parry:
+	{
+		SetParryTimeBuff(ParryWindowBuff);
+		break;
+	}
 	case EFocus::Default:
 	{
 		SetDefend(1.0);
+		SetParryTimeBuff(0);
 		break;
 	}
 	}

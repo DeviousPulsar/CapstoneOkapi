@@ -42,6 +42,9 @@ public:
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Gameplay")
 	FQuat SaveRotation;
 
+	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Gameplay")
+	int Difficulty;
+
 	UFUNCTION(BlueprintCallable)
 	void Initialize ();
 

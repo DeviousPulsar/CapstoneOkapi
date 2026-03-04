@@ -15,6 +15,7 @@ void UCapstoneSaveGame::Initialize()
     SaveLocation = FVector();
     SaveRotation = FQuat();
     ConsumedTriggers.Empty();
+    Difficulty = 1;
 };
 
 void UCapstoneSaveGame::Reset() 
@@ -25,6 +26,7 @@ void UCapstoneSaveGame::Reset()
     SaveLocation = FVector();
     SaveRotation = FQuat();
     ConsumedTriggers.Empty();
+    Difficulty = 1;
 };
 
 void UCapstoneSaveGame::LogBattleEntered()

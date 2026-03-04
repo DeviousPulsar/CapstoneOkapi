@@ -36,7 +36,9 @@ protected:
 	bool ParryProt;
 	float TimeSinceParry;
 	bool bIsFrozen;
+	bool bIsDead;
 	FVector2D BufferMove;
+	float ParryWindowBuff;
 
 	UFUNCTION(BlueprintCallable)
 	void UpPressed();
@@ -72,6 +74,9 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Parry")
 	float ParryProtTime;
 
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category = "Anim")
+	UAnimMontage* DeathMontage = nullptr;
+
 	UPROPERTY(EditAnywhere, Category = "Parry")
 	float ParryStunTime;
 
@@ -100,10 +105,19 @@ public:
 	UNiagaraSystem* HealEffect;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VFX")
-	UNiagaraSystem* ParryEffect;
+	UNiagaraSystem* ParryStartEffect;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VFX")
+	UNiagaraSystem* ParryFailEffect;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VFX")
+	UNiagaraSystem* ParrySuccessEffect;
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VFX")
 	UNiagaraSystem* InvulnerableEffect;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VFX")
+	UNiagaraSystem* ParryBoostEffect;
 
 	UPROPERTY()
 	UNiagaraComponent* InvulnerableComponent;
@@ -112,7 +126,16 @@ public:
 	UNiagaraComponent* HealingComponent;
 
 	UPROPERTY()
-	UNiagaraComponent* ParryComponent;
+	UNiagaraComponent* ParryStartComponent;
+
+	UPROPERTY()
+	UNiagaraComponent* ParryFailComponent;
+
+	UPROPERTY()
+	UNiagaraComponent* ParrySuccessComponent;
+
+	UPROPERTY()
+	UNiagaraComponent* ParryBoostComponent;
 
 	bool ParryBoost;
 
@@ -121,6 +144,7 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	bool GetIsPlayer();
+	
 
 	/// @brief Initializes variables, call immediately after the default constructor
 	/// @param X
@@ -167,6 +191,13 @@ public:
 	void SetDefend(float Defence);
 
 	/// <summary>
+	/// adds the blueprint specified extra time to the parry window, making it easier. 
+	/// </summary>
+	/// <param name="ExtraParryTime"></param>
+	/// <param name="DamageIncrease"></param>
+	void SetParryTimeBuff(float ParryTimeBuff);
+
+	/// <summary>
 	/// Sets the parry field to true
 	/// </summary>
 	void AttemptParry();
@@ -187,6 +218,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Anim")
 	void PlayParryMontage(FName Section = NAME_None);
 
+	UFUNCTION(BlueprintCallable, Category = "Anim")
+	void PlayDeathMontage(FName Section = NAME_None);
 	UFUNCTION(BlueprintCallable)
 	void ReturnToCenter();
 
@@ -197,7 +230,7 @@ public:
 	/// @param PositionOffset the FVector offset to spawn the effect at
 	/// @return the created UNiagaraComponent*
 	UFUNCTION(BlueprintCallable)
-	UNiagaraComponent* SpawnEffect(UNiagaraSystem* Effect, double Scale, FVector PositionOffset = FVector::ZeroVector);
+	UNiagaraComponent* SpawnEffect(UNiagaraSystem* Effect, double Scale, FVector PositionOffset = FVector::ZeroVector, bool AutoActivate = false, bool AutoDestroy = false);
 
 	/// @brief Restarts the effect and turns it visible
 	/// @param EffectComponent

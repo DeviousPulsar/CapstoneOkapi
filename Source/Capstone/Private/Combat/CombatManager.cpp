@@ -14,6 +14,7 @@ ACombatManager::ACombatManager()
 
 	bEnablePreCombatCountdown = true;
 	PreCombatCountdownSeconds = 3.0f;
+	Difficulty = EDifficulty::Normal;
 }
 
 // Called when the game starts or when spawned
@@ -167,5 +168,27 @@ void ACombatManager::LockPlayerControl(bool bLock)
 	{
 		PC->SetIgnoreMoveInput(bLock);
 		PC->SetIgnoreLookInput(bLock);
+	}
+}
+
+void ACombatManager::ChangeDifficulty(int diff)
+{
+	switch (diff)
+	{
+		case 0:
+			//easy mode
+			Difficulty = EDifficulty::Easy;
+			Grid->Difficulty = EDifficulty::Easy;
+			break;
+		case 2:
+			//hard mode
+			Difficulty = EDifficulty::Hard;
+			Grid->Difficulty = EDifficulty::Hard;
+			break;
+		default:
+			//normal mode (1)
+			Difficulty = EDifficulty::Normal;
+			Grid->Difficulty = EDifficulty::Normal;
+			break;
 	}
 }

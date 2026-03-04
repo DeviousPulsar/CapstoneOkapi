@@ -26,6 +26,10 @@ class CAPSTONE_API ACombatManager : public AActor
 	GENERATED_BODY()
 
 public:
+
+	UPROPERTY(EditAnywhere, Category = "Difficulty")
+	EDifficulty Difficulty;
+
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "DialogueSupport") bool bDialogueEnabled;
 	UPROPERTY(BlueprintReadOnly) ACombatPlayer* PlayerC;
 	UPROPERTY(BlueprintReadOnly) ACombatEnemy* EnemyC;
@@ -56,6 +60,9 @@ public:
 	*/
 	UFUNCTION(BlueprintCallable)
 	void AssessWLState();
+
+	UFUNCTION(BlueprintCallable)
+	void ChangeDifficulty(int Diff);
 
 	/**
 	* Begins a turn cycle by triggering the menu and accepting the player's input then
