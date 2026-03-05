@@ -77,6 +77,10 @@
 							<Position X="2" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="Parry_Success" ID="{824D9EC9-4A01-41DA-8BC5-E72D01F8E4EC}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="Enemy_Damage" ID="{6A932B72-E72F-4F1B-8273-56601DE5AF36}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="2" Y="3"/>
 						</Module>
@@ -97,13 +101,15 @@
 							<Position X="4" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Parry_Success" ID="{824D9EC9-4A01-41DA-8BC5-E72D01F8E4EC}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<ObjectRef Name="UI_Dialog_Popup" ID="{B3054638-06AE-4140-A31F-64CCD8BDF2B4}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="4" Y="1"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
-					<CurrentSwitchList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}"/>
+					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="Scenes" ID="{62B719A6-D097-47B7-8A9A-EC2317112068}">
 					<ModuleList>

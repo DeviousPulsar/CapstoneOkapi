@@ -728,6 +728,35 @@
 								<ActiveSource Name="UI_Start_Combat" ID="{6DF5022A-D152-425D-B94A-8544CB6B65A0}" Platform="Linked"/>
 							</ActiveSourceList>
 						</Sound>
+						<Sound Name="UI_Dialogue_Pop-up" ID="{514CD747-CF05-4229-8A10-6C6B5A6DE832}" ShortID="833614285">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>-4</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<AudioFileSource Name="UI_Dialogue_Pop-up" ID="{9D67EB6E-EFCB-4ED0-ABCE-9F045287FE8B}">
+									<Language>SFX</Language>
+									<AudioFile>UI_Dialogue_Pop-up.wav</AudioFile>
+									<MediaIDList>
+										<MediaID ID="1003681686"/>
+									</MediaIDList>
+								</AudioFileSource>
+							</ChildrenList>
+							<ActiveSourceList>
+								<ActiveSource Name="UI_Dialogue_Pop-up" ID="{9D67EB6E-EFCB-4ED0-ABCE-9F045287FE8B}" Platform="Linked"/>
+							</ActiveSourceList>
+						</Sound>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="Player" ID="{1B05DEA1-B4B3-4BBC-BE85-564B2EF958C4}" ShortID="1055800116">
@@ -1457,6 +1486,84 @@
 									</ChildrenList>
 									<ActiveSourceList>
 										<ActiveSource Name="Enemy_Move_3" ID="{575ED303-8919-40C3-9617-23F8779E65A5}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+							</ChildrenList>
+						</RandomSequenceContainer>
+						<RandomSequenceContainer Name="Attack_Warning" ID="{CCCAF215-5DDA-4409-8288-1993F63EA000}" ShortID="654196399">
+							<ReferenceList>
+								<Reference Name="Conversion">
+									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+								</Reference>
+								<Reference Name="OutputBus">
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+								</Reference>
+							</ReferenceList>
+							<ChildrenList>
+								<Sound Name="Enemy_Attack_Warning-2" ID="{3B62BF3F-459F-4E26-B627-369F77627B45}" ShortID="95877149">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Enemy_Attack_Warning-2" ID="{B80F707B-2D19-4AF1-A8C3-22902CDB9CF8}">
+											<Language>SFX</Language>
+											<AudioFile>Enemy_Attack_Warning-2.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="910733577"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Enemy_Attack_Warning-2" ID="{B80F707B-2D19-4AF1-A8C3-22902CDB9CF8}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Enemy_Attack_Warning-3" ID="{E203748C-DFAC-4A30-AF3E-270704DB2680}" ShortID="589868713">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Enemy_Attack_Warning-3" ID="{40071CD1-A383-4EFE-8F48-209EEF8AA545}">
+											<Language>SFX</Language>
+											<AudioFile>Enemy_Attack_Warning-3.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="556423460"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Enemy_Attack_Warning-3" ID="{40071CD1-A383-4EFE-8F48-209EEF8AA545}" Platform="Linked"/>
+									</ActiveSourceList>
+								</Sound>
+								<Sound Name="Enemy_Attack_Warning-1" ID="{38549EEB-586B-465B-BF74-2F13C476FE16}" ShortID="315774087">
+									<ReferenceList>
+										<Reference Name="Conversion">
+											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
+										</Reference>
+										<Reference Name="OutputBus">
+											<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+										</Reference>
+									</ReferenceList>
+									<ChildrenList>
+										<AudioFileSource Name="Enemy_Attack_Warning-1" ID="{23AC4D5D-3198-4537-8738-96DB1271F88E}">
+											<Language>SFX</Language>
+											<AudioFile>Enemy_Attack_Warning-1.wav</AudioFile>
+											<MediaIDList>
+												<MediaID ID="884687132"/>
+											</MediaIDList>
+										</AudioFileSource>
+									</ChildrenList>
+									<ActiveSourceList>
+										<ActiveSource Name="Enemy_Attack_Warning-1" ID="{23AC4D5D-3198-4537-8738-96DB1271F88E}" Platform="Linked"/>
 									</ActiveSourceList>
 								</Sound>
 							</ChildrenList>
