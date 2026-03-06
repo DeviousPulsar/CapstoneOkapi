@@ -147,6 +147,12 @@
         "GUID": "{892DA656-FF0F-4BA0-87EE-EAB55937DBE8}"
        },
        {
+        "Id": "1384576204",
+        "Name": "Fight_World",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Fight_World",
+        "GUID": "{33D88523-AF4B-4A5A-8B89-F34C9A7EBE7F}"
+       },
+       {
         "Id": "1497216465",
         "Name": "Fight_1",
         "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Fight_1",
@@ -157,12 +163,6 @@
         "Name": "Fight_2",
         "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Fight_2",
         "GUID": "{CAFB8504-7D4B-4B22-B84E-73BEA8AFDECA}"
-       },
-       {
-        "Id": "1497216467",
-        "Name": "Fight_3",
-        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Fight_3",
-        "GUID": "{33D88523-AF4B-4A5A-8B89-F34C9A7EBE7F}"
        },
        {
         "Id": "1606094870",
@@ -283,6 +283,6 @@
     ]
    }
   ],
-  "FileHash": "{71424CC4-A3D6-B54D-EB60-6C076198FD2C}"
+  "FileHash": "{215D3203-81C1-1183-529F-9A2D30F7DF40}"
  }
 }

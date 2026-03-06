@@ -5,12 +5,14 @@ Event	ID	Name			Wwise Object Path	Notes
 	594187585	UI_Start_Combat			\SFX_Koyo\SFX\UI\UI_Start_Combat	
 	708580193	FootstepSwitch_Wood			\SFX_Koyo\SFX\Player\FootstepSwitch_Wood	
 	1134971709	Parry_Success			\SFX_Koyo\SFX\Player\Parry_Success	
+	1179243897	mx_EnterTitle			\MX_Miles\LEVELS\mx_EnterTitle	
 	1215104879	FootstepSwitch_Gravel			\SFX_Koyo\SFX\Player\FootstepSwitch_Gravel	
 	1292098237	mx_EnterOW_Cave			\MX_Miles\LEVELS\mx_EnterOW_Cave	
 	1781417190	Enemy_Attack			\SFX_Koyo\SFX\Enemy\Enemy_Attack	
 	1786804762	Damage			\SFX_Koyo\SFX\Player\Damage	
 	1788329924	mx_EnterOW_Picnic			\MX_Miles\LEVELS\mx_EnterOW_Picnic	
 	1997497442	Powered_Attack			\SFX_Koyo\SFX\Player\Powered_Attack	
+	2001806484	mx_PlayMusic			\MX_Miles\LEVELS\mx_PlayMusic	
 	2034070933	FootstepSwitch_Dirt			\SFX_Koyo\SFX\Player\FootstepSwitch_Dirt	
 	2118900976	UI_Hover			\SFX_Koyo\SFX\UI\UI_Hover	
 	2124466058	mx_Fight_Win			\MX_Miles\FIGHTS\mx_Fight_Win	
@@ -24,11 +26,14 @@ Event	ID	Name			Wwise Object Path	Notes
 	2876602209	Enemy_Move			\SFX_Koyo\SFX\Enemy\Enemy_Move	
 	2958924562	mx_EnterFight_Tutorial			\MX_Miles\LEVELS\mx_EnterFight_Tutorial	
 	3011204530	Move			\SFX_Koyo\SFX\Player\Move	
+	3187416458	mx_EnterFight_Caves			\MX_Miles\LEVELS\mx_EnterFight_Caves	
 	3459520173	mx_EnterFight_Boss02			\MX_Miles\LEVELS\mx_EnterFight_Boss02	
 	3459520174	mx_EnterFight_Boss01			\MX_Miles\LEVELS\mx_EnterFight_Boss01	
+	3574076051	mx_Fight_Lose			\MX_Miles\FIGHTS\mx_Fight_Lose	
 	3990019784	mx_Fight_PhaseDLG			\MX_Miles\FIGHTS\mx_Fight_PhaseDLG	
 	4195744285	mx_StartGame			\MX_Miles\LEVELS\mx_StartGame	
 	4246143347	Picnic			\SFX_Koyo\Ambient\Picnic	
+	4289108825	UI_Dialog_Popup			\SFX_Koyo\SFX\UI\UI_Dialog_Popup	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	2385628198	Footsteps			\SFX_Koyo\Footsteps\Footsteps	
@@ -47,9 +52,9 @@ State	ID	Name	State Group			Notes
 	221232726	Lose	mx_Level			
 	676302600	Overworld_House	mx_Level			
 	748895195	None	mx_Level			
+	1384576204	Fight_World	mx_Level			
 	1497216465	Fight_1	mx_Level			
 	1497216466	Fight_2	mx_Level			
-	1497216467	Fight_3	mx_Level			
 	1606094870	Overworld_Picnic	mx_Level			
 	1903993387	Overworld_Cave	mx_Level			
 	3604647259	MainMenu	mx_Level			
@@ -80,76 +85,85 @@ Effect plug-ins	ID	Name	Type				Notes
 	701863527	Inside_My_Head	Wwise RoomVerb			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	20134841	Enemy_Move_3	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\E5\{E594DF2C-5C92-D530-74D0-E4AD93D65E45}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Move\Enemy_Move_3		102496
-	43423852	Move_3	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\78\{7845F577-0234-B7D1-88BA-D35D838855EC}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Move\Move_3		92612
-	47189981	mx_LD_LvOne01_Intro_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\D6\{D6355ABB-66E3-8055-E8A5-986FC33580C5}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_01\Fight-Boss_01\mx_LD_LvOne01_Intro_133bpmENDS\mx_LD_LvOne01_Intro_133bpmENDS		2621536
-	55581447	mx_LD_Tutorial04_PrepSynth_133bpmLOOPS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\3C\{3C36F72B-0DC2-242C-5682-C04C6562E8E5}.wem		\Interactive Music Hierarchy\Miles\Levels\Tutorial\Tutorial_Fight\mx_LD_Tutorial_FullLayer_133bpmLOOPS\mx_LD_Tutorial04_PrepSynth_133bpmLOOPS		13107296
-	63272458	Enemy_Move_2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\4C\{4C7CCADE-D8D6-9F0A-2F2D-F848053E3110}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Move\Enemy_Move_2		108896
-	80410063	mx_LD_LvOne03_Prep_133bpmLOOPS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\8F\{8F5BA620-3CF0-12C3-D5E7-A43047033D54}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_01\Fight-Boss_01\mx_LD_LvOne02_CombatMain\mx_LD_LvOne03_Prep_133bpmLOOPS		18874464
-	98931354	Powered_Attack	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\82\{825D2201-B707-BE3D-59A9-8A250B28BC9D}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Powered_Attack		179296
-	109720451	Footstep-Gravel-4	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\77\{77F2D84C-6C35-D8FE-AB54-31B797C88177}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Gravel\Footstep-Gravel-4		128144
-	137407150	UI_Start_Combat	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\29\{290A5040-4862-6261-A7FA-D06D0966342B}.wem		\Actor-Mixer Hierarchy\Koyo\UI\UI_Start_Combat		281696
-	155703357	Nocturn UI Hover_1	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\75\{75A0587F-AF07-FD80-0444-E92815DBAC15}.wem		\Actor-Mixer Hierarchy\Koyo\UI\Hover\Nocturn UI Hover_1		32096
-	156898294	Footstep-Gravel-3	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\DF\{DFCBB0C4-1AB5-9204-3BBB-59C9A44161BA}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Gravel\Footstep-Gravel-3		140944
-	196066655	mx_LD_Explore01_HouseIntro_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\2C\{2CC52B5D-D017-5145-B1AD-B2B68A0E10E8}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-House\mx_LD_Explore01_HouseIntro_133bpmENDS\mx_LD_Explore01_HouseIntro_133bpmENDS		3932256
-	208278431	Move_1	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\62\{6207994B-96FE-9586-F661-59DF38CF8265}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Move\Move_1		61944
-	256243095	mx_LD_Explore09_CaveMain4_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\20\{20BBE9B8-6F09-59A2-5B6B-CC31186C8E71}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Cave\mx_LD_Explore09_CaveMain4_133bpmENDS\mx_LD_Explore09_CaveMain4_133bpmENDS		6780520
-	260244671	Enemy_Move_1	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\4C\{4CB098AC-4DBC-002A-AD58-66CE0331A8E4}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Move\Enemy_Move_1		102496
-	283095059	Footstep-Wood-4	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\A4\{A4268E42-6C74-A048-DD29-6E85EB881021}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Wood\Footstep-Wood-4		76896
-	289962334	Footstep-Wood-1	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\76\{764663E0-D123-6FBC-D3EE-0C25BF839E19}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Wood\Footstep-Wood-1		83296
-	301885343	Footstep-Gravel-5	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\20\{20BD05BB-9544-8D20-558C-8A2F4BEC7605}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Gravel\Footstep-Gravel-5		115344
-	302550475	mx_LD_LvFinal02_DLG_133bpmLOOPS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\B5\{B52594B9-46B6-8ED7-1C56-C68657532C5F}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_02\Fight-Boss_02\mx_LD_LvFinal02_DLG_133bpmLOOPS\mx_LD_LvFinal02_DLG_133bpmLOOPS		23068832
-	308758893	mx_LD_Tutorial05_Combat_133bpmLOOPS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\8B\{8B99996F-2A52-324A-4372-2B7372ACF2A7}.wem		\Interactive Music Hierarchy\Miles\Levels\Tutorial\Tutorial_Fight\mx_LD_Tutorial_FullLayer_133bpmLOOPS\mx_LD_Tutorial05_Combat_133bpmLOOPS		11534432
-	313109862	mx_LD_Explore04_PicnicMain_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\7C\{7C52B8C1-3B54-8310-EFDD-7F9DF3856374}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Picnic\mx_LD_Explore04_PicnicMain_133bpmENDS\mx_LD_Explore04_PicnicMain_133bpmENDS		18612320
-	320569160	Nocturn UI Hover_3	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\D1\{D147DEC0-23B3-AB82-AD9F-0E800C46C87E}.wem		\Actor-Mixer Hierarchy\Koyo\UI\Hover\Nocturn UI Hover_3		32096
-	320951531	Magic_Attack_1	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\F8\{F8ED0840-AA6B-86E5-2D35-7D1F5DB7407B}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Attack\Magic_Attack_1		179296
-	335456592	Player_Damage	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\CD\{CD9FBA50-34B5-A1A5-02FF-2DC0202B070E}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Player_Damage		185696
-	338197633	Footstep-Dirt-2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\AE\{AE1B5C2F-CD92-E736-CD3C-FCD69B9FDB9D}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Dirt\Footstep-Dirt-2		134544
-	345365954	mx_LD_LvOne02_DLG_133bpmLOOPS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\4B\{4B68E17B-E7B2-85D0-5AD9-99BE4E3E4A69}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_01\Fight-Boss_01\mx_LD_LvOne02_CombatMain\mx_LD_LvOne02_DLG_133bpmLOOPS		19660896
-	374257138	Yelp_3	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\59\{595E8076-DA6F-E0C5-F0CF-47EB2D491E0E}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Damage\Yelp_3		102496
-	427308989	Yelp_1	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\88\{881C8E08-4F4A-28BC-73BD-E6B27FD08CAB}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Damage\Yelp_1		89696
-	434068582	Power_Up	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\AA\{AAC70661-B29C-624B-2C73-76328729ED80}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Power_Up		2304096
-	468051898	Magic_Attack_2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\DC\{DCAD3E05-2E3D-8A23-CDC5-85C961E2C964}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Attack\Magic_Attack_2		185696
-	470082489	mx_LD_Tutorial02_DLG_133bpmLOOPS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\1F\{1FCBD57D-638C-F4EF-F673-8BA11DB9286B}.wem		\Interactive Music Hierarchy\Miles\Levels\Tutorial\Tutorial_Fight\mx_LD_Tutorial_FullLayer_133bpmLOOPS\mx_LD_Tutorial02_DLG_133bpmLOOPS		11534432
-	496236210	mx_LD_Explore03_PicnicIntro_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\AB\{AB75FDFA-9AE4-2EFB-784B-A35D02F937C8}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Picnic\mx_LD_Explore03_PicnicIntro_133bpmENDS\mx_LD_Explore03_PicnicIntro_133bpmENDS		15466592
-	506767011	mx_LD_LvOne04_Combat_133bpmLOOPS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\62\{62DE2DDC-F58D-3623-CF16-D2735CCE135D}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_01\Fight-Boss_01\mx_LD_LvOne02_CombatMain\mx_LD_LvOne04_Combat_133bpmLOOPS		18612320
-	508102864	mx_LD_Tutorial07_PostVamp1_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\CB\{CB978042-B5C0-C88E-8872-06BED06285AC}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_01\Win&Vamp\mx_LD_Tutorial07_PostVamp1_133bpmENDS\mx_LD_Tutorial07_PostVamp1_133bpmENDS		8777748
-	509571349	mx_LD_Tutorial06_CombatWin_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\88\{88919323-3B00-37C4-6B8F-FC188F69BFEC}.wem		\Interactive Music Hierarchy\Miles\Levels\Tutorial\Win&Vamp\mx_LD_Tutorial06_CombatWin_133bpmENDS\mx_LD_Tutorial06_CombatWin_133bpmENDS		2621536
-	530019063	Nocturn UI Select 3	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\54\{54642EA0-36CD-26CE-29E8-193AB777433A}.wem		\Actor-Mixer Hierarchy\Koyo\UI\Select\Nocturn UI Select 3		25696
-	533606339	Move_4	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\0E\{0EB02721-A5A1-674B-720B-4EF42AFC4624}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Move\Move_4		63568
-	538492038	mx_LD_Tutorial03_PrepDrums_133bpmLOOPS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\C2\{C2E81245-5348-3135-42B3-B94B9F599AB9}.wem		\Interactive Music Hierarchy\Miles\Levels\Tutorial\Tutorial_Fight\mx_LD_Tutorial_FullLayer_133bpmLOOPS\mx_LD_Tutorial03_PrepDrums_133bpmLOOPS		11010144
-	563084003	Footstep-Wood-5	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\B4\{B4BBBB5B-78A1-0453-B989-CFFC04D8ACAF}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Wood\Footstep-Wood-5		76896
-	595652723	Explode_3	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\95\{95619901-C292-CD49-4DF0-03865663F6B4}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Attack\Explode_3		224096
-	622980037	Nocturn UI Select 1	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\7B\{7BAA9007-D535-EAE2-B7BD-9DCD0A611AFD}.wem		\Actor-Mixer Hierarchy\Koyo\UI\Select\Nocturn UI Select 1		25696
-	697303975	Woosh 1	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\54\{54C75FD7-2A99-A404-8989-C334B2C36B49}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Parry_Action\Woosh 1		172896
-	711219934	mx_LD_LvFinal03_CMBT_133bpmLOOPS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\04\{04B2970A-51F5-F160-2E19-F8A088FB799E}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_02\Fight-Boss_02\mx_LD_LvFinal02_DLG_133bpmLOOPS\mx_LD_LvFinal03_CMBT_133bpmLOOPS		23330976
-	725498065	Explode_2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\6F\{6F84BE70-FB5D-8E57-1BBF-7B14B3B7CF26}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Attack\Explode_2		224096
-	742955475	Footstep-Wood-3	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\8E\{8E699DCB-EA35-069E-E38A-335D6066A7D8}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Wood\Footstep-Wood-3		76896
-	758460222	Warning	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\2E\{2EDA05F8-7932-AEA4-A3AB-C78422C828D3}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Warning		83296
-	783217267	Footstep-Gravel-1	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\97\{971FBBD2-F3E4-7C23-51E9-59070524FBB9}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Gravel\Footstep-Gravel-1		134544
-	786282501	Nocturn UI Hover_2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\AE\{AE2E3BF1-5F2E-5087-5FC8-1019F0F2BB74}.wem		\Actor-Mixer Hierarchy\Koyo\UI\Hover\Nocturn UI Hover_2		32096
-	789600309	Move_5	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\73\{7344751B-DD44-ADC9-85FC-BC409FD71BC4}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Move\Move_5		74340
-	792197523	mx_LD_Explore05_CaveIntro_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\0C\{0C983D2B-AD4D-2AC3-13C6-0BC8CA6349E4}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Cave\mx_LD_Explore05_CaveIntro_133bpmENDS\mx_LD_Explore05_CaveIntro_133bpmENDS		11914776
-	834487728	Woosh 2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\43\{434BF3C9-0F05-DDE4-4A30-8A951226042A}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Parry_Action\Woosh 2		172896
-	840371906	mx_LD_Tutorial01_Intro_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\5D\{5D980576-A4E1-8170-246F-DCA9F0A0FD77}.wem		\Interactive Music Hierarchy\Miles\Levels\Tutorial\Tutorial_Fight\mx_LD_Tutorial01_Intro_133bpmENDS\mx_LD_Tutorial01_Intro_133bpmENDS		3145824
-	844864469	Parry_Success	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\8E\{8EB2E9F7-D90A-7A5E-7BD5-58D39ABB6408}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Parry_Success		179296
-	846128762	Footstep-Dirt-3	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\82\{8231FC17-D31E-6C6F-8D49-C4C280884591}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Dirt\Footstep-Dirt-3		147344
-	878189989	Nocturn UI Select 2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\45\{45F4BECA-E0B3-5CFF-436A-625D5AE85625}.wem		\Actor-Mixer Hierarchy\Koyo\UI\Select\Nocturn UI Select 2		32096
-	897904861	Footstep-Wood-2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\F7\{F716D91D-4D6C-6CA6-F0AC-181B60FAEF2D}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Wood\Footstep-Wood-2		64096
-	908395360	mx_LD_Explore02_HouseMain_133bpmLOOPS_v1c	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\2F\{2FC62BDA-FC86-F73A-3C03-0156B8AD2BA1}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-House\mx_LD_Explore02_HouseMain_133bpmLOOPS_v1c\mx_LD_Explore02_HouseMain_133bpmLOOPS_v1c		13107296
-	919339071	mx_LD_LvFinal02_PREP_133bpmLOOPS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\9A\{9AA72F31-1A3C-1D95-23BC-2B9205F7F9F0}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_02\Fight-Boss_02\mx_LD_LvFinal02_DLG_133bpmLOOPS\mx_LD_LvFinal02_PREP_133bpmLOOPS		23593120
-	930908405	mx_LD_Explore06_CaveMain1_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\87\{87555EA2-B39C-3D73-C85F-EF8C2464B4A6}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Cave\mx_LD_Explore06_CaveMain1_133bpmENDS\mx_LD_Explore06_CaveMain1_133bpmENDS		6829428
-	933442325	Footstep-Gravel-2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\75\{75CE75CB-38BD-EC05-57F1-E25366E603BC}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Gravel\Footstep-Gravel-2		153744
-	962263161	Footstep-Dirt-4	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\CF\{CF8DD0D5-AB3E-F8D3-958F-8234DD6071CC}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Dirt\Footstep-Dirt-4		134544
-	968008524	Move_2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\B9\{B9315002-B6BE-8A18-A338-07C0D8F1ECF9}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Move\Move_2		61028
-	969894115	Magic_Attack_3	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\DB\{DBBDD1FC-0A8A-8B6A-8A64-C9CFEE04BDF2}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Attack\Magic_Attack_3		179296
-	971020296	Footstep-Dirt-5	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\35\{357FB120-7CAC-C3B4-DFFD-15BCCDF786A3}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Dirt\Footstep-Dirt-5		134544
-	993436807	Explode_1	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\AE\{AEBF507E-4616-A8D2-FA6A-70F7E3427176}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Attack\Explode_1		217696
-	1008156858	Footstep-Dirt-1	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\DF\{DF0915A4-5B08-3449-D9DB-2CF12DEA6024}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Dirt\Footstep-Dirt-1		140944
-	1015820244	Ambient_Picnic	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\8B\{8B864131-DB06-3117-ADAD-E2A0E566C91F}.wem		\Actor-Mixer Hierarchy\Koyo\Ambient\Ambient_Picnic		6720096
-	1048362644	mx_LD_LvFinal01_Intro_NAbpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\CD\{CDA211CE-5711-1EAA-54DA-CE92A4B1AFBE}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_02\Fight-Boss_02\mx_LD_LvFinal01_Intro_NAbpmENDS\mx_LD_LvFinal01_Intro_NAbpmENDS		5505120
-	1052629003	mx_LD_Explore07_CaveMain2_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\C8\{C8F30836-88F1-8B62-3775-F42CFE57F4B7}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Cave\mx_LD_Explore07_CaveMain2_133bpmENDS\mx_LD_Explore07_CaveMain2_133bpmENDS		7986680
-	1058729189	mx_LD_Explore08_CaveMain3_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\29\{29CDAACA-3A9F-503A-D9D0-7090BF1F39A5}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Cave\mx_LD_Explore08_CaveMain3_133bpmENDS\mx_LD_Explore08_CaveMain3_133bpmENDS		6445044
-	1066367541	Yelp_2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\98\{989F8A5B-45BE-1056-B5C5-8C875DF83B71}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Damage\Yelp_2		83296
-	1070967771	mx_LD_Tutorial08_PostVamp2_133bpmENDS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\C4\{C4B86D4B-D9AD-E95E-0996-0BECDE154C6E}.wem		\Interactive Music Hierarchy\Miles\Levels\Tutorial\Win&Vamp\mx_LD_Tutorial08_PostVamp2_133bpmENDS\mx_LD_Tutorial08_PostVamp2_133bpmENDS		9437280
+	20134841	Enemy_Move_3	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\C5\{C5221C62-46D8-2C49-4C23-29B59B9B41BE}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Move\Enemy_Move_3		9011
+	43423852	Move_3	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\6C\{6CD1C188-2747-F057-6224-2503ED85075F}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Move\Move_3		7428
+	47189981	mx_LD_LvOne01_Intro_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\A2\{A20754A3-CA43-4A8B-7263-42A69D8D2C09}.wem		\Interactive Music Hierarchy\Miles\Levels\Caves_Encounter\Fight-Boss_01\mx_LD_LvOne01_Intro_133bpmENDS\mx_LD_LvOne01_Intro_133bpmENDS		216217
+	55581447	mx_LD_Tutorial04_PrepSynth_133bpmLOOPS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\32\{32712783-7BFE-EB27-3A51-E9B5B6D4E00F}.wem		\Interactive Music Hierarchy\Miles\Levels\Tutorial\Tutorial_Fight\mx_LD_Tutorial_FullLayer_133bpmLOOPS\mx_LD_Tutorial04_PrepSynth_133bpmLOOPS		1079719
+	63272458	Enemy_Move_2	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\43\{4351BCA1-F4C9-6298-25F9-6FBD985D2930}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Move\Enemy_Move_2		9366
+	80410063	mx_LD_LvOne03_Prep_133bpmLOOPS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\C9\{C9C2E7B3-A8BB-C03B-BC24-599C153381FA}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_02\Fight-Boss_02\mx_LD_LvOne02_CombatMain\mx_LD_LvOne03_Prep_133bpmLOOPS		1565365
+	98931354	Powered_Attack	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\16\{16504B8E-67A6-F8BA-2E29-251ABF9CF6EF}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Powered_Attack		13553
+	109720451	Footstep-Gravel-4	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\FD\{FD0E6BA0-03C6-32DD-8538-29842A5F32BF}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Gravel\Footstep-Gravel-4		10022
+	137407150	UI_Start_Combat	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\E1\{E1AE7487-E92A-0A0C-D7DD-EA5A5E21716E}.wem		\Actor-Mixer Hierarchy\Koyo\UI\UI_Start_Combat		22204
+	155703357	Nocturn UI Hover_1	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\D7\{D7704106-8323-CAA3-DEC0-EDD418BFE986}.wem		\Actor-Mixer Hierarchy\Koyo\UI\Hover\Nocturn UI Hover_1		1227
+	156898294	Footstep-Gravel-3	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\BF\{BF59A171-87D3-0FC9-33F2-E077BDDA4BD9}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Gravel\Footstep-Gravel-3		10003
+	196066655	mx_LD_Explore01_HouseIntro_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\10\{10E12682-8363-4732-7553-A861CF30EE93}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-House\mx_LD_Explore01_HouseIntro_133bpmENDS\mx_LD_Explore01_HouseIntro_133bpmENDS		282961
+	208278431	Move_1	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\A7\{A7DC986A-F1BE-4C92-20BE-4B2777C53275}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Move\Move_1		5495
+	256243095	mx_LD_Explore09_CaveMain4_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\B7\{B7E4E67A-E471-55E8-0E7C-724DE0F8C05E}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Cave\mx_LD_Explore09_CaveMain4_133bpmENDS\mx_LD_Explore09_CaveMain4_133bpmENDS		595119
+	260244671	Enemy_Move_1	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\9A\{9ADE1F11-C217-D626-8FB8-005169B707D9}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Move\Enemy_Move_1		9202
+	283095059	Footstep-Wood-4	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\FD\{FDA4AEC0-5D2D-91EF-7D6A-9134A2E05F8E}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Wood\Footstep-Wood-4		4131
+	289962334	Footstep-Wood-1	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\0B\{0B183D8E-CFF0-DB46-7A41-EA476529E067}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Wood\Footstep-Wood-1		4466
+	301885343	Footstep-Gravel-5	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\05\{0515A049-81A1-DAF6-A7EE-87DB04B96A43}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Gravel\Footstep-Gravel-5		8453
+	302550475	mx_LD_LvFinal02_DLG_133bpmLOOPS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\10\{102452F0-A4EC-D18B-3677-49BF3C8ADF45}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_02\Fight-Boss_02\mx_LD_LvFinal02_DLG_133bpmLOOPS\mx_LD_LvFinal02_DLG_133bpmLOOPS		1912690
+	308758893	mx_LD_Tutorial05_Combat_133bpmLOOPS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\DF\{DF901505-782E-E588-E3A0-48B36E047AE8}.wem		\Interactive Music Hierarchy\Miles\Levels\Caves_Encounter\Fight-Boss_01\mx_LD_Tutorial_FullLayer_133bpmLOOPS\mx_LD_Tutorial05_Combat_133bpmLOOPS		951813
+	313109862	mx_LD_Explore04_PicnicMain_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\2E\{2E612CCB-E634-4518-3192-78A71BD0927C}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Picnic\mx_LD_Explore04_PicnicMain_133bpmENDS\mx_LD_Explore04_PicnicMain_133bpmENDS		1553604
+	320569160	Nocturn UI Hover_3	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\48\{48E86557-5C80-2826-8299-F7FCBBFE610C}.wem		\Actor-Mixer Hierarchy\Koyo\UI\Hover\Nocturn UI Hover_3		1188
+	320951531	Magic_Attack_1	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\C8\{C817325F-D2AB-B46D-F281-71D1535BCB6B}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Attack\Magic_Attack_1		12025
+	335456592	Player_Damage	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\BC\{BC519B1D-B5D6-A41E-03A6-D20DDAD7539F}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Player_Damage		18386
+	338197633	Footstep-Dirt-2	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\51\{51E69F40-2950-12DE-041C-CF9D5242103E}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Dirt\Footstep-Dirt-2		6971
+	345365954	mx_LD_LvOne02_DLG_133bpmLOOPS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\5B\{5B91A24C-DBD6-8CDC-B129-F012416E3325}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_02\Fight-Boss_02\mx_LD_LvOne02_CombatMain\mx_LD_LvOne02_DLG_133bpmLOOPS		1722235
+	374257138	Yelp_3	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\A7\{A70193DE-6F5D-123E-643A-F67F96D5F171}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Damage\Yelp_3		6175
+	386388040	mx_LD_TitleLoop_133bpmLOOPS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\A1\{A1FE326E-5FEA-81DD-0C26-CAD453F21836}.wem		\Interactive Music Hierarchy\Miles\Levels\Title\mx_LD_TitleLoop_133bpmLOOPS\mx_LD_TitleLoop_133bpmLOOPS		1535424
+	427308989	Yelp_1	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\43\{43E7143B-DCD7-8CD6-0628-C2F4472FF2F3}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Damage\Yelp_1		5211
+	434068582	Power_Up	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\E9\{E9B34A8B-0323-0925-CC10-68F01542ECA5}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Power_Up		165462
+	468051898	Magic_Attack_2	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\E1\{E1C28AEF-4933-CE5C-A335-27D5256DDD79}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Attack\Magic_Attack_2		12744
+	470082489	mx_LD_Tutorial02_DLG_133bpmLOOPS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\2C\{2C6B27E9-EFD5-D787-CD39-A16BB2249635}.wem		\Interactive Music Hierarchy\Miles\Levels\Tutorial\Tutorial_Fight\mx_LD_Tutorial_FullLayer_133bpmLOOPS\mx_LD_Tutorial02_DLG_133bpmLOOPS		972224
+	496236210	mx_LD_Explore03_PicnicIntro_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\AD\{AD3D19C1-E609-D815-79B3-2CD560AEE702}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Picnic\mx_LD_Explore03_PicnicIntro_133bpmENDS\mx_LD_Explore03_PicnicIntro_133bpmENDS		1200169
+	506767011	mx_LD_LvOne04_Combat_133bpmLOOPS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\82\{82558EFC-CE1C-CE83-FE38-A47F361D7BAD}.wem		\Interactive Music Hierarchy\Miles\Levels\Caves_Encounter\Fight-Boss_01\mx_LD_LvOne02_CombatMain\mx_LD_LvOne04_Combat_133bpmLOOPS		1485887
+	508102864	mx_LD_Tutorial07_PostVamp1_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\F9\{F9F87871-4B71-0C28-7328-4ADDF62A7631}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_01\Win&Vamp\mx_LD_Tutorial07_PostVamp1_133bpmENDS\mx_LD_Tutorial07_PostVamp1_133bpmENDS		708421
+	509571349	mx_LD_Tutorial06_CombatWin_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\98\{98DE0714-6886-A1C4-269C-1A16A988BE2E}.wem		\Interactive Music Hierarchy\Miles\Levels\Tutorial\Win&Vamp\mx_LD_Tutorial06_CombatWin_133bpmENDS\mx_LD_Tutorial06_CombatWin_133bpmENDS		205758
+	530019063	Nocturn UI Select 3	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\CF\{CFFC3492-B5B6-51E5-0505-2B96DAA729E9}.wem		\Actor-Mixer Hierarchy\Koyo\UI\Select\Nocturn UI Select 3		1512
+	533606339	Move_4	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\37\{3739D374-BDC6-489C-05E9-4ACEA174958D}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Move\Move_4		4922
+	538492038	mx_LD_Tutorial03_PrepDrums_133bpmLOOPS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\A4\{A4631D6E-CE80-B46E-DB21-672C1BF60235}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_02\Fight-Boss_02\mx_LD_Tutorial_FullLayer_133bpmLOOPS\mx_LD_Tutorial03_PrepDrums_133bpmLOOPS		776788
+	556423460	Enemy_Attack_Warning-3	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\58\{589BF0E8-7C38-81E9-2760-E117F16188BE}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Attack_Warning\Enemy_Attack_Warning-3		10716
+	563084003	Footstep-Wood-5	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\84\{846584BF-FF4E-F7F5-C8F8-9958268CC15F}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Wood\Footstep-Wood-5		3900
+	572229074	mx_LD_TitleIntro_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\68\{689AB771-35F5-9275-3676-B3F7D31CC5A2}.wem		\Interactive Music Hierarchy\Miles\Levels\Title\mx_LD_TitleIntro_133bpmENDS\mx_LD_TitleIntro_133bpmENDS		1181489
+	595652723	Explode_3	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\F8\{F83D8BF1-C83C-D3BA-C846-51947139F775}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Attack\Explode_3		11783
+	622980037	Nocturn UI Select 1	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\6B\{6BE6DEE8-A4BB-B0C6-3EDA-6460FE590075}.wem		\Actor-Mixer Hierarchy\Koyo\UI\Select\Nocturn UI Select 1		1427
+	656948801	mx_LD_ToCombatStinger_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\3C\{3C6BFB26-86CB-0E83-0876-0207D4B2C29A}.wem		\Interactive Music Hierarchy\Miles\Levels\To-Fight Transition\mx_LD_ToCombatStinger_133bpmENDS\mx_LD_ToCombatStinger_133bpmENDS		165201
+	697303975	Woosh 1	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\98\{98DCB884-CF81-65C7-DF40-8CD5DBB4A0EC}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Parry_Action\Woosh 1		9215
+	711219934	mx_LD_LvFinal03_CMBT_133bpmLOOPS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\8C\{8C9B5BB6-12A9-FD22-1DA1-B6640671662D}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_02\Fight-Boss_02\mx_LD_LvFinal02_DLG_133bpmLOOPS\mx_LD_LvFinal03_CMBT_133bpmLOOPS		2042117
+	725498065	Explode_2	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\D4\{D4D45FAF-E426-5629-C758-351CCBFDB73D}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Attack\Explode_2		11683
+	742955475	Footstep-Wood-3	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\89\{899C7F9B-D862-2A57-7767-3B062F8E29A1}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Wood\Footstep-Wood-3		3987
+	758460222	Warning	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\79\{793BF7E1-9447-FCE7-62F9-F00FA8887467}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Warning		6023
+	783217267	Footstep-Gravel-1	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\4D\{4D2FD8A0-F282-E9B4-87C4-2AF23BB24D63}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Gravel\Footstep-Gravel-1		9850
+	786282501	Nocturn UI Hover_2	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\0A\{0A5722D5-723D-6E83-2B50-931059AE9DAD}.wem		\Actor-Mixer Hierarchy\Koyo\UI\Hover\Nocturn UI Hover_2		1188
+	789600309	Move_5	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\CF\{CF705F33-D6E7-7C2A-2792-B8D8BE86495D}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Move\Move_5		6232
+	792197523	mx_LD_Explore05_CaveIntro_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\5A\{5A6F9BED-8594-7685-CFF7-8FBEE75F7224}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Cave\mx_LD_Explore05_CaveIntro_133bpmENDS\mx_LD_Explore05_CaveIntro_133bpmENDS		893176
+	834487728	Woosh 2	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\0E\{0EF8A1BD-73BF-38CC-594E-E2C5F1DAE631}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Parry_Action\Woosh 2		9245
+	840371906	mx_LD_Tutorial01_Intro_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\A3\{A34054B2-743A-FF15-578D-8C73BCC161F6}.wem		\Interactive Music Hierarchy\Miles\Levels\Caves_Encounter\Fight-Boss_01\mx_LD_Tutorial01_Intro_133bpmENDS\mx_LD_Tutorial01_Intro_133bpmENDS		241736
+	844864469	Parry_Success	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\E1\{E10BF6F8-7777-5713-9DE2-72D20F569B04}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Parry_Success		12175
+	846128762	Footstep-Dirt-3	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\21\{21B58692-24BC-1F42-4CE2-65F3435E6EB5}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Dirt\Footstep-Dirt-3		7108
+	878189989	Nocturn UI Select 2	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\C3\{C33AA0EA-2278-6318-8174-C4C5E3FD0F23}.wem		\Actor-Mixer Hierarchy\Koyo\UI\Select\Nocturn UI Select 2		1551
+	884687132	Enemy_Attack_Warning-1	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\05\{05B3857D-D76E-4422-54F3-8FB9D9EA80B1}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Attack_Warning\Enemy_Attack_Warning-1		10525
+	897904861	Footstep-Wood-2	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\7B\{7B81B124-78FB-BEEA-491C-4C5B2F5748B2}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Wood\Footstep-Wood-2		3929
+	908395360	mx_LD_Explore02_HouseMain_133bpmLOOPS_v1c	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\9C\{9C4E830E-E1BC-AB0E-5A9A-219E7DC839B2}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-House\mx_LD_Explore02_HouseMain_133bpmLOOPS_v1c\mx_LD_Explore02_HouseMain_133bpmLOOPS_v1c		876779
+	910733577	Enemy_Attack_Warning-2	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\E9\{E9C85C29-56D7-3418-8D2E-6F3844AC1DE0}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Attack_Warning\Enemy_Attack_Warning-2		10981
+	919339071	mx_LD_LvFinal02_PREP_133bpmLOOPS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\E0\{E0EC3453-1B5B-EBBA-2C2E-6CC5601E02E7}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_02\Fight-Boss_02\mx_LD_LvFinal02_DLG_133bpmLOOPS\mx_LD_LvFinal02_PREP_133bpmLOOPS		1966132
+	927261224	mx_LD_Transition	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\F4\{F4FD9B6E-4B88-0F81-1D01-785F0C205584}.wem		\Interactive Music Hierarchy\Miles\Levels\Scene Transition\mx_LD_Transition\mx_LD_Transition		65852
+	930908405	mx_LD_Explore06_CaveMain1_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\B3\{B357B4B4-EF90-7541-42CC-02848B3C9087}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Cave\mx_LD_Explore06_CaveMain1_133bpmENDS\mx_LD_Explore06_CaveMain1_133bpmENDS		551552
+	933442325	Footstep-Gravel-2	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\65\{65EA65C5-9B14-2126-FAF6-4A8CF4BD06D0}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Gravel\Footstep-Gravel-2		11478
+	962263161	Footstep-Dirt-4	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\76\{76BE2F51-789E-F53B-12CC-48362FE61A90}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Dirt\Footstep-Dirt-4		5981
+	968008524	Move_2	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\AE\{AE0F0F2D-A2FB-7031-3EEC-4236DFB29DDD}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Move\Move_2		4868
+	969894115	Magic_Attack_3	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\6C\{6C71F817-2135-71CF-25AF-9996BCB9B189}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Attack\Magic_Attack_3		12546
+	971020296	Footstep-Dirt-5	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\79\{79D066BC-6736-AB1E-C794-2AED4A05CA6B}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Dirt\Footstep-Dirt-5		6151
+	993436807	Explode_1	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\F8\{F814BF68-C47C-0514-4BFB-3F57EDE08952}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Attack\Explode_1		11539
+	1003681686	UI_Dialogue_Pop-up	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\CB\{CB5E3E2D-85C2-2139-017A-EAE12FBB9DE3}.wem		\Actor-Mixer Hierarchy\Koyo\UI\UI_Dialogue_Pop-up		3657
+	1004648083	mx_LD_LoseStinger_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\89\{89E6D37E-F8BE-9BB0-78A9-3C2031DA2A62}.wem		\Interactive Music Hierarchy\Miles\Levels\Fight-Lose\mx_LD_LoseStinger_133bpmENDS_Looper\mx_LD_LoseStinger_133bpmENDS		397895
+	1008156858	Footstep-Dirt-1	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\FA\{FAF73331-3B29-4E29-8005-52FF09F2440E}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Dirt\Footstep-Dirt-1		6047
+	1015820244	Ambient_Picnic	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\C3\{C30CE8A9-6EA1-97F1-2A64-9162D0655A2C}.wem		\Actor-Mixer Hierarchy\Koyo\Ambient\Ambient_Picnic		464626
+	1048362644	mx_LD_LvFinal01_Intro_NAbpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\C8\{C8F2E91E-B051-A47E-43EB-76561B1669A8}.wem		\Interactive Music Hierarchy\Miles\Levels\Boss_02\Fight-Boss_02\mx_LD_LvFinal01_Intro_NAbpmENDS\mx_LD_LvFinal01_Intro_NAbpmENDS		456913
+	1052629003	mx_LD_Explore07_CaveMain2_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\85\{857C64C4-14C0-8F15-0499-FCB99BC99AA2}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Cave\mx_LD_Explore07_CaveMain2_133bpmENDS\mx_LD_Explore07_CaveMain2_133bpmENDS		658432
+	1058729189	mx_LD_Explore08_CaveMain3_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\66\{666E1FBC-77AC-61E0-6861-73E6714C66B5}.wem		\Interactive Music Hierarchy\Miles\Levels\Overworld-Cave\mx_LD_Explore08_CaveMain3_133bpmENDS\mx_LD_Explore08_CaveMain3_133bpmENDS		555893
+	1066367541	Yelp_2	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\1D\{1DC407DB-E45A-A7B0-B239-4D895B879F80}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Damage\Yelp_2		5193
+	1070967771	mx_LD_Tutorial08_PostVamp2_133bpmENDS	Y:\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\5A\{5AFC533B-A6C4-A1C8-021D-06A894FE7738}.wem		\Interactive Music Hierarchy\Miles\Levels\Tutorial\Win&Vamp\mx_LD_Tutorial08_PostVamp2_133bpmENDS\mx_LD_Tutorial08_PostVamp2_133bpmENDS		782390
 

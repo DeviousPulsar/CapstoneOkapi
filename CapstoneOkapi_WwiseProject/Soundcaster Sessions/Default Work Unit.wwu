@@ -107,9 +107,7 @@
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
-					<CurrentSwitchList ShowAll="true">
-						<CurrentSwitchRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}"/>
-					</CurrentSwitchList>
+					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
 				<SoundcasterSession Name="Scenes" ID="{62B719A6-D097-47B7-8A9A-EC2317112068}">
 					<ModuleList>
@@ -118,16 +116,56 @@
 							<Position X="0" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="mx_EnterOW_House" ID="{6F0843EB-6B5F-450E-B999-432EAE23352B}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<ObjectRef Name="mx_EnterTitle" ID="{4CC42C3F-6AEA-4081-834D-79760CFD724B}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
 							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_Lose" ID="{8EC10551-894D-45B8-BB2B-41C29B1FDB89}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="0" Y="2"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="mx_EnterFight_Tutorial" ID="{865EFE7D-BF28-4C28-8A6C-F4834EBD7A3E}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
 							<Position X="1" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="mx_EnterOW_Picnic" ID="{83B5BE5D-FFEC-4093-A251-85507FE93FE8}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<ObjectRef Name="mx_EnterOW_House" ID="{6F0843EB-6B5F-450E-B999-432EAE23352B}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
 							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_Win" ID="{81E4500C-A837-47C8-BAC2-2A591151D633}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_EnterFight_Boss01" ID="{A9D206D4-4990-46B1-92F3-3204B3D27DFF}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="2" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_EnterOW_Picnic" ID="{83B5BE5D-FFEC-4093-A251-85507FE93FE8}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_PhaseDLG" ID="{DCB6FAE8-9B91-4A08-BC49-35BCDA8642BC}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_EnterFight_Caves" ID="{A1886D1B-1608-413F-BE8D-FC72693BFFE3}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="3" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_EnterOW_Cave" ID="{A3FE0491-256C-4644-BA75-5D500AAB2BB7}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_PhasePREP" ID="{D9A7CC4D-2970-46A7-973E-E5AFEC0C6303}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="3" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_EnterFight_Boss02" ID="{038586EC-76C2-494B-8D8E-17E362405DF9}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="4" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_Fight_PhaseCOMBAT" ID="{5B065C38-A605-49A0-953B-DB0723BE4997}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="4" Y="2"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
