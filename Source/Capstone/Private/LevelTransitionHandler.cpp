@@ -38,7 +38,7 @@ void ULevelTransitionHandler::OnWorldChanged(UWorld* OldWorld, UWorld* NewWorld)
 
         if (!TransitionScreen->IsInViewport())
         {
-            TransitionScreen->AddToViewport(0x7FFFFFFF);
+            TransitionScreen->AddToViewport(10000);
         }
     };
 }
@@ -106,11 +106,11 @@ void ULevelTransitionHandler::LoadScene(const FName LevelToLoad, bool bToSchedul
     {
         if (IsValid(TransitionScreen))
         {
-            if (!TransitionScreen->IsInViewport())
+            if (TransitionScreen->IsInViewport())
             {
                 TransitionScreen->RemoveFromParent();
             }
-            TransitionScreen->AddToViewport(0x7FFFFFFF);
+            TransitionScreen->AddToViewport(10000);
             TransitionScreen->OnLoadStarted();
         }
 
@@ -166,7 +166,7 @@ void ULevelTransitionHandler::ReturnToOverworld()
 {
     if (!OverworldMap.IsNone())
     {
-        LoadScene(OverworldMap, false);
+        LoadScene(OverworldMap);
     }
 }
 
@@ -175,7 +175,7 @@ void ULevelTransitionHandler::ReloadCombatScene()
     UWorld* World = GetWorld();
     FName LevelToLoad = FName(*UGameplayStatics::GetCurrentLevelName(World, true));
 
-    LoadScene(LevelToLoad, false);
+    LoadScene(LevelToLoad);
 }
 
 void ULevelTransitionHandler::ScheduleLoad(FName LevelToLoad)

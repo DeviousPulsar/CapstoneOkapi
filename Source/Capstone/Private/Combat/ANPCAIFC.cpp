@@ -8,6 +8,8 @@
 #include "GameFramework/Pawn.h"
 #include "GameFramework/PlayerController.h"
 #include "Camera/PlayerCameraManager.h"
+#include "Engine/World.h"
+#include "InputCoreTypes.h"
 
 #include "Combat/NpcTalkWidget.h"
 
@@ -25,57 +27,43 @@ ANPCAIFC::ANPCAIFC()
 	InteractionSphere->SetCollisionResponseToAllChannels(ECR_Ignore);
 	InteractionSphere->SetCollisionResponseToChannel(ECC_Pawn, ECR_Overlap);
 
-	// Allow mouse click trace to hit capsule via Visibility channel
-	GetCapsuleComponent()->SetCollisionResponseToChannel(ECC_Visibility, ECR_Block);
-
 	/* =========================
-	 * Preconfigure Character mesh (skeletal-ready, assets left empty)
+	 * Character mesh setup
 	 * ========================= */
 	if (USkeletalMeshComponent* SkelMesh = GetMesh())
 	{
-		// Typical ACharacter setup: mesh is offset down so feet touch ground.
-		// You can adjust this later depending on the asset you pick.
 		SkelMesh->SetRelativeLocation(FVector(0.f, 0.f, -90.f));
 		SkelMesh->SetRelativeRotation(FRotator(0.f, -90.f, 0.f));
-
-		// Use animation blueprint mode by default; Anim Class can be assigned later.
 		SkelMesh->SetAnimationMode(EAnimationMode::AnimationBlueprint);
-
-		// Collision is usually handled by capsule; keep mesh non-blocking.
 		SkelMesh->SetCollisionEnabled(ECollisionEnabled::NoCollision);
 		SkelMesh->SetGenerateOverlapEvents(false);
 	}
 
 	/* =========================
-	 * World-space widget (3D UI)
+	 * World-space dialogue widget
 	 * ========================= */
 	DialogueWidgetComp = CreateDefaultSubobject<UWidgetComponent>(TEXT("DialogueWidgetComp"));
 	DialogueWidgetComp->SetupAttachment(GetCapsuleComponent());
-
-	// Do not hardcode head height here; we will lock world location in Tick.
 	DialogueWidgetComp->SetRelativeLocation(FVector::ZeroVector);
 	DialogueWidgetComp->SetRelativeRotation(FRotator::ZeroRotator);
-
 	DialogueWidgetComp->SetWidgetSpace(EWidgetSpace::World);
 	DialogueWidgetComp->SetDrawAtDesiredSize(true);
 	DialogueWidgetComp->SetTwoSided(true);
-
-	// Start hidden
 	DialogueWidgetComp->SetVisibility(false, true);
 
 	/* =========================
-	 * Default dialogue data (editable in Details)
+	 * Default dialogue content
 	 * ========================= */
 	NpcDisplayName = FText::FromString(TEXT("NPC"));
 	DialogueLines =
 	{
 		FText::FromString(TEXT("Hello.")),
 		FText::FromString(TEXT("Click again to continue.")),
-		FText::FromString(TEXT("This is the last line. Click to end.")),
+		FText::FromString(TEXT("This is the last line."))
 	};
 
 	/* =========================
-	 * State init
+	 * State initialization
 	 * ========================= */
 	CurrentDialogueIndex = 0;
 	bIsInDialogue = false;
@@ -86,6 +74,10 @@ ANPCAIFC::ANPCAIFC()
 
 	bPlayerInRange = false;
 	CachedPlayerPawn = nullptr;
+
+	bPersistLastDialogueState = true;
+	bDialogueCompleted = false;
+	bLeftMouseWasDownLastFrame = false;
 }
 
 void ANPCAIFC::BeginPlay()
@@ -98,10 +90,6 @@ void ANPCAIFC::BeginPlay()
 		InteractionSphere->OnComponentEndOverlap.AddDynamic(this, &ANPCAIFC::OnPlayerLeaveRange);
 	}
 
-	// Actor click callback
-	OnClicked.AddDynamic(this, &ANPCAIFC::OnNpcClicked);
-
-	// Ensure correct initial UI
 	SetDialogueVisible(false);
 	UpdateDialogueWidget();
 }
@@ -111,24 +99,40 @@ void ANPCAIFC::Tick(float DeltaSeconds)
 	Super::Tick(DeltaSeconds);
 
 	/* =========================
-	 * Lock widget to head-top + billboard to camera (yaw only)
+	 * Handle left-click interaction while in range
+	 * ========================= */
+	APlayerController* PC = GetWorld() ? GetWorld()->GetFirstPlayerController() : nullptr;
+	if (PC && bPlayerInRange)
+	{
+		const bool bLeftMouseDownNow = PC->IsInputKeyDown(EKeys::LeftMouseButton);
+
+		// Trigger only on the transition from "not pressed" to "pressed"
+		if (bLeftMouseDownNow && !bLeftMouseWasDownLastFrame)
+		{
+			HandleLeftClickInteract();
+		}
+
+		bLeftMouseWasDownLastFrame = bLeftMouseDownNow;
+	}
+	else
+	{
+		bLeftMouseWasDownLastFrame = false;
+	}
+
+	/* =========================
+	 * Keep widget above NPC head and facing camera
 	 * ========================= */
 	if (DialogueWidgetComp && DialogueWidgetComp->IsVisible())
 	{
-		// 1) Lock position to capsule top in WORLD space (guaranteed centered on actor)
 		const UCapsuleComponent* Cap = GetCapsuleComponent();
 		if (Cap)
 		{
 			const FVector ActorLoc = GetActorLocation();
 			const float HalfHeight = Cap->GetScaledCapsuleHalfHeight();
-
-			// Actor origin is at capsule center; move up to capsule top + extra lift
 			const FVector HeadWorld = ActorLoc + FVector(0.f, 0.f, HalfHeight + 30.f);
 			DialogueWidgetComp->SetWorldLocation(HeadWorld);
 		}
 
-		// 2) Billboard rotation (yaw only)
-		APlayerController* PC = GetWorld() ? GetWorld()->GetFirstPlayerController() : nullptr;
 		if (PC && PC->PlayerCameraManager)
 		{
 			const FVector CamLoc = PC->PlayerCameraManager->GetCameraLocation();
@@ -138,21 +142,21 @@ void ANPCAIFC::Tick(float DeltaSeconds)
 		}
 	}
 
-	// Stop movement while in dialogue
+	// Stop movement while actively talking
 	if (bIsInDialogue)
 	{
 		bIsMoving = false;
 		return;
 	}
 
-	// Optional path movement
+	// Optional path movement logic
 	if (!bEnablePathMove || Waypoints.Num() == 0)
 	{
 		bIsMoving = false;
 		return;
 	}
 
-	// Waiting at waypoint
+	// Wait at waypoint before moving again
 	if (WaitRemaining > 0.f)
 	{
 		WaitRemaining = FMath::Max(0.f, WaitRemaining - DeltaSeconds);
@@ -202,9 +206,18 @@ void ANPCAIFC::OnPlayerEnterRange(
 	bPlayerInRange = true;
 	CachedPlayerPawn = Pawn;
 
-	// Show widget when player is close
+	// Always show the widget while the player is inside range
 	SetDialogueVisible(true);
 
+	// If dialogue was already completed before, show the last line directly
+	if (bDialogueCompleted && DialogueLines.Num() > 0)
+	{
+		CurrentDialogueIndex = DialogueLines.Num() - 1;
+		UpdateDialogueWidget();
+		return;
+	}
+
+	// Otherwise, show the first line as preview when entering range
 	if (!bIsInDialogue)
 	{
 		CurrentDialogueIndex = 0;
@@ -228,21 +241,23 @@ void ANPCAIFC::OnPlayerLeaveRange(
 		bPlayerInRange = false;
 		CachedPlayerPawn = nullptr;
 
+		// Leaving range always ends active dialogue
+		EndDialogue();
+
+		// Hide widget when leaving range if configured to do so
 		if (bHideWidgetWhenOutOfRange)
 		{
-			EndDialogue();
 			SetDialogueVisible(false);
 		}
 	}
 }
 
 /* =========================
- * Click interaction
+ * Left-click interaction
  * ========================= */
 
-void ANPCAIFC::OnNpcClicked(AActor* TouchedActor, FKey /*ButtonPressed*/)
+void ANPCAIFC::HandleLeftClickInteract()
 {
-	if (TouchedActor != this) return;
 	if (!bPlayerInRange) return;
 
 	APawn* Interactor = CachedPlayerPawn;
@@ -253,15 +268,7 @@ void ANPCAIFC::OnNpcClicked(AActor* TouchedActor, FKey /*ButtonPressed*/)
 		if (!Interactor) return;
 	}
 
-	if (!bIsInDialogue)
-	{
-		BeginDialogue(Interactor);
-		OnInteract(Interactor);
-	}
-	else
-	{
-		AdvanceDialogue();
-	}
+	Interact(Interactor);
 }
 
 /* =========================
@@ -270,9 +277,18 @@ void ANPCAIFC::OnNpcClicked(AActor* TouchedActor, FKey /*ButtonPressed*/)
 
 void ANPCAIFC::BeginDialogue(APawn* /*Interactor*/)
 {
+	// If already completed, keep showing the final line
+	if (bDialogueCompleted && DialogueLines.Num() > 0)
+	{
+		bIsInDialogue = false;
+		CurrentDialogueIndex = DialogueLines.Num() - 1;
+		SetDialogueVisible(true);
+		UpdateDialogueWidget();
+		return;
+	}
+
 	bIsInDialogue = true;
 	bIsMoving = false;
-
 	CurrentDialogueIndex = 0;
 
 	SetDialogueVisible(true);
@@ -282,11 +298,6 @@ void ANPCAIFC::BeginDialogue(APawn* /*Interactor*/)
 void ANPCAIFC::EndDialogue()
 {
 	bIsInDialogue = false;
-
-	if (!bPlayerInRange && bHideWidgetWhenOutOfRange)
-	{
-		SetDialogueVisible(false);
-	}
 }
 
 void ANPCAIFC::AdvanceDialogue()
@@ -298,16 +309,36 @@ void ANPCAIFC::AdvanceDialogue()
 		return;
 	}
 
-	CurrentDialogueIndex++;
-
-	if (CurrentDialogueIndex >= DialogueLines.Num())
+	// If dialogue is already marked complete, just keep showing the last line
+	if (bDialogueCompleted)
 	{
-		EndDialogue();
-		SetDialogueVisible(false);
+		CurrentDialogueIndex = DialogueLines.Num() - 1;
+		UpdateDialogueWidget();
 		return;
 	}
 
-	UpdateDialogueWidget();
+	// Move to the next line if not at the last one yet
+	if (CurrentDialogueIndex < DialogueLines.Num() - 1)
+	{
+		CurrentDialogueIndex++;
+		UpdateDialogueWidget();
+		return;
+	}
+
+	// If already on the last line and clicked again, mark as completed
+	if (CurrentDialogueIndex == DialogueLines.Num() - 1)
+	{
+		if (bPersistLastDialogueState)
+		{
+			bDialogueCompleted = true;
+			bIsInDialogue = false;
+			UpdateDialogueWidget();
+			return;
+		}
+
+		EndDialogue();
+		SetDialogueVisible(false);
+	}
 }
 
 void ANPCAIFC::UpdateDialogueWidget()
@@ -337,6 +368,15 @@ void ANPCAIFC::Interact(APawn* Interactor)
 {
 	if (!Interactor) return;
 	if (!bPlayerInRange) return;
+
+	// If the dialogue was already completed before, keep showing the final line
+	if (bDialogueCompleted && DialogueLines.Num() > 0)
+	{
+		CurrentDialogueIndex = DialogueLines.Num() - 1;
+		SetDialogueVisible(true);
+		UpdateDialogueWidget();
+		return;
+	}
 
 	if (!bIsInDialogue)
 	{
@@ -373,7 +413,6 @@ bool ANPCAIFC::MoveConstantSpeedToward(const FVector& Target, float Speed, float
 
 	const FVector Dir = To / Dist;
 	const float Step = Speed * DeltaSeconds;
-
 	const FVector Next = Current + Dir * FMath::Min(Step, Dist);
 
 	FHitResult Hit;

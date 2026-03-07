@@ -20,16 +20,17 @@ class CAPSTONE_API ANPCAIFC : public ACharacter
 public:
 	ANPCAIFC();
 
-	// Called by player interaction (e.g., left-click trace from OverworldPawn).
-	// If not in dialogue, starts it; otherwise advances to next line.
+	// Called when the player interacts with this NPC.
+	// If dialogue has not started, it begins.
+	// If dialogue is already active, it advances.
 	UFUNCTION(BlueprintCallable, Category = "NPC|Dialogue")
 	void Interact(APawn* Interactor);
 
-	// Starts dialogue mode (stops movement, shows first line).
+	// Starts dialogue mode and shows the first relevant line.
 	UFUNCTION(BlueprintCallable, Category = "NPC|Interaction")
 	void BeginDialogue(APawn* Interactor);
 
-	// Ends dialogue mode (hides widget if configured).
+	// Ends dialogue mode. Widget visibility is still controlled by range rules.
 	UFUNCTION(BlueprintCallable, Category = "NPC|Interaction")
 	void EndDialogue();
 
@@ -38,7 +39,7 @@ protected:
 	virtual void Tick(float DeltaSeconds) override;
 
 	/* =========================
-	 * Interaction (Near + Click)
+	 * Interaction (Near + Left Click)
 	 * ========================= */
 
 	UFUNCTION()
@@ -59,58 +60,73 @@ protected:
 		int32 OtherBodyIndex
 	);
 
-	// Click callback (requires trace to hit this actor/capsule).
+	// Handles left-click interaction while the player is inside range.
 	UFUNCTION()
-	void OnNpcClicked(AActor* TouchedActor, FKey ButtonPressed);
+	void HandleLeftClickInteract();
 
-	// Blueprint hook when player successfully interacts (optional).
+	// Optional Blueprint event hook for custom interaction responses.
 	UFUNCTION(BlueprintImplementableEvent, Category = "NPC|Interaction")
 	void OnInteract(APawn* Interactor);
 
 protected:
+	/* =========================
+	 * Interaction state
+	 * ========================= */
+
+	 // Overlap sphere used to detect whether the player is close enough to interact.
 	UPROPERTY(VisibleAnywhere, Category = "NPC|Interaction")
 	USphereComponent* InteractionSphere = nullptr;
 
+	// True if the player is currently inside the interaction sphere.
 	UPROPERTY(VisibleAnywhere, Category = "NPC|Interaction")
 	bool bPlayerInRange = false;
 
+	// Cached player pawn currently interacting or inside the range.
 	UPROPERTY(VisibleAnywhere, Category = "NPC|Interaction")
 	APawn* CachedPlayerPawn = nullptr;
 
 	/* =========================
-	 * 3D Dialogue UI (WidgetComponent)
+	 * 3D Dialogue UI
 	 * ========================= */
 
-	 // World-space widget displayed above NPC head.
+	 // World-space widget shown above the NPC.
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "NPC|UI")
 	UWidgetComponent* DialogueWidgetComp = nullptr;
 
-	// Display name for the NPC.
+	// NPC display name shown in the dialogue widget.
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "NPC|UI")
 	FText NpcDisplayName;
 
-	// Dialogue lines driven by C++.
+	// Dialogue lines for this NPC.
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "NPC|UI")
 	TArray<FText> DialogueLines;
 
-	// Auto-hide widget when player leaves interaction range.
+	// If true, the widget hides when the player leaves range.
 	UPROPERTY(EditAnywhere, BlueprintReadOnly, Category = "NPC|UI")
 	bool bHideWidgetWhenOutOfRange = true;
 
-	// Current dialogue line index.
+	// If true, clicking once more on the last line marks the dialogue as completed.
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "NPC|UI")
+	bool bPersistLastDialogueState = true;
+
+	// True after this NPC's dialogue has been completed during the current play session.
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "NPC|UI")
+	bool bDialogueCompleted = false;
+
+	// Current dialogue line index being displayed.
 	UPROPERTY(VisibleInstanceOnly, BlueprintReadOnly, Category = "NPC|UI")
 	int32 CurrentDialogueIndex = 0;
 
-	// Advance to next line / end when finished.
+	// Advances dialogue, completes state if needed, or ends conversation.
 	void AdvanceDialogue();
 
-	// Push name/line into the widget instance.
+	// Pushes the current name and line into the widget.
 	void UpdateDialogueWidget();
 
-	// Show/hide widget component safely.
+	// Safely shows or hides the widget component.
 	void SetDialogueVisible(bool bVisible);
 
-	// Get typed widget instance from widget component.
+	// Returns the typed widget instance from the widget component.
 	UNpcTalkWidget* GetTalkWidget() const;
 
 	/* =========================
@@ -136,7 +152,7 @@ protected:
 	float MinMovedDistance = 0.5f;
 
 	/* =========================
-	 * Anim placeholders
+	 * Animation / state flags
 	 * ========================= */
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category = "NPC|Anim")
@@ -150,4 +166,7 @@ private:
 	float WaitRemaining = 0.f;
 
 	bool MoveConstantSpeedToward(const FVector& Target, float Speed, float DeltaSeconds);
+
+	// Used to prevent repeated interaction while holding down left mouse button.
+	bool bLeftMouseWasDownLastFrame = false;
 };
