@@ -112,6 +112,10 @@
 							<ObjectRef Name="Dialogue_End" ID="{88B4B94B-C817-45A6-BA45-2742704EF3FD}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="4" Y="2"/>
 						</Module>
+						<Module>
+							<ObjectRef Name="Enemy_Alert" ID="{0C80585F-B18D-4F76-BDB4-450E6D408642}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="4" Y="3"/>
+						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>

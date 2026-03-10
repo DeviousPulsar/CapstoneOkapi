@@ -233,6 +233,17 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Enemy_Alert" ID="{0C80585F-B18D-4F76-BDB4-450E6D408642}">
+									<ChildrenList>
+										<Action Name="" ID="{F04F3942-A123-4A73-A56F-09B1394BDD9F}" ShortID="29393764">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Enemy_Alert" ID="{4DF1F279-399F-4B6C-853D-F15D593CA67E}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="UI" ID="{3C13CD14-9661-492E-B2A9-52899083EAF3}" ShortID="374936322">
