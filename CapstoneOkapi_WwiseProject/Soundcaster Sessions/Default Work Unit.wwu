@@ -89,8 +89,12 @@
 							<Position X="3" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Parry_Action" ID="{D6A8339A-118C-4788-AD2B-B812A63A3D49}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<ObjectRef Name="UI_Dialog_Popup" ID="{B3054638-06AE-4140-A31F-64CCD8BDF2B4}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="3" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Parry_Action" ID="{D6A8339A-118C-4788-AD2B-B812A63A3D49}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="3" Y="2"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Enemy_Move" ID="{5DB92AA9-8BBA-4DB0-8289-23A9AE2A56DB}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
@@ -101,13 +105,19 @@
 							<Position X="4" Y="0"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="UI_Dialog_Popup" ID="{B3054638-06AE-4140-A31F-64CCD8BDF2B4}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<ObjectRef Name="Dialogue_Continue" ID="{3AA6D555-2521-410C-B0B3-5EDA83975B23}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="4" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Dialogue_End" ID="{88B4B94B-C817-45A6-BA45-2742704EF3FD}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="4" Y="2"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>
 					<CurrentStateList ShowAll="true"/>
-					<CurrentSwitchList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true">
+						<CurrentSwitchRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}"/>
+					</CurrentSwitchList>
 				</SoundcasterSession>
 				<SoundcasterSession Name="Scenes" ID="{62B719A6-D097-47B7-8A9A-EC2317112068}">
 					<ModuleList>

@@ -281,6 +281,28 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Dialogue_End" ID="{88B4B94B-C817-45A6-BA45-2742704EF3FD}">
+									<ChildrenList>
+										<Action Name="" ID="{F4120A3E-CFF1-446B-8FEA-E52DBB83F18C}" ShortID="141887107">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UI_Dialogue_End" ID="{A47553CB-B71B-4FF4-9F62-0530FF306D26}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Dialogue_Continue" ID="{3AA6D555-2521-410C-B0B3-5EDA83975B23}">
+									<ChildrenList>
+										<Action Name="" ID="{1E1E3E91-368A-4E82-878D-0215786495C5}" ShortID="11665126">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Dialogue_Continue" ID="{B7D16B96-CD0C-43B7-A9FD-4549BFC172AB}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 					</ChildrenList>
