@@ -21,7 +21,7 @@
 						<State Name="Overworld_Cave" ID="{22C4CE79-D293-4658-A52F-17F7E18ED7BD}"/>
 						<State Name="Fight_1" ID="{B9D400EB-5FA0-4D23-A9DA-241104CCEB8D}"/>
 						<State Name="Fight_2" ID="{CAFB8504-7D4B-4B22-B84E-73BEA8AFDECA}"/>
-						<State Name="Fight_3" ID="{33D88523-AF4B-4A5A-8B89-F34C9A7EBE7F}"/>
+						<State Name="Fight_World" ID="{33D88523-AF4B-4A5A-8B89-F34C9A7EBE7F}"/>
 						<State Name="Lose" ID="{33EC8F36-82C3-4408-BFA1-B16B1D573B1B}"/>
 					</ChildrenList>
 				</StateGroup>

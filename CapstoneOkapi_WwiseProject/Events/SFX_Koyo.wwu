@@ -70,6 +70,10 @@
 								<Event Name="Power_UP" ID="{956745D9-FFE6-479C-91DE-60570F2B8559}">
 									<ChildrenList>
 										<Action Name="" ID="{4EC1494D-D3E7-46F2-A2AC-2FCED6C9557F}" ShortID="570508902">
+											<PropertyList>
+												<Property Name="FadeInCurve" Type="int16" Value="2"/>
+												<Property Name="FadeTime" Type="Real64" Value="0.2"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Power_Up" ID="{8B225A79-31BF-4DD8-87D5-DA3B4CBA0D6D}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
@@ -98,6 +102,19 @@
 												</Reference>
 											</ReferenceList>
 										</Action>
+										<Action Name="" ID="{0B699A28-FA5E-4878-BB06-54C8BD6B47CA}" ShortID="301790135">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="2"/>
+												<Property Name="FadeOutCurve" Type="int16" Value="7"/>
+												<Property Name="FadeTime" Type="Real64" Value="0.2"/>
+												<Property Name="Scope" Type="int16" Value="1"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Power_Up" ID="{8B225A79-31BF-4DD8-87D5-DA3B4CBA0D6D}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
 									</ChildrenList>
 								</Event>
 								<Event Name="Damage" ID="{22F3EE54-845C-4952-A0A4-074A56EC6FDE}">
@@ -111,18 +128,8 @@
 										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="Footstep_Dirt" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}">
+								<Event Name="Footsteps" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}">
 									<ChildrenList>
-										<Action Name="" ID="{2C21E5AA-1313-4729-BF3D-667064F1DE47}" ShortID="543201735">
-											<PropertyList>
-												<Property Name="ActionType" Type="int16" Value="23"/>
-											</PropertyList>
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}" WorkUnitID="{D501C5FC-1452-42C3-A302-D83A9982F762}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
 										<Action Name="" ID="{D9B7EFAF-471F-4A58-B875-F8EC69E04991}" ShortID="861552891">
 											<ReferenceList>
 												<Reference Name="Target">
@@ -132,7 +139,7 @@
 										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="Footstep_Wood" ID="{56801E75-2967-44A6-8293-97B423B4DD79}">
+								<Event Name="FootstepSwitch_Wood" ID="{56801E75-2967-44A6-8293-97B423B4DD79}">
 									<ChildrenList>
 										<Action Name="" ID="{613D6899-8A8D-49CD-8F7C-F8B8D1DEC8B3}" ShortID="458640160">
 											<PropertyList>
@@ -144,16 +151,9 @@
 												</Reference>
 											</ReferenceList>
 										</Action>
-										<Action Name="" ID="{6E3C3F3A-F2E3-4191-85DF-C5C79963EB18}" ShortID="747899612">
-											<ReferenceList>
-												<Reference Name="Target">
-													<ObjectRef Name="Footsteps" ID="{AC191FCC-7113-4B8C-8D12-CE546F5F666B}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
-												</Reference>
-											</ReferenceList>
-										</Action>
 									</ChildrenList>
 								</Event>
-								<Event Name="Footstep_Gravel" ID="{394AAE8D-F87C-482B-98CD-39EE7CB891E9}">
+								<Event Name="FootstepSwitch_Gravel" ID="{394AAE8D-F87C-482B-98CD-39EE7CB891E9}">
 									<ChildrenList>
 										<Action Name="" ID="{FBFC107A-C480-46CA-AE32-974091D66054}" ShortID="92779756">
 											<PropertyList>
@@ -165,10 +165,45 @@
 												</Reference>
 											</ReferenceList>
 										</Action>
-										<Action Name="" ID="{41237C63-BECF-4B78-9A55-1AA092AF11CE}" ShortID="780798856">
+									</ChildrenList>
+								</Event>
+								<Event Name="FootstepSwitch_Dirt" ID="{242F0D58-41F8-483A-AAFB-B48FF012BFF0}">
+									<ChildrenList>
+										<Action Name="" ID="{7ADD62AC-9F89-4922-96BA-6545A72318D2}" ShortID="403794505">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="23"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Footsteps" ID="{AC191FCC-7113-4B8C-8D12-CE546F5F666B}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+													<ObjectRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}" WorkUnitID="{D501C5FC-1452-42C3-A302-D83A9982F762}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="FootstepSwitch_Stone" ID="{3921BE29-0B57-4324-A72E-E47AF39311F3}">
+									<ChildrenList>
+										<Action Name="" ID="{2F51525A-59F8-4DEE-886B-D906471F10B5}" ShortID="927996241">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="23"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Gravel" ID="{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}" WorkUnitID="{D501C5FC-1452-42C3-A302-D83A9982F762}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="FootstepSwitch_Carpet" ID="{23343E5F-2287-4AC1-9D7F-18411DBAC68E}">
+									<ChildrenList>
+										<Action Name="" ID="{E0AF2D53-54BA-4729-A5B7-26048D0AE0F8}" ShortID="485275201">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="23"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}" WorkUnitID="{D501C5FC-1452-42C3-A302-D83A9982F762}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -187,7 +222,7 @@
 										<Action Name="" ID="{4DB4B660-413E-4476-9006-9DCD72577200}" ShortID="162093875">
 											<ReferenceList>
 												<Reference Name="Target">
-													<ObjectRef Name="Warning" ID="{0B313595-5F91-4EF6-BF18-7A57347F5E44}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+													<ObjectRef Name="Attack_Warning" ID="{CCCAF215-5DDA-4409-8288-1993F63EA000}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>
@@ -226,6 +261,17 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="Enemy_Alert" ID="{0C80585F-B18D-4F76-BDB4-450E6D408642}">
+									<ChildrenList>
+										<Action Name="" ID="{F04F3942-A123-4A73-A56F-09B1394BDD9F}" ShortID="29393764">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Enemy_Alert" ID="{4DF1F279-399F-4B6C-853D-F15D593CA67E}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="UI" ID="{3C13CD14-9661-492E-B2A9-52899083EAF3}" ShortID="374936322">
@@ -258,6 +304,39 @@
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="UI_Start_Combat" ID="{2B20F4FE-3244-4A20-A952-940E1A8329FE}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="UI_Dialog_Popup" ID="{B3054638-06AE-4140-A31F-64CCD8BDF2B4}">
+									<ChildrenList>
+										<Action Name="" ID="{4A2961EE-9D5E-428D-AA64-F114EDDC3304}" ShortID="222691800">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UI_Dialogue_Pop-up" ID="{514CD747-CF05-4229-8A10-6C6B5A6DE832}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Dialogue_End" ID="{88B4B94B-C817-45A6-BA45-2742704EF3FD}">
+									<ChildrenList>
+										<Action Name="" ID="{F4120A3E-CFF1-446B-8FEA-E52DBB83F18C}" ShortID="141887107">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="UI_Dialogue_End" ID="{A47553CB-B71B-4FF4-9F62-0530FF306D26}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
+								<Event Name="Dialogue_Continue" ID="{3AA6D555-2521-410C-B0B3-5EDA83975B23}">
+									<ChildrenList>
+										<Action Name="" ID="{1E1E3E91-368A-4E82-878D-0215786495C5}" ShortID="11665126">
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Dialogue_Continue" ID="{B7D16B96-CD0C-43B7-A9FD-4549BFC172AB}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
 												</Reference>
 											</ReferenceList>
 										</Action>

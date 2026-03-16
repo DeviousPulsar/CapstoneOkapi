@@ -65,6 +65,20 @@
 								</Action>
 							</ChildrenList>
 						</Event>
+						<Event Name="mx_Fight_Lose" ID="{8EC10551-894D-45B8-BB2B-41C29B1FDB89}">
+							<ChildrenList>
+								<Action Name="" ID="{9BA4E123-7ADF-4EAB-AB12-021545689B0C}" ShortID="14108106">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Lose" ID="{33EC8F36-82C3-4408-BFA1-B16B1D573B1B}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
 					</ChildrenList>
 				</Folder>
 				<Folder Name="LEVELS" ID="{B2FA75D3-8D8C-4503-994F-B96617771246}" ShortID="1018285618">
@@ -245,6 +259,69 @@
 									<ReferenceList>
 										<Reference Name="Target">
 											<ObjectRef Name="Overworld_Cave" ID="{22C4CE79-D293-4658-A52F-17F7E18ED7BD}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="mx_EnterFight_Caves" ID="{A1886D1B-1608-413F-BE8D-FC72693BFFE3}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="12"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ChildrenList>
+								<Action Name="" ID="{9D79267E-3BEB-48C7-B6A7-4CBD1A4DC435}" ShortID="626420784">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="In_Prep" ID="{99EA65F6-8B8E-4656-8FB3-075AD68609F5}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{FF03DD88-AEFB-460C-B4DC-D552CC3E0575}" ShortID="192799891">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Start" ID="{3EFDA861-5D72-463C-9168-2A6038969BCA}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+								<Action Name="" ID="{22291FB8-7EB3-4B5E-8E2C-547F31F98F09}" ShortID="595611844">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Fight_World" ID="{33D88523-AF4B-4A5A-8B89-F34C9A7EBE7F}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="mx_EnterTitle" ID="{4CC42C3F-6AEA-4081-834D-79760CFD724B}">
+							<ChildrenList>
+								<Action Name="" ID="{65FDF2C0-0C96-40BB-BECE-9E3410E770CD}" ShortID="88339241">
+									<PropertyList>
+										<Property Name="ActionType" Type="int16" Value="22"/>
+									</PropertyList>
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="MainMenu" ID="{F27F96AE-DB1B-44D0-9FF0-3B0CDA6B26F1}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+										</Reference>
+									</ReferenceList>
+								</Action>
+							</ChildrenList>
+						</Event>
+						<Event Name="mx_PlayMusic" ID="{8CFC339B-AFEE-463D-BC68-2667FBB59530}">
+							<ChildrenList>
+								<Action Name="" ID="{0BFD1E5A-42EF-4084-A252-517E6FBABA3E}" ShortID="740412310">
+									<ReferenceList>
+										<Reference Name="Target">
+											<ObjectRef Name="Levels" ID="{AA2E4462-DDC5-4969-9280-3E655C97B2FE}" WorkUnitID="{94B33324-6796-4D6F-B3D4-FD947CA7E7BA}"/>
 										</Reference>
 									</ReferenceList>
 								</Action>
