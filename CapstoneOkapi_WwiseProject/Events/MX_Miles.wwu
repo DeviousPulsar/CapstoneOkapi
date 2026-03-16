@@ -2,6 +2,10 @@
 <WwiseDocument Type="WorkUnit" ID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}" SchemaVersion="123">
 	<Events>
 		<WorkUnit Name="MX_Miles" ID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="15"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
 			<ChildrenList>
 				<Folder Name="FIGHTS" ID="{DE90C1AB-93D5-4F58-A4B7-DBFD16B33D88}" ShortID="496352591">
 					<PropertyList>

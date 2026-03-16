@@ -32,6 +32,17 @@
 						<State Name="Win" ID="{3AA3C406-052A-4B98-B0FA-ED76C6D78559}"/>
 					</ChildrenList>
 				</StateGroup>
+				<StateGroup Name="BUS_CaveReverb" ID="{8F5D4379-B227-46A3-B2B5-7A25157E7DA2}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="24"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<State Name="None" ID="{2B47AEBA-4EEC-4E2A-BDAB-C741A2D3C50C}"/>
+						<State Name="Affected" ID="{C8C9D897-81CE-474C-B5D3-8467906AF7C0}"/>
+						<State Name="Unaffected" ID="{0E42733C-E461-4C0A-B801-63A3B81070A2}"/>
+					</ChildrenList>
+				</StateGroup>
 			</ChildrenList>
 		</WorkUnit>
 	</States>

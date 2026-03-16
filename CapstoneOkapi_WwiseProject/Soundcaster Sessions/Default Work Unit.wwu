@@ -277,6 +277,49 @@
 					<CurrentStateList ShowAll="true"/>
 					<CurrentSwitchList ShowAll="true"/>
 				</SoundcasterSession>
+				<SoundcasterSession Name="BusChanges" ID="{8CC1709D-8390-4EA2-9CA5-5C57D14E2757}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Cave_Affected" ID="{2F97C485-75A7-4616-B849-8B826FA58D4D}" WorkUnitID="{AC643B42-EBD6-4685-86D1-5E6A8B9F3494}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Hover" ID="{E44F3A39-6B53-4663-B9EA-E9D4491AB88E}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Dialog_Popup" ID="{B3054638-06AE-4140-A31F-64CCD8BDF2B4}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Footsteps" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="0" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Cave_Unaffected" ID="{5AACF0D4-FF64-4F62-B19F-BE4DE6341B5A}" WorkUnitID="{AC643B42-EBD6-4685-86D1-5E6A8B9F3494}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Select" ID="{402B5382-5422-4494-9162-07157B8D762D}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Dialogue_Continue" ID="{3AA6D555-2521-410C-B0B3-5EDA83975B23}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Start_Combat" ID="{FCA4AEF1-384C-42D6-B316-6E862FD35EFB}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Dialogue_End" ID="{88B4B94B-C817-45A6-BA45-2742704EF3FD}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
 			</ChildrenList>
 		</WorkUnit>
 	</SoundcasterSessions>

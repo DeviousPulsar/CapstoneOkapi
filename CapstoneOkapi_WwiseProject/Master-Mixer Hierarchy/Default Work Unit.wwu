@@ -73,40 +73,97 @@
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
 							</PropertyList>
 							<ChildrenList>
-								<Bus Name="Verb" ID="{EF4ED76F-3271-4C22-BB8C-32F11E705176}">
+								<Bus Name="Affected_Cave" ID="{B165B69E-2214-4169-9DDA-25DA4673C754}">
 									<PropertyList>
-										<Property Name="UserAuxSendVolume0" Type="Real64">
-											<ValueList>
-												<Value>4</Value>
-											</ValueList>
-										</Property>
+										<Property Name="Color" Type="int16" Value="24"/>
+										<Property Name="OverrideColor" Type="bool" Value="True"/>
 									</PropertyList>
 									<ReferenceList>
 										<Reference Name="UserAuxSend0">
-											<ObjectRef Name="NightmareVerb" ID="{6E91E8FE-C311-4D9F-A162-B8C52D493DC8}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+											<ObjectRef Name="CaveVerb" ID="{58DE209F-2DFD-4695-AE90-8D726654B366}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
 										</Reference>
 									</ReferenceList>
+									<ChildrenList>
+										<Bus Name="UI" ID="{A2BEFACA-40B6-4652-9B86-CA5FC774E586}">
+											<PropertyList>
+												<Property Name="Color" Type="int16" Value="16"/>
+												<Property Name="OverrideColor" Type="bool" Value="True"/>
+												<Property Name="Volume" Type="Real64">
+													<ValueList>
+														<Value>4</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<DuckingList>
+												<DuckItem>
+													<BusRef Name="MX" ID="{C1E0736F-1103-4945-9E63-99812B48B005}"/>
+													<DuckingParam>
+														<Volume>-16</Volume>
+														<FadeInTime>1</FadeInTime>
+														<FadeOutTime>1</FadeOutTime>
+														<FadeCurve>FadeLinear</FadeCurve>
+													</DuckingParam>
+												</DuckItem>
+											</DuckingList>
+										</Bus>
+										<Bus Name="Attack_Verb" ID="{EF4ED76F-3271-4C22-BB8C-32F11E705176}">
+											<PropertyList>
+												<Property Name="UserAuxSendVolume0" Type="Real64">
+													<ValueList>
+														<Value>-14</Value>
+													</ValueList>
+												</Property>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="UserAuxSend0">
+													<ObjectRef Name="NightmareVerb" ID="{6E91E8FE-C311-4D9F-A162-B8C52D493DC8}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+												</Reference>
+											</ReferenceList>
+										</Bus>
+									</ChildrenList>
+									<StateInfo>
+										<StatePropertyList>
+											<Property Name="BusVolume"/>
+											<Property Name="Highpass"/>
+											<Property Name="Lowpass"/>
+											<Property Name="Pitch"/>
+											<Property Name="UserAuxSendVolume0"/>
+											<Property Name="Volume"/>
+										</StatePropertyList>
+										<StateGroupList>
+											<StateGroupInfo>
+												<StateGroupRef Name="BUS_CaveReverb" ID="{8F5D4379-B227-46A3-B2B5-7A25157E7DA2}"/>
+											</StateGroupInfo>
+										</StateGroupList>
+										<CustomStateList>
+											<CustomState>
+												<StateRef Name="Affected" ID="{C8C9D897-81CE-474C-B5D3-8467906AF7C0}"/>
+												<CustomState Name="" ID="{B24B24FE-F8A7-4832-9006-B2F54E04E557}" ShortID="310936232">
+													<PropertyList>
+														<Property Name="UserAuxSendVolume0" Type="Real64" Value="-18"/>
+													</PropertyList>
+												</CustomState>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="Unaffected" ID="{0E42733C-E461-4C0A-B801-63A3B81070A2}"/>
+												<CustomState Name="" ID="{6A6C49CA-AEA5-40C0-8286-7F40C750E74F}" ShortID="268876863">
+													<PropertyList>
+														<Property Name="UserAuxSendVolume0" Type="Real64" Value="-100"/>
+													</PropertyList>
+												</CustomState>
+											</CustomState>
+											<CustomState>
+												<StateRef Name="None" ID="{2B47AEBA-4EEC-4E2A-BDAB-C741A2D3C50C}"/>
+												<CustomState Name="" ID="{5BA15007-5D6D-40EB-AD26-C1E83F82B2E2}" ShortID="661138081">
+													<PropertyList>
+														<Property Name="UserAuxSendVolume0" Type="Real64" Value="-100"/>
+													</PropertyList>
+												</CustomState>
+											</CustomState>
+										</CustomStateList>
+									</StateInfo>
 								</Bus>
-								<Bus Name="UI" ID="{A2BEFACA-40B6-4652-9B86-CA5FC774E586}">
-									<PropertyList>
-										<Property Name="Volume" Type="Real64">
-											<ValueList>
-												<Value>4</Value>
-											</ValueList>
-										</Property>
-									</PropertyList>
-									<DuckingList>
-										<DuckItem>
-											<BusRef Name="MX" ID="{C1E0736F-1103-4945-9E63-99812B48B005}"/>
-											<DuckingParam>
-												<Volume>-16</Volume>
-												<FadeInTime>1</FadeInTime>
-												<FadeOutTime>1</FadeOutTime>
-												<FadeCurve>FadeLinear</FadeCurve>
-											</DuckingParam>
-										</DuckItem>
-									</DuckingList>
-								</Bus>
+								<Bus Name="Unaffected" ID="{DC74BF5F-0FC7-4CFE-9823-80CE9833DC98}"/>
 							</ChildrenList>
 							<ObjectLists>
 								<ObjectList Name="RTPC">
@@ -178,6 +235,27 @@
 												<ReferenceList>
 													<Reference Name="Effect" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
 														<ObjectRef Name="Inside_My_Head" ID="{94B53301-9AA1-468F-8419-92AEDAAE39DF}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
+													</Reference>
+												</ReferenceList>
+											</EffectSlot>
+										</Local>
+									</Reference>
+								</ObjectList>
+							</ObjectLists>
+						</AuxBus>
+						<AuxBus Name="CaveVerb" ID="{58DE209F-2DFD-4695-AE90-8D726654B366}">
+							<PropertyList>
+								<Property Name="Color" Type="int16" Value="24"/>
+								<Property Name="OverrideColor" Type="bool" Value="True"/>
+							</PropertyList>
+							<ObjectLists>
+								<ObjectList Name="Effects">
+									<Reference>
+										<Local>
+											<EffectSlot Name="" ID="{45DE5324-60AF-45F3-A914-9E52640C7AB7}" ShortID="622952008">
+												<ReferenceList>
+													<Reference Name="Effect" PluginName="Wwise RoomVerb" CompanyID="0" PluginID="118" PluginType="3">
+														<ObjectRef Name="Space_Dreaming" ID="{4FF7C4B2-37B0-4DFF-8E8A-1420102AE2DD}" WorkUnitID="{E8613F7D-BAD3-45CD-A3ED-505576F31277}"/>
 													</Reference>
 												</ReferenceList>
 											</EffectSlot>

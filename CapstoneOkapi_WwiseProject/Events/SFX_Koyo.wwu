@@ -2,6 +2,10 @@
 <WwiseDocument Type="WorkUnit" ID="{7A5B02D9-4439-4050-A2A8-71688C617170}" SchemaVersion="123">
 	<Events>
 		<WorkUnit Name="SFX_Koyo" ID="{7A5B02D9-4439-4050-A2A8-71688C617170}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="16"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
 			<ChildrenList>
 				<Folder Name="Ambient" ID="{B71F7224-56FB-4154-83D4-C36A7D9C21AB}" ShortID="568778211">
 					<PropertyList>
