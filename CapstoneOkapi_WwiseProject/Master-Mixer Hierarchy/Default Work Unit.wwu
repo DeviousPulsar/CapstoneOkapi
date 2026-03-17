@@ -94,6 +94,22 @@
 													</ValueList>
 												</Property>
 											</PropertyList>
+											<ChildrenList>
+												<Bus Name="Popup" ID="{3F1DB0E7-11EE-474F-9EE5-6CAE1A8C179D}">
+													<PropertyList>
+														<Property Name="UserAuxSendVolume0" Type="Real64">
+															<ValueList>
+																<Value>-38</Value>
+															</ValueList>
+														</Property>
+													</PropertyList>
+													<ReferenceList>
+														<Reference Name="UserAuxSend0">
+															<ObjectRef Name="CaveVerb" ID="{58DE209F-2DFD-4695-AE90-8D726654B366}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+														</Reference>
+													</ReferenceList>
+												</Bus>
+											</ChildrenList>
 											<DuckingList>
 												<DuckItem>
 													<BusRef Name="MX" ID="{C1E0736F-1103-4945-9E63-99812B48B005}"/>
@@ -126,9 +142,7 @@
 											<Property Name="BusVolume"/>
 											<Property Name="Highpass"/>
 											<Property Name="Lowpass"/>
-											<Property Name="Pitch"/>
 											<Property Name="UserAuxSendVolume0"/>
-											<Property Name="Volume"/>
 										</StatePropertyList>
 										<StateGroupList>
 											<StateGroupInfo>
@@ -140,7 +154,7 @@
 												<StateRef Name="Affected" ID="{C8C9D897-81CE-474C-B5D3-8467906AF7C0}"/>
 												<CustomState Name="" ID="{B24B24FE-F8A7-4832-9006-B2F54E04E557}" ShortID="310936232">
 													<PropertyList>
-														<Property Name="UserAuxSendVolume0" Type="Real64" Value="-18"/>
+														<Property Name="UserAuxSendVolume0" Type="Real64" Value="-15"/>
 													</PropertyList>
 												</CustomState>
 											</CustomState>

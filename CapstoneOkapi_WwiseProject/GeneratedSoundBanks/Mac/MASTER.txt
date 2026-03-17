@@ -2,6 +2,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	140041036	Attack_Warning			\SFX_Koyo\SFX\Enemy\Attack_Warning	
 	180661997	Attack			\SFX_Koyo\SFX\Player\Attack	
 	220989185	Dialogue_End			\SFX_Koyo\SFX\UI\Dialogue_End	
+	225213157	Cave_Affected			\BUS_Elio\Cave_Affected	
 	493036092	Enemy_Alert			\SFX_Koyo\SFX\Enemy\Enemy_Alert	
 	555067025	Enemy_Damage			\SFX_Koyo\SFX\Enemy\Enemy_Damage	
 	594187585	UI_Start_Combat			\SFX_Koyo\SFX\UI\UI_Start_Combat	
@@ -32,6 +33,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	2958924562	mx_EnterFight_Tutorial			\MX_Miles\LEVELS\mx_EnterFight_Tutorial	
 	3011204530	Move			\SFX_Koyo\SFX\Player\Move	
 	3187416458	mx_EnterFight_Caves			\MX_Miles\LEVELS\mx_EnterFight_Caves	
+	3423410188	Cave_Unaffected			\BUS_Elio\Cave_Unaffected	
 	3459520173	mx_EnterFight_Boss02			\MX_Miles\LEVELS\mx_EnterFight_Boss02	
 	3459520174	mx_EnterFight_Boss01			\MX_Miles\LEVELS\mx_EnterFight_Boss01	
 	3574076051	mx_Fight_Lose			\MX_Miles\FIGHTS\mx_Fight_Lose	
@@ -44,14 +46,17 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 	2385628198	Footsteps			\SFX_Koyo\Footsteps\Footsteps	
 
 Switch	ID	Name	Switch Group			Notes
+	1216965916	Stone	Footsteps			
 	2058049674	Wood	Footsteps			
 	2185786256	Gravel	Footsteps			
 	2195636714	Dirt	Footsteps			
+	2412606308	Carpet	Footsteps			
 
 State Group	ID	Name			Wwise Object Path	Notes
 	6452437	mx_Level			\Default Work Unit\mx_Level	
 	437528237	MX_Fight_Admin			\Default Work Unit\MX_Fight_Admin	
 	1093972631	MX_Fight_Layer			\Default Work Unit\MX_Fight_Layer	
+	2192315551	BUS_CaveReverb			\Default Work Unit\BUS_CaveReverb	
 
 State	ID	Name	State Group			Notes
 	221232726	Lose	mx_Level			
@@ -71,6 +76,9 @@ State	ID	Name	State Group			Notes
 	1108951413	In_Dialogue	MX_Fight_Layer			
 	1494125218	In_Prep	MX_Fight_Layer			
 	2116791127	In_Combat	MX_Fight_Layer			
+	474259756	Unaffected	BUS_CaveReverb			
+	748895195	None	BUS_CaveReverb			
+	4214371589	Affected	BUS_CaveReverb			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	250326712	SFX_VolumeSlider			\Default Work Unit\SFX_VolumeSlider	
@@ -78,16 +86,21 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
-	1551306167	UI			\Default Work Unit\Master Audio Bus\SFX\UI	
+	447758751	Affected_Cave			\Default Work Unit\Master Audio Bus\SFX\Affected_Cave	
+	474259756	Unaffected			\Default Work Unit\Master Audio Bus\SFX\Unaffected	
+	1551306167	UI			\Default Work Unit\Master Audio Bus\SFX\Affected_Cave\UI	
 	1685527054	MX			\Default Work Unit\Master Audio Bus\MX	
-	3657263530	Verb			\Default Work Unit\Master Audio Bus\SFX\Verb	
+	2123891029	Popup			\Default Work Unit\Master Audio Bus\SFX\Affected_Cave\UI\Popup	
+	2158862175	Attack_Verb			\Default Work Unit\Master Audio Bus\SFX\Affected_Cave\Attack_Verb	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	402158015	NightmareVerb			\Default Work Unit\Master Audio Bus\NightmareVerb	
+	2643443281	CaveVerb			\Default Work Unit\Master Audio Bus\CaveVerb	
 
 Effect plug-ins	ID	Name	Type				Notes
 	701863527	Inside_My_Head	Wwise RoomVerb			
+	3216246379	Space_Dreaming	Wwise RoomVerb			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	20134841	Enemy_Move_3	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\C5\{C5221C62-46D8-2C49-4C23-29B59B9B41BE}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Move\Enemy_Move_3		9011

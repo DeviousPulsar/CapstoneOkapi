@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{7B50A5C6-047E-80B7-A7EE-23E61CB43F5D}",
+    "Hash": "{349C4B89-0C05-21DB-D043-8AFCA52325C2}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
@@ -21,6 +21,14 @@
        "Name": "Inside_My_Head",
        "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Claustrophobia\\Inside_My_Head",
        "GUID": "{94B53301-9AA1-468F-8419-92AEDAAE39DF}",
+       "LibName": "Wwise RoomVerb",
+       "LibId": "7733251"
+      },
+      {
+       "Id": "3216246379",
+       "Name": "Space_Dreaming",
+       "ObjectPath": "\\Effects\\Factory Effects\\RoomVerb\\Huge Spaces\\Space_Dreaming",
+       "GUID": "{4FF7C4B2-37B0-4DFF-8E8A-1420102AE2DD}",
        "LibName": "Wwise RoomVerb",
        "LibId": "7733251"
       }
@@ -53,9 +61,32 @@
       "Color": "16"
      },
      {
+      "Id": "447758751",
+      "Name": "Affected_Cave",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\Affected_Cave",
+      "GUID": "{B165B69E-2214-4169-9DDA-25DA4673C754}",
+      "Color": "24",
+      "AuxBusRefs": [
+       {
+        "Id": "2643443281",
+        "Name": "CaveVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\CaveVerb",
+        "GUID": "{58DE209F-2DFD-4695-AE90-8D726654B366}",
+        "Color": "24"
+       }
+      ]
+     },
+     {
+      "Id": "474259756",
+      "Name": "Unaffected",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\Unaffected",
+      "GUID": "{DC74BF5F-0FC7-4CFE-9823-80CE9833DC98}",
+      "Color": "16"
+     },
+     {
       "Id": "1551306167",
       "Name": "UI",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\UI",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\Affected_Cave\\UI",
       "GUID": "{A2BEFACA-40B6-4652-9B86-CA5FC774E586}",
       "Color": "16"
      },
@@ -67,11 +98,27 @@
       "Color": "15"
      },
      {
-      "Id": "3657263530",
-      "Name": "Verb",
-      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\Verb",
-      "GUID": "{EF4ED76F-3271-4C22-BB8C-32F11E705176}",
+      "Id": "2123891029",
+      "Name": "Popup",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\Affected_Cave\\UI\\Popup",
+      "GUID": "{3F1DB0E7-11EE-474F-9EE5-6CAE1A8C179D}",
       "Color": "16",
+      "AuxBusRefs": [
+       {
+        "Id": "2643443281",
+        "Name": "CaveVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\CaveVerb",
+        "GUID": "{58DE209F-2DFD-4695-AE90-8D726654B366}",
+        "Color": "24"
+       }
+      ]
+     },
+     {
+      "Id": "2158862175",
+      "Name": "Attack_Verb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\Affected_Cave\\Attack_Verb",
+      "GUID": "{EF4ED76F-3271-4C22-BB8C-32F11E705176}",
+      "Color": "24",
       "AuxBusRefs": [
        {
         "Id": "402158015",
@@ -100,6 +147,20 @@
        "ShareSets": [
         {
          "Id": "701863527"
+        }
+       ]
+      }
+     },
+     {
+      "Id": "2643443281",
+      "Name": "CaveVerb",
+      "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\CaveVerb",
+      "GUID": "{58DE209F-2DFD-4695-AE90-8D726654B366}",
+      "Color": "24",
+      "PluginRefs": {
+       "ShareSets": [
+        {
+         "Id": "3216246379"
         }
        ]
       }
@@ -247,6 +308,36 @@
         "GUID": "{62D70642-FF09-41ED-97E9-F86D7E2C0901}"
        }
       ]
+     },
+     {
+      "Id": "2192315551",
+      "Name": "BUS_CaveReverb",
+      "ObjectPath": "\\States\\Default Work Unit\\BUS_CaveReverb",
+      "GUID": "{8F5D4379-B227-46A3-B2B5-7A25157E7DA2}",
+      "Color": "24",
+      "States": [
+       {
+        "Id": "474259756",
+        "Name": "Unaffected",
+        "ObjectPath": "\\States\\Default Work Unit\\BUS_CaveReverb\\Unaffected",
+        "GUID": "{0E42733C-E461-4C0A-B801-63A3B81070A2}",
+        "Color": "24"
+       },
+       {
+        "Id": "748895195",
+        "Name": "None",
+        "ObjectPath": "\\States\\Default Work Unit\\BUS_CaveReverb\\None",
+        "GUID": "{2B47AEBA-4EEC-4E2A-BDAB-C741A2D3C50C}",
+        "Color": "24"
+       },
+       {
+        "Id": "4214371589",
+        "Name": "Affected",
+        "ObjectPath": "\\States\\Default Work Unit\\BUS_CaveReverb\\Affected",
+        "GUID": "{C8C9D897-81CE-474C-B5D3-8467906AF7C0}",
+        "Color": "24"
+       }
+      ]
      }
     ],
     "SwitchGroups": [
@@ -257,6 +348,13 @@
       "GUID": "{ECDAE3C8-D624-490B-B3C3-B40C004EDF0E}",
       "Color": "4",
       "Switches": [
+       {
+        "Id": "1216965916",
+        "Name": "Stone",
+        "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps\\Stone",
+        "GUID": "{5104A4E7-11F5-4A8E-8AAA-50041BC30174}",
+        "Color": "4"
+       },
        {
         "Id": "2058049674",
         "Name": "Wood",
@@ -277,12 +375,19 @@
         "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps\\Dirt",
         "GUID": "{F98DCB64-B7BA-4C42-925A-7E93F670A40B}",
         "Color": "4"
+       },
+       {
+        "Id": "2412606308",
+        "Name": "Carpet",
+        "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps\\Carpet",
+        "GUID": "{2755847D-8416-4E6C-ACC8-269AFC39A66C}",
+        "Color": "4"
        }
       ]
      }
     ]
    }
   ],
-  "FileHash": "{215D3203-81C1-1183-529F-9A2D30F7DF40}"
+  "FileHash": "{62BC9109-EF24-8D0B-D9FD-6692CDA12EE1}"
  }
 }
