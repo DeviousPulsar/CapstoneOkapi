@@ -238,6 +238,12 @@
         "GUID": "{22C4CE79-D293-4658-A52F-17F7E18ED7BD}"
        },
        {
+        "Id": "2201105581",
+        "Name": "Credits",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Credits",
+        "GUID": "{F486CA5A-2636-433B-A691-C95099457FA1}"
+       },
+       {
         "Id": "3604647259",
         "Name": "MainMenu",
         "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\MainMenu",
@@ -388,6 +394,6 @@
     ]
    }
   ],
-  "FileHash": "{AC4FAE5F-5C99-8AF1-3327-91603F92201F}"
+  "FileHash": "{97B40752-8FF1-7266-1FD1-0164AD219245}"
  }
 }

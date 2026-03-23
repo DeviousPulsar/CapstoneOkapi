@@ -195,6 +195,10 @@
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="mx_EnterCredits" ID="{2610664D-55BB-4C4B-8860-15160B95B657}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="mx_EnterFight_Boss01" ID="{A9D206D4-4990-46B1-92F3-3204B3D27DFF}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
 							<Position X="1" Y="0"/>
 						</Module>

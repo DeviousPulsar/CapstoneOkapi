@@ -23,6 +23,7 @@
 						<State Name="Fight_2" ID="{CAFB8504-7D4B-4B22-B84E-73BEA8AFDECA}"/>
 						<State Name="Fight_World" ID="{33D88523-AF4B-4A5A-8B89-F34C9A7EBE7F}"/>
 						<State Name="Lose" ID="{33EC8F36-82C3-4408-BFA1-B16B1D573B1B}"/>
+						<State Name="Credits" ID="{F486CA5A-2636-433B-A691-C95099457FA1}"/>
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="MX_Fight_Admin" ID="{021E9FB2-16A2-40B7-BF40-138A1A5A9F2C}">

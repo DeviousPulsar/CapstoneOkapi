@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A0E27053-32A3-454F-8FBA-D178D463360E}",
     "Language": "SFX",
-    "Hash": "{899BCE3D-1707-EE7F-0425-838130BB9DA4}",
+    "Hash": "{882123EA-E9A1-B642-C742-28A6D5B31F1E}",
     "ObjectPath": "\\SoundBanks\\Master Work Unit\\MASTER",
     "ShortName": "MASTER",
     "Path": "MASTER.bnk",
@@ -510,6 +510,14 @@
       "Location": "Memory",
       "ShortName": "Footstep-Dirt-3.wav",
       "CachePath": "21/{21B58692-24BC-1F42-4CE2-65F3435E6EB5}.wem"
+     },
+     {
+      "Id": "865228494",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "mx_LD_Explore10_LastWalk_133bpmLOOPS_v2.wav",
+      "CachePath": "4D/{4D288F09-9773-CFA7-ACCD-2E66569DB3DF}.wem"
      },
      {
       "Id": "878189989",
@@ -1241,6 +1249,26 @@
       ]
      },
      {
+      "Id": "1524391233",
+      "Name": "mx_EnterCredits",
+      "ObjectPath": "\\Events\\MX_Miles\\LEVELS\\mx_EnterCredits",
+      "GUID": "{2610664D-55BB-4C4B-8860-15160B95B657}",
+      "Color": "12",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetState": [
+       {
+        "GroupId": "6452437",
+        "Id": "2201105581",
+        "Name": "Credits",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Credits",
+        "GUID": "{F486CA5A-2636-433B-A691-C95099457FA1}"
+       }
+      ]
+     },
+     {
       "Id": "3459520174",
       "Name": "mx_EnterFight_Boss01",
       "ObjectPath": "\\Events\\MX_Miles\\LEVELS\\mx_EnterFight_Boss01",
@@ -1905,6 +1933,19 @@
         "SwitchValue": {
          "GroupType": "State",
          "GroupId": "6452437",
+         "Id": "2201105581",
+         "GUID": "{F486CA5A-2636-433B-A691-C95099457FA1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "865228494"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "6452437",
          "Id": "3762955427",
          "GUID": "{A845D835-9F0F-4F70-9851-A9C514FC2613}"
         },
@@ -2227,6 +2268,19 @@
          },
          {
           "Id": "572229074"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "6452437",
+         "Id": "2201105581",
+         "GUID": "{F486CA5A-2636-433B-A691-C95099457FA1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "865228494"
          }
         ]
        }
@@ -2581,6 +2635,19 @@
         "SwitchValue": {
          "GroupType": "State",
          "GroupId": "6452437",
+         "Id": "2201105581",
+         "GUID": "{F486CA5A-2636-433B-A691-C95099457FA1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "865228494"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "6452437",
          "Id": "3762955427",
          "GUID": "{A845D835-9F0F-4F70-9851-A9C514FC2613}"
         },
@@ -2903,6 +2970,19 @@
          },
          {
           "Id": "572229074"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "State",
+         "GroupId": "6452437",
+         "Id": "2201105581",
+         "GUID": "{F486CA5A-2636-433B-A691-C95099457FA1}"
+        },
+        "MediaRefs": [
+         {
+          "Id": "865228494"
          }
         ]
        }
@@ -3255,6 +3335,12 @@
         "GUID": "{22C4CE79-D293-4658-A52F-17F7E18ED7BD}"
        },
        {
+        "Id": "2201105581",
+        "Name": "Credits",
+        "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\Credits",
+        "GUID": "{F486CA5A-2636-433B-A691-C95099457FA1}"
+       },
+       {
         "Id": "3604647259",
         "Name": "MainMenu",
         "ObjectPath": "\\States\\Default Work Unit\\mx_Level\\MainMenu",
@@ -3405,6 +3491,6 @@
     ]
    }
   ],
-  "FileHash": "{4FC6259F-B16A-D990-0CF8-35AD5B2DC33B}"
+  "FileHash": "{2DEB39D0-7132-4B00-1119-5691181E36CB}"
  }
 }
