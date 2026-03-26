@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A0E27053-32A3-454F-8FBA-D178D463360E}",
     "Language": "SFX",
-    "Hash": "{882123EA-E9A1-B642-C742-28A6D5B31F1E}",
+    "Hash": "{DE3AC52F-1006-D741-E564-65395B06EA5F}",
     "ObjectPath": "\\SoundBanks\\Master Work Unit\\MASTER",
     "ShortName": "MASTER",
     "Path": "MASTER.bnk",
@@ -54,6 +54,14 @@
       "Location": "Memory",
       "ShortName": "Enemy_Move_2.wav",
       "CachePath": "43/{4351BCA1-F4C9-6298-25F9-6FBD985D2930}.wem"
+     },
+     {
+      "Id": "73786102",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep_Crystal-4.wav",
+      "CachePath": "6C/{6C01990C-B7D6-B0A9-8D35-576CD1CE5613}.wem"
      },
      {
       "Id": "80410063",
@@ -110,6 +118,14 @@
       "Location": "Memory",
       "ShortName": "Footstep-Gravel-3.wav",
       "CachePath": "BF/{BF59A171-87D3-0FC9-33F2-E077BDDA4BD9}.wem"
+     },
+     {
+      "Id": "159950979",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Carpet-2.wav",
+      "CachePath": "4C/{4CC9663A-B203-EC32-B16C-300693459D55}.wem"
      },
      {
       "Id": "196066655",
@@ -192,6 +208,14 @@
       "CachePath": "2E/{2E612CCB-E634-4518-3192-78A71BD0927C}.wem"
      },
      {
+      "Id": "317284633",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Carpet-5.wav",
+      "CachePath": "92/{922558E8-3438-EAEA-BC8C-4C80B8A7A11D}.wem"
+     },
+     {
       "Id": "320569160",
       "Language": "SFX",
       "Streaming": "false",
@@ -206,6 +230,22 @@
       "Location": "Memory",
       "ShortName": "Magic_Attack_1.wav",
       "CachePath": "C8/{C817325F-D2AB-B46D-F281-71D1535BCB6B}.wem"
+     },
+     {
+      "Id": "326821939",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Rock_1.wav",
+      "CachePath": "9C/{9CEDBA29-9841-30F5-AE9C-F2793E28DAAD}.wem"
+     },
+     {
+      "Id": "327799368",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep_Crystal-1.wav",
+      "CachePath": "2D/{2D769316-5EA4-D1AE-760F-4772A7269C71}.wem"
      },
      {
       "Id": "335456592",
@@ -230,6 +270,14 @@
       "Location": "Memory",
       "ShortName": "mx_LD_LvOne02_DLG_133bpmLOOPS.wav",
       "CachePath": "5B/{5B91A24C-DBD6-8CDC-B129-F012416E3325}.wem"
+     },
+     {
+      "Id": "356752321",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Carpet-3.wav",
+      "CachePath": "45/{45BC1CDF-5CEB-F1D1-367B-2731C1E58E6D}.wem"
      },
      {
       "Id": "374257138",
@@ -288,6 +336,22 @@
       "CachePath": "2C/{2C6B27E9-EFD5-D787-CD39-A16BB2249635}.wem"
      },
      {
+      "Id": "475289345",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep_Crystal-2.wav",
+      "CachePath": "9C/{9C264316-3ABA-E616-E9FA-47F73531375D}.wem"
+     },
+     {
+      "Id": "482333988",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Rock_3.wav",
+      "CachePath": "7B/{7BE928E0-864E-AA4E-BC96-F96E7D72FDD9}.wem"
+     },
+     {
       "Id": "496236210",
       "Language": "SFX",
       "Streaming": "false",
@@ -342,6 +406,14 @@
       "Location": "Memory",
       "ShortName": "mx_LD_Tutorial03_PrepDrums_133bpmLOOPS.wav",
       "CachePath": "A4/{A4631D6E-CE80-B46E-DB21-672C1BF60235}.wem"
+     },
+     {
+      "Id": "539628765",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Carpet-1.wav",
+      "CachePath": "29/{29DD2A0E-E0CE-730C-3E87-A1250336D250}.wem"
      },
      {
       "Id": "556423460",
@@ -424,6 +496,22 @@
       "CachePath": "D4/{D4D45FAF-E426-5629-C758-351CCBFDB73D}.wem"
      },
      {
+      "Id": "731829933",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Rock_2.wav",
+      "CachePath": "A0/{A02BD7FE-3176-F75C-39AD-3F7B9471C640}.wem"
+     },
+     {
+      "Id": "738309536",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Rock_4.wav",
+      "CachePath": "CB/{CBA305E1-8B53-FEB7-1DA9-CE6702B05045}.wem"
+     },
+     {
       "Id": "742955475",
       "Language": "SFX",
       "Streaming": "false",
@@ -438,6 +526,22 @@
       "Location": "Memory",
       "ShortName": "Warning.wav",
       "CachePath": "79/{793BF7E1-9447-FCE7-62F9-F00FA8887467}.wem"
+     },
+     {
+      "Id": "768800741",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Rock_5.wav",
+      "CachePath": "72/{72684884-8AF2-90AD-4BB3-4D5A6553B66A}.wem"
+     },
+     {
+      "Id": "782278300",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep_Crystal-5.wav",
+      "CachePath": "BF/{BF373112-DF63-BC4E-FA16-C5D618FA9FB7}.wem"
      },
      {
       "Id": "783217267",
@@ -592,6 +696,14 @@
       "CachePath": "65/{65EA65C5-9B14-2126-FAF6-4A8CF4BD06D0}.wem"
      },
      {
+      "Id": "957998491",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep-Carpet-4.wav",
+      "CachePath": "47/{47540804-CE88-C63C-C824-89E2149D8F04}.wem"
+     },
+     {
       "Id": "962263161",
       "Language": "SFX",
       "Streaming": "false",
@@ -622,6 +734,14 @@
       "Location": "Memory",
       "ShortName": "Footstep-Dirt-5.wav",
       "CachePath": "79/{79D066BC-6736-AB1E-C794-2AED4A05CA6B}.wem"
+     },
+     {
+      "Id": "990165411",
+      "Language": "SFX",
+      "Streaming": "false",
+      "Location": "Memory",
+      "ShortName": "Footstep_Crystal-3.wav",
+      "CachePath": "81/{81DFE23A-9728-F34B-171D-DBC85FF68921}.wem"
      },
      {
       "Id": "993436807",
@@ -713,6 +833,16 @@
      }
     ],
     "Plugins": {
+     "Custom": [
+      {
+       "Id": "357545847",
+       "Name": "Meter (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\[Effect Slot [0]: (Meter)]\\Meter (Custom)",
+       "GUID": "{C9FF426E-23FA-491E-9DA4-7E6AB46BCAF7}",
+       "LibName": "Wwise Meter",
+       "LibId": "8454147"
+      }
+     ],
      "ShareSets": [
       {
        "Id": "701863527",
@@ -953,9 +1083,35 @@
       "GUID": "{3824A5FD-33FD-4A31-ADC9-1911C541563F}",
       "Color": "8",
       "DurationType": "OneShot",
-      "DurationMin": "0",
+      "DurationMin": "0.33333334",
       "DurationMax": "0.8",
       "SwitchContainers": [
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2385628198",
+         "Id": "3444057113",
+         "GUID": "{90855E00-BFA0-425F-AD24-E46A39BB75DF}",
+         "Color": "4"
+        },
+        "MediaRefs": [
+         {
+          "Id": "73786102"
+         },
+         {
+          "Id": "327799368"
+         },
+         {
+          "Id": "475289345"
+         },
+         {
+          "Id": "782278300"
+         },
+         {
+          "Id": "990165411"
+         }
+        ]
+       },
        {
         "SwitchValue": {
          "GroupType": "Switch",
@@ -986,6 +1142,32 @@
         "SwitchValue": {
          "GroupType": "Switch",
          "GroupId": "2385628198",
+         "Id": "2412606308",
+         "GUID": "{2755847D-8416-4E6C-ACC8-269AFC39A66C}",
+         "Color": "4"
+        },
+        "MediaRefs": [
+         {
+          "Id": "159950979"
+         },
+         {
+          "Id": "317284633"
+         },
+         {
+          "Id": "356752321"
+         },
+         {
+          "Id": "539628765"
+         },
+         {
+          "Id": "957998491"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2385628198",
          "Id": "2185786256",
          "GUID": "{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}",
          "Color": "4"
@@ -1005,6 +1187,32 @@
          },
          {
           "Id": "933442325"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2385628198",
+         "Id": "1216965916",
+         "GUID": "{5104A4E7-11F5-4A8E-8AAA-50041BC30174}",
+         "Color": "4"
+        },
+        "MediaRefs": [
+         {
+          "Id": "326821939"
+         },
+         {
+          "Id": "482333988"
+         },
+         {
+          "Id": "731829933"
+         },
+         {
+          "Id": "738309536"
+         },
+         {
+          "Id": "768800741"
          }
         ]
        },
@@ -1039,6 +1247,32 @@
         "SwitchValue": {
          "GroupType": "Switch",
          "GroupId": "2385628198",
+         "Id": "3444057113",
+         "GUID": "{90855E00-BFA0-425F-AD24-E46A39BB75DF}",
+         "Color": "4"
+        },
+        "MediaRefs": [
+         {
+          "Id": "73786102"
+         },
+         {
+          "Id": "327799368"
+         },
+         {
+          "Id": "475289345"
+         },
+         {
+          "Id": "782278300"
+         },
+         {
+          "Id": "990165411"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2385628198",
          "Id": "2195636714",
          "GUID": "{F98DCB64-B7BA-4C42-925A-7E93F670A40B}",
          "Color": "4"
@@ -1065,6 +1299,32 @@
         "SwitchValue": {
          "GroupType": "Switch",
          "GroupId": "2385628198",
+         "Id": "2412606308",
+         "GUID": "{2755847D-8416-4E6C-ACC8-269AFC39A66C}",
+         "Color": "4"
+        },
+        "MediaRefs": [
+         {
+          "Id": "159950979"
+         },
+         {
+          "Id": "317284633"
+         },
+         {
+          "Id": "356752321"
+         },
+         {
+          "Id": "539628765"
+         },
+         {
+          "Id": "957998491"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2385628198",
          "Id": "2185786256",
          "GUID": "{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}",
          "Color": "4"
@@ -1084,6 +1344,32 @@
          },
          {
           "Id": "933442325"
+         }
+        ]
+       },
+       {
+        "SwitchValue": {
+         "GroupType": "Switch",
+         "GroupId": "2385628198",
+         "Id": "1216965916",
+         "GUID": "{5104A4E7-11F5-4A8E-8AAA-50041BC30174}",
+         "Color": "4"
+        },
+        "MediaRefs": [
+         {
+          "Id": "326821939"
+         },
+         {
+          "Id": "482333988"
+         },
+         {
+          "Id": "731829933"
+         },
+         {
+          "Id": "738309536"
+         },
+         {
+          "Id": "768800741"
          }
         ]
        },
@@ -1133,6 +1419,27 @@
         "Name": "Carpet",
         "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps\\Carpet",
         "GUID": "{2755847D-8416-4E6C-ACC8-269AFC39A66C}",
+        "Color": "4"
+       }
+      ]
+     },
+     {
+      "Id": "3961435516",
+      "Name": "FootstepSwitch_Crystal",
+      "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\Player\\FootstepSwitch_Crystal",
+      "GUID": "{AE328D6B-8075-49CD-9427-BC4E2116A2F9}",
+      "Color": "8",
+      "MaxAttenuation": "0",
+      "DurationType": "OneShot",
+      "DurationMin": "0",
+      "DurationMax": "0",
+      "ActionSetSwitch": [
+       {
+        "GroupId": "2385628198",
+        "Id": "3444057113",
+        "Name": "Crystal",
+        "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps\\Crystal",
+        "GUID": "{90855E00-BFA0-425F-AD24-E46A39BB75DF}",
         "Color": "4"
        }
       ]
@@ -3155,7 +3462,14 @@
       "Name": "SFX",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX",
       "GUID": "{D7DCFCF4-6174-42C9-A688-3311FF539CFF}",
-      "Color": "16"
+      "Color": "16",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "357545847"
+        }
+       ]
+      }
      },
      {
       "Id": "447758751",
@@ -3277,6 +3591,13 @@
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\MX_VolumeSlider",
       "GUID": "{65898CF1-DE8E-415C-9204-C4CC04525D14}",
       "Color": "15"
+     },
+     {
+      "Id": "1883033791",
+      "Name": "SideChain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\SideChain",
+      "GUID": "{1CCC5BE5-26C3-412D-99E1-1FF35DC06A6D}",
+      "Color": "24"
      }
     ],
     "StateGroups": [
@@ -3485,12 +3806,19 @@
         "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps\\Carpet",
         "GUID": "{2755847D-8416-4E6C-ACC8-269AFC39A66C}",
         "Color": "4"
+       },
+       {
+        "Id": "3444057113",
+        "Name": "Crystal",
+        "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps\\Crystal",
+        "GUID": "{90855E00-BFA0-425F-AD24-E46A39BB75DF}",
+        "Color": "4"
        }
       ]
      }
     ]
    }
   ],
-  "FileHash": "{ABE7AC24-525D-3FBE-1873-AE04347506E7}"
+  "FileHash": "{353EA914-B4E9-C1C8-DC4B-53A95334CA3F}"
  }
 }

@@ -10,11 +10,21 @@
     "Type": "User",
     "GUID": "{701ECBBD-9C7B-4030-8CDB-749EE5D1C7B9}",
     "Language": "SFX",
-    "Hash": "{5CF8A81F-2B98-8352-8380-5795290BAB3F}",
+    "Hash": "{43D4DD57-E80E-B7FE-4B47-7598A91C9FB2}",
     "ObjectPath": "Init",
     "ShortName": "Init",
     "Path": "Init.bnk",
     "Plugins": {
+     "Custom": [
+      {
+       "Id": "357545847",
+       "Name": "Meter (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX\\[Effect Slot [0]: (Meter)]\\Meter (Custom)",
+       "GUID": "{C9FF426E-23FA-491E-9DA4-7E6AB46BCAF7}",
+       "LibName": "Wwise Meter",
+       "LibId": "8454147"
+      }
+     ],
      "ShareSets": [
       {
        "Id": "701863527",
@@ -58,7 +68,14 @@
       "Name": "SFX",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\SFX",
       "GUID": "{D7DCFCF4-6174-42C9-A688-3311FF539CFF}",
-      "Color": "16"
+      "Color": "16",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "357545847"
+        }
+       ]
+      }
      },
      {
       "Id": "447758751",
@@ -180,6 +197,13 @@
       "ObjectPath": "\\Game Parameters\\Default Work Unit\\MX_VolumeSlider",
       "GUID": "{65898CF1-DE8E-415C-9204-C4CC04525D14}",
       "Color": "15"
+     },
+     {
+      "Id": "1883033791",
+      "Name": "SideChain",
+      "ObjectPath": "\\Game Parameters\\Default Work Unit\\SideChain",
+      "GUID": "{1CCC5BE5-26C3-412D-99E1-1FF35DC06A6D}",
+      "Color": "24"
      }
     ],
     "StateGroups": [
@@ -388,12 +412,19 @@
         "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps\\Carpet",
         "GUID": "{2755847D-8416-4E6C-ACC8-269AFC39A66C}",
         "Color": "4"
+       },
+       {
+        "Id": "3444057113",
+        "Name": "Crystal",
+        "ObjectPath": "\\Switches\\SFX_Koyo\\Footsteps\\Footsteps\\Crystal",
+        "GUID": "{90855E00-BFA0-425F-AD24-E46A39BB75DF}",
+        "Color": "4"
        }
       ]
      }
     ]
    }
   ],
-  "FileHash": "{97B40752-8FF1-7266-1FD1-0164AD219245}"
+  "FileHash": "{A06E1658-9B54-0290-21F1-98C59C39EF0B}"
  }
 }

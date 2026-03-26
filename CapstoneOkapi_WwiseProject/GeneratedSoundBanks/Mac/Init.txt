@@ -13,6 +13,7 @@ State	ID	Name	State Group			Notes
 	1497216466	Fight_2	mx_Level			
 	1606094870	Overworld_Picnic	mx_Level			
 	1903993387	Overworld_Cave	mx_Level			
+	2201105581	Credits	mx_Level			
 	3604647259	MainMenu	mx_Level			
 	3762955427	Tutorial	mx_Level			
 	748895195	None	MX_Fight_Admin			
@@ -29,6 +30,7 @@ State	ID	Name	State Group			Notes
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	250326712	SFX_VolumeSlider			\Default Work Unit\SFX_VolumeSlider	
 	1211830472	MX_VolumeSlider			\Default Work Unit\MX_VolumeSlider	
+	1883033791	SideChain			\Default Work Unit\SideChain	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
@@ -45,6 +47,7 @@ Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	2643443281	CaveVerb			\Default Work Unit\Master Audio Bus\CaveVerb	
 
 Effect plug-ins	ID	Name	Type				Notes
+	357545847	Meter (Custom)	Wwise Meter			
 	701863527	Inside_My_Head	Wwise RoomVerb			
 	3216246379	Space_Dreaming	Wwise RoomVerb			
 

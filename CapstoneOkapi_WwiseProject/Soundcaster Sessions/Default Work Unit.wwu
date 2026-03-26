@@ -273,6 +273,10 @@
 							<Position X="1" Y="2"/>
 						</Module>
 						<Module>
+							<ObjectRef Name="FootstepSwitch_Crystal" ID="{AE328D6B-8075-49CD-9427-BC4E2116A2F9}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="2" Y="1"/>
+						</Module>
+						<Module>
 							<ObjectRef Name="FootstepSwitch_Stone" ID="{3921BE29-0B57-4324-A72E-E47AF39311F3}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="2" Y="2"/>
 						</Module>
@@ -318,6 +322,61 @@
 						<Module>
 							<ObjectRef Name="Dialogue_End" ID="{88B4B94B-C817-45A6-BA45-2742704EF3FD}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="2" Y="2"/>
+						</Module>
+					</ModuleList>
+					<RTPCValueList ShowAll="true"/>
+					<CurrentStateList ShowAll="true"/>
+					<CurrentSwitchList ShowAll="true"/>
+				</SoundcasterSession>
+				<SoundcasterSession Name="SideChain_Tester" ID="{A4C49AB0-529B-49A2-816A-57C2102C4215}">
+					<ModuleList>
+						<Module>
+							<ObjectRef Name="Cave_Affected" ID="{2F97C485-75A7-4616-B849-8B826FA58D4D}" WorkUnitID="{AC643B42-EBD6-4685-86D1-5E6A8B9F3494}"/>
+							<Position X="0" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_StartGame" ID="{955E3FDE-541F-48B3-82FF-EA76D3AF8461}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="0" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Hover" ID="{E44F3A39-6B53-4663-B9EA-E9D4491AB88E}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="0" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Footsteps" ID="{3824A5FD-33FD-4A31-ADC9-1911C541563F}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="0" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Cave_Unaffected" ID="{5AACF0D4-FF64-4F62-B19F-BE4DE6341B5A}" WorkUnitID="{AC643B42-EBD6-4685-86D1-5E6A8B9F3494}"/>
+							<Position X="1" Y="0"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="mx_EnterCredits" ID="{2610664D-55BB-4C4B-8860-15160B95B657}" WorkUnitID="{234CB52D-4E3D-4DAB-A753-08251D8FCF51}"/>
+							<Position X="1" Y="1"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Select" ID="{402B5382-5422-4494-9162-07157B8D762D}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="1" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Parry_Action" ID="{D6A8339A-118C-4788-AD2B-B812A63A3D49}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="1" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="UI_Start_Combat" ID="{FCA4AEF1-384C-42D6-B316-6E862FD35EFB}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="2" Y="2"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Parry_Success" ID="{824D9EC9-4A01-41DA-8BC5-E72D01F8E4EC}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="2" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Power_UP" ID="{956745D9-FFE6-479C-91DE-60570F2B8559}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="3" Y="3"/>
+						</Module>
+						<Module>
+							<ObjectRef Name="Powered_Attack" ID="{125FB123-4CAD-44A0-87CC-4524964E4BB3}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<Position X="4" Y="3"/>
 						</Module>
 					</ModuleList>
 					<RTPCValueList ShowAll="true"/>

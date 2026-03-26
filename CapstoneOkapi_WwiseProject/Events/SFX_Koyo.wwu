@@ -213,6 +213,20 @@
 										</Action>
 									</ChildrenList>
 								</Event>
+								<Event Name="FootstepSwitch_Crystal" ID="{AE328D6B-8075-49CD-9427-BC4E2116A2F9}">
+									<ChildrenList>
+										<Action Name="" ID="{E26B6221-6206-41FF-A4A4-3AB57857940B}" ShortID="483218482">
+											<PropertyList>
+												<Property Name="ActionType" Type="int16" Value="23"/>
+											</PropertyList>
+											<ReferenceList>
+												<Reference Name="Target">
+													<ObjectRef Name="Crystal" ID="{90855E00-BFA0-425F-AD24-E46A39BB75DF}" WorkUnitID="{D501C5FC-1452-42C3-A302-D83A9982F762}"/>
+												</Reference>
+											</ReferenceList>
+										</Action>
+									</ChildrenList>
+								</Event>
 							</ChildrenList>
 						</Folder>
 						<Folder Name="Enemy" ID="{B5D0D3C9-C656-48C2-A422-729713EE42CD}" ShortID="595285759">
