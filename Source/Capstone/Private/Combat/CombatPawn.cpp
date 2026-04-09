@@ -224,6 +224,16 @@ void ACombatPawn::Tick(float DeltaTime)
 	if (Grid)
 	{
 		int32 Damage = Grid->DamageAtTile(CurrentPosition);
+
+		if (bIsTwoByTwo) //if pawn is 2x2, check damage taken at all 4 tiles, only take damage from one tile if multiple are dealing damage
+		{
+			int32 Dam1 = Grid->DamageAtTile(CurrentPosition);
+			int32 Dam2 = Grid->DamageAtTile(FGridPosition(CurrentPosition.x + 1, CurrentPosition.y));
+			int32 Dam3 = Grid->DamageAtTile(FGridPosition(CurrentPosition.x, CurrentPosition.y + 1));
+			int32 Dam4 = Grid->DamageAtTile(FGridPosition(CurrentPosition.x + 1, CurrentPosition.y + 1));
+			Damage = std::max({ Dam1, Dam2, Dam3, Dam4 });
+		}
+
 		if (Damage != 0 && Vulnerable && !bIsFrozen)
 		{
 			bool bHitParryable = Grid->IsParriableAtTile(CurrentPosition);
@@ -437,7 +447,15 @@ void ACombatPawn::PlayDeathMontage(FName Section)
 }
 
 void ACombatPawn::ReturnToCenter() {
-	FGridPosition Center = FGridPosition(1 + (IsPlayer ? 0 : Grid->GetWidth() / 2), 1);
+	FGridPosition Center;
+	if (bIsTwoByTwo)
+	{
+		Center = FGridPosition(1 + (IsPlayer ? 0 : Grid->GetWidth() / 2) - 1, 1);
+	}
+	else
+	{
+		Center = FGridPosition(1 + (IsPlayer ? 0 : Grid->GetWidth() / 2), 1);
+	}
 	ForceMove(FVector2D(Center.x - CurrentPosition.x, Center.y - CurrentPosition.y));
 }
 

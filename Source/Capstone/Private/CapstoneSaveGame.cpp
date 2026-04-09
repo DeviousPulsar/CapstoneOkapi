@@ -16,6 +16,7 @@ void UCapstoneSaveGame::Initialize()
     SaveRotation = FQuat();
     ConsumedTriggers.Empty();
     Difficulty = 1;
+    FearsFaced = 0;
 };
 
 void UCapstoneSaveGame::Reset() 
@@ -64,4 +65,12 @@ bool UCapstoneSaveGame::IsConsumed(FName Id) const
 void UCapstoneSaveGame::Consume(FName Id)
 {
     ConsumedTriggers.Add(Id);
+}
+
+void UCapstoneSaveGame::LogFearFaced(){
+    FearsFaced++;
+}
+
+int UCapstoneSaveGame::GetFearFaced(){
+    return FearsFaced;
 }

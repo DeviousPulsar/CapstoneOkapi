@@ -65,6 +65,9 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Pawn Information")
 	float InvTime;
 
+	UPROPERTY(EditAnywhere, Category = "Pawn Information")
+	bool bIsTwoByTwo = false;
+
 	UPROPERTY(EditAnywhere, Category = "Parry")
 	float ParryWindow;
 

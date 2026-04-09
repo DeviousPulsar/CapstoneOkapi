@@ -88,32 +88,58 @@ void ACombatEnemy::MoveRandomOnGrid()
 	ACombatPawn* PlayerCombat = Cast<ACombatPawn>(PlayerPawn);
 
 	int PlayerPosY = PlayerCombat->GetPosition().y;
+	int EnemyPosX = GetPosition().x;
 	int EnemyPosY = GetPosition().y;
 	// Randomly add or subtract 1 to X 
 	int32 RandX = FMath::RandRange(-MoveRange, MoveRange);
 	int32 RandY = FMath::RandRange(-MoveRange, MoveRange);
 
-	int32 dY = RandY;
+	int GridBoundX = Grid->GetWidth() - 1;
+	int GridBoundY = Grid->GetHeight() - 1;
 
-	if (EnemyPosY == PlayerPosY)
+	int32 dY = RandY;
+	
+	if (!bIsTwoByTwo)
 	{
-		int32 Step = FMath::Max(1, MoveRange);
-		if (EnemyPosY > 1)
+		if (EnemyPosY == PlayerPosY)
 		{
-			dY = -Step;
+			int32 Step = FMath::Max(1, MoveRange);
+			if (EnemyPosY == GridBoundY)
+			{
+				dY = -Step;
+			}
+			else if (EnemyPosY == 0)
+			{
+				dY = Step;
+			}
+			else
+			{
+				/*dY = (FMath::RandBool() ? FMath::Max(1, MoveRange) : -FMath::Max(1, MoveRange));*/
+				dY = FMath::RandBool() ? Step : -Step;
+			}
 		}
-		if (EnemyPosY < 1)
+	}
+	else //if 2x2 adjust new position so we don't move enemy off the grid
+	{
+		if (EnemyPosY == PlayerPosY || EnemyPosY + 1 == PlayerPosY)
 		{
-			dY = Step;
-		}
-		if (EnemyPosY == 1)
-		{
-			/*dY = (FMath::RandBool() ? FMath::Max(1, MoveRange) : -FMath::Max(1, MoveRange));*/
-			dY = FMath::RandBool() ? Step : -Step;
+			int32 Step = FMath::Max(1, MoveRange);
+			if (EnemyPosY + 1 == GridBoundY)
+			{
+				dY = -Step;
+			}
+			else if (EnemyPosY == 0)
+			{
+				dY = Step;
+			}
+			else
+			{
+				dY = FMath::RandBool() ? Step : -Step;
+			}
 		}
 	}
 
-	FVector2D NewLocation(RandX, dY);
+	FVector2D NewLocation = FVector2D(RandX, dY);
 	Move(NewLocation);
 }
 

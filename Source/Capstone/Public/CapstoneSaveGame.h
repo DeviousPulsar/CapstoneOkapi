@@ -25,6 +25,9 @@ class CAPSTONE_API UCapstoneSaveGame : public USaveGame
 	UPROPERTY(VisibleAnywhere, Category = "Gameplay")
 	TSet<FName> ConsumedTriggers;
 
+	UPROPERTY(VisibleAnywhere, Category = "Gameplay")
+	int FearsFaced;
+
 public:
 
 	UPROPERTY(VisibleAnywhere, BlueprintReadWrite, Category = "Audio Settings")
@@ -71,4 +74,10 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void Consume(FName Id);
+
+	UFUNCTION(BlueprintCallable)
+	void LogFearFaced();
+
+	UFUNCTION(BlueprintCallable)
+	int GetFearFaced();
 };
