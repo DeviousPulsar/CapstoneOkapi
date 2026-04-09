@@ -21,8 +21,9 @@
 						<State Name="Overworld_Cave" ID="{22C4CE79-D293-4658-A52F-17F7E18ED7BD}"/>
 						<State Name="Fight_1" ID="{B9D400EB-5FA0-4D23-A9DA-241104CCEB8D}"/>
 						<State Name="Fight_2" ID="{CAFB8504-7D4B-4B22-B84E-73BEA8AFDECA}"/>
-						<State Name="Fight_3" ID="{33D88523-AF4B-4A5A-8B89-F34C9A7EBE7F}"/>
+						<State Name="Fight_World" ID="{33D88523-AF4B-4A5A-8B89-F34C9A7EBE7F}"/>
 						<State Name="Lose" ID="{33EC8F36-82C3-4408-BFA1-B16B1D573B1B}"/>
+						<State Name="Credits" ID="{F486CA5A-2636-433B-A691-C95099457FA1}"/>
 					</ChildrenList>
 				</StateGroup>
 				<StateGroup Name="MX_Fight_Admin" ID="{021E9FB2-16A2-40B7-BF40-138A1A5A9F2C}">
@@ -30,6 +31,17 @@
 						<State Name="None" ID="{DB8AC5DC-48EF-4573-9A47-DB423649F074}"/>
 						<State Name="Start" ID="{3EFDA861-5D72-463C-9168-2A6038969BCA}"/>
 						<State Name="Win" ID="{3AA3C406-052A-4B98-B0FA-ED76C6D78559}"/>
+					</ChildrenList>
+				</StateGroup>
+				<StateGroup Name="BUS_CaveReverb" ID="{8F5D4379-B227-46A3-B2B5-7A25157E7DA2}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="24"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+					</PropertyList>
+					<ChildrenList>
+						<State Name="None" ID="{2B47AEBA-4EEC-4E2A-BDAB-C741A2D3C50C}"/>
+						<State Name="Affected" ID="{C8C9D897-81CE-474C-B5D3-8467906AF7C0}"/>
+						<State Name="Unaffected" ID="{0E42733C-E461-4C0A-B801-63A3B81070A2}"/>
 					</ChildrenList>
 				</StateGroup>
 			</ChildrenList>

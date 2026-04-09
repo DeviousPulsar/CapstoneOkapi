@@ -2,16 +2,18 @@ State Group	ID	Name			Wwise Object Path	Notes
 	6452437	mx_Level			\Default Work Unit\mx_Level	
 	437528237	MX_Fight_Admin			\Default Work Unit\MX_Fight_Admin	
 	1093972631	MX_Fight_Layer			\Default Work Unit\MX_Fight_Layer	
+	2192315551	BUS_CaveReverb			\Default Work Unit\BUS_CaveReverb	
 
 State	ID	Name	State Group			Notes
 	221232726	Lose	mx_Level			
 	676302600	Overworld_House	mx_Level			
 	748895195	None	mx_Level			
+	1384576204	Fight_World	mx_Level			
 	1497216465	Fight_1	mx_Level			
 	1497216466	Fight_2	mx_Level			
-	1497216467	Fight_3	mx_Level			
 	1606094870	Overworld_Picnic	mx_Level			
 	1903993387	Overworld_Cave	mx_Level			
+	2201105581	Credits	mx_Level			
 	3604647259	MainMenu	mx_Level			
 	3762955427	Tutorial	mx_Level			
 	748895195	None	MX_Fight_Admin			
@@ -21,23 +23,33 @@ State	ID	Name	State Group			Notes
 	1108951413	In_Dialogue	MX_Fight_Layer			
 	1494125218	In_Prep	MX_Fight_Layer			
 	2116791127	In_Combat	MX_Fight_Layer			
+	474259756	Unaffected	BUS_CaveReverb			
+	748895195	None	BUS_CaveReverb			
+	4214371589	Affected	BUS_CaveReverb			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	250326712	SFX_VolumeSlider			\Default Work Unit\SFX_VolumeSlider	
 	1211830472	MX_VolumeSlider			\Default Work Unit\MX_VolumeSlider	
+	1883033791	SideChain			\Default Work Unit\SideChain	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	393239870	SFX			\Default Work Unit\Master Audio Bus\SFX	
-	1551306167	UI			\Default Work Unit\Master Audio Bus\SFX\UI	
+	447758751	Affected_Cave			\Default Work Unit\Master Audio Bus\SFX\Affected_Cave	
+	474259756	Unaffected			\Default Work Unit\Master Audio Bus\SFX\Unaffected	
+	1551306167	UI			\Default Work Unit\Master Audio Bus\SFX\Affected_Cave\UI	
 	1685527054	MX			\Default Work Unit\Master Audio Bus\MX	
-	3657263530	Verb			\Default Work Unit\Master Audio Bus\SFX\Verb	
+	2123891029	Popup			\Default Work Unit\Master Audio Bus\SFX\Affected_Cave\UI\Popup	
+	2158862175	Attack_Verb			\Default Work Unit\Master Audio Bus\SFX\Affected_Cave\Attack_Verb	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	402158015	NightmareVerb			\Default Work Unit\Master Audio Bus\NightmareVerb	
+	2643443281	CaveVerb			\Default Work Unit\Master Audio Bus\CaveVerb	
 
 Effect plug-ins	ID	Name	Type				Notes
+	357545847	Meter (Custom)	Wwise Meter			
 	701863527	Inside_My_Head	Wwise RoomVerb			
+	3216246379	Space_Dreaming	Wwise RoomVerb			
 
 Audio Devices	ID	Name	Type				Notes
 	2317455096	No_Output	No Output			

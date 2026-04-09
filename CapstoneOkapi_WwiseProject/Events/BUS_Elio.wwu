@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{AC643B42-EBD6-4685-86D1-5E6A8B9F3494}" SchemaVersion="123">
+	<Events>
+		<WorkUnit Name="BUS_Elio" ID="{AC643B42-EBD6-4685-86D1-5E6A8B9F3494}" PersistMode="Standalone">
+			<PropertyList>
+				<Property Name="Color" Type="int16" Value="24"/>
+				<Property Name="OverrideColor" Type="bool" Value="True"/>
+			</PropertyList>
+			<ChildrenList>
+				<Event Name="Cave_Affected" ID="{2F97C485-75A7-4616-B849-8B826FA58D4D}">
+					<ChildrenList>
+						<Action Name="" ID="{B0F091BF-FC04-4BA1-96BC-1B869C42A8ED}" ShortID="76359621">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Affected" ID="{C8C9D897-81CE-474C-B5D3-8467906AF7C0}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+				<Event Name="Cave_Unaffected" ID="{5AACF0D4-FF64-4F62-B19F-BE4DE6341B5A}">
+					<ChildrenList>
+						<Action Name="" ID="{493C4F64-5F28-4A58-99D8-9A57C70ED620}" ShortID="159846627">
+							<PropertyList>
+								<Property Name="ActionType" Type="int16" Value="22"/>
+							</PropertyList>
+							<ReferenceList>
+								<Reference Name="Target">
+									<ObjectRef Name="Unaffected" ID="{0E42733C-E461-4C0A-B801-63A3B81070A2}" WorkUnitID="{32A4F5B0-A2FA-4162-AE26-1F1A5843350E}"/>
+								</Reference>
+							</ReferenceList>
+						</Action>
+					</ChildrenList>
+				</Event>
+			</ChildrenList>
+		</WorkUnit>
+	</Events>
+</WwiseDocument>

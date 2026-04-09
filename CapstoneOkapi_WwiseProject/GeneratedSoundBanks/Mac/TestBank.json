@@ -11,7 +11,7 @@
     "GUID": "{FF2B87E6-D137-4A41-893C-B35E8C5E9C58}",
     "Color": "27",
     "Language": "SFX",
-    "Hash": "{30706B35-2B1F-8955-AC00-3C57C153D66B}",
+    "Hash": "{A5E547CD-EDA9-0998-39B7-4C9196E8E339}",
     "ObjectPath": "\\SoundBanks\\IntegrationTest\\TestBank",
     "ShortName": "TestBank",
     "Path": "TestBank.bnk",
@@ -22,7 +22,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "viktornation.wav",
-      "CachePath": "7F/{7FFC3F50-214E-5AA0-5D96-FA231B947CF8}.wem"
+      "CachePath": "7A/{7A1146B7-36EA-7940-0F79-1861F3313829}.wem"
      },
      {
       "Id": "708496583",
@@ -30,7 +30,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "jaybe.wav",
-      "CachePath": "9A/{9AC4C22A-CF0A-B29A-713B-F68BCF6EC1FA}.wem"
+      "CachePath": "52/{52F65D42-CFCB-7D95-8457-6AC1319E6CF6}.wem"
      }
     ],
     "Events": [
@@ -55,6 +55,6 @@
     ]
    }
   ],
-  "FileHash": "{5B6898E0-EC4D-4370-E8D8-B35ED37109BF}"
+  "FileHash": "{A6A2839B-B2E6-0A5B-C0CB-10AB5767F354}"
  }
 }

@@ -14,6 +14,9 @@
 								<Switch Name="Dirt" ID="{F98DCB64-B7BA-4C42-925A-7E93F670A40B}"/>
 								<Switch Name="Gravel" ID="{FBFFB5D4-79DA-465B-8ABC-B9D4594D839B}"/>
 								<Switch Name="Wood" ID="{0C8C24ED-553D-4101-82B6-8BDC72FAA041}"/>
+								<Switch Name="Carpet" ID="{2755847D-8416-4E6C-ACC8-269AFC39A66C}"/>
+								<Switch Name="Stone" ID="{5104A4E7-11F5-4A8E-8AAA-50041BC30174}"/>
+								<Switch Name="Crystal" ID="{90855E00-BFA0-425F-AD24-E46A39BB75DF}"/>
 							</ChildrenList>
 						</SwitchGroup>
 					</ChildrenList>

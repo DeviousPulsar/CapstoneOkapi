@@ -25,6 +25,17 @@
 						<Property Name="SlewRateUp" Type="Real64" Value="5"/>
 					</PropertyList>
 				</GameParameter>
+				<GameParameter Name="SideChain" ID="{1CCC5BE5-26C3-412D-99E1-1FF35DC06A6D}">
+					<PropertyList>
+						<Property Name="Color" Type="int16" Value="24"/>
+						<Property Name="InitialValue" Type="Real64" Value="-48"/>
+						<Property Name="Max" Type="Real64" Value="0"/>
+						<Property Name="Min" Type="Real64" Value="-48"/>
+						<Property Name="OverrideColor" Type="bool" Value="True"/>
+						<Property Name="SlewRateDown" Type="Real64" Value="1"/>
+						<Property Name="SlewRateUp" Type="Real64" Value="0.2"/>
+					</PropertyList>
+				</GameParameter>
 			</ChildrenList>
 		</WorkUnit>
 	</GameParameters>
