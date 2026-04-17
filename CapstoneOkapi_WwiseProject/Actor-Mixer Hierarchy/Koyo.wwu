@@ -1940,7 +1940,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-24</Value>
+										<Value>-32</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

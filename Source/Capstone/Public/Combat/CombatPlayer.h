@@ -176,17 +176,12 @@ public:
 
 	/// WWISE ///
 	public:
-	UPROPERTY(EditAnywhere, Category = "Audio")
-	class UAkAudioEvent* ParryChargeEvent;
 
 	UPROPERTY(EditAnywhere, Category = "Audio")
 	class UAkAudioEvent* ParryAttackEvent;
 
 	UPROPERTY(EditAnywhere, Category = "Audio")
 	class UAkAudioEvent* AttackEvent;
-
-	UFUNCTION(BlueprintCallable, Category = "Audio")
-	void HandleCharge();
 
 	UFUNCTION(BlueprintCallable, Category = "Audio")
 	void HandleBuffAttack();

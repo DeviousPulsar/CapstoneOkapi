@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A0E27053-32A3-454F-8FBA-D178D463360E}",
     "Language": "SFX",
-    "Hash": "{0E93242E-241A-71E8-D164-5C71FC888555}",
+    "Hash": "{D98AD478-091D-5A03-7314-4E972D9B835C}",
     "ObjectPath": "\\SoundBanks\\Master Work Unit\\MASTER",
     "ShortName": "MASTER",
     "Path": "MASTER.bnk",
@@ -1020,8 +1020,8 @@
       "GUID": "{852B605C-6A5F-4FE5-A114-9C5B35E89679}",
       "Color": "13",
       "DurationType": "OneShot",
-      "DurationMin": "1.1333333",
-      "DurationMax": "1.1666666",
+      "DurationMin": "1.7333333",
+      "DurationMax": "1.7666667",
       "MediaRefs": [
        {
         "Id": "595652723"
@@ -3816,6 +3816,6 @@
     ]
    }
   ],
-  "FileHash": "{29FF279F-F9E0-2541-BD2A-4FF68B389F84}"
+  "FileHash": "{E1E3FD86-F692-EB67-9AF7-DC32A6DA2E22}"
  }
 }

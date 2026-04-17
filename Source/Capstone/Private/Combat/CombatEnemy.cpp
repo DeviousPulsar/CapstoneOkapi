@@ -75,6 +75,7 @@ void ACombatEnemy::Tick(float DeltaTime)
 			{
 				PlayAttackMontage();
 				auto val = CurrentSequence->ExecuteNext(Grid);
+				HandleExplosion();
 				LastAttackUseTime = val.UseTime;
 				LastAttackCooldown = val.Cooldown;
 
@@ -99,7 +100,6 @@ float ACombatEnemy::BeginEnemyAttack()
 	if (AttackSequences.Num() <= 0)
 	{
 		return 0;
-		HandleExplosion();
 	}
 
 	HasFinishedAttack = false;

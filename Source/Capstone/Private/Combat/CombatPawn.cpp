@@ -47,6 +47,19 @@ ACombatPawn::ACombatPawn()
 		UE_LOG(LogTemp, Error, TEXT("Failed to load PlayerMoveEvent asset"));
 	}
 
+	static ConstructorHelpers::FObjectFinder<UAkAudioEvent> ParryChargeEventAsset(
+		TEXT("/Game/WwiseAudio/Events/SFX_Koyo/SFX/Player/Parry_Success.Parry_Success")
+	);
+
+	if (ParryChargeEventAsset.Succeeded())
+	{
+		ParryChargeEvent = ParryChargeEventAsset.Object;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load ParryChargeEvent asset"));
+	}
+
 	//default values to fill state variables, may be overwritten with Initialize
 	CurrentPosition = FGridPosition();
 	CurrentPosition.x = 0;
@@ -270,6 +283,9 @@ void ACombatPawn::Tick(float DeltaTime)
 				//play invulnerable effect
 				ActivateEffect(InvulnerableComponent);
 				ActivateEffect(ParryBoostComponent);
+				// Post WWise Event
+				UE_LOG(LogTemp, Warning, TEXT("Parry Success - Posting Event"));
+				HandleCharge();
 			}
 			else
 			{
@@ -546,5 +562,23 @@ void ACombatPawn::HandleMove()
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("PlayerMoveEvent is NULL"));
+	}
+}
+
+void ACombatPawn::HandleCharge() 
+{
+	if (ParryChargeEvent)
+	{
+		UAkGameplayStatics::PostEvent(
+			ParryChargeEvent,
+			this,
+			0,
+			FOnAkPostEventCallback(),
+			true
+		);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("ParryChargeEvent is NULL"));
 	}
 }

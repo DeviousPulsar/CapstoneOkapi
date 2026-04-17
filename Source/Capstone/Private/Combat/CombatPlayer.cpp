@@ -17,19 +17,6 @@ ACombatPlayer::ACombatPlayer()
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
-	static ConstructorHelpers::FObjectFinder<UAkAudioEvent> ParryChargeEventAsset(
-		TEXT("/Game/WwiseAudio/Events/SFX_Koyo/SFX/Player/Parry_Success.Parry_Success")
-	);
-
-	if (ParryChargeEventAsset.Succeeded())
-	{
-		ParryChargeEvent = ParryChargeEventAsset.Object;
-	}
-	else
-	{
-		UE_LOG(LogTemp, Error, TEXT("Failed to load ParryChargeEvent asset"));
-	}
-
 	static ConstructorHelpers::FObjectFinder<UAkAudioEvent> ParryAttackEventAsset(
 		TEXT("/Game/WwiseAudio/Events/SFX_Koyo/SFX/Player/Powered_Attack.Powered_Attack")
 	);
@@ -232,6 +219,7 @@ void ACombatPlayer::AttackGrid(EPlayerAttacks Attack)
 	}
 
 	Grid->ExecuteAttack(AttackInstance, true);
+	HandleBuffAttack();
 	Grid->ClearPlayerPreview();
 
 	AttackCooldown = AttackInstance->Cooldown;
@@ -334,24 +322,6 @@ void ACombatPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	else
 	{
 		UE_LOG(LogTemp, Error, TEXT("'%s' Failed to find an Enhanced Input component!"), *GetNameSafe(this));
-	}
-}
-
-void ACombatPlayer::HandleCharge() 
-{
-	if (ParryChargeEvent)
-	{
-		UAkGameplayStatics::PostEvent(
-			ParryChargeEvent,
-			this,
-			0,
-			FOnAkPostEventCallback(),
-			true
-		);
-	}
-	else
-	{
-		UE_LOG(LogTemp, Warning, TEXT("ParryChargeEvent is NULL"));
 	}
 }
 
