@@ -102,6 +102,12 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Audio")
 	class UAkAudioEvent* EnemyMoveEvent;
 
+	UPROPERTY(EditAnywhere, Category = "Audio")
+	class UAkAudioEvent* ExplosionEvent;
+
 	UFUNCTION(BlueprintCallable, Category = "Audio")
 	void HandleMovement();
+
+	UFUNCTION(BlueprintCallable, Category = "Audio")
+	void HandleExplosion();
 };

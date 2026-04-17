@@ -30,6 +30,19 @@ ACombatEnemy::ACombatEnemy()
 	{
 		UE_LOG(LogTemp, Error, TEXT("Failed to load EnemyMoveEvent asset"));
 	}
+
+static ConstructorHelpers::FObjectFinder<UAkAudioEvent> ExplosionEventAsset(
+		TEXT("/Game/WwiseAudio/Events/SFX_Koyo/SFX/Enemy/Enemy_Attack.Enemy_Attack")
+	);
+
+	if (ExplosionEventAsset.Succeeded())
+	{
+		ExplosionEvent = ExplosionEventAsset.Object;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load ExplosionEvent asset"));
+	}
 }
 
 // Called when the game starts or when spawned
@@ -86,6 +99,7 @@ float ACombatEnemy::BeginEnemyAttack()
 	if (AttackSequences.Num() <= 0)
 	{
 		return 0;
+		HandleExplosion();
 	}
 
 	HasFinishedAttack = false;
@@ -239,5 +253,23 @@ void ACombatEnemy::HandleMovement()
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("EnemyMoveEvent is NULL"));
+	}
+}
+
+void ACombatEnemy::HandleExplosion() 
+{
+	if (ExplosionEvent)
+	{
+		UAkGameplayStatics::PostEvent(
+			ExplosionEvent,
+			this,
+			0,
+			FOnAkPostEventCallback(),
+			true
+		);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("ExplosionEvent is NULL"));
 	}
 }

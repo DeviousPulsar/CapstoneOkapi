@@ -34,6 +34,19 @@ ACombatPawn::ACombatPawn()
 		UE_LOG(LogTemp, Error, TEXT("Failed to load ParryEvent asset"));
 	}
 
+	static ConstructorHelpers::FObjectFinder<UAkAudioEvent> MoveEventAsset(
+		TEXT("/Game/WwiseAudio/Events/SFX_Koyo/SFX/Player/Move.Move")
+	);
+
+	if (MoveEventAsset.Succeeded())
+	{
+		MoveEvent = MoveEventAsset.Object;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load PlayerMoveEvent asset"));
+	}
+
 	//default values to fill state variables, may be overwritten with Initialize
 	CurrentPosition = FGridPosition();
 	CurrentPosition.x = 0;
@@ -98,6 +111,7 @@ void ACombatPawn::Move(FVector2D Vector) {
 	}
 
 	ForceMove(Vector);
+	HandleMove();
 }
 
 void ACombatPawn::UpPressed()
@@ -514,5 +528,23 @@ void ACombatPawn::HandleParry()
 	else
 	{
 		UE_LOG(LogTemp, Warning, TEXT("ParryEvent is NULL"));
+	}
+}
+
+void ACombatPawn::HandleMove() 
+{
+	if (MoveEvent)
+	{
+		UAkGameplayStatics::PostEvent(
+			MoveEvent,
+			this,
+			0,
+			FOnAkPostEventCallback(),
+			true
+		);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("PlayerMoveEvent is NULL"));
 	}
 }

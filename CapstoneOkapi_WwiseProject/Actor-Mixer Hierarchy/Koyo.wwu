@@ -1483,7 +1483,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-8</Value>
+										<Value>-12</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1624,6 +1624,11 @@
 						</Sound>
 						<Sound Name="Parry_Success" ID="{13F07209-BA30-4C4C-A36F-0317F4E13A95}" ShortID="742101843">
 							<PropertyList>
+								<Property Name="UserAuxSendVolume0" Type="Real64">
+									<ValueList>
+										<Value>-12</Value>
+									</ValueList>
+								</Property>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-6</Value>
@@ -1636,6 +1641,9 @@
 								</Reference>
 								<Reference Name="OutputBus">
 									<ObjectRef Name="Affected_Cave" ID="{B165B69E-2214-4169-9DDA-25DA4673C754}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+								</Reference>
+								<Reference Name="UserAuxSend0">
+									<ObjectRef Name="CaveVerb" ID="{58DE209F-2DFD-4695-AE90-8D726654B366}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -1932,7 +1940,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-18</Value>
+										<Value>-24</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

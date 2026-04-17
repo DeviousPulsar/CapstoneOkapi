@@ -45,7 +45,7 @@
 							<Position X="0" Y="1"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Power_UP" ID="{956745D9-FFE6-479C-91DE-60570F2B8559}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<ObjectRef Name="Parry_Success" ID="{824D9EC9-4A01-41DA-8BC5-E72D01F8E4EC}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="0" Y="2"/>
 						</Module>
 						<Module>
@@ -77,7 +77,7 @@
 							<Position X="2" Y="1"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Parry_Success" ID="{824D9EC9-4A01-41DA-8BC5-E72D01F8E4EC}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<ObjectRef Name="Parry_Action" ID="{D6A8339A-118C-4788-AD2B-B812A63A3D49}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="2" Y="2"/>
 						</Module>
 						<Module>
@@ -93,7 +93,7 @@
 							<Position X="3" Y="1"/>
 						</Module>
 						<Module>
-							<ObjectRef Name="Parry_Action" ID="{D6A8339A-118C-4788-AD2B-B812A63A3D49}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
+							<ObjectRef Name="Dialogue_Continue" ID="{3AA6D555-2521-410C-B0B3-5EDA83975B23}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="3" Y="2"/>
 						</Module>
 						<Module>
@@ -103,10 +103,6 @@
 						<Module>
 							<ObjectRef Name="UI_Start_Combat" ID="{FCA4AEF1-384C-42D6-B316-6E862FD35EFB}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="4" Y="0"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Dialogue_Continue" ID="{3AA6D555-2521-410C-B0B3-5EDA83975B23}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
-							<Position X="4" Y="1"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Dialogue_End" ID="{88B4B94B-C817-45A6-BA45-2742704EF3FD}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
@@ -369,10 +365,6 @@
 						<Module>
 							<ObjectRef Name="Parry_Success" ID="{824D9EC9-4A01-41DA-8BC5-E72D01F8E4EC}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
 							<Position X="2" Y="3"/>
-						</Module>
-						<Module>
-							<ObjectRef Name="Power_UP" ID="{956745D9-FFE6-479C-91DE-60570F2B8559}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>
-							<Position X="3" Y="3"/>
 						</Module>
 						<Module>
 							<ObjectRef Name="Powered_Attack" ID="{125FB123-4CAD-44A0-87CC-4524964E4BB3}" WorkUnitID="{7A5B02D9-4439-4050-A2A8-71688C617170}"/>

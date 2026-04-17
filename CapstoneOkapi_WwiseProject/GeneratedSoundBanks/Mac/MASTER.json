@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A0E27053-32A3-454F-8FBA-D178D463360E}",
     "Language": "SFX",
-    "Hash": "{DE3AC52F-1006-D741-E564-65395B06EA5F}",
+    "Hash": "{0E93242E-241A-71E8-D164-5C71FC888555}",
     "ObjectPath": "\\SoundBanks\\Master Work Unit\\MASTER",
     "ShortName": "MASTER",
     "Path": "MASTER.bnk",
@@ -3329,11 +3329,23 @@
       "GUID": "{824D9EC9-4A01-41DA-8BC5-E72D01F8E4EC}",
       "Color": "8",
       "DurationType": "OneShot",
-      "DurationMin": "0.93333334",
-      "DurationMax": "0.93333334",
+      "DurationMin": "12.05",
+      "DurationMax": "12.05",
       "MediaRefs": [
        {
+        "Id": "434068582"
+       },
+       {
         "Id": "844864469"
+       }
+      ],
+      "AuxBusRefs": [
+       {
+        "Id": "2643443281",
+        "Name": "CaveVerb",
+        "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\CaveVerb",
+        "GUID": "{58DE209F-2DFD-4695-AE90-8D726654B366}",
+        "Color": "24"
        }
       ]
      },
@@ -3347,21 +3359,6 @@
       "MediaRefs": [
        {
         "Id": "1015820244"
-       }
-      ]
-     },
-     {
-      "Id": "2455846824",
-      "Name": "Power_UP",
-      "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\Player\\Power_UP",
-      "GUID": "{956745D9-FFE6-479C-91DE-60570F2B8559}",
-      "Color": "8",
-      "DurationType": "OneShot",
-      "DurationMin": "12",
-      "DurationMax": "12",
-      "MediaRefs": [
-       {
-        "Id": "434068582"
        }
       ]
      },
@@ -3819,6 +3816,6 @@
     ]
    }
   ],
-  "FileHash": "{353EA914-B4E9-C1C8-DC4B-53A95334CA3F}"
+  "FileHash": "{DB2233EC-D7EA-78C5-F0F7-B1A7F1F1ECB9}"
  }
 }

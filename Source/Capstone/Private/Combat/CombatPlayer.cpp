@@ -7,11 +7,54 @@
 #include "EnhancedInputSubsystems.h"
 #include "InputActionValue.h"
 
+#include "AkGameplayStatics.h"
+#include "UObject/ConstructorHelpers.h"
+#include "AkAudioEvent.h"
+
 // Sets default values
 ACombatPlayer::ACombatPlayer()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	static ConstructorHelpers::FObjectFinder<UAkAudioEvent> ParryChargeEventAsset(
+		TEXT("/Game/WwiseAudio/Events/SFX_Koyo/SFX/Player/Parry_Success.Parry_Success")
+	);
+
+	if (ParryChargeEventAsset.Succeeded())
+	{
+		ParryChargeEvent = ParryChargeEventAsset.Object;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load ParryChargeEvent asset"));
+	}
+
+	static ConstructorHelpers::FObjectFinder<UAkAudioEvent> ParryAttackEventAsset(
+		TEXT("/Game/WwiseAudio/Events/SFX_Koyo/SFX/Player/Powered_Attack.Powered_Attack")
+	);
+
+	if (ParryAttackEventAsset.Succeeded())
+	{
+		ParryAttackEvent = ParryAttackEventAsset.Object;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load ParryAttackEvent asset"));
+	}
+
+	static ConstructorHelpers::FObjectFinder<UAkAudioEvent> AttackEventAsset(
+		TEXT("/Game/WwiseAudio/Events/SFX_Koyo/SFX/Player/Attack.Attack")
+	);
+
+	if (AttackEventAsset.Succeeded())
+	{
+		AttackEvent = AttackEventAsset.Object;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load AttackEvent asset"));
+	}
 
 	//default values
 	TimeSinceAttack = 10.0f;
@@ -257,6 +300,7 @@ void ACombatPlayer::Move(const FInputActionValue& Value)
 void ACombatPlayer::Attack()
 {
 	AttackGrid(LeftClickAttack);
+	HandleAttack();
 }
 
 void ACombatPlayer::Parry()
@@ -290,5 +334,59 @@ void ACombatPlayer::SetupPlayerInputComponent(UInputComponent* PlayerInputCompon
 	else
 	{
 		UE_LOG(LogTemp, Error, TEXT("'%s' Failed to find an Enhanced Input component!"), *GetNameSafe(this));
+	}
+}
+
+void ACombatPlayer::HandleCharge() 
+{
+	if (ParryChargeEvent)
+	{
+		UAkGameplayStatics::PostEvent(
+			ParryChargeEvent,
+			this,
+			0,
+			FOnAkPostEventCallback(),
+			true
+		);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("ParryChargeEvent is NULL"));
+	}
+}
+
+void ACombatPlayer::HandleBuffAttack() 
+{
+	if (ParryAttackEvent)
+	{
+		UAkGameplayStatics::PostEvent(
+			ParryAttackEvent,
+			this,
+			0,
+			FOnAkPostEventCallback(),
+			true
+		);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("ParryAttackEvent is NULL"));
+	}
+}
+
+void ACombatPlayer::HandleAttack() 
+{
+	if (AttackEvent)
+	{
+		UAkGameplayStatics::PostEvent(
+			AttackEvent,
+			this,
+			0,
+			FOnAkPostEventCallback(),
+			true
+		);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("AttackEvent is NULL"));
 	}
 }

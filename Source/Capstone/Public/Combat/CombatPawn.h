@@ -258,6 +258,12 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Audio")
 	class UAkAudioEvent* ParryEvent;
 
+	UPROPERTY(EditAnywhere, Category = "Audio")
+	class UAkAudioEvent* MoveEvent;
+
 	UFUNCTION(BlueprintCallable, Category = "Audio")
 	void HandleParry();
+
+	UFUNCTION(BlueprintCallable, Category = "Audio")
+	void HandleMove();
 };

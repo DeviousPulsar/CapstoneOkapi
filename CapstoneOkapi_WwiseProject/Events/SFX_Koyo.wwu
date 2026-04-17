@@ -69,14 +69,11 @@
 												</Reference>
 											</ReferenceList>
 										</Action>
-									</ChildrenList>
-								</Event>
-								<Event Name="Power_UP" ID="{956745D9-FFE6-479C-91DE-60570F2B8559}">
-									<ChildrenList>
-										<Action Name="" ID="{4EC1494D-D3E7-46F2-A2AC-2FCED6C9557F}" ShortID="570508902">
+										<Action Name="" ID="{2C5259D9-F9E7-4FD2-8498-11C88C9C4026}" ShortID="758812140">
 											<PropertyList>
+												<Property Name="Delay" Type="Real64" Value="0.05"/>
 												<Property Name="FadeInCurve" Type="int16" Value="2"/>
-												<Property Name="FadeTime" Type="Real64" Value="0.2"/>
+												<Property Name="FadeTime" Type="Real64" Value="1"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">

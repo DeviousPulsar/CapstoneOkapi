@@ -24,7 +24,6 @@ Event	ID	Name			Wwise Object Path	Notes
 	2228977358	mx_EnterOW_House			\MX_Miles\LEVELS\mx_EnterOW_House	
 	2278722474	Parry_Action			\SFX_Koyo\SFX\Player\Parry_Action	
 	2385628198	Footsteps			\SFX_Koyo\SFX\Player\Footsteps	
-	2455846824	Power_UP			\SFX_Koyo\SFX\Player\Power_UP	
 	2472011743	FootstepSwitch_Carpet			\SFX_Koyo\SFX\Player\FootstepSwitch_Carpet	
 	2541905717	mx_Fight_PhaseCOMBAT			\MX_Miles\FIGHTS\mx_Fight_PhaseCOMBAT	
 	2598498736	mx_Fight_PhasePREP			\MX_Miles\FIGHTS\mx_Fight_PhasePREP	
