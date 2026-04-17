@@ -7,6 +7,7 @@
 #include "CombatPawn.h"
 #include "BattleGrid.h"
 #include "GridPosition.h"
+#include "AkAudioEvent.h"
 #include "CombatEnemy.generated.h"
 
 class UAttackSequence;
@@ -96,4 +97,11 @@ public:
 
 	UFUNCTION(BlueprintCallable)
 	void BeginParry();
+
+public:
+	UPROPERTY(EditAnywhere, Category = "Audio")
+	class UAkAudioEvent* EnemyMoveEvent;
+
+	UFUNCTION(BlueprintCallable, Category = "Audio")
+	void HandleMovement();
 };

@@ -9,6 +9,7 @@
 #include "NiagaraComponent.h"
 #include "NiagaraSystem.h"
 #include "GameFramework/Pawn.h"
+#include "AkAudioEvent.h"
 #include "CombatPawn.generated.h"
 
 class UAnimMontage;
@@ -251,4 +252,12 @@ protected:
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
+
+	// WWISE //
+public:
+	UPROPERTY(EditAnywhere, Category = "Audio")
+	class UAkAudioEvent* ParryEvent;
+
+	UFUNCTION(BlueprintCallable, Category = "Audio")
+	void HandleParry();
 };

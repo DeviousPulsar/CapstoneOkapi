@@ -8,6 +8,7 @@
 #include "GridPosition.h"
 #include "CombatPawn.h"
 #include "BattleGrid.h"
+#include "AkAudioEvent.h"
 #include "CombatPlayer.generated.h"
 
 class UInputAction;

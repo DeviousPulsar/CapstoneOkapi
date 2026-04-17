@@ -8,11 +8,28 @@
 #include "TimerManager.h"
 #include "Kismet/GameplayStatics.h"
 
+#include "AkGameplayStatics.h"
+#include "UObject/ConstructorHelpers.h"
+#include "AkAudioEvent.h"
+
 // Sets default values
 ACombatEnemy::ACombatEnemy()
 {
 	// Set this actor to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	static ConstructorHelpers::FObjectFinder<UAkAudioEvent> EnemyMoveEventAsset(
+		TEXT("/Game/WwiseAudio/Events/SFX_Koyo/SFX/Enemy/Enemy_Move.Enemy_Move")
+	);
+
+	if (EnemyMoveEventAsset.Succeeded())
+	{
+		EnemyMoveEvent = EnemyMoveEventAsset.Object;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load EnemyMoveEvent asset"));
+	}
 }
 
 // Called when the game starts or when spawned
@@ -115,6 +132,8 @@ void ACombatEnemy::MoveRandomOnGrid()
 
 	FVector2D NewLocation(RandX, dY);
 	Move(NewLocation);
+
+	HandleMovement();
 }
 
 
@@ -203,4 +222,22 @@ void ACombatEnemy::BeginParry()
 void ACombatEnemy::OnParryFinished()
 {
 	bIsParrying = false;
+}
+
+void ACombatEnemy::HandleMovement() 
+{
+	if (EnemyMoveEvent)
+	{
+		UAkGameplayStatics::PostEvent(
+			EnemyMoveEvent,
+			this,
+			0,
+			FOnAkPostEventCallback(),
+			true
+		);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("EnemyMoveEvent is NULL"));
+	}
 }

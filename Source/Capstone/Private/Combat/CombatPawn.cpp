@@ -11,11 +11,28 @@
 #include "Engine/Engine.h"
 #include "Animation/AnimInstance.h"
 
+#include "AkGameplayStatics.h"
+#include "UObject/ConstructorHelpers.h"
+#include "AkAudioEvent.h"
+
 // Sets default values
 ACombatPawn::ACombatPawn()
 {
 	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
+
+	static ConstructorHelpers::FObjectFinder<UAkAudioEvent> ParryEventAsset(
+		TEXT("/Game/WwiseAudio/Events/SFX_Koyo/SFX/Player/Parry_Action.Parry_Action")
+	);
+
+	if (ParryEventAsset.Succeeded())
+	{
+		ParryEvent = ParryEventAsset.Object;
+	}
+	else
+	{
+		UE_LOG(LogTemp, Error, TEXT("Failed to load ParryEvent asset"));
+	}
 
 	//default values to fill state variables, may be overwritten with Initialize
 	CurrentPosition = FGridPosition();
@@ -340,6 +357,8 @@ void ACombatPawn::AttemptParry()
 		//parry effect
 		ActivateEffect(ParryStartComponent);
 		PlayParryMontage();
+
+		HandleParry();
 	}
 }
 
@@ -478,5 +497,22 @@ void ACombatPawn::DeactivateEffect(UNiagaraComponent* EffectComponent) {
 		EffectComponent->Deactivate();
 		//EffectComponent->SetVisibility(false);
 	}
+}
 
+void ACombatPawn::HandleParry() 
+{
+	if (ParryEvent)
+	{
+		UAkGameplayStatics::PostEvent(
+			ParryEvent,
+			this,
+			0,
+			FOnAkPostEventCallback(),
+			true
+		);
+	}
+	else
+	{
+		UE_LOG(LogTemp, Warning, TEXT("ParryEvent is NULL"));
+	}
 }
