@@ -246,6 +246,9 @@
 								<Event Name="Enemy_Attack" ID="{852B605C-6A5F-4FE5-A114-9C5B35E89679}">
 									<ChildrenList>
 										<Action Name="" ID="{FD84E441-40D2-45E0-A3CA-2B0FD04AD47C}" ShortID="465198730">
+											<PropertyList>
+												<Property Name="Delay" Type="Real64" Value="0.6"/>
+											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">
 													<ObjectRef Name="Attack" ID="{FD3D7A9D-CE85-4BF6-A740-B940036A87F2}" WorkUnitID="{D166334F-5E1B-4561-98A2-FB2ABC9A6CDF}"/>
