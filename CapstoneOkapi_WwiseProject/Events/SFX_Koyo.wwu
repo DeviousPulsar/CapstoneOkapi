@@ -73,7 +73,6 @@
 											<PropertyList>
 												<Property Name="Delay" Type="Real64" Value="0.05"/>
 												<Property Name="FadeInCurve" Type="int16" Value="2"/>
-												<Property Name="FadeTime" Type="Real64" Value="1"/>
 											</PropertyList>
 											<ReferenceList>
 												<Reference Name="Target">

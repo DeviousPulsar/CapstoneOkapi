@@ -20,6 +20,7 @@
 									</ValueList>
 								</Property>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="RecoveryTime" Type="Real64" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>-2</Value>
@@ -92,10 +93,10 @@
 																		<Flags>5</Flags>
 																	</Point>
 																	<Point>
-																		<XPos>-9.99991</XPos>
+																		<XPos>-25</XPos>
 																		<YPos>0</YPos>
 																		<Flags>0</Flags>
-																		<SegmentShape>Log2</SegmentShape>
+																		<SegmentShape>Log3</SegmentShape>
 																	</Point>
 																	<Point>
 																		<XPos>0</XPos>
@@ -117,6 +118,7 @@
 							<PropertyList>
 								<Property Name="Color" Type="int16" Value="16"/>
 								<Property Name="OverrideColor" Type="bool" Value="True"/>
+								<Property Name="RecoveryTime" Type="Real64" Value="0"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
 										<Value>5</Value>
@@ -161,17 +163,6 @@
 													</ReferenceList>
 												</Bus>
 											</ChildrenList>
-											<DuckingList>
-												<DuckItem>
-													<BusRef Name="MX" ID="{C1E0736F-1103-4945-9E63-99812B48B005}"/>
-													<DuckingParam>
-														<Volume>-16</Volume>
-														<FadeInTime>1</FadeInTime>
-														<FadeOutTime>1</FadeOutTime>
-														<FadeCurve>FadeLinear</FadeCurve>
-													</DuckingParam>
-												</DuckItem>
-											</DuckingList>
 										</Bus>
 										<Bus Name="Attack_Verb" ID="{EF4ED76F-3271-4C22-BB8C-32F11E705176}">
 											<PropertyList>
@@ -242,7 +233,7 @@
 																<PropertyList>
 																	<Property Name="AttackTime" Type="Real32" Value="0.1"/>
 																	<Property Name="MeterMode" Type="int32" Value="1"/>
-																	<Property Name="ReleaseTime" Type="Real32" Value="0.2"/>
+																	<Property Name="ReleaseTime" Type="Real32" Value="0.3"/>
 																</PropertyList>
 																<PluginData>
 	<GameParameter Name="SideChain" ID="{1CCC5BE5-26C3-412D-99E1-1FF35DC06A6D}"/>
@@ -299,17 +290,6 @@
 									</Reference>
 								</ObjectList>
 							</ObjectLists>
-							<DuckingList>
-								<DuckItem>
-									<BusRef Name="MX" ID="{C1E0736F-1103-4945-9E63-99812B48B005}"/>
-									<DuckingParam>
-										<Volume>-10</Volume>
-										<FadeInTime>5</FadeInTime>
-										<FadeOutTime>5</FadeOutTime>
-										<FadeCurve>FadeLinear</FadeCurve>
-									</DuckingParam>
-								</DuckItem>
-							</DuckingList>
 						</Bus>
 						<AuxBus Name="NightmareVerb" ID="{6E91E8FE-C311-4D9F-A162-B8C52D493DC8}">
 							<PropertyList>
@@ -354,6 +334,27 @@
 							</ObjectLists>
 						</AuxBus>
 					</ChildrenList>
+					<ObjectLists>
+						<ObjectList Name="Effects">
+							<Reference>
+								<Local>
+									<EffectSlot Name="" ID="{8C4588D7-5C07-417C-938D-0B37CC9685F4}" ShortID="826700640">
+										<ReferenceList>
+											<Reference Name="Effect">
+												<Custom>
+													<Effect Name="Peak Limiter (Custom)" ID="{1141636B-36FC-4BD1-BD71-A18F158EA718}" ShortID="949569099" PluginName="Wwise Peak Limiter" CompanyID="0" PluginID="110" PluginType="3">
+														<PropertyList>
+															<Property Name="Threshold" Type="Real32" Value="-1"/>
+														</PropertyList>
+													</Effect>
+												</Custom>
+											</Reference>
+										</ReferenceList>
+									</EffectSlot>
+								</Local>
+							</Reference>
+						</ObjectList>
+					</ObjectLists>
 				</Bus>
 			</ChildrenList>
 		</WorkUnit>

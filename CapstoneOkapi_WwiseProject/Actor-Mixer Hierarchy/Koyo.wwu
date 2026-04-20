@@ -22,7 +22,7 @@
 								</Property>
 								<Property Name="OutputBusVolume" Type="Real64">
 									<ValueList>
-										<Value>8</Value>
+										<Value>6</Value>
 									</ValueList>
 								</Property>
 								<Property Name="UseMaxSoundPerInstance" Type="bool">
@@ -36,7 +36,7 @@
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
 								</Reference>
 								<Reference Name="OutputBus">
-									<ObjectRef Name="Unaffected" ID="{DC74BF5F-0FC7-4CFE-9823-80CE9833DC98}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
+									<ObjectRef Name="Master Audio Bus" ID="{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}" WorkUnitID="{713B093C-D20A-4EB9-93F8-04E818F0293D}"/>
 								</Reference>
 							</ReferenceList>
 							<ChildrenList>
@@ -68,7 +68,7 @@
 								<Property Name="ListenerRelativeRouting" Type="bool" Value="False"/>
 								<Property Name="OutputBusVolume" Type="Real64">
 									<ValueList>
-										<Value>-10</Value>
+										<Value>-8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -240,7 +240,7 @@
 									<PropertyList>
 										<Property Name="Volume" Type="Real64">
 											<ValueList>
-												<Value>4</Value>
+												<Value>3</Value>
 											</ValueList>
 										</Property>
 									</PropertyList>
@@ -386,6 +386,13 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Wood" ID="{9946B7E0-0050-440C-9BC8-7CF00F726939}" ShortID="814230129">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>-1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -508,6 +515,13 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Stone" ID="{E4602550-9240-4FE2-8922-91244CB6486B}" ShortID="938587117">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>4</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -752,6 +766,13 @@
 									</ChildrenList>
 								</RandomSequenceContainer>
 								<RandomSequenceContainer Name="Crystal" ID="{D944E89F-B420-4410-8040-4F6CC598D361}" ShortID="1059291476">
+									<PropertyList>
+										<Property Name="Volume" Type="Real64">
+											<ValueList>
+												<Value>1</Value>
+											</ValueList>
+										</Property>
+									</PropertyList>
 									<ReferenceList>
 										<Reference Name="Conversion">
 											<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -1022,6 +1043,13 @@
 							</ChildrenList>
 						</RandomSequenceContainer>
 						<RandomSequenceContainer Name="Select" ID="{FB67F250-552D-443A-B98E-E2976EED1A47}" ShortID="865340988">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>2</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -1125,7 +1153,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-4</Value>
+										<Value>2</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1151,6 +1179,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<Sound Name="UI_Dialogue_End" ID="{A47553CB-B71B-4FF4-9F62-0530FF306D26}" ShortID="32366096">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>12</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -1177,6 +1212,13 @@
 							</ActiveSourceList>
 						</Sound>
 						<RandomSequenceContainer Name="Dialogue_Continue" ID="{B7D16B96-CD0C-43B7-A9FD-4549BFC172AB}" ShortID="947176605">
+							<PropertyList>
+								<Property Name="Volume" Type="Real64">
+									<ValueList>
+										<Value>5</Value>
+									</ValueList>
+								</Property>
+							</PropertyList>
 							<ReferenceList>
 								<Reference Name="Conversion">
 									<ObjectRef Name="Default Conversion Settings" ID="{6D1B890C-9826-4384-BF07-C15223E9FB56}" WorkUnitID="{2F399B42-A9A6-44B8-91DE-A9CD98301CAE}"/>
@@ -1481,9 +1523,10 @@
 						</RandomSequenceContainer>
 						<Sound Name="Power_Up" ID="{8B225A79-31BF-4DD8-87D5-DA3B4CBA0D6D}" ShortID="89572230">
 							<PropertyList>
+								<Property Name="IsLoopingEnabled" Type="bool" Value="True"/>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-12</Value>
+										<Value>-8</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1497,6 +1540,14 @@
 							</ReferenceList>
 							<ChildrenList>
 								<AudioFileSource Name="Power_Up" ID="{FB3552F8-85A8-41C2-AA35-67C59C11010B}">
+									<PropertyList>
+										<Property Name="CrossfadeDuration" Type="Real64" Value="1"/>
+										<Property Name="FadeInDuration" Type="Real64" Value="1.23796033994334"/>
+										<Property Name="FadeOutDuration" Type="Real64" Value="1.28895184135977"/>
+										<Property Name="LoopBegin" Type="Real64" Value="1.03682719546742"/>
+										<Property Name="LoopEnd" Type="Real64" Value="10.9150141643059"/>
+										<Property Name="OverrideWavLoop" Type="bool" Value="True"/>
+									</PropertyList>
 									<Language>SFX</Language>
 									<AudioFile>Power_Up.wav</AudioFile>
 									<MediaIDList>
@@ -1663,7 +1714,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-4</Value>
+										<Value>-10</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>
@@ -1940,7 +1991,7 @@
 							<PropertyList>
 								<Property Name="Volume" Type="Real64">
 									<ValueList>
-										<Value>-32</Value>
+										<Value>-22</Value>
 									</ValueList>
 								</Property>
 							</PropertyList>

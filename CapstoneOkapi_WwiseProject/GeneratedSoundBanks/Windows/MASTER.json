@@ -10,7 +10,7 @@
     "Type": "User",
     "GUID": "{A0E27053-32A3-454F-8FBA-D178D463360E}",
     "Language": "SFX",
-    "Hash": "{D98AD478-091D-5A03-7314-4E972D9B835C}",
+    "Hash": "{6A0B7330-97F3-42A3-A0D7-54432A391B29}",
     "ObjectPath": "\\SoundBanks\\Master Work Unit\\MASTER",
     "ShortName": "MASTER",
     "Path": "MASTER.bnk",
@@ -317,7 +317,7 @@
       "Streaming": "false",
       "Location": "Memory",
       "ShortName": "Power_Up.wav",
-      "CachePath": "E9/{E9B34A8B-0323-0925-CC10-68F01542ECA5}.wem"
+      "CachePath": "34/{344627E9-D2B5-8E52-FC09-AC5DB04C5F15}.wem"
      },
      {
       "Id": "468051898",
@@ -841,6 +841,14 @@
        "GUID": "{C9FF426E-23FA-491E-9DA4-7E6AB46BCAF7}",
        "LibName": "Wwise Meter",
        "LibId": "8454147"
+      },
+      {
+       "Id": "949569099",
+       "Name": "Peak Limiter (Custom)",
+       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus\\[Effect Slot [0]: (Peak Limiter)]\\Peak Limiter (Custom)",
+       "GUID": "{1141636B-36FC-4BD1-BD71-A18F158EA718}",
+       "LibName": "Wwise Peak Limiter",
+       "LibId": "7208963"
       }
      ],
      "ShareSets": [
@@ -3328,9 +3336,7 @@
       "ObjectPath": "\\Events\\SFX_Koyo\\SFX\\Player\\Parry_Success",
       "GUID": "{824D9EC9-4A01-41DA-8BC5-E72D01F8E4EC}",
       "Color": "8",
-      "DurationType": "OneShot",
-      "DurationMin": "12.05",
-      "DurationMax": "12.05",
+      "DurationType": "Infinite",
       "MediaRefs": [
        {
         "Id": "434068582"
@@ -3541,7 +3547,14 @@
       "Id": "3803692087",
       "Name": "Master Audio Bus",
       "ObjectPath": "\\Master-Mixer Hierarchy\\Default Work Unit\\Master Audio Bus",
-      "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}"
+      "GUID": "{1514A4D8-1DA6-412A-A17E-75CA0C2149F3}",
+      "PluginRefs": {
+       "Custom": [
+        {
+         "Id": "949569099"
+        }
+       ]
+      }
      }
     ],
     "AuxBusses": [
@@ -3816,6 +3829,6 @@
     ]
    }
   ],
-  "FileHash": "{E1E3FD86-F692-EB67-9AF7-DC32A6DA2E22}"
+  "FileHash": "{EF1BCF3C-854B-3658-E25C-16DFBF126E4C}"
  }
 }

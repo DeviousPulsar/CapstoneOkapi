@@ -105,6 +105,7 @@ Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 Effect plug-ins	ID	Name	Type				Notes
 	357545847	Meter (Custom)	Wwise Meter			
 	701863527	Inside_My_Head	Wwise RoomVerb			
+	949569099	Peak Limiter (Custom)	Wwise Peak Limiter			
 	3216246379	Space_Dreaming	Wwise RoomVerb			
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
@@ -145,7 +146,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	386388040	mx_LD_TitleLoop_133bpmLOOPS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\A1\{A1FE326E-5FEA-81DD-0C26-CAD453F21836}.wem		\Interactive Music Hierarchy\Miles\Levels\Title\mx_LD_TitleLoop_133bpmLOOPS\mx_LD_TitleLoop_133bpmLOOPS		1535424
 	403892602	Enemy_Alert	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\E3\{E3633568-45B2-70A1-2B7F-D0E3BA2D7195}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Enemy_Alert		10532
 	427308989	Yelp_1	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\43\{43E7143B-DCD7-8CD6-0628-C2F4472FF2F3}.wem		\Actor-Mixer Hierarchy\Koyo\Enemy\Damage\Yelp_1		5211
-	434068582	Power_Up	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\E9\{E9B34A8B-0323-0925-CC10-68F01542ECA5}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Power_Up		165462
+	434068582	Power_Up	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\34\{344627E9-D2B5-8E52-FC09-AC5DB04C5F15}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Power_Up		163916
 	468051898	Magic_Attack_2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\E1\{E1C28AEF-4933-CE5C-A335-27D5256DDD79}.wem		\Actor-Mixer Hierarchy\Koyo\Player\Attack\Magic_Attack_2		12744
 	470082489	mx_LD_Tutorial02_DLG_133bpmLOOPS	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\2C\{2C6B27E9-EFD5-D787-CD39-A16BB2249635}.wem		\Interactive Music Hierarchy\Miles\Levels\Tutorial\Tutorial_Fight\mx_LD_Tutorial_FullLayer_133bpmLOOPS\mx_LD_Tutorial02_DLG_133bpmLOOPS		972224
 	475289345	Footstep_Crystal-2	Y:\Desktop\CapstoneOkapi\CapstoneOkapi_WwiseProject\.cache\9C\{9C264316-3ABA-E616-E9FA-47F73531375D}.wem		\Actor-Mixer Hierarchy\Koyo\Footsteps\Footsteps\Crystal\Footstep_Crystal-2		10281
