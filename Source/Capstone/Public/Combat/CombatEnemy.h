@@ -46,6 +46,12 @@ public:
 	UPROPERTY(EditAnywhere, Category = "Animation")
 	float ParryDuration = 0.3f;
 
+	UPROPERTY()
+	UNiagaraComponent* BossAuraComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VFX")
+	UNiagaraSystem* BossAuraEffect;
+
 	// Sets default values for this actor's properties
 	ACombatEnemy();
 

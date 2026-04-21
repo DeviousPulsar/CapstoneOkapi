@@ -19,6 +19,15 @@ ACombatEnemy::ACombatEnemy()
 void ACombatEnemy::BeginPlay()
 {
 	Super::BeginPlay();
+	if (BossAuraEffect != NULL)
+	{
+		BossAuraComponent = SpawnEffect(BossAuraEffect, 1);
+		ActivateEffect(BossAuraComponent);
+	}
+	else
+	{
+		BossAuraComponent = NULL;
+	}
 }
 
 void ACombatEnemy::OnAttackFinished()
@@ -137,7 +146,16 @@ void ACombatEnemy::MoveRandomOnGrid()
 				dY = FMath::RandBool() ? Step : -Step;
 			}
 		}
+		if (EnemyPosY + dY + 1 > GridBoundY)
+		{
+			dY = 0;
+		}
+		if (EnemyPosX + RandX + 1 > GridBoundX)
+		{
+			RandX = 0;
+		}
 	}
+	
 
 	FVector2D NewLocation = FVector2D(RandX, dY);
 	Move(NewLocation);

@@ -140,6 +140,15 @@ public:
 	UPROPERTY()
 	UNiagaraComponent* ParryBoostComponent;
 
+	UPROPERTY()
+	UNiagaraComponent* MoveBlurComponent;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "VFX")
+	UNiagaraSystem* MoveEffect;
+
+	UPROPERTY()
+	UNiagaraComponent* MoveEffectComponent;
+
 	bool ParryBoost;
 
 	/// @brief The default constructor, needed for spawning in new objects

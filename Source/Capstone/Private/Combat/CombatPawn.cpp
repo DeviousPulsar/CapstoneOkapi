@@ -79,6 +79,10 @@ void ACombatPawn::Move(FVector2D Vector) {
 
 		return;
 	}
+	if (IsPlayer)
+	{
+		ActivateEffect(MoveEffectComponent);
+	}
 
 	ForceMove(Vector);
 }
@@ -206,6 +210,7 @@ void ACombatPawn::BeginPlay()
 	ParryFailComponent = SpawnEffect(ParryFailEffect, 1);
 	ParrySuccessComponent = SpawnEffect(ParrySuccessEffect, 1);
 	ParryBoostComponent = SpawnEffect(ParryBoostEffect, 1);
+	MoveEffectComponent = SpawnEffect(MoveEffect, 1, FVector(0.0f, 0.0f, 30.0f));
 
 	DeactivateEffect(ParryFailComponent);
 	DeactivateEffect(ParrySuccessComponent);
@@ -213,6 +218,7 @@ void ACombatPawn::BeginPlay()
 	DeactivateEffect(InvulnerableComponent);
 	DeactivateEffect(ParryStartComponent);
 	DeactivateEffect(ParryBoostComponent);
+	DeactivateEffect(MoveEffectComponent);
 }
 
 // Called every frame
@@ -267,6 +273,7 @@ void ACombatPawn::Tick(float DeltaTime)
 
 	if (TimeSinceStun >= MoveCooldown)
 	{
+		DeactivateEffect(MoveEffectComponent);
 		MoveAllowed = true;
 		StartPosition = Grid->GetTilePos(CurrentPosition);
 		SetActorLocation(StartPosition);
